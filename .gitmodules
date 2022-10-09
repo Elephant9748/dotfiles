@@ -1,0 +1,3 @@
+[submodule "iceberg.tmux"]
+	path = iceberg.tmux
+	url = https://github.com/epszaw/iceberg.tmux
