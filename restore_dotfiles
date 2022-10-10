@@ -12,3 +12,4 @@ cp -rfv .config ../.config
 cp -rfv .tmux ../.tmux 
 cp -rfv .tmux.conf ../.tmux.conf 
 cp -rfv .zshrc ../.zshrc 
+cp -rfv .oh-my-zsh ../.oh-my-zsh
