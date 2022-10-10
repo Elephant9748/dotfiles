@@ -5,4 +5,6 @@ require("bigort.set")
 print("bigort --> hello from bigort")
 
 require("bigort.telescope")
-
+require("bigort.keymap")
+require("bigort.lsp")
+require("bigort.cmp")

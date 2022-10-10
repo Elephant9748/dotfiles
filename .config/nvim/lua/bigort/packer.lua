@@ -8,21 +8,50 @@ return require('packer').startup(function()
      use 'wbthomason/packer.nvim'
      use 'ackyshake/Spacegray.vim'
      use 'dikiaap/minimalist'
+     use { 'nanotech/jellybeans.vim' }
+     use { 'gruvbox-community/gruvbox' }
      use {
-               'nvim-lualine/lualine.nvim',
-                 requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-         }
+             'nvim-lualine/lualine.nvim',
+             requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+     }
+     use {
+             'nvim-telescope/telescope.nvim', tag = '0.1.0',
+             -- or                            , branch = '0.1.x',
+             requires = { {'nvim-lua/plenary.nvim'} }
+     }
+     use {
+             'nvim-telescope/telescope-fzf-native.nvim', 
+             run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' 
+     }
+     use 'neovim/nvim-lspconfig' -- Configurations for Nvim LSP
+     --     use {
+     --                'fannheyward/telescope-coc.nvim'
+     --         }
 
+
+     -- nvim-cmp-lua 
+     -- Installation
+     use { 'L3MON4D3/LuaSnip' }
      use {
-               'nvim-telescope/telescope.nvim', tag = '0.1.0',
-               -- or                            , branch = '0.1.x',
-                requires = { {'nvim-lua/plenary.nvim'} }
-         }
-     use {
-                'nvim-telescope/telescope-fzf-native.nvim', 
-                run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' 
-         }
-     use {
-                'fannheyward/telescope-coc.nvim'
-         }
-end)
+             'hrsh7th/nvim-cmp',
+             config = function ()
+                     require'cmp'.setup {
+                             snippet = {
+                                     expand = function(args)
+                                             require'luasnip'.lsp_expand(args.body)
+                                     end
+                             },
+
+                             sources = {
+                                     { name = 'luasnip' },
+                                     -- more sources
+                             },
+                     }
+             end
+     }
+     use { 'saadparwaiz1/cmp_luasnip' }
+     use { 'hrsh7th/cmp-nvim-lsp' }
+     use { 'hrsh7th/cmp-buffer' } 
+     use { 'hrsh7th/cmp-path' }
+
+ end)

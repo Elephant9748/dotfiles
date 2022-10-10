@@ -13,6 +13,8 @@ vim.opt.smartindent = true
 
 vim.opt.wrap = false
 
+vim.g.mapleader = " "
+
 
 local modes = {
                 ["n"] = "NORMAL",
