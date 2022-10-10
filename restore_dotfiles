@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-cp -rv $HOME/dotfiles /$HOME/.config 
-cp -rv $HOME/dotfiles /$HOME/.tmux 
-cp -rv $HOME/dotfiles /$HOME/.tmux.conf 
-cp -rv $HOME/dotfiles /$HOME/.zshrc 
+cp -rfv $HOME/dotfiles /$HOME/.config 
+cp -rfv $HOME/dotfiles /$HOME/.tmux 
+cp -rfv $HOME/dotfiles /$HOME/.tmux.conf 
+cp -rfv $HOME/dotfiles /$HOME/.zshrc 
