@@ -10,6 +10,8 @@ local builtin = require('telescope.builtin')
 -- Mappings
 
 vim.keymap.set('n', 'tc', '<cmd>Telescope current_buffer_fuzzy_find sorting_strategy=ascending<cr>', {buffer=0})
+vim.keymap.set('n', '<leader>k', '<cmd>move +1<cr>', {buffer=0})
+vim.keymap.set('n', '<leader>j', '<cmd>move -1<cr>', {buffer=0})
 
 -- CUSTOM lua mapping
 -- local mappings = {}
