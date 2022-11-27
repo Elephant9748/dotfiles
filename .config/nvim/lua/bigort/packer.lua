@@ -9,7 +9,8 @@ return require('packer').startup(function()
      use 'ackyshake/Spacegray.vim'
      use 'dikiaap/minimalist'
      use { 'nanotech/jellybeans.vim' }
-     use { 'gruvbox-community/gruvbox' }
+     use { "ellisonleao/gruvbox.nvim" }
+     -- use { 'gruvbox-community/gruvbox' }
      use {
              'nvim-lualine/lualine.nvim',
              requires = { 'kyazdani42/nvim-web-devicons', opt = true }

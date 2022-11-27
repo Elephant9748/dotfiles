@@ -39,7 +39,7 @@ font-1 = "Noto Sans Mono:size=10;1"
 font-2 = "Noto Sans Symbols:size=10;1"
 font-3 = "Noto Sans Symbols2:size=10;1"
 
-modules-left = date xwindow
+modules-left = date bspwm xwindow
 modules-center = 
 modules-right = wlan eth1 battery cpu memory 
 
@@ -52,31 +52,6 @@ tray-maxsize = 24
 
 [global/wm]
 margin-top = 0
-
-[module/battery]
-type = internal/battery
-battery = BAT1
-adapter = ACAD
-format-charging = <animation-charging> <label-charging>
-format-discharging = <animation-discharging> <label-discharging>
-format-discharging-overline = ${self.format-charging-underline}
-format-full-prefix = " "
-format-full-prefix-foreground = ${colors.fg}
-format-full-overline = ${self.format-charging-underline}
-ramp-capacity-0 = " "
-ramp-capacity-1 = " "
-ramp-capacity-2 = " "
-ramp-capacity-foreground = ${colors.fg}
-animation-charging-0 = " "
-animation-charging-1 = " "
-animation-charging-2 = " "
-animation-charging-foreground = ${colors.fg}
-animation-charging-framerate = 750
-animation-discharging-0 = " "
-animation-discharging-1 = " "
-animation-discharging-2 = " "
-animation-discharging-foreground = ${colors.fg}
-animation-discharging-framerate = 750
 
 [module/xwindow]
 type = internal/xwindow
@@ -96,12 +71,55 @@ label-urgent-underline = #9b0a20
 label-empty = " %name% "
 label-empty-foreground = #555555
 
+[module/bspwm]
+type = internal/bspwm
+pin-workspaces = false
+enable-click = false
+enable-scroll = false
+
+label-focused = " %name% "
+label-focused-underline = #fba922
+
+label-occupied = " %name% "
+label-occupied-foreground = #ffaa00
+
+label-urgent = " %name% "
+label-urgent-underline = #9b0a20
+
+label-empty = " %name% "
+label-empty-foreground = #555555
+
+[module/battery]
+type = internal/battery
+battery = BAT1
+adapter = ACAD
+format-charging = <animation-charging> <label-charging>
+format-discharging = <animation-discharging> <label-discharging>
+format-discharging-underline = ${self.format-charging-underline}
+format-full-prefix = 
+format-full-prefix-foreground = ${colors.fg}
+format-full-underline = ${self.format-charging-underline}
+ramp-capacity-0 =  
+ramp-capacity-1 =  
+ramp-capacity-2 =  
+ramp-capacity-foreground = ${colors.fg}
+animation-charging-0 =  
+animation-charging-1 =  
+animation-charging-2 =  
+animation-charging-foreground = ${colors.fg}
+animation-charging-framerate = 750
+animation-discharging-0 =  
+animation-discharging-1 =  
+animation-discharging-2 =  
+animation-discharging-foreground = ${colors.fg}
+animation-discharging-framerate = 750
+
 [module/cpu]
 type = internal/cpu
 interval = 2
 format-prefix = "💻 "
 format-prefix-foreground = ${colors.foreground-alt}
-format-overline = #f90000
+format-underline = #f90000
 label = %percentage:2%%
 
 [module/memory]
@@ -109,7 +127,7 @@ type = internal/memory
 interval = 2
 format-prefix = "🗍 "
 format-prefix-foreground = ${colors.foreground-alt}
-format-overline = #4bffdc
+format-underline = #4bffdc
 label = %percentage_used:2%%
 
 [module/wlan]
@@ -118,7 +136,7 @@ interface = wlp3s0
 interval = 5.0
 
 format-connected = <ramp-signal> <label-connected>
-format-connected-overline = #9f78e1
+format-connected-underline = #9f78e1
 label-connected = %essid%
 
 label-disconnected =
@@ -146,12 +164,12 @@ type = internal/network
 interface = enp4s0
 interval = 3.0
 
-format-connected-overline = #55aa55
+format-connected-underline = #55aa55
 format-connected-prefix = "🖧 "
 format-connected-prefix-foreground = ${colors.foreground-alt}
 label-connected = %local_ip%
 
-format-disconnected = <ramp-signal> <label-connected>
+;format-disconnected = <ramp-signal> <label-connected>
 
 [module/date]
 type = internal/date
