@@ -1,0 +1,13 @@
+#!/bin/bash
+
+#chmod 600 owner can read and write
+#chmod 700 file - owner can read, write, and execute
+#chmod 666 file - all can read and write
+#chmod 777 file - all can read, write, and execute
+
+#chown -R user:group file
+
+
+#permission on .ssh
+#chmod 700 .ssh
+#chmos 600 .ssh/authorized_keys

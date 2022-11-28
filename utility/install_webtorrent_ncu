@@ -1,0 +1,12 @@
+#!/bin/bash
+
+echo "setup prefix dir global npm"
+sleep 2
+npm config set prefix '/home/rpi_bigort/.npm-global'
+
+echo -e "install ncu"
+sleep 2
+npm install -g npm-check-updates --verbose
+echo -e "install webtorrent"
+sleep 2
+npm install webtorrent-cli -g --verbose

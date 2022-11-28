@@ -1,0 +1,6 @@
+#!/bin/bash
+
+echo -e "disabling cloud-init on boot"
+
+sleep 2
+sudo touch /etc/cloud/cloud-init.disabled

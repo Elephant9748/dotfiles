@@ -1,0 +1,7 @@
+#!/bin/bash
+
+echo "mounting ntfs please check /dev/WHERE?"
+sleep 1
+lsblk
+sleep 5
+sudo mount /dev/sda1 -t ntfs -o permissions /mnt/ntfs

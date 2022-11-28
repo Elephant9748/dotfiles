@@ -1,0 +1,6 @@
+
+#manual mounting ntfs
+sudo mount /dev/sda1 -t ntfs -o permissions /mnt/ntfs
+
+#manual mounting lvm
+sudo mount /dev/volgroup0/lv_persistence_ext4 /mnt/linux

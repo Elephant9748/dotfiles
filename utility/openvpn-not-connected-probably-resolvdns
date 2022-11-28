@@ -1,0 +1,6 @@
+#!/bin/bash
+
+#not link to /
+# not link to --> ln -s /run/systemd/resolve/resolv.conf /etc/resolv.conf     
+
+sudo systemctl restart systemd-resoveld

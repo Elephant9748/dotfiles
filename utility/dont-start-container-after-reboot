@@ -1,0 +1,11 @@
+#!/bin/bash
+
+cd /home/rpi_bigort/docker-compose-setup-all/ && docker-compose down && cd
+
+cd /mnt/ntfs
+
+rm -rf movies-jellyfin shows-jellyfin/
+
+cd
+
+sysctl -p 

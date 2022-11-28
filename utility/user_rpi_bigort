@@ -1,0 +1,21 @@
+#!/bin/bash
+
+echo -e "changing \broot \bpassword"
+sleep 2
+sudo passwd root
+
+echo -e "useradd \brpi_bigort"
+sleep 1
+sudo useradd -G sudo -m rpi_bigort -s /bin/bash
+
+echo -e "change rpi_bigort password"
+sleep 1
+sudo passwd rpi_bigort
+
+echo -e "remove user pi, include /home/pi"
+sudo deluser --remove-home pi
+
+echo -e "mkdir /mnt/linux & /mnt/ntfs"
+sleep 1
+sudo mkdir -p /mnt/linux
+sudo mkdir -p /mnt/ntfs

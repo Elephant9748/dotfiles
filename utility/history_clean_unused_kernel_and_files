@@ -1,0 +1,7 @@
+dpkg --get-selections | grep 'linux-image'
+sudo apt --purge remove linux-image-5.4.0-1053-raspi
+
+journalctl --disk-usage
+sudo journalctl --vacuum-time=2s
+
+sudo dh -sh *

@@ -1,0 +1,12 @@
+#!/bin/bash
+
+echo -e "disable pi Bash history"
+sleep 1
+sed -i -E 's/^HISTSIZE=/#HISTSIZE=/' ~/.bashrc
+sed -i -E 's/^HISTFILESIZE=/#HISTFILESIZE=/' ~/.bashrc
+echo "HISTFILESIZE=0" >> ~/.bashrc
+history -c; history -w
+source ~/.bashrc
+
+
+
