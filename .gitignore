@@ -4,3 +4,4 @@
 .tmux/plugins
 .config/htop/
 .config/procps/
+.zsh_history
