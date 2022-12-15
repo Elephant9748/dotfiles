@@ -20,6 +20,7 @@ complete --command aurman --wraps pacman
 if status --is-interactive
    clear
    cd
+   export GPG_TTY=$(tty)
    export PATH="$HOME/.cargo/bin:$PATH"
    set BASE16_SHELL "$HOME/.config/base16-shell/"
    source "$BASE16_SHELL/profile_helper.fish"
@@ -99,7 +100,7 @@ function fish_prompt
 	set_color green
 	printf '%s ' (__fish_git_prompt)
 	set_color yellow
-	echo -n '* '
+	echo -n '| '
 	set_color normal
 end
 
