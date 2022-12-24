@@ -1,13 +1,16 @@
-#! /bin/sh
+#!/bin/sh
 
 pgrep -x sxhkd > /dev/null || sxhkd -C ~/.config/sxhkd/sxhkdrc &
 
 #nitrogen wallpaper restore
 nitrogen --restore &
 #polybar
+#polybar -c ~/.config/polybar/config main &
+killall -q polybar
+while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 polybar -c ~/.config/polybar/config main &
 
-bspc monitor -d II III IV V
+bspc monitor -d Web Code 4 5
 
 bspc config border_width         0
 bspc config window_gap          5
@@ -19,7 +22,7 @@ bspc config borderless_monocle   false
 bspc config gapless_monocle      false
 
 # bspc rule -a Gimp desktop='^8' state=floating follow=on
-bspc rule -a firefoxdeveloperedition desktop='^1'
+bspc rule -a firefoxdeveloperedition desktop='^2' state=floating follow=on
 # bspc rule -a Chromium desktop='^2'
 # bspc rule -a mplayer2 state=floating
 # bspc rule -a Kupfer.py focus=on
@@ -30,3 +33,4 @@ bspc rule -a polybar border=off manage=off
 bspc config remove_unplugged_monitors true
 bspc config remove_disabled_monitors true
 bspc config merge_overlapping_monitors true
+
