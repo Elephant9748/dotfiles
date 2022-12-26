@@ -24,10 +24,11 @@ return require('packer').startup(function()
              'nvim-telescope/telescope-fzf-native.nvim', 
              run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' 
      }
+     -- use {'neoclide/coc.nvim', branch = 'master', run = 'yarn install --frozen-lockfile'}
      use 'neovim/nvim-lspconfig' -- Configurations for Nvim LSP
-     use {
-                'fannheyward/telescope-coc.nvim'
-         }
+     -- use {
+     --            'fannheyward/telescope-coc.nvim'
+     --     }
 
 
      -- nvim-cmp-lua 
