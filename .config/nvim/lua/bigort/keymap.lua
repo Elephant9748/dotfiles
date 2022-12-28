@@ -9,9 +9,19 @@ local builtin = require('telescope.builtin')
 
 -- Mappings
 
-vim.keymap.set('n', 'tc', '<cmd>Telescope current_buffer_fuzzy_find sorting_strategy=ascending<cr>', {buffer=0})
-vim.keymap.set('n', '<leader>k', '<cmd>move +1<cr>', {buffer=0})
-vim.keymap.set('n', '<leader>j', '<cmd>move -1<cr>', {buffer=0})
+vim.keymap.set("n", "tc", "<cmd>Telescope current_buffer_fuzzy_find sorting_strategy=ascending<cr>", {buffer=0}) vim.keymap.set("v", "K", ":m '>+1<CR>gv=gv", {buffer=0})
+vim.keymap.set("v", "J", ":m '<-2<CR>gv=gv", {buffer=0})
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+
+-- asbjornHaland
+vim.keymap.set("n", "<leader>y", "\"+y")
+vim.keymap.set("v", "<leader>y", "\"+y")
+vim.keymap.set("n", "<leader>Y", "\"+Y")
+
+--
+vim.keymap.set("i", "<C-c>", "<Esc>")
+vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 -- CUSTOM lua mapping
 -- local mappings = {}
