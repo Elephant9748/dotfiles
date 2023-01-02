@@ -6,15 +6,25 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function()
      --   Packer can manage itself
      use 'wbthomason/packer.nvim'
+     --
+     -- colorscheme
      use 'ackyshake/Spacegray.vim'
      use 'dikiaap/minimalist'
      use { 'nanotech/jellybeans.vim' }
+     use { "ryross/ryderbeans" }
      use { "ellisonleao/gruvbox.nvim" }
-     -- use { 'gruvbox-community/gruvbox' }
+     use { 'gruvbox-community/gruvbox' }
      use {
              'nvim-lualine/lualine.nvim',
              requires = { 'kyazdani42/nvim-web-devicons', opt = true }
      }
+     use { "tinted-theming/base16-vim" }
+     use { "vim-scripts/candyman.vim" }
+     -- use { "vim-scripts/jellybeans.vim" }
+     -- use { "vim-scripts/hybrid.vim" }
+     -- use { "wincent/base16-nvim" }
+     -- use { "bradcush/base16-nvim" }
+     --
      use {
              'nvim-telescope/telescope.nvim', tag = '0.1.0',
              -- or                            , branch = '0.1.x',
