@@ -21,6 +21,7 @@ return require('packer').startup(function()
      use { "tinted-theming/base16-vim" }
      use { "vim-scripts/candyman.vim" }
      use { "navarasu/onedark.nvim" }
+     use { "rose-pine/neovim" }
      -- use { "vim-scripts/jellybeans.vim" }
      -- use { "vim-scripts/hybrid.vim" }
      -- use { "wincent/base16-nvim" }
