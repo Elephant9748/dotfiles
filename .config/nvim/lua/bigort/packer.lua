@@ -37,7 +37,7 @@ return require('packer').startup(function()
              run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' 
      }
      -- use {'neoclide/coc.nvim', branch = 'master', run = 'yarn install --frozen-lockfile'}
-     use 'neovim/nvim-lspconfig' -- Configurations for Nvim LSP
+     use 'neovim/nvim-lspconfig'  -- Configurations for Nvim LSP
      -- use {
      --            'fannheyward/telescope-coc.nvim'
      --     }
@@ -70,7 +70,7 @@ return require('packer').startup(function()
 
      --treesitter
      --
-     use { "nvim-treesitter/nvim-treesitter", {run =  ":TSUpdate"} }
+     use { "nvim-treesitter/nvim-treesitter", run =  ":TSUpdate" }
      use { 'nvim-treesitter/playground' }
 
  end)
