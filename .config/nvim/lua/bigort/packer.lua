@@ -20,6 +20,7 @@ return require('packer').startup(function()
      }
      use { "tinted-theming/base16-vim" }
      use { "vim-scripts/candyman.vim" }
+     use { "navarasu/onedark.nvim" }
      -- use { "vim-scripts/jellybeans.vim" }
      -- use { "vim-scripts/hybrid.vim" }
      -- use { "wincent/base16-nvim" }
@@ -65,5 +66,10 @@ return require('packer').startup(function()
      use { 'hrsh7th/cmp-nvim-lsp' }
      use { 'hrsh7th/cmp-buffer' } 
      use { 'hrsh7th/cmp-path' }
+
+     --treesitter
+     --
+     use { "nvim-treesitter/nvim-treesitter", {run =  ":TSUpdate"} }
+     use { 'nvim-treesitter/playground' }
 
  end)
