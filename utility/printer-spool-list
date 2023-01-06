@@ -1,0 +1,3 @@
+#!/bin/bash
+
+sudo watch ls -la /var/spool/cups/

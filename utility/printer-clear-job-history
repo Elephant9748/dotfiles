@@ -1,0 +1,5 @@
+#!/bin/bash
+
+sudo cancel -a -x
+
+echo "> cancel jobs succeded..."
