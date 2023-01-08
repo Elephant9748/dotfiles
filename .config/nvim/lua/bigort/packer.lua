@@ -22,11 +22,17 @@ return require('packer').startup(function()
      use { "vim-scripts/candyman.vim" }
      use { "navarasu/onedark.nvim" }
      use { "rose-pine/neovim" }
-     -- use { "vim-scripts/jellybeans.vim" }
+     use { "rafi/awesome-vim-colorschemes"}
+     use { "tjdevries/gruvbuddy.nvim" }
+     use { "tjdevries/colorbuddy.vim" }
+     use { "ErichDonGubler/vim-sublime-monokai" }
+     use { "aktersnurra/no-clown-fiesta.nvim" }
+     use { "srcery-colors/srcery-vim" } 
      -- use { "vim-scripts/hybrid.vim" }
      -- use { "wincent/base16-nvim" }
      -- use { "bradcush/base16-nvim" }
      --
+
      use {
              'nvim-telescope/telescope.nvim', tag = '0.1.0',
              -- or                            , branch = '0.1.x',
