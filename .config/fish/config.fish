@@ -15,11 +15,26 @@ abbr -a ks 'keybase chat send'
 abbr -a kr 'keybase chat read'
 abbr -a kl 'keybase chat list'
 abbr -a pr 'gh pr create -t (git show -s --format=%s HEAD) -b (git show -s --format=%B HEAD | tail -n+3)'
+
+abbr -a vi 'nvim'
+abbr -a vim 'nvim'
+abbr -a cle 'clear'
+abbr -a cl 'clear'
+abbr -a .lua 'cd $HOME/.config/nvim/lua/bigort/'
+abbr -a .packer 'nvim $HOME/.config/nvim/lua/bigort/packer.lua'
+abbr -a .after 'nvim $HOME/.config/nvim/after/plugin/bigort/init.lua'
+abbr -a .bspwm 'nvim $HOME/.config/bspwm/bspwmrc'
+abbr -a .fish 'nvim $HOME/.config/fish/config.fish'
+abbr -a .project 'cd $HOME/project'
+abbr -a .paper 'nvim $HOME/project/paper_backup/src/main.rs'
+abbr -a .pinguin 'nvim $HOME/project/pinguin-graphql/src/main.rs'
+
 complete --command aurman --wraps pacman
 
 if status --is-interactive
    clear
    cd
+   alias ssh="TERM=xterm-256color $(which ssh)"
    export GPG_TTY=$(tty)
    export PATH="$HOME/.cargo/bin:$PATH"
    set BASE16_SHELL "$HOME/.config/base16-shell/"
@@ -35,6 +50,8 @@ else
 	abbr -a l 'ls'
 	abbr -a ll 'ls -l'
 	abbr -a lll 'ls -la'
+    abbr -a vi 'vi'
+    abbr -a vim 'vim'
 end
 
 if test -f /usr/share/autojump/autojump.fish;
