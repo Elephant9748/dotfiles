@@ -84,6 +84,21 @@ _G.packer_plugins = {
     path = "/home/rigel/.local/share/nvim/site/pack/packer/start/Spacegray.vim",
     url = "https://github.com/ackyshake/Spacegray.vim"
   },
+  ["awesome-vim-colorschemes"] = {
+    loaded = true,
+    path = "/home/rigel/.local/share/nvim/site/pack/packer/start/awesome-vim-colorschemes",
+    url = "https://github.com/rafi/awesome-vim-colorschemes"
+  },
+  ["base16-vim"] = {
+    loaded = true,
+    path = "/home/rigel/.local/share/nvim/site/pack/packer/start/base16-vim",
+    url = "https://github.com/tinted-theming/base16-vim"
+  },
+  ["candyman.vim"] = {
+    loaded = true,
+    path = "/home/rigel/.local/share/nvim/site/pack/packer/start/candyman.vim",
+    url = "https://github.com/vim-scripts/candyman.vim"
+  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/home/rigel/.local/share/nvim/site/pack/packer/start/cmp-buffer",
@@ -104,10 +119,25 @@ _G.packer_plugins = {
     path = "/home/rigel/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
+  ["colorbuddy.vim"] = {
+    loaded = true,
+    path = "/home/rigel/.local/share/nvim/site/pack/packer/start/colorbuddy.vim",
+    url = "https://github.com/tjdevries/colorbuddy.vim"
+  },
+  gruvbox = {
+    loaded = true,
+    path = "/home/rigel/.local/share/nvim/site/pack/packer/start/gruvbox",
+    url = "https://github.com/gruvbox-community/gruvbox"
+  },
   ["gruvbox.nvim"] = {
     loaded = true,
     path = "/home/rigel/.local/share/nvim/site/pack/packer/start/gruvbox.nvim",
     url = "https://github.com/ellisonleao/gruvbox.nvim"
+  },
+  ["gruvbuddy.nvim"] = {
+    loaded = true,
+    path = "/home/rigel/.local/share/nvim/site/pack/packer/start/gruvbuddy.nvim",
+    url = "https://github.com/tjdevries/gruvbuddy.nvim"
   },
   ["jellybeans.vim"] = {
     loaded = true,
@@ -124,6 +154,21 @@ _G.packer_plugins = {
     path = "/home/rigel/.local/share/nvim/site/pack/packer/start/minimalist",
     url = "https://github.com/dikiaap/minimalist"
   },
+  neovim = {
+    loaded = true,
+    path = "/home/rigel/.local/share/nvim/site/pack/packer/start/neovim",
+    url = "https://github.com/rose-pine/neovim"
+  },
+  ["nimda.vim"] = {
+    loaded = true,
+    path = "/home/rigel/.local/share/nvim/site/pack/packer/start/nimda.vim",
+    url = "https://github.com/ozkanonur/nimda.vim"
+  },
+  ["no-clown-fiesta.nvim"] = {
+    loaded = true,
+    path = "/home/rigel/.local/share/nvim/site/pack/packer/start/no-clown-fiesta.nvim",
+    url = "https://github.com/aktersnurra/no-clown-fiesta.nvim"
+  },
   ["nvim-cmp"] = {
     config = { "\27LJ\2\nC\0\1\4\0\4\0\a6\1\0\0'\3\1\0B\1\2\0029\1\2\0019\3\3\0B\1\2\1K\0\1\0\tbody\15lsp_expand\fluasnip\frequireƒ\1\1\0\5\0\n\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\4\0003\4\3\0=\4\5\3=\3\a\0024\3\3\0005\4\b\0>\4\1\3=\3\t\2B\0\2\1K\0\1\0\fsources\1\0\1\tname\fluasnip\fsnippet\1\0\0\vexpand\1\0\0\0\nsetup\bcmp\frequire\0" },
     loaded = true,
@@ -135,21 +180,46 @@ _G.packer_plugins = {
     path = "/home/rigel/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
+  ["nvim-treesitter"] = {
+    loaded = true,
+    path = "/home/rigel/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
+    url = "https://github.com/nvim-treesitter/nvim-treesitter"
+  },
   ["nvim-web-devicons"] = {
     loaded = false,
     needs_bufread = false,
     path = "/home/rigel/.local/share/nvim/site/pack/packer/opt/nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
+  ["onedark.nvim"] = {
+    loaded = true,
+    path = "/home/rigel/.local/share/nvim/site/pack/packer/start/onedark.nvim",
+    url = "https://github.com/navarasu/onedark.nvim"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/rigel/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
   },
+  playground = {
+    loaded = true,
+    path = "/home/rigel/.local/share/nvim/site/pack/packer/start/playground",
+    url = "https://github.com/nvim-treesitter/playground"
+  },
   ["plenary.nvim"] = {
     loaded = true,
     path = "/home/rigel/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
+  },
+  ryderbeans = {
+    loaded = true,
+    path = "/home/rigel/.local/share/nvim/site/pack/packer/start/ryderbeans",
+    url = "https://github.com/ryross/ryderbeans"
+  },
+  ["srcery-vim"] = {
+    loaded = true,
+    path = "/home/rigel/.local/share/nvim/site/pack/packer/start/srcery-vim",
+    url = "https://github.com/srcery-colors/srcery-vim"
   },
   ["telescope-fzf-native.nvim"] = {
     loaded = true,
@@ -160,6 +230,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/rigel/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
+  },
+  ["vim-sublime-monokai"] = {
+    loaded = true,
+    path = "/home/rigel/.local/share/nvim/site/pack/packer/start/vim-sublime-monokai",
+    url = "https://github.com/ErichDonGubler/vim-sublime-monokai"
   }
 }
 

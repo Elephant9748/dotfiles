@@ -64,8 +64,11 @@ require'lspconfig'.rust_analyzer.setup{
                 vim.keymap.set("n", "<leader>e", vim.cmd.Ex)
 
                 -- stop semantic_token current buffer
-                vim.keymap.set("n","<leader>q", "<cmd>lua =vim.lsp.semantic_tokens.stop(vim.api.nvim_buf_get_number(0), 1)<cr>", {buffer=0})
-                vim.keymap.set("n","<leader>Q", "<cmd>lua =vim.api.nvim_buf_get_number(0)<cr>", {buffer=0})
+                vim.keymap.set("n","<leader>h", "<cmd>lua =vim.lsp.semantic_tokens.stop(vim.api.nvim_buf_get_number(0), 1)<cr>", {buffer=0})
+                -- vim.keymap.set("n","<leader>q", "<cmd>lua =vim.api.nvim_buf_get_number(0)<cr>", {buffer=0})
+
+                -- start semantic_token current buffer
+                vim.keymap.set("n","<leader>H", "<cmd>lua =vim.lsp.semantic_tokens.start(vim.api.nvim_buf_get_number(0), 1)<cr>", {buffer=0})
         end,
 
 }
