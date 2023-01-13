@@ -27,14 +27,19 @@ abbr -a .bspwm 'nvim $HOME/.config/bspwm/bspwmrc'
 abbr -a .sxhkd 'nvim $HOME/.config/sxhkd/sxhkdrc'
 abbr -a .fish 'nvim $HOME/.config/fish/config.fish'
 abbr -a .project 'cd $HOME/project'
+abbr -a .dotfiles 'cd $HOME/project/dotfiles'
 abbr -a .paper 'nvim $HOME/project/paper_backup/src/main.rs'
 abbr -a .pinguin 'nvim $HOME/project/pinguin-graphql/src/main.rs'
+abbr -a .tmux 'tmux new -s rigel'
+abbr -a .bwarden 'gpg -d $HOME/.nextcloud/Kleopatra.box/brandon/bwarden-brandon.asc && gpgconf --kill all'
+abbr -a gree 'fish_greeting'
+
+abbr -a .db_pinguin 'psql -h 192.168.100.144 -p 5432 db_pinguin -U stomp'
 
 complete --command aurman --wraps pacman
 
 if status --is-interactive
    clear
-   cd
    alias ssh="TERM=xterm-256color $(which ssh)"
    export GPG_TTY=$(tty)
    export PATH="$HOME/.cargo/bin:$PATH"

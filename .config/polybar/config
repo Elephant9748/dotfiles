@@ -210,7 +210,7 @@ type = internal/date
 interval = 5
 
 date = "%a %d"
-date-alt = %a %b %d
+date-alt = "%a %d %b"
 
 time = %I:%M
 time-alt = %I:%M%p
@@ -219,7 +219,7 @@ format-prefix =
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #0a6cf5
 
-label = %date% %time%
+label = %time% %date% 
 
 [settings]
 screenchange-reload = true

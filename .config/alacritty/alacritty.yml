@@ -14,14 +14,14 @@
 # Any items in the `env` entry below will be added as
 # environment variables. Some entries may override variables
 # set by alacritty itself.
-#env:
+env:
   # TERM variable
   #
   # This value is used to set the `$TERM` environment variable for
   # each instance of Alacritty. If it is not present, alacritty will
   # check the local terminfo database and use `alacritty` if it is
   # available, otherwise `xterm-256color` is used.
-  #TERM: xterm-256color
+  TERM: xterm-256color
 
 window:
   # Window dimensions (changes require restart)
@@ -112,10 +112,9 @@ font:
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
     #family: "NotoMono Nerd Font"
-    #family: "NotoSans Nerd Font"
     #family: "monospace"
-    #family: "JetBrainsMono Nerd Font"
-    family: "BlexMono Nerd Font"
+    family: "JetBrainsMono Nerd Font"
+    #family: "BlexMono Nerd Font"
     #family: "Noto Sans Mono"
     #family: "Iosevka Term Curly"
     #family: "RobotoMono NF"
@@ -158,7 +157,7 @@ font:
 
   # Point size
   #size: 9
-  size: 9
+  size: 8.7
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
