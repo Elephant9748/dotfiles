@@ -1,69 +1,10 @@
 #!/bin/bash
 
-
-#cp -rfv $HOME/dotfiles/.config $HOME/.config 
-#cp -rfv $HOME/dotfiles/.tmux $HOME/.tmux 
-#cp -rfv $HOME/dotfiles/.tmux.conf $HOME/.tmux.conf 
-#cp -rfv $HOME/dotfiles/.zshrc $HOME/.zshrc 
-
-echo "goto HOME"
-echo "---------"
-
-sleep 1 
-
-cd $HOME
-
-sleep 1 
-echo "backup prev dotfiles"
-echo "--------------------"
-
-mv .config .config-BK
-mv .tmux .tmux-BK
-#mv .oh-my-zsh .oh-my-zsh-BK
-mv .tmux .tmux.conf-BK
-mv .zshrc .zshrc-BK
-
-sleep 1
-
-echo "got dotfiles"
-echo "------------"
-
-sleep 1 
-
-cd $HOME/dotfiles
-
-sleep 1 
-
-echo "copying dotfiles"
-echo "----------------"
-
-sleep 1
-
-cp -rfv .config ../.config 
-cp -rfv .tmux ../.tmux 
-cp -rfv .tmux.conf ../.tmux.conf 
-cp -rfv .zshrc ../.zshrc 
-#cp -rfv .oh-my-zsh ../.oh-my-zsh
-
-sleep 1
-
-
-echo "set permissions .config"
-echo "-----------------------"
-
-
-sleep 1
-
-cd $HOME
-
-
-chmod 755 .config
-chmod 755 .tmux
-#chmod 755 .oh-my-zsh
-chmod 644 .tmux.conf
-chmod 644 .zshrc
-
-sleep 1
-
-echo "done"
-echo "----"
+rsync -azP $HOME/project/dotfiles/alacritty $HOME/.config/ && \
+rsync -azP $HOME/project/dotfiles/awesome $HOME/.config/ && \
+rsync -azP $HOME/project/dotfiles/bspwm $HOME/.config/ && \
+rsync -azP $HOME/project/dotfiles/fish $HOME/.config/ && \
+rsync -azP $HOME/project/dotfiles/nvim $HOME/.config/ && \
+rsync -azP $HOME/project/dotfiles/polybar $HOME/.config/ && \
+rsync -azP $HOME/project/dotfiles/rofi $HOME/.config/ && \
+rsync -azP $HOME/project/dotfiles/sxhkd $HOME/.config/
