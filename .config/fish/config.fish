@@ -33,6 +33,7 @@ abbr -a .pinguin 'nvim $HOME/project/pinguin-graphql/src/main.rs'
 abbr -a .tmux 'tmux new -s rigel'
 abbr -a .bwarden 'gpg -d $HOME/.nextcloud/Kleopatra.box/brandon/bwarden-brandon.asc && gpgconf --kill all'
 abbr -a gree 'fish_greeting'
+abbr -a .bc '$HOME/utility/clear-clipboard'
 
 abbr -a .db_pinguin 'psql -h 192.168.100.144 -p 5432 db_pinguin -U stomp'
 
