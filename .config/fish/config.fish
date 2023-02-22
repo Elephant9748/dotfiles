@@ -26,6 +26,7 @@ abbr -a .after 'nvim $HOME/.config/nvim/after/plugin/bigort/init.lua'
 abbr -a .bspwm 'nvim $HOME/.config/bspwm/bspwmrc'
 abbr -a .sxhkd 'nvim $HOME/.config/sxhkd/sxhkdrc'
 abbr -a .fish 'nvim $HOME/.config/fish/config.fish'
+abbr -a .alacritty 'nvim $HOME/.config/alacritty/alacritty.yml'
 abbr -a .project 'cd $HOME/project'
 abbr -a .dotfiles 'cd $HOME/project/dotfiles'
 abbr -a .paper 'nvim $HOME/project/paper_backup/src/main.rs'
@@ -38,6 +39,10 @@ abbr -a .bc '$HOME/utility/clear-clipboard'
 abbr -a .config 'cd $HOME/.config/'
 
 abbr -a .db_pinguin 'psql -h 192.168.100.144 -p 5432 db_pinguin -U stomp'
+abbr -a .nix-list 'nix-env -q'
+abbr -a .nix-update 'nix-env -u'
+abbr -a .rpi 'ssh rpi'
+abbr -a .hive 'ssh hive'
 
 complete --command aurman --wraps pacman
 
@@ -55,6 +60,7 @@ if command -v exa > /dev/null
 	abbr -a ls 'exa'
 	abbr -a ll 'exa -l'
 	abbr -a lll 'exa -la'
+    abbr -a nix 'nix-env'
 else
 	abbr -a l 'ls'
 	abbr -a ll 'ls -l'
