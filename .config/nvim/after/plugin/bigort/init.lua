@@ -17,6 +17,9 @@ vim.cmd([[colorscheme jellybeans]])
 -- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 
 
+-- FOR SOME REASON CMP NOT SOURCE CORRECTLY
+vim.cmd([[so $HOME/.config/nvim/lua/bigort/cmp.lua]])
+
 print("after --> hello from after from bigort")
 
 
