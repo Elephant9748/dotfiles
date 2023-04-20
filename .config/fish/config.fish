@@ -53,6 +53,11 @@ if status --is-interactive
    export PATH="$HOME/.cargo/bin:$PATH"
    set BASE16_SHELL "$HOME/.config/base16-shell/"
    source "$BASE16_SHELL/profile_helper.fish"
+
+   # npm packages
+   set NPM_PACKAGES "$HOME/.npm-packages"
+   set PATH $PATH $NPM_PACKAGES/bin
+   set MANPATH $NPM_PACKAGES/share/man $MANPATH
 end
 
 if command -v exa > /dev/null
