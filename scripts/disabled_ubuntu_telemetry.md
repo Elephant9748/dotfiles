@@ -1,7 +1,7 @@
 ### by [`CodeSigils`](https://gist.github.com/CodeSigils/974abb61becf435c857b55e925f12780).
 
 
-`
+```
 #!/usr/bin/env bash
 
 ################ Description: ###################
@@ -49,7 +49,7 @@ fi
 
 echo "[*] Decline telemetry"
 ubuntu-report -f send no
-`
+```
 
 
 ### [lambda `more info`](https://github.com/LamdaLamdaLamda/disable-ubuntu-telemetry).
