@@ -7,13 +7,13 @@
 
 Here is a way to install packages globally for a given user.
 
-###### 1. Create a directory for global packages
+###### 1. Create a directory for global packages `use in bash, zsh`
 
 ```
 mkdir "${HOME}/.npm-packages"
 ```
 
-###### 2. Tell `npm` where to store globally installed packages
+###### 2. Tell `npm` where to store globally installed packages `use in bash, zsh`
 
 ```sh
 npm config set prefix "${HOME}/.npm-packages"
