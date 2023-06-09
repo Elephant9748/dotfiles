@@ -1,20 +1,20 @@
 #!/bin/bash
 
 signatures_uri=https://gnupg.org/signature_key.asc
-gnupg_uri=https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.4.1.tar.bz2
-gnup_sig_uri=https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.4.1.tar.bz2.sig
+gnupg_uri=https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.4.2.tar.bz2
+gnup_sig_uri=https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.4.2.tar.bz2.sig
 npth_uri=https://gnupg.org/ftp/gcrypt/npth/npth-1.6.tar.bz2
 libgpg_error_uri=https://gnupg.org/ftp/gcrypt/libgpg-error/libgpg-error-1.47.tar.bz2
 libgcrypt_uri=https://gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-1.10.2.tar.bz2
 libksba_uri=https://gnupg.org/ftp/gcrypt/libksba/libksba-1.6.3.tar.bz2
 libassuan_uri=https://gnupg.org/ftp/gcrypt/libassuan/libassuan-2.5.5.tar.bz2
 pinentry_uri=https://gnupg.org/ftp/gcrypt/pinentry/pinentry-1.2.1.tar.bz2
-ncurses_uri=http://ftp.gnu.org/gnu/ncurses/ncurses-6.3.tar.gz
+ncurses_uri=https://ftp.gnu.org/gnu/ncurses/ncurses-6.4.tar.gz
 
 signatures=signature_key.asc
-gnupg_dir=gnupg-2.4.1
-gnupg_zip=gnupg-2.4.1.tar.bz2 
-gnupg_sig=gnupg-2.4.1.tar.bz2.sig 
+gnupg_dir=gnupg-2.4.2
+gnupg_zip=gnupg-2.4.2.tar.bz2 
+gnupg_sig=gnupg-2.4.2.tar.bz2.sig 
 
 npth_zip=npth-1.6.tar.bz2
 npth_dir=npth-1.6
@@ -28,8 +28,8 @@ libassuan_zip=libassuan-2.5.5.tar.bz2
 libassuan_dir=libassuan-2.5.5
 pinentry_zip=pinentry-1.2.1.tar.bz2
 pinentry_dir=pinentry-1.2.1
-ncurses_zip=ncurses-6.3.tar.gz
-ncurses_dir=ncurses-6.3
+ncurses_zip=ncurses-6.4.tar.gz
+ncurses_dir=ncurses-6.4
 
 echo "........................"
 echo "|remove prev tar files |"
