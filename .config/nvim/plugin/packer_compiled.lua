@@ -79,11 +79,6 @@ _G.packer_plugins = {
     path = "/home/rigel/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
-  ["Spacegray.vim"] = {
-    loaded = true,
-    path = "/home/rigel/.local/share/nvim/site/pack/packer/start/Spacegray.vim",
-    url = "https://github.com/ackyshake/Spacegray.vim"
-  },
   ["awesome-vim-colorschemes"] = {
     loaded = true,
     path = "/home/rigel/.local/share/nvim/site/pack/packer/start/awesome-vim-colorschemes",

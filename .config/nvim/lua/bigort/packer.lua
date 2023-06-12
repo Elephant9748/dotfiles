@@ -8,7 +8,7 @@ return require('packer').startup(function()
      use 'wbthomason/packer.nvim'
      --
      -- colorscheme
-     use 'ackyshake/Spacegray.vim'
+     -- use 'ackyshake/Spacegray.vim'
      use 'dikiaap/minimalist'
      use { 'nanotech/jellybeans.vim' }
      use { "ryross/ryderbeans" }
