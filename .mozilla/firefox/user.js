@@ -79,7 +79,7 @@ user_pref("geo.provider.use_corelocation", false);
 user_pref("network.captive-portal-service.enabled", false);
 user_pref("network.connectivity-service.enabled", false);
 
-
+user_pref("browser.tabs.searchclipboardfor.middleclick", false);
 
 
 // BY sunknudsen
