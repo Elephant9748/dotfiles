@@ -43,6 +43,7 @@ abbr -a .nix-list 'nix-env -q'
 abbr -a .nix-update 'nix-env -u'
 abbr -a .rpi 'ssh rpi'
 abbr -a .hive 'ssh hive'
+abbr -a .frank 'ssh frank'
 
 complete --command aurman --wraps pacman
 
@@ -51,6 +52,7 @@ if status --is-interactive
    alias ssh="TERM=xterm-256color $(which ssh)"
    export GPG_TTY=$(tty)
    export PATH="$HOME/.cargo/bin:$PATH"
+   export PATH="/mnt/e/Project/depot_tools:$PATH"
    set BASE16_SHELL "$HOME/.config/base16-shell/"
    source "$BASE16_SHELL/profile_helper.fish"
 
