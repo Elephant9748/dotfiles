@@ -55,9 +55,9 @@ if status --is-interactive
    export PATH="$HOME/project/depot_tools:$PATH"
    # git clone error RPC failed:curl 56 GnuTLS recv error (-54):Error in the pull function .
    # ```
-   export GIT_TRACE_PACKET=1
-   export GIT_TRACE=1
-   export GIT_CURL_VERBOSE=1
+   # export GIT_TRACE_PACKET=1
+   # export GIT_TRACE=1
+   # export GIT_CURL_VERBOSE=1
    # ```
    set BASE16_SHELL "$HOME/.config/base16-shell/"
    source "$BASE16_SHELL/profile_helper.fish"
