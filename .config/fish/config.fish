@@ -43,7 +43,7 @@ abbr -a .nix-list 'nix-env -q'
 abbr -a .nix-update 'nix-env -u'
 abbr -a .rpi 'ssh rpi'
 abbr -a .hive 'ssh hive'
-abbr -a .frank 'ssh frank'
+abbr -a .rick 'ssh rick'
 
 complete --command aurman --wraps pacman
 

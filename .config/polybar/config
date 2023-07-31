@@ -42,7 +42,7 @@ font-3 = "Noto Sans Symbols2:size=10;1"
 
 modules-left = date bspwm xwindow
 modules-center = 
-modules-right = wlan eth1 battery cpu memory 
+modules-right = wlan eth1 battery cpu memory pulseaudio
 
 tray-position = ${env:TRAY_POS:none}
 ;tray-position = right
@@ -147,6 +147,22 @@ animation-discharging-1 = 
 animation-discharging-2 =  
 animation-discharging-foreground = ${colors.fg}
 animation-discharging-framerate = 750
+
+[module/pulseaudio]
+type = internal/pulseaudio
+use-ui-max = true
+interval = 5
+format-volume = <ramp-volume> <label-volume>
+label-muted = 🔇 muted
+label-muted-foreground = #666
+
+ramp-volume-0 = 🔈
+ramp-volume-1 = 🔉
+ramp-volume-2 = 🔊
+
+; Right and Middle click
+click-right = pavucontrol
+; click-middle =
 
 [module/cpu]
 type = internal/cpu

@@ -2,7 +2,7 @@
 require("bigort.set")
 
 -- where am i
-print("bigort --> hello from bigort")
+-- print("bigort --> hello from bigort")
 
 require("bigort.telescope")
 require("bigort.keymap")

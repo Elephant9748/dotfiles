@@ -20,7 +20,7 @@ vim.cmd([[colorscheme jellybeans]])
 -- FOR SOME REASON CMP NOT SOURCE CORRECTLY
 vim.cmd([[so $HOME/.config/nvim/lua/bigort/cmp.lua]])
 
-print("after --> hello from after from bigort")
+-- print("after --> hello from after from bigort")
 
 
 -- require('rose-pine').setup({

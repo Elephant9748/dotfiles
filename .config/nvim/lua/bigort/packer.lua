@@ -21,7 +21,7 @@ return require('packer').startup(function()
      use { "tinted-theming/base16-vim" }
      use { "vim-scripts/candyman.vim" }
      use { "navarasu/onedark.nvim" }
-     use { "rose-pine/neovim" }
+     -- use { "rose-pine/neovim" }
      use { "rafi/awesome-vim-colorschemes"}
      use { "tjdevries/gruvbuddy.nvim" }
      use { "tjdevries/colorbuddy.vim" }

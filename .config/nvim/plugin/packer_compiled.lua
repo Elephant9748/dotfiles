@@ -149,11 +149,6 @@ _G.packer_plugins = {
     path = "/home/rigel/.local/share/nvim/site/pack/packer/start/minimalist",
     url = "https://github.com/dikiaap/minimalist"
   },
-  neovim = {
-    loaded = true,
-    path = "/home/rigel/.local/share/nvim/site/pack/packer/start/neovim",
-    url = "https://github.com/rose-pine/neovim"
-  },
   ["nimda.vim"] = {
     loaded = true,
     path = "/home/rigel/.local/share/nvim/site/pack/packer/start/nimda.vim",
