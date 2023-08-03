@@ -50,6 +50,8 @@ complete --command aurman --wraps pacman
 if status --is-interactive
    clear
    alias ssh="TERM=xterm-256color $(which ssh)"
+   #alias ssh="alacritty $(which ssh)"
+
    export GPG_TTY=$(tty)
    export PATH="$HOME/.cargo/bin:$PATH"
    export PATH="$HOME/project/depot_tools:$PATH"
