@@ -8,33 +8,8 @@
 	 * toolkit.legacyUserProfileCustomizations.stylesheets = true
 	 * in about:config
 	 */
-    
-    /* change on firefox 113
-     *
-     * display: -moz-box -> display: flex
-     * -moz-box-flex: N -> flex-grow: N; flex-shrink: N
-     * -moz-box-align -> align-items:
-     * stretch -> stretch
-     * start -> flex-start
-     * center -> center
-     * baseline -> baseline
-     * end -> flex-end
-     * -moz-box-pack -> justify-content:
-     * start -> flex-start
-     * center -> center
-     * end -> flex-end
-     * justify -> space-between
-     * -moz-box-orient + -moz-box-direction -> flex-direction
-     * vertical + normal -> column
-     * vertical + reverse -> column-reverse
-     * horizontal + normal -> row
-     * horizontal + reverse -> row-reverse
-     * -moz-box-ordinal-group: N -> order: N 
-     */
-    /* #mainPopupSet ~ box { -moz-box-ordinal-group: 10; }*/
-	/* #titlebar { -moz-box-ordinal-group: 10; }          */
-	#mainPopupSet ~ box { order: 10; }
-	#titlebar { order: 10; }
+	#mainPopupSet ~ box { -moz-box-ordinal-group: 10; }
+	#titlebar { -moz-box-ordinal-group: 10; }
 	#urlbar {
 		top: unset !important;
 		bottom: calc((var(--urlbar-toolbar-height) - var(--urlbar-height)) / 2) !important;
