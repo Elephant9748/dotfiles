@@ -7,4 +7,7 @@ rsync -azP $HOME/project/dotfiles/.config/arch/fish $HOME/.config/ && \
 rsync -azP $HOME/project/dotfiles/.config/arch/nvim $HOME/.config/ && \
 rsync -azP $HOME/project/dotfiles/.config/arch/polybar $HOME/.config/ && \
 rsync -azP $HOME/project/dotfiles/.config/arch/rofi $HOME/.config/ && \
-rsync -azP $HOME/project/dotfiles/.config/arch/sxhkd $HOME/.config/
+rsync -azP $HOME/project/dotfiles/.config/arch/sxhkd $HOME/.config/ && \
+rsync -azP $HOME/project/dotfiles/.config/arch/waybar $HOME/.config/ && \
+rsync -azP $HOME/project/dotfiles/.config/arch/hypr $HOME/.config/ && \
+
