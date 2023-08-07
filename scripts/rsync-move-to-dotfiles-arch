@@ -1,5 +1,6 @@
 #!/bin/bash
 
+rsync -azP $HOME/.config/hypr $HOME/project/dotfiles/.config/arch/hypr && \
 rsync -azP $HOME/.config/alacritty $HOME/project/dotfiles/.config/arch/alacritty && \
 rsync -azP $HOME/.config/awesome $HOME/project/dotfiles/.config/arch/awesome && \
 rsync -azP $HOME/.config/bspwm $HOME/project/dotfiles/.config/arch/bspwm && \
@@ -7,5 +8,5 @@ rsync -azP $HOME/.config/fish $HOME/project/dotfiles/.config/arch/fish && \
 rsync -azP $HOME/.config/nvim $HOME/project/dotfiles/.config/arch/nvim && \
 rsync -azP $HOME/.config/polybar $HOME/project/dotfiles/.config/arch/polybar && \
 rsync -azP $HOME/.config/rofi $HOME/project/dotfiles/.config/arch/rofi && \
-rsync -azP $HOME/.config/sxhkd $HOME/project/dotfiles/.config/arch/sxhkd && \
-rsync -azP $HOME/.config/nix $HOME/project/dotfiles/.config/arch/nix 
+rsync -azP $HOME/.config/sxhkd $HOME/project/dotfiles/.config/arch/sxhkd 
+# rsync -azP $HOME/.config/nix $HOME/project/dotfiles/.config/arch/nix 
