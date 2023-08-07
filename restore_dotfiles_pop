@@ -1,0 +1,10 @@
+#!/bin/bash
+
+rsync -azP $HOME/project/dotfiles/.config/pop/alacritty $HOME/.config/ && \
+rsync -azP $HOME/project/dotfiles/.config/pop/awesome $HOME/.config/ && \
+rsync -azP $HOME/project/dotfiles/.config/pop/bspwm $HOME/.config/ && \
+rsync -azP $HOME/project/dotfiles/.config/pop/fish $HOME/.config/ && \
+rsync -azP $HOME/project/dotfiles/.config/pop/nvim $HOME/.config/ && \
+rsync -azP $HOME/project/dotfiles/.config/pop/polybar $HOME/.config/ && \
+rsync -azP $HOME/project/dotfiles/.config/pop/rofi $HOME/.config/ && \
+rsync -azP $HOME/project/dotfiles/.config/pop/sxhkd $HOME/.config/
