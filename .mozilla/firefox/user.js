@@ -81,6 +81,8 @@ user_pref("network.connectivity-service.enabled", false);
 
 user_pref("browser.tabs.searchclipboardfor.middleclick", false);
 
+// allow prime-offload linux
+user_pref("gfx.webrender.software", true);
 
 // BY sunknudsen
 // https://sunknudsen.com/static/media/privacy-guides/how-to-configure-firefox-for-privacy-and-security/user.js
