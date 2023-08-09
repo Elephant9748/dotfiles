@@ -119,7 +119,7 @@
 	},
 	"clock": {
 		"interval": 1,
-		"format": "⏰ {:%H:%M %p}",
+		"format": "⏰ {:%a %H:%M %p}",
 		"tooltip-format": "{:%Y-%m-%d | %H:%M:%S}"
 		// "format-alt": "{:%Y-%m-%d}"
 	},
@@ -134,10 +134,10 @@
 		"format-plugged":  "<span color='#e88939'>{icon} </span> {capacity}% ({time})",
 		// "format-good": "", // An empty format will hide the module
 		// "format-full": "",
-		"format-icons": ["", "", "", "", ""]
+		"format-icons": [" ", " ", " ", " ", " "]
 	},
-	"battery#bat2": {
-		"bat": "BAT2"
+	"battery#bat1": {
+		"bat": "BAT1"
 	},
 	"idle_inhibitor": {
 		"format": "<span color='#589df6'>{icon}</span>",

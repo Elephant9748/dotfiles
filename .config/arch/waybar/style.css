@@ -34,7 +34,7 @@ window#waybar {
 	color: #ffffff;
 	border: 1px solid #00afd7;
 	*/
-	border: 1px solid #1b1d1e;
+	/* border: 1px solid #1b1d1e; */
 	font-weight: bold;
 }
 #workspaces button:hover {
