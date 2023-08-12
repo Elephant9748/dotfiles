@@ -119,7 +119,7 @@
 	},
 	"clock": {
 		"interval": 1,
-		"format": "⏰ {:%a %I:%M %p}",
+		"format": "⏰ {:%a %d %b %I:%M %p}",
 		"tooltip-format": "{:%Y-%m-%d | %H:%M:%S}"
 		// "format-alt": "{:%Y-%m-%d}"
 	},
