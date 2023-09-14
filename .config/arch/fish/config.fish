@@ -50,6 +50,10 @@ if status --is-interactive
    export GPG_TTY=$(tty)
    export PATH="$HOME/.cargo/bin:$PATH"
    export PATH="$HOME/project/depot_tools:$PATH"
+
+   #pipx PATH
+   export PATH="$HOME/.local/bin:$PATH"
+
    # git clone error RPC failed:curl 56 GnuTLS recv error (-54):Error in the pull function .
    # ```
    # export GIT_TRACE_PACKET=1
@@ -63,6 +67,10 @@ if status --is-interactive
    set NPM_PACKAGES "$HOME/.npm-packages"
    set PATH $PATH $NPM_PACKAGES/bin
    set MANPATH $NPM_PACKAGES/share/man $MANPATH
+
+   #android-platform
+   export PATH="$HOME/apps/platform-tools:$PATH"
+
 end
 
 if command -v exa > /dev/null

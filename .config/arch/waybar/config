@@ -5,12 +5,12 @@
 	// "width": 1280, // Waybar width
 
 	// Choose the order of the modules
-	"modules-left": ["clock", "wlr/workspaces", "wlr/mode"],
+	"modules-left": ["clock", "hyprland/workspaces", "wlr/mode"],
 	"modules-center": ["hyprland/window"],
 	"modules-right": ["network",  "cpu", "memory", "battery", "pulseaudio"],
 
 	// Modules configuration
-	"wlr/workspaces": {
+	"hyprland/workspaces": {
 		"disable-scroll": true,
 		"all-outputs": false,
 		"format": "{icon}",
