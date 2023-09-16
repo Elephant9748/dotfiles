@@ -1,0 +1,5 @@
+#!/bin/bash
+
+#vboxnetadp and vboxnetflt use the bridged or host-only networking
+
+sudo modprobe vboxnetadp && sudo modprobe vboxnetflt
