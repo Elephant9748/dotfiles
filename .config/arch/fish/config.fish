@@ -40,6 +40,9 @@ abbr -a .rpi 'ssh rpi'
 abbr -a .hive 'ssh hive'
 abbr -a .rick 'ssh rick'
 
+abbr -a .ipv6_off 'sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1'
+abbr -a .ipv6_on 'sudo sysctl -w net.ipv6.conf.all.disable_ipv6=0' # use for gaming
+
 complete --command aurman --wraps pacman
 
 if status --is-interactive
