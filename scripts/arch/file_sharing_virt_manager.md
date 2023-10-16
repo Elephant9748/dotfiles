@@ -6,6 +6,7 @@ sudo mkdir /mnt/vfs_share
 sudo chown foo:foo  /mnt/vfs_share
 ```
 
+!! note required enabled shared memory on virt manager options
 virt manager qemu :
 1. show virt manager detail
 2. add hardware filesystem
@@ -18,7 +19,7 @@ create sharing folder
 mkdir ~/share
 ```
 
-mount directory
+mount directory manually
 ```
 sudo mount -t virtiofs share /mnt/share
 ```
