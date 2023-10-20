@@ -25,6 +25,12 @@ vim.keymap.set("n", "<leader>Y", "\"+Y")
 vim.keymap.set("i", "<C-c>", "<Esc>")
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
+-- AutoFormat *LSP on every write
+-- vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
+-- or
+vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
+
+
 -- CUSTOM lua mapping
 -- local mappings = {}
 -- 

@@ -56,6 +56,7 @@ require('pckr').add{
           run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' 
   };
   -- use {'neoclide/coc.nvim', branch = 'master', run = 'yarn install --frozen-lockfile'}
+  {'neoclide/coc.nvim', branch = 'master', run = 'npm ci'};
   'neovim/nvim-lspconfig';  -- Configurations for Nvim LSP
   -- use {
   --            'fannheyward/telescope-coc.nvim'

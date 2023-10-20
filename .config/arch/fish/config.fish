@@ -36,14 +36,17 @@ abbr -a .config 'cd $HOME/.config/'
 abbr -a .db_pinguin 'psql -h 192.168.100.144 -p 5432 db_pinguin -U stomp'
 abbr -a .nix-list 'nix-env -q'
 abbr -a .nix-update 'nix-env -u'
-abbr -a .rpi 'ssh rpi'
-abbr -a .hive 'ssh hive'
-abbr -a .rick 'ssh rick'
+abbr -a rpi 'ssh rpi'
+abbr -a hive 'ssh hive'
+abbr -a rick 'ssh rick'
 
 abbr -a .ipv6_off 'sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1'
 abbr -a .ipv6_on 'sudo sysctl -w net.ipv6.conf.all.disable_ipv6=0' # use for gaming
 
 abbr -a neofetch 'fastfetch'
+abbr -a start_virtio '$HOME/project/dotfiles/scripts/arch/start-virtio-virtual-machine-QEMU'
+abbr -a stop_network 'sudo systemctl stop NetworkManager'
+abbr -a start_network 'sudo systemctl start NetworkManager'
 
 complete --command aurman --wraps pacman
 
@@ -78,11 +81,11 @@ if status --is-interactive
 
 end
 
-if command -v exa > /dev/null
-	abbr -a l 'exa'
-	abbr -a ls 'exa'
-	abbr -a ll 'exa -l'
-	abbr -a lll 'exa -la'
+if command -v eza > /dev/null
+	abbr -a l 'eza'
+	abbr -a ls 'eza'
+	abbr -a ll 'eza -l'
+	abbr -a lll 'eza -la'
     abbr -a nix 'nix-env'
 else
 	abbr -a l 'ls'
@@ -166,8 +169,8 @@ function fish_greeting
 	echo -e (uname -n | awk '{print " \\\\e[1mHostname: \\\\e[0;32m"$0"\\\\e[0m"}')
     echo -e (lsb_release -d | awk -F ':' '/Description/ {gsub("\t","",$2);print " \\\\e[1mDescription: \\\\e[0;32m"$2"\\\\e[0m"; exit}')
     echo -e (awk -F ':' '/model name/ {print " \\\\e[1mCPU: \\\\e[0;32m"$2"\\\\e[0m"; exit}' /proc/cpuinfo)
-    echo -e (lspci | grep -E "VGA|3D controller" | awk -F ':' '/VGA/ {print " \\\\e[1mVGA: \\\\e[0;32m"$3"\\\\e[0m"; exit}')
-    echo -e (lspci | grep -E "VGA|3D controller" | awk -F ':' '/3D/ {print " \\\\e[1m3D : \\\\e[0;32m"$3"\\\\e[0m"; exit}')
+    echo -e (lspci | grep -E "VGA|3D controller" | awk -F ':' '/VGA/ {print " \\\\e[1mVGA:\\\\e[0;32m"$3"\\\\e[0m"; exit}')
+    echo -e (lspci | grep -E "VGA|3D controller" | awk -F ':' '/3D/ {print " \\\\e[1m3D:\\\\e[0;32m"$3"\\\\e[0m"; exit}')
 	echo -e (echo $XDG_SESSION_TYPE | awk '{print " \\\\e[1mSession: \\\\e[0;32m"$0"\\\\e[0m"}')
     echo -e (whoami | awk '{print " \\\\e[1mUser: \\\\e[0;32m"$0"\\\\e[0m"}')
 	echo -e " \\e[1mDisk usage:\\e[0m"
