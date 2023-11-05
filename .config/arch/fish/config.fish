@@ -45,6 +45,7 @@ abbr -a .ipv6_on 'sudo sysctl -w net.ipv6.conf.all.disable_ipv6=0' # use for gam
 
 abbr -a neofetch 'fastfetch'
 abbr -a start_virtio '$HOME/project/dotfiles/scripts/arch/start-virtio-virtual-machine-QEMU'
+abbr -a stop_virtio 'sudo virsh net-destroy default'
 abbr -a stop_network 'sudo systemctl stop NetworkManager'
 abbr -a start_network 'sudo systemctl start NetworkManager'
 
@@ -68,6 +69,17 @@ if status --is-interactive
    # export GIT_TRACE=1
    # export GIT_CURL_VERBOSE=1
    # ```
+
+   #cosmic
+   #export CARGO_HOME="$srcdir/cargo-home"
+   #export RUSTUP_TOOLCHAIN=stable
+
+
+   #pip python venv
+   set PIP_VENV "$HOME/.venv/bin/"
+   source "$PIP_VENV/activate.fish"
+
+   #base16_shell
    set BASE16_SHELL "$HOME/.config/base16-shell/"
    source "$BASE16_SHELL/profile_helper.fish"
 
