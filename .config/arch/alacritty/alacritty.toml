@@ -40,7 +40,8 @@ TERM = "alacritty"
 size = 7.8
 
 [font.normal]
-family = "JetBrainsMono Nerd Font"
+family = "JetBrainsMono NF"
+#family = "JetBrainsMono Nerd Font"
 #family = "Noto Sans Mono"
 
 [[keyboard.bindings]]

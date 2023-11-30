@@ -49,6 +49,17 @@ abbr -a stop_virtio 'sudo virsh net-destroy default'
 abbr -a stop_network 'sudo systemctl stop NetworkManager'
 abbr -a start_network 'sudo systemctl start NetworkManager'
 
+
+#v4l2loopback
+abbr -a v4l2_load 'sudo modprobe v4l2loopback video_nr=2 card_label=v4l2loopback_screen_sharing exclusive_caps=1'
+abbr -a v4l2_unload 'sudo modprobe -r v4l2loopback'
+abbr -a v4l2_list 'v4l2-ctl --list-devices'
+
+#wf-recorder screen_sharing full screen
+abbr -a screen_sharing 'wf-recorder --muxer=v4l2 --codec=rawvideo --file=/dev/video2 -x yuv420p'
+#wf-recorder screen_sharing portion of the screen (need install slurp)
+abbr -a screen_sharing_portion 'wf-recorder -g "$(slurp)" --muxer=v4l2 --codec=rawvideo --file=/dev/video2 -x yuv420p'
+
 complete --command aurman --wraps pacman
 
 if status --is-interactive
@@ -57,8 +68,13 @@ if status --is-interactive
    #alias ssh="alacritty $(which ssh)"
 
    export GPG_TTY=$(tty)
+
+   #rust
    export PATH="$HOME/.cargo/bin:$PATH"
    export PATH="$HOME/project/depot_tools:$PATH"
+
+   #Go
+   export PATH="$HOME/go/bin:$PATH"
 
    #pipx PATH
    export PATH="$HOME/.local/bin:$PATH"
@@ -76,8 +92,8 @@ if status --is-interactive
 
 
    #pip python venv
-   set PIP_VENV "$HOME/.venv/bin/"
-   source "$PIP_VENV/activate.fish"
+   #set PIP_VENV "$HOME/.venv/bin/"
+   #source "$PIP_VENV/activate.fish"
 
    #base16_shell
    set BASE16_SHELL "$HOME/.config/base16-shell/"
