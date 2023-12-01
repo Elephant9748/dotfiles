@@ -7,7 +7,7 @@
 	// Choose the order of the modules
 	"modules-left": ["clock", "hyprland/workspaces", "wlr/mode"],
 	"modules-center": ["hyprland/window"],
-	"modules-right": ["network",  "cpu", "memory", "battery", "pulseaudio"],
+	"modules-right": ["network",  "cpu", "memory", "battery", "pulseaudio","privacy","tray"],
 
 	// Modules configuration
 	"hyprland/workspaces": {
@@ -31,7 +31,7 @@
 			"focused": "",
 			"default": ""
 		},
-        "persistent_workspaces": {
+        "persistent-workspaces": {
                 "1": [],
                 "2": [],
                 "3": [],
@@ -117,6 +117,11 @@
 		// "on-click-right": "ponymix -N -t source toggle"
 		"on-click-right": "pavucontrol"
 	},
+    "pulseaudio/slider": {
+        "min": 0,
+        "max": 100,
+        "orientation": "horizontal"
+    },
 	"clock": {
 		"interval": 1,
 		"format": "⏰ {:%a %d %b %I:%M %p}",
@@ -149,6 +154,7 @@
 	},
 	"tray": {
 		// "icon-size": 21,
+		"icon-size": 12,
 		"spacing": 10
 	},
     "custom/media": {
@@ -188,5 +194,27 @@
         },
         "tooltip-format": "MPD (connected)",
         "tooltip-format-disconnected": "MPD (disconnected)"
+    },
+    "privacy": {
+            "icon-spacing": 4,
+            "icon-size": 14,
+            "transition-duration": 250,
+            "modules": [
+            {
+                    "type": "screenshare",
+                    "tooltip": true,
+                    "tooltip-icon-size": 16
+            },
+            {
+                    "type": "audio-out",
+                    "tooltip": true,
+                    "tooltip-icon-size": 16
+            },
+            {
+                    "type": "audio-in",
+                    "tooltip": true,
+                    "tooltip-icon-size": 16
+            }
+            ]
     }
 }

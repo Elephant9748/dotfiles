@@ -10,8 +10,8 @@ configuration {
     font: "Noto Sans Mono 9.5";
     foreground: #8E8F8F;
     active-foreground: #ffffff;
-    background-color: #1a1c23;
-    active-background: #242731;
+    background-color: #010404;
+    active-background: #151515;
     urgent-background: #ffffff;
     urgent-foreground: #7E818D;
     selected-background: @active-background;
@@ -28,7 +28,7 @@ configuration {
     border-radius:    1;
     border-color:     @bordercolor;
     padding:          15;
-    width: 30%;
+    width: 40%;
 }
 #mainbox {
     border:  0;
