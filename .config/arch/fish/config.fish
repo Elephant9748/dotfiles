@@ -36,6 +36,9 @@ abbr -a .config 'cd $HOME/.config/'
 abbr -a .db_pinguin 'psql -h 192.168.100.144 -p 5432 db_pinguin -U stomp'
 abbr -a .nix-list 'nix-env -q'
 abbr -a .nix-update 'nix-env -u'
+#upgrade nix 
+#abbr -a .nix-env-upgrade 'nix-channel --update; nix-env --install --attr nixpkgs.nix nixpkgs.cacert; systemctl daemon-reload; systemctl restart nix-daemon'
+
 abbr -a rpi 'ssh rpi'
 abbr -a hive 'ssh hive'
 abbr -a rick 'ssh rick'
@@ -127,7 +130,11 @@ if test -f /usr/share/autojump/autojump.fish;
 	source /usr/share/autojump/autojump.fish;
 end
 
-
+# Nix shell profiles
+if test -e /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish;
+  . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish;
+end
+# End Ni
 
 # Type - to move up to top parent dir which is a repository
 function d
