@@ -1,3 +1,6 @@
+-- Important buile manual in $HOME/.local/share/nvim/lazy/<repo name>
+--
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
