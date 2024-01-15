@@ -9,6 +9,10 @@ vim.opt.expandtab = true
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
+-- the thing that give you vertical line
+-- vim.opt.colorcolumn = "120"
+vim.api.nvim_set_option_value("colorcolumn","140", {})
+
 vim.opt.smartindent = true
 
 vim.opt.wrap = false

@@ -29,6 +29,8 @@ require("bigort.set")
 
 -- require("bigort.pckr")
 require("bigort.lazynvim")
+-- require("lazy").setup("lazyplugs")
+
 require("bigort.telescope")
 require("bigort.keymap")
 require("bigort.lsp")

@@ -2,6 +2,8 @@
 local opt = { noremap = true, silent = true }
 
 local builtin = require('telescope.builtin')
+-- vim.keymap.set("n", "tc", "<cmd>Telescope current_buffer_fuzzy_find sorting_strategy=ascending<cr>", {buffer=0}) 
+
 -- vim.keymap.set('n', 'ff', builtin.find_files, {})
 -- vim.keymap.set('n', 'fg', builtin.live_grep, {})
 -- vim.keymap.set('n', 'fb', builtin.buffers, {})
@@ -9,7 +11,8 @@ local builtin = require('telescope.builtin')
 
 -- Mappings
 
-vim.keymap.set("n", "tc", "<cmd>Telescope current_buffer_fuzzy_find sorting_strategy=ascending<cr>", {buffer=0}) 
+vim.keymap.set("n", "tc", "<cmd>Telescope current_buffer_fuzzy_find sorting_strategy=ascending<cr>", {}) 
+
 vim.keymap.set("v", "K", ":m '>+1<CR>gv=gv", {buffer=0})
 vim.keymap.set("v", "J", ":m '<-2<CR>gv=gv", {buffer=0})
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
