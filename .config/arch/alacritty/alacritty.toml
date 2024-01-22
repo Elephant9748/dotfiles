@@ -11,6 +11,9 @@ red = "0xfe8019"
 white = "0xfbf1c7"
 yellow = "0x504945"
 
+[cursor]
+#style = { shape = "beam", blinking = "off" }
+
 [colors.cursor]
 cursor = "0xd5c4a1"
 text = "0x1d2021"
