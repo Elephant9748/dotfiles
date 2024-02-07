@@ -1,0 +1,3 @@
+#!/bin/sh
+
+xrandr --output eDP1 --off && nitrogen --restore && xrandr --output HDMI1 --rate 60.00 --mode 1920x1080
