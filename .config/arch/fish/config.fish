@@ -67,6 +67,10 @@ abbr -a screen_sharing_portion 'wf-recorder -g "$(slurp)" --muxer=v4l2 --codec=r
 abbr -a gl 'git log --all --decorate --oneline --graph'
 abbr -a gs 'git status'
 
+#A cat clone with syntax highlighting https://github.com/sharkdp/bat
+abbr -a cat 'bat'
+abbr -a bat 'cat'
+
 complete --command aurman --wraps pacman
 
 if status --is-interactive
