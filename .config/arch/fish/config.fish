@@ -256,5 +256,10 @@ function fish_greeting
 			sed 's/^/\t/' \
 		)
     echo
+    echo -e ' \\e[31mnote!: '
+    echo -e '       \\e[36m *\\e[33mhyprpaper xdg-desktop-portal-hyprland (current use: extra-staging)'
+    echo -e '       \\e[36m *\\e[33mhyprpaper-0.6.0-3-x86_64.pkg.tar.zst xdg-desktop-portal-hyprland-1.3.1-4-x86_64.pkg.tar.zst'
+    echo -e '       \\e[36m *\\e[33min Downloads'
+    echo 
 
 end
