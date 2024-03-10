@@ -58,7 +58,7 @@ $ borg create --compression lzma,N /path/to/repo::arch ~
 # Only compress compressible data with lzma,N (N = 0..9)
 <br>
 $ borg create --compression auto,lzma,N /path/to/repo::arch
-<br>
+
 ```
 borg create --stats --progress --compression lz4 [LOCATED BACKUP DIRECTORY]::[BACKUP NAME] [DIRECTORY To BACKUP]
 ```
@@ -66,7 +66,6 @@ borg create --stats --progress --compression lz4 [LOCATED BACKUP DIRECTORY]::[BA
 borg list
 <br>
 to eq ls file: [LOCATED BACKUP DIRECTORY]::[BACKUP NAME]
-<br>
 ```
 borg list [LOCATED BACKUP DIRECTORY]
 ```
