@@ -71,6 +71,11 @@ abbr -a gs 'git status'
 abbr -a cat 'bat'
 abbr -a bat 'cat'
 
+#duplex ethernet speed
+abbr -a .duplex1000 'sudo ethtool -s enp4s0 speed 1000 duplex full autoneg on'
+abbr -a .duplex100 'sudo ethtool -s enp4s0 speed 1000 duplex full autoneg on'
+abbr -a .duplexshow 'sudo ethtool enp4s0'
+
 complete --command aurman --wraps pacman
 
 if status --is-interactive
@@ -117,6 +122,10 @@ if status --is-interactive
 
    #android-platform
    export PATH="$HOME/apps/platform-tools:$PATH"
+
+   # ssh gnome/keyring
+   # set SSH_AUTH_SOCK "$XDG_RUNTIME_DIR/gcr/ssh"
+   set SSH_AUTH_SOCK ""
 
 end
 
@@ -247,7 +256,7 @@ function fish_greeting
 			# unknown interfaces are cyan \
 			sed 's/^\( *[^ ]\+\)/\\\e[36m\1/' | \
 			# ethernet interfaces are normal \
-			sed 's/\(\(en\|em\|eth\)[^ ]* .*\)/\\\e[39m\1/' | \
+			sed 's/\(\(en\|enp\|em\|eth\)[^ ]* .*\)/\\\e[39m\1/' | \
 			# wireless interfaces are purple \
 			sed 's/\(wl[^ ]* .*\)/\\\e[35m\1/' | \
 			# wwan interfaces are yellow \
@@ -255,11 +264,15 @@ function fish_greeting
 			sed 's/$/\\\e[0m/' | \
 			sed 's/^/\t/' \
 		)
-    echo
-    echo -e ' \\e[31mnote!: '
-    echo -e '       \\e[36m *\\e[33mhyprpaper xdg-desktop-portal-hyprland (current use: extra-staging)'
-    echo -e '       \\e[36m *\\e[33mhyprpaper-0.6.0-3-x86_64.pkg.tar.zst xdg-desktop-portal-hyprland-1.3.1-4-x86_64.pkg.tar.zst'
-    echo -e '       \\e[36m *\\e[33min Downloads'
-    echo 
+      echo
+      #echo -e " \\e[0;31mKaspa:\\e[0m"
+      #echo -e ($HOME/project/kaspaApi/target/release/kaspa_api --price | awk '{print "\\\\e[0m        price: \\\\e[0;32m"$0"\\\\e[0m"}')
+      #echo -e ($HOME/project/kaspaApi/target/release/kaspa_api --blockreward | awk '{print "\\\\e[0m        current block reward: \\\\e[0;33m"$0"\\\\e[0m"}')
+      #echo
+    # echo -e ' \\e[31mnote!: '
+    # echo -e '       \\e[36m *\\e[33mhyprpaper xdg-desktop-portal-hyprland (current use: extra-staging)'
+    # echo -e '       \\e[36m *\\e[33mhyprpaper-0.6.0-3-x86_64.pkg.tar.zst xdg-desktop-portal-hyprland-1.3.1-4-x86_64.pkg.tar.zst'
+    # echo -e '       \\e[36m *\\e[33min Downloads'
+    # echo 
 
 end
