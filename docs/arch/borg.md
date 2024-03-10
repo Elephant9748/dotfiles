@@ -42,24 +42,18 @@ borg init --encryption=repokey-blake2 [LOCATED BACKUP DIRECTORY]
 ```
 
 borg create backup 
-<br>
-# Super fast, low compression (lz4, default)
-<br>
-$ borg create /path/to/repo::arch ~
-<br>
-# Less fast, higher compression (zlib, N = 0..9)
-<br>
-$ borg create --compression zlib,N /path/to/repo::arch ~
-<br>
-# Even slower, even higher compression (lzma, N = 0..9)
-<br>
-$ borg create --compression lzma,N /path/to/repo::arch ~
-<br>
-# Only compress compressible data with lzma,N (N = 0..9)
-<br>
-$ borg create --compression auto,lzma,N /path/to/repo::arch
 
 ```
+# Super fast, low compression (lz4, default)
+$ borg create /path/to/repo::arch ~
+# Less fast, higher compression (zlib, N = 0..9)
+$ borg create --compression zlib,N /path/to/repo::arch ~
+# Even slower, even higher compression (lzma, N = 0..9)
+$ borg create --compression lzma,N /path/to/repo::arch ~
+# Only compress compressible data with lzma,N (N = 0..9)
+$ borg create --compression auto,lzma,N /path/to/repo::arch
+
+
 borg create --stats --progress --compression lz4 [LOCATED BACKUP DIRECTORY]::[BACKUP NAME] [DIRECTORY To BACKUP]
 ```
 
