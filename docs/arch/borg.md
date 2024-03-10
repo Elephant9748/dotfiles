@@ -8,9 +8,13 @@ set env (fish command)
 <br>
 manual
 ```
-set BORG_RSH "ssh -i /home/rpi_bigort/.ssh/rigel_ed25519"
+set BORG_RSH "ssh -i $HOME/.ssh/rigel_ed25519"
 
 set -x BORG_RSH
+```
+or set in config.fish
+```
+export BORG_RSH="ssh -i $HOME/.ssh/rigel_ed25519"
 ```
 
 borg init repo
