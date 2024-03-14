@@ -51,6 +51,8 @@ abbr -a start_virtio '$HOME/project/dotfiles/scripts/arch/start-virtio-virtual-m
 abbr -a stop_virtio 'sudo virsh net-destroy default'
 abbr -a stop_network 'sudo systemctl stop NetworkManager'
 abbr -a start_network 'sudo systemctl start NetworkManager'
+abbr -a start_ssh 'sudo systemctl start sshd'
+abbr -a stop_ssh 'sudo systemctl stop sshd'
 
 
 #v4l2loopback
@@ -75,6 +77,11 @@ abbr -a bat 'cat'
 abbr -a .duplex1000 'sudo ethtool -s enp4s0 speed 1000 duplex full autoneg on'
 abbr -a .duplex100 'sudo ethtool -s enp4s0 speed 1000 duplex full autoneg on'
 abbr -a .duplexshow 'sudo ethtool enp4s0'
+
+#ssh-agent start
+abbr -a start_ssh_agent 'eval (ssh-agent -c) && ssh-add ~/.ssh/ed25519_rpi_bigort && ssh-add ~/.ssh/rick_ed25519 && echo $SSH_AUTH_SOCK > $HOME/.ssh/ssh_auth_sock'
+abbr -a stop_ssh_agent 'kill $SSH_AGENT_PID && cat /dev/null > $HOME/.ssh/ssh_auth_sock'
+abbr -a list_ssh_agent 'ps -e | grep \'ssh\' && cat $HOME/.ssh/ssh_auth_sock'
 
 complete --command aurman --wraps pacman
 
@@ -126,6 +133,7 @@ if status --is-interactive
    # ssh gnome/keyring
    # set SSH_AUTH_SOCK "$XDG_RUNTIME_DIR/gcr/ssh"
    set SSH_AUTH_SOCK ""
+   set SSH_AUTH_SOCK (cat $HOME/.ssh/ssh_auth_sock)
 
 end
 
