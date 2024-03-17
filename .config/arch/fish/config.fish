@@ -78,14 +78,6 @@ abbr -a .duplex1000 'sudo ethtool -s enp4s0 speed 1000 duplex full autoneg on'
 abbr -a .duplex100 'sudo ethtool -s enp4s0 speed 1000 duplex full autoneg on'
 abbr -a .duplexshow 'sudo ethtool enp4s0'
 
-#ssh-agent start
-abbr -a start_ssh_agent 'eval (ssh-agent -c) && ssh-add ~/.ssh/ed25519_rpi_bigort && ssh-add ~/.ssh/rick_ed25519 && echo $SSH_AUTH_SOCK > $HOME/.ssh/ssh_auth_sock'
-abbr -a stop_ssh_agent 'kill $SSH_AGENT_PID && cat /dev/null > $HOME/.ssh/ssh_auth_sock'
-abbr -a list_ssh_agent 'ps -e | grep \'ssh\' && cat $HOME/.ssh/ssh_auth_sock'
-
-#manual load hyprpaper image
-abbr -a load_image 'hyprctl hyprpaper preload \'~/Pictures/wallhaven.cc/wallhaven-md37wk_1920x1080.png\' && hyprctl hyprpaper wallpaper \'HDMI-A-1,~/Pictures/wallhaven.cc/wallhaven-md37wk_1920x1080.png\''
-
 complete --command aurman --wraps pacman
 
 if status --is-interactive
@@ -138,6 +130,9 @@ if status --is-interactive
    set SSH_AUTH_SOCK ""
    set SSH_AUTH_SOCK (cat $HOME/.ssh/ssh_auth_sock)
 
+   # override color_command
+   set -U fish_color_command 16AA64
+
 end
 
 if command -v eza > /dev/null
@@ -163,6 +158,31 @@ if test -e /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish;
   . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish;
 end
 # End Ni
+
+#manual load hyprpaper image
+function load_image
+        hyprctl hyprpaper preload "~/Pictures/wallhaven.cc/wallhaven-md37wk_1920x1080.png"
+        hyprctl hyprpaper wallpaper "HDMI-A-1,~/Pictures/wallhaven.cc/wallhaven-md37wk_1920x1080.png"
+end
+
+#ssh-agent start
+abbr -a list_ssh_agent 'ps -e | grep \'ssh\' && cat $HOME/.ssh/ssh_auth_sock'
+function start_ssh_agent
+        eval (ssh-agent -c) 
+        ssh-add ~/.ssh/ed25519_rpi_bigort 
+        ssh-add ~/.ssh/rick_ed25519 
+        echo $SSH_AUTH_SOCK > $HOME/.ssh/ssh_auth_sock
+end
+
+function stop_ssh_agent
+        kill $SSH_AGENT_PID
+        cat /dev/null > $HOME/.ssh/ssh_auth_sock
+end
+
+function list_ssh_agent
+        ps -e | grep 'ssh'
+        cat $HOME/.ssh/ssh_auth_sock
+end
 
 # Type - to move up to top parent dir which is a repository
 function d
@@ -216,11 +236,17 @@ end
 function fish_prompt
 	set_color brblack
 	echo -n "["(date "+%H:%M")"] "
-	set_color green
-	echo -n (hostname)
-	set_color green
+    set_color 16AA64
+	echo -n (hostnamectl hostname)
+	if [ $PWD != $HOME ]
+		set_color brblack
+		echo -n ':'
+		set_color 7A4DBD
+		echo -n (basename $PWD)
+	end
+	set_color 1796B8
 	printf '%s ' (__fish_git_prompt)
-	set_color yellow
+	set_color B23F61
 	echo -n '| '
 	set_color normal
 end
