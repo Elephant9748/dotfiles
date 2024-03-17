@@ -83,6 +83,9 @@ abbr -a start_ssh_agent 'eval (ssh-agent -c) && ssh-add ~/.ssh/ed25519_rpi_bigor
 abbr -a stop_ssh_agent 'kill $SSH_AGENT_PID && cat /dev/null > $HOME/.ssh/ssh_auth_sock'
 abbr -a list_ssh_agent 'ps -e | grep \'ssh\' && cat $HOME/.ssh/ssh_auth_sock'
 
+#manual load hyprpaper image
+abbr -a load_image 'hyprctl hyprpaper preload \'~/Pictures/wallhaven.cc/wallhaven-md37wk_1920x1080.png\' && hyprctl hyprpaper wallpaper \'HDMI-A-1,~/Pictures/wallhaven.cc/wallhaven-md37wk_1920x1080.png\''
+
 complete --command aurman --wraps pacman
 
 if status --is-interactive
