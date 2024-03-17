@@ -131,7 +131,8 @@ if status --is-interactive
    set SSH_AUTH_SOCK (cat $HOME/.ssh/ssh_auth_sock)
 
    # override color_command
-   set -U fish_color_command 16AA64
+   # set -U fish_color_command 16AA64
+   # set -U fish_color_param 7A4DBD
 
 end
 
