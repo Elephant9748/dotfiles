@@ -70,8 +70,11 @@ abbr -a gl 'git log --all --decorate --oneline --graph'
 abbr -a gs 'git status'
 
 #A cat clone with syntax highlighting https://github.com/sharkdp/bat
-abbr -a cat 'bat'
-abbr -a bat 'cat'
+if command -v bat > /dev/null
+        abbr -a cat 'bat'
+        abbr -a bat 'cat'
+end
+
 
 #duplex ethernet speed
 abbr -a .duplex1000 'sudo ethtool -s enp4s0 speed 1000 duplex full autoneg on'
@@ -171,8 +174,10 @@ abbr -a list_ssh_agent 'ps -e | grep \'ssh\' && cat $HOME/.ssh/ssh_auth_sock'
 function start_ssh_agent
         eval (ssh-agent -c) 
         ssh-add ~/.ssh/ed25519_rpi_bigort 
+        ssh-add ~/.ssh/hive_ed25519 
         ssh-add ~/.ssh/rick_ed25519 
         echo $SSH_AUTH_SOCK > $HOME/.ssh/ssh_auth_sock
+        timeout_ssh_agent
 end
 
 function stop_ssh_agent
@@ -183,6 +188,32 @@ end
 function list_ssh_agent
         ps -e | grep 'ssh'
         cat $HOME/.ssh/ssh_auth_sock
+end
+
+#timeout
+function timeout_ssh_agent
+        set delay 5
+        $HOME/.config/fish/timeout-ssh-agent.fish -t $delay &
+        printf "With Timeout: %ss\n" $delay
+end
+
+function timeout_clipboard
+        $HOME/.config/fish/timeout-clipboard.fish &
+end
+
+#dunst
+function stop_dunst
+        set dunst_pid (cat $HOME/.config/dunst/dunst_sock)
+        if test "$dunst_pid"
+                kill $dunst_pid
+                cat /dev/null > $HOME/.config/dunst/dunst_sock
+        else 
+                printf "No Pid available!"
+        end
+end
+
+function list_dunst
+        ps -e | grep 'dunst'
 end
 
 # Type - to move up to top parent dir which is a repository
@@ -215,17 +246,6 @@ setenv LESS_TERMCAP_us \e'[04;38;5;146m' # begin underline
 setenv FZF_DEFAULT_COMMAND 'fd --type file --follow'
 setenv FZF_CTRL_T_COMMAND 'fd --type file --follow'
 setenv FZF_DEFAULT_OPTS '--height 20%'
-
-abbr -a nova 'env OS_PASSWORD=(pass www/mit-openstack | head -n1) nova'
-abbr -a glance 'env OS_PASSWORD=(pass www/mit-openstack | head -n1) glance'
-setenv OS_USERNAME jfrg@csail.mit.edu
-setenv OS_TENANT_NAME usersandbox_jfrg
-setenv OS_AUTH_URL https://nimbus.csail.mit.edu:5001/v2.0
-setenv OS_IMAGE_API_VERSION 1
-setenv OS_VOLUME_API_VERSION 2
-function penv -d "Set up environment for the PDOS openstack service"
-	env OS_PASSWORD=(pass www/mit-openstack | head -n1) OS_TENANT_NAME=pdos OS_PROJECT_NAME=pdos $argv
-end
 
 function fish_user_key_bindings
 	bind \cz 'fg>/dev/null ^/dev/null'
