@@ -192,9 +192,9 @@ end
 
 #timeout
 function timeout_ssh_agent
-        set delay 5
-        $HOME/.config/fish/timeout-ssh-agent.fish -t $delay &
+        set delay 3600
         printf "With Timeout: %ss\n" $delay
+        $HOME/.config/fish/timeout-ssh-agent.fish -t $delay &
 end
 
 function timeout_clipboard
