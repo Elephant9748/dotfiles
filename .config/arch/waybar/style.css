@@ -28,8 +28,7 @@ window#waybar {
 	padding: 0 2px;
 	margin: 0px;
 	background: transparent;
-	/* color: #ff8700; */
-    color: #934515;
+	color: #ff8700; 
 	/*
 	color: #00afd7;
 	color: #ffffff;
@@ -46,7 +45,7 @@ window#waybar {
 #workspaces button.active {
 	/* background: #e88939; */
 	/* background: #252C2F; */
-	color: #FAFAFA;
+	color: #FAFAFA; 
 }
 
 #workspaces button.focused {
