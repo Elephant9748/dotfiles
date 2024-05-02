@@ -81,6 +81,13 @@ abbr -a .duplex1000 'sudo ethtool -s enp4s0 speed 1000 duplex full autoneg on'
 abbr -a .duplex100 'sudo ethtool -s enp4s0 speed 1000 duplex full autoneg on'
 abbr -a .duplexshow 'sudo ethtool enp4s0'
 
+#activate python venv manual
+#to deactive just type: deactive
+abbr -a .venv 'source $HOME/.venv/bin/activate.fish'
+
+#steam debugger nvidia_offload
+#nvidia-smi pmon # running process on nvidia
+
 complete --command aurman --wraps pacman
 
 if status --is-interactive
@@ -153,9 +160,9 @@ else
     abbr -a vim 'vim'
 end
 
-if test -f /usr/share/autojump/autojump.fish;
-	source /usr/share/autojump/autojump.fish;
-end
+#if test -f /usr/share/autojump/autojump.fish;
+#	source /usr/share/autojump/autojump.fish;
+#end
 
 # Nix shell profiles
 if test -e /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish;
@@ -323,14 +330,17 @@ function fish_greeting
 			sed 's/^/\t/' \
 		)
       echo
-      #echo -e " \\e[0;31mKaspa:\\e[0m"
-      #echo -e ($HOME/project/kaspaApi/target/release/kaspa_api --price | awk '{print "\\\\e[0m        price: \\\\e[0;32m"$0"\\\\e[0m"}')
-      #echo -e ($HOME/project/kaspaApi/target/release/kaspa_api --blockreward | awk '{print "\\\\e[0m        current block reward: \\\\e[0;33m"$0"\\\\e[0m"}')
-      #echo
-    # echo -e ' \\e[31mnote!: '
-    # echo -e '       \\e[36m *\\e[33mhyprpaper xdg-desktop-portal-hyprland (current use: extra-staging)'
-    # echo -e '       \\e[36m *\\e[33mhyprpaper-0.6.0-3-x86_64.pkg.tar.zst xdg-desktop-portal-hyprland-1.3.1-4-x86_64.pkg.tar.zst'
-    # echo -e '       \\e[36m *\\e[33min Downloads'
-    # echo 
+      #echo -e ' \\e[31mnote!: '
+      #echo -e '       \\e[36m *\\e[33mcant run steam on nvidia using nvidia offload (prime-run steam)'
+      #echo -e '       \\e[36m *\\e[33m!lib32-glibc, ld-linux.so.2, or prime-run itself'
+      #echo -e '       \\e[36m *\\e[33mgame still run on nvidia: nvidia-smi pmon'
+      set_color FF4BDA
+      echo -e ' note!: '
+      set_color E07700
+      echo -e '       *cant run steam on nvidia using nvidia offload (prime-run steam)'
+      echo -e '       *!lib32-glibc, ld-linux.so.2, or prime-run itself'
+      echo -e '       *game still run on nvidia: nvidia-smi pmon'
+      set_color normal
+      echo 
 
 end
