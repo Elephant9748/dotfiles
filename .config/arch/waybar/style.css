@@ -10,8 +10,8 @@
 window#waybar {
 	/*background: #000000;*/
 	background: rgba(0, 0, 0, 0.7);
-	color: gray;
-	color: #ffffff;
+	/*color: gray; */
+	color: #ffffff; 
 }
 
 #window {
@@ -28,7 +28,8 @@ window#waybar {
 	padding: 0 2px;
 	margin: 0px;
 	background: transparent;
-	color: #ff8700; 
+	/* color: #ff8700; */
+	color: #16A661; 
 	/*
 	color: #00afd7;
 	color: #ffffff;
@@ -45,7 +46,7 @@ window#waybar {
 #workspaces button.active {
 	/* background: #e88939; */
 	/* background: #252C2F; */
-	color: #FAFAFA; 
+	color: #FAFAFA;  
 }
 
 #workspaces button.focused {
@@ -111,6 +112,10 @@ window#waybar {
 
 #network.disconnected {
     background: #f53c3c;
+}
+
+#network.wifi {
+	color: #FAFAFA;  
 }
 
 #pulseaudio {
