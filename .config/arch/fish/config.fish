@@ -160,6 +160,11 @@ else
     abbr -a vim 'vim'
 end
 
+#paru 
+if command -v paru > /dev/null
+   abbr -a p 'paru'
+end
+
 #if test -f /usr/share/autojump/autojump.fish;
 #	source /usr/share/autojump/autojump.fish;
 #end
@@ -334,9 +339,9 @@ function fish_greeting
       #echo -e '       \\e[36m *\\e[33mcant run steam on nvidia using nvidia offload (prime-run steam)'
       #echo -e '       \\e[36m *\\e[33m!lib32-glibc, ld-linux.so.2, or prime-run itself'
       #echo -e '       \\e[36m *\\e[33mgame still run on nvidia: nvidia-smi pmon'
-      set_color FF4BDA
+      set_color 16AA64
       echo -e ' note!: '
-      set_color E07700
+      set_color 6A6362
       echo -e '       *cant run steam on nvidia using nvidia offload (prime-run steam)'
       echo -e '       *!lib32-glibc, ld-linux.so.2, or prime-run itself'
       echo -e '       *game still run on nvidia: nvidia-smi pmon'
