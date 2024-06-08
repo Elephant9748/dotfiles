@@ -30,7 +30,6 @@ abbr -a .t 'tmux new -s rigel'
 abbr -a .ta 'tmux a'
 abbr -a .bwarden 'gpg -d $HOME/.nextcloud/Kleopatra.box/brandon/bwarden-brandon.asc && gpgconf --kill all'
 abbr -a gree 'fish_greeting'
-abbr -a .bc '$HOME/utility/clear-clipboard-wayland-hyprland'
 abbr -a .config 'cd $HOME/.config/'
 
 abbr -a .db_pinguin 'psql -h 192.168.100.144 -p 5432 db_pinguin -U stomp'
@@ -38,10 +37,6 @@ abbr -a .nix-list 'nix-env -q'
 abbr -a .nix-update 'nix-env -u'
 #upgrade nix 
 #abbr -a .nix-env-upgrade 'nix-channel --update; nix-env --install --attr nixpkgs.nix nixpkgs.cacert; systemctl daemon-reload; systemctl restart nix-daemon'
-
-abbr -a rpi 'ssh rpi'
-abbr -a hive 'ssh hive'
-abbr -a rick 'ssh rick'
 
 abbr -a .ipv6_off 'sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1'
 abbr -a .ipv6_on 'sudo sysctl -w net.ipv6.conf.all.disable_ipv6=0' # use for gaming
@@ -160,6 +155,16 @@ else
     abbr -a vim 'vim'
 end
 
+#clipboard wayland 
+#abbr -a .bc '$HOME/utility/clear-clipboard-wayland-hyprland'
+function .bc 
+        if command -v wl-copy > /dev/null
+                wl-copy -c
+        else 
+                printf "wl-copy not found"
+        end
+end
+
 #paru 
 if command -v paru > /dev/null
    abbr -a p 'paru'
@@ -237,6 +242,24 @@ function d
 		cd ..
 	end
 end
+
+# ssh
+function rpi 
+        if command -v ssh > /dev/null
+                ssh rpi
+        end
+end
+function hive
+        if command -v ssh > /dev/null
+                ssh hive
+        end
+end
+function rick
+        if command -v ssh > /dev/null
+                ssh rick
+        end
+end
+
 
 # Fish git prompt
 set __fish_git_prompt_showuntrackedfiles 'yes'
@@ -335,16 +358,10 @@ function fish_greeting
 			sed 's/^/\t/' \
 		)
       echo
-      #echo -e ' \\e[31mnote!: '
-      #echo -e '       \\e[36m *\\e[33mcant run steam on nvidia using nvidia offload (prime-run steam)'
-      #echo -e '       \\e[36m *\\e[33m!lib32-glibc, ld-linux.so.2, or prime-run itself'
-      #echo -e '       \\e[36m *\\e[33mgame still run on nvidia: nvidia-smi pmon'
       set_color 16AA64
       echo -e ' note!: '
       set_color 6A6362
-      echo -e '       *cant run steam on nvidia using nvidia offload (prime-run steam)'
-      echo -e '       *!lib32-glibc, ld-linux.so.2, or prime-run itself'
-      echo -e '       *game still run on nvidia: nvidia-smi pmon'
+      echo -e '       *Move to kyber PQcrypt from GNUPG Soon!'
       set_color normal
       echo 
 
