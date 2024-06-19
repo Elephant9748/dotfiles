@@ -5,3 +5,5 @@
 .config/htop/
 .config/procps/
 .zsh_history
+
+.config/arch/nvim/lazy-lock.json
