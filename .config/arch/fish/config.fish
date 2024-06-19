@@ -193,6 +193,7 @@ function start_ssh_agent
         ssh-add ~/.ssh/rpi_earendel_ed25519
         ssh-add ~/.ssh/hive_wendy_ed25519
         ssh-add ~/.ssh/rick_phoebe_ed25519
+        ssh-add ~/.ssh/id_ed25519
         echo $SSH_AUTH_SOCK > $HOME/.ssh/ssh_auth_sock
         timeout_ssh_agent
 end
