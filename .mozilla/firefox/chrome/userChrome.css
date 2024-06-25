@@ -18,12 +18,15 @@
         --urlbar-toolbar-height: 30px !important;
 
 		top: unset !important;
-		bottom: calc((var(--urlbar-toolbar-height) - var(--urlbar-height)) / 2) !important; 
+        bottom: calc((var(--urlbar-container-height) - var(--urlbar-height)) / 2) !important;
 		box-shadow: none !important;
 		display: flex !important;
 		flex-direction: column !important;
 	}
-	#urlbar-input-container {
+    #urlbar > * {
+        flex: none;
+    }
+	#urlbar .urlbar-input-container {
 		order: 2;
 	}
 	#urlbar > .urlbarView {
