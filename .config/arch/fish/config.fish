@@ -139,6 +139,16 @@ if status --is-interactive
    # set -U fish_color_command 16AA64
    # set -U fish_color_param 7A4DBD
 
+   # MANPAGE
+   # man: can't open the manpath configuration file /etc/man_db.conf
+   # do this: 
+   # sudo aa-enforce usr.bin.man
+   set MANPATH (manpath) $MANPATH
+   set -g man_blink -o red
+   set -g man_bold -o green
+   set -g man_standout -b black 93a1a1
+   set -g man_underline -u 93a1a1
+
 end
 
 if command -v eza > /dev/null
@@ -153,6 +163,11 @@ else
 	abbr -a lll 'ls -la'
     abbr -a vi 'vi'
     abbr -a vim 'vim'
+end
+
+# df dont show tmpfs
+if command -v df > /dev/null
+   abbr -a drives 'df -x tmpfs -hT'
 end
 
 #clipboard wayland 
