@@ -64,4 +64,7 @@ to eq ls file: [LOCATED BACKUP DIRECTORY]::[BACKUP NAME]
 borg list [LOCATED BACKUP DIRECTORY]
 ```
 
-
+borg delete archive
+```
+borg delete --glob-archives '*contain_name_of_file*' [LOCATED BACKUP DIRECTORY]::[BACKUP NAME] [DIRECTORY To BACKUP]
+```
