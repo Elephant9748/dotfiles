@@ -378,6 +378,7 @@ function fish_greeting
       echo -e ' note!: '
       set_color 6A6362
       echo -e '       *Move to kyber PQcrypt from GNUPG Soon!'
+      echo -e '       *gnupg devel 2.5.0 with libcrypt 1.11.0 Add Kyber, Testing!'
       echo -e '       *cant build webtorrent!'
       set_color normal
       echo 
