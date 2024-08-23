@@ -12,5 +12,6 @@ rsync -azP $HOME/project/dotfiles/.config/arch/waybar $HOME/.config/ && \
 rsync -azP $HOME/project/dotfiles/.config/arch/hypr $HOME/.config/ && \
 rsync -azP $HOME/project/dotfiles/.config/arch/swappy $HOME/.config/ && \
 rsync -azP $HOME/project/dotfiles/.config/arch/dunst $HOME/.config/ && \
+rsync -azP $HOME/project/dotfiles/.config/arch/yazi $HOME/.config/ && \
 rsync -azP $HOME/project/dotfiles/.tmux.conf $HOME/
 

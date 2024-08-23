@@ -3,14 +3,9 @@ abbr -a c cargo
 abbr -a e nvim
 abbr -a m make
 abbr -a o xdg-open
-abbr -a g git
-abbr -a gc 'git checkout'
-abbr -a ga 'git add -p'
 abbr -a vimdiff 'nvim -d'
 abbr -a ct 'cargo t'
 
-abbr -a vi 'nvim'
-abbr -a vim 'nvim'
 abbr -a cle 'clear'
 abbr -a cl 'clear'
 abbr -a .lua 'cd $HOME/.config/nvim/lua/bigort/'
@@ -61,13 +56,29 @@ abbr -a screen_sharing 'wf-recorder --muxer=v4l2 --codec=rawvideo --file=/dev/vi
 abbr -a screen_sharing_portion 'wf-recorder -g "$(slurp)" --muxer=v4l2 --codec=rawvideo --file=/dev/video2 -x yuv420p'
 
 #git
-abbr -a gl 'git log --all --decorate --oneline --graph'
-abbr -a gs 'git status'
+if command -v git > /dev/null
+        abbr -a g git
+        abbr -a gc 'git checkout'
+        abbr -a ga 'git add -p'
+        abbr -a gl 'git log --all --decorate --oneline --graph'
+        abbr -a gs 'git status'
+        abbr -a gsf 'git diff --cached'
+end
 
 #A cat clone with syntax highlighting https://github.com/sharkdp/bat
 if command -v bat > /dev/null
         abbr -a cat 'bat'
         abbr -a bat 'cat'
+end
+
+if command -v yazi > /dev/null
+        abbr -a ya 'yazi'
+        abbr -a y 'yazi'
+end
+
+if command -v nvim > /dev/null
+        abbr -a vi 'nvim'
+        abbr -a vim 'nvim'
 end
 
 
@@ -199,6 +210,14 @@ end
 function load_image
         hyprctl hyprpaper preload "~/Pictures/wallhaven.cc/wallhaven-md37wk_1920x1080.png"
         hyprctl hyprpaper wallpaper "HDMI-A-1,~/Pictures/wallhaven.cc/wallhaven-md37wk_1920x1080.png"
+end
+
+#check ssh_auth_sock exist!
+if test -e !$HOME/.ssh/ssh_auth_sock;
+        if test -d !$HOME/.ssh;
+                mkdir $HOME/.ssh
+        end
+        touch $HOME/.ssh/ssh_auth_sock
 end
 
 #ssh-agent start
