@@ -32,7 +32,7 @@ Verifying file database and EFI images in /boot...
 ✗ /boot/grub/x86_64-efi/grub.efi is not signed
 ```
 
-<b>THE FIX</b>
+<b>THE BAD FIX</b>
 ```
 #!/bin/bash
 
