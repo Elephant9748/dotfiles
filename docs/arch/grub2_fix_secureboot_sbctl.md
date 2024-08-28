@@ -39,15 +39,15 @@ Verifying file database and EFI images in /boot...
 MODS=$(for i in $(awk '/insmod/ {print $2}' /boot/grub/grub.cfg | sort -u); do
   test -f /boot/grub/x86_64-efi/$i.mod && echo $i; done)
 grub-install --target=x86_64-efi --efi-directory=/boot \
-  --bootloader-id=cosmicarch \
+  --bootloader-id=[Your Bootloader Id] \
   --modules="$MODS" \
   --disable-shim-lock \
   --recheck
 # =--------------------------------------------------------------------------=
 # THIS is the fix:
-sed -i 's/SecureBoot/SecureB00t/' /boot/EFI/cosmicarch/grubx64.efi
+sed -i 's/SecureBoot/SecureB00t/' /boot/EFI/[Your Bootloader Id]/grubx64.efi
 # =--------------------------------------------------------------------------=
-#cp /boot/EFI/cosmicarch/grubx64.efi /boot/EFI/cosmicarch/bootx64.efi
+#cp /boot/EFI/[Your Bootloader Id]/grubx64.efi /boot/EFI/[Your Bootloader Id]/bootx64.efi
 rm /boot/grub/grubenv
 
 # thanks to --> https://wejn.org/2021/09/fixing-grub-verification-requested-nobody-cares/
