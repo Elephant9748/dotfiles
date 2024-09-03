@@ -232,6 +232,18 @@ function start_ssh_agent
         timeout_ssh_agent
 end
 
+#torsocks
+function start_tor 
+        if command -v torsocks > /dev/null
+                sudo systemctl start tor
+        end
+end
+function stop_tor
+        if command -v torsocks > /dev/null
+                sudo systemctl stop tor
+        end
+end
+
 function stop_ssh_agent
         kill $SSH_AGENT_PID
         cat /dev/null > $HOME/.ssh/ssh_auth_sock
