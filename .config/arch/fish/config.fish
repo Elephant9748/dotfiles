@@ -232,6 +232,11 @@ function start_ssh_agent
         timeout_ssh_agent
 end
 
+#fzf_key_bindings
+function fish_user_key_bindings
+	fzf_key_bindings
+end
+
 #torsocks
 function start_tor 
         if command -v torsocks > /dev/null
