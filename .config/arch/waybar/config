@@ -6,7 +6,8 @@
 
 	// Choose the order of the modules
 	// "modules-left": ["clock", "hyprland/workspaces", "wlr/mode"],
-	"modules-left": ["clock", "hyprland/workspaces"],
+	// "modules-left": ["clock", "hyprland/workspaces"],
+	"modules-left": ["custom/clock_manual", "hyprland/workspaces", ], // TEMP until std::chrono::tzdb FIX !!!
 	"modules-center": ["hyprland/window"],
 	"modules-right": ["network", "pulseaudio", "cpu", "memory", "battery", "privacy","tray"],
 
@@ -39,6 +40,10 @@
                 "7": []
         }
 	},
+    "custom/clock_manual": {
+        "exec": "~/project/dotfiles/scripts/arch/clock_manual_waybar",
+        "interval": 1,
+    },
 	"wlr/mode": {
 		// "format": "{}"
         "format": "<span style=\"italic\">{}</span>"
@@ -125,8 +130,9 @@
 	"clock": {
 		"interval": 1,
 		"format": "⏰ {:%a %d %b %I:%M %p}",
-		"tooltip-format": "{:%Y-%m-%d | %H:%M:%S}"
+		"tooltip-format": "{:%Y-%m-%d | %H:%M:%S}",
 		// "format-alt": "{:%Y-%m-%d}"
+        "timezone": "Asia/Jakarta"
 	},
 	"battery": {
 		"states": {
