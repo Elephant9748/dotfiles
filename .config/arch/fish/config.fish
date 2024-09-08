@@ -416,6 +416,7 @@ function fish_greeting
       echo -e '       *Move to kyber PQcrypt from GNUPG Soon!'
       echo -e '       *gnupg devel 2.5.0 with libcrypt 1.11.0 Add Kyber, Testing!'
       echo -e '       *cant build webtorrent!'
+      echo -e '       *waybar cant locate TZ (clock issue)!'
       set_color normal
       echo 
 
