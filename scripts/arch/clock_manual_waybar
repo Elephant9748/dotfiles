@@ -1,4 +1,4 @@
 #!/bin/fish
 
-date +"%a %d %b %I:%M %p" | awk '{print "⏰ "$1" "$3" "$2" "$4" "$5" "}'
+date +"%a %e %b %I:%M %p" | awk '{print "⏰ "$1" "$3" "$2" "$4" "$5" "}'
 
