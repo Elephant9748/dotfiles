@@ -15,6 +15,12 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
+     {
+             'numToStr/Comment.nvim',
+             init = function()
+                     require('Comment').setup()
+             end,
+     },
      -- colorscheme
      -- 'ackyshake/Spacegray.vim',
      'dikiaap/minimalist',
