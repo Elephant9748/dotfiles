@@ -81,6 +81,11 @@ if command -v nvim > /dev/null
         abbr -a vim 'nvim'
 end
 
+if command -v hyprctl > /dev/null
+        abbr -a cursor_phinger_dark 'hyprctl setcursor "phinger-cursors-dark" 14'
+        abbr -a cursor_pop 'hyprctl setcursor "Pop" 14'
+end
+
 
 #duplex ethernet speed
 abbr -a .duplex1000 'sudo ethtool -s enp4s0 speed 1000 duplex full autoneg on'
