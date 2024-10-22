@@ -1,17 +1,17 @@
 #!/bin/bash
 
-rsync -azP $HOME/project/dotfiles/.config/arch/alacritty $HOME/.config/ && \
-rsync -azP $HOME/project/dotfiles/.config/arch/awesome $HOME/.config/ && \
-rsync -azP $HOME/project/dotfiles/.config/arch/bspwm $HOME/.config/ && \
-rsync -azP $HOME/project/dotfiles/.config/arch/fish $HOME/.config/ && \
-rsync -azP $HOME/project/dotfiles/.config/arch/nvim $HOME/.config/ && \
-rsync -azP $HOME/project/dotfiles/.config/arch/polybar $HOME/.config/ && \
-rsync -azP $HOME/project/dotfiles/.config/arch/rofi $HOME/.config/ && \
-rsync -azP $HOME/project/dotfiles/.config/arch/sxhkd $HOME/.config/ && \
-rsync -azP $HOME/project/dotfiles/.config/arch/waybar $HOME/.config/ && \
-rsync -azP $HOME/project/dotfiles/.config/arch/hypr $HOME/.config/ && \
-rsync -azP $HOME/project/dotfiles/.config/arch/swappy $HOME/.config/ && \
-rsync -azP $HOME/project/dotfiles/.config/arch/dunst $HOME/.config/ && \
-rsync -azP $HOME/project/dotfiles/.config/arch/yazi $HOME/.config/ && \
-rsync -azP $HOME/project/dotfiles/.tmux.conf $HOME/
+rsync -azP $HOME/project/dotfiles/configs/arch/.config/alacritty $HOME/.config/ && \
+rsync -azP $HOME/project/dotfiles/configs/arch/.config/awesome $HOME/.config/ && \
+rsync -azP $HOME/project/dotfiles/configs/arch/.config/bspwm $HOME/.config/ && \
+rsync -azP $HOME/project/dotfiles/configs/arch/.config/fish $HOME/.config/ && \
+rsync -azP $HOME/project/dotfiles/configs/arch/.config/nvim $HOME/.config/ && \
+rsync -azP $HOME/project/dotfiles/configs/arch/.config/polybar $HOME/.config/ && \
+rsync -azP $HOME/project/dotfiles/configs/arch/.config/rofi $HOME/.config/ && \
+rsync -azP $HOME/project/dotfiles/configs/arch/.config/sxhkd $HOME/.config/ && \
+rsync -azP $HOME/project/dotfiles/configs/arch/.config/waybar $HOME/.config/ && \
+rsync -azP $HOME/project/dotfiles/configs/arch/.config/hypr $HOME/.config/ && \
+rsync -azP $HOME/project/dotfiles/configs/arch/.config/swappy $HOME/.config/ && \
+rsync -azP $HOME/project/dotfiles/configs/arch/.config/dunst $HOME/.config/ && \
+rsync -azP $HOME/project/dotfiles/configs/arch/.config/yazi $HOME/.config/ && \
+rsync -azP $HOME/project/dotfiles/tmux/.tmux.conf $HOME/
 
