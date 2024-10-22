@@ -237,6 +237,14 @@ function start_ssh_agent
         timeout_ssh_agent
 end
 
+#ssh-agent github start 
+function start_ssh_agent_only_git
+        eval (ssh-agent -c) 
+        ssh-add ~/.ssh/id_ed25519
+        echo $SSH_AUTH_SOCK > $HOME/.ssh/ssh_auth_sock
+        timeout_ssh_agent
+end
+
 #fzf_key_bindings
 function fish_user_key_bindings
 	fzf_key_bindings
@@ -419,8 +427,8 @@ function fish_greeting
       echo -e ' note!: '
       set_color 6A6362
       echo -e '       *Move to kyber PQcrypt from GNUPG Soon!'
-      echo -e '       *gnupg devel 2.5.0 with libcrypt 1.11.0 Add Kyber, Testing!'
-      echo -e '       *cant build webtorrent!'
+      echo -e '       *gnupg devel 2.5.0 with libcrypt 1.11.0 Add Kyber, Waiting gnupg 2.6!'
+      echo -e '       *cant download magnetlink webtorrent!'
       set_color normal
       echo 
 
