@@ -23,11 +23,14 @@
 -- 
 
 vim.o.background = "dark"
--- vim.cmd[[colorscheme gruvbox]]
 
 vim.o.termguicolors = true
 vim.o.cursorline = true
-vim.cmd([[colorscheme jellybeans]])
+
+-- Set colorscheme move to lazy.nvim
+-- ---------------------------------------
+-- vim.cmd([[colorscheme jellybeans]])
+-- vim.cmd[[colorscheme gruvbox]]
 -- vim.cmd([[colorscheme ryderbeans]])
 -- vim.cmd([[colorscheme base16-gruvbox-dark-hard]])
 -- vim.cmd([[colorscheme gruvbox]])

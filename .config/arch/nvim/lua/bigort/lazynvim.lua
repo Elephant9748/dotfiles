@@ -17,15 +17,29 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({
      {
              'numToStr/Comment.nvim',
-             init = function()
+             config = function()
                      require('Comment').setup()
              end,
      },
      -- colorscheme
      -- 'ackyshake/Spacegray.vim',
      'dikiaap/minimalist',
-     'nanotech/jellybeans.vim',
-     'ryross/ryderbeans',
+     {
+             'nanotech/jellybeans.vim',
+             config = function()
+                     vim.cmd([[
+                     colorscheme jellybeans 
+
+                     " transparent background
+                     " highlight Normal guibg=none
+                     " highlight NonText guibg=none
+                     " highlight Normal ctermbg=none
+                     " highlight NonText ctermbg=none
+                     ]])
+             end,
+     },
+     -- 'sho-87/kanagawa-paper.nvim',
+     -- 'ryross/ryderbeans',
      'ellisonleao/gruvbox.nvim',
      'gruvbox-community/gruvbox',
      {
