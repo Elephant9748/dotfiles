@@ -37,7 +37,7 @@ abbr -a .ipv6_off 'sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1'
 abbr -a .ipv6_on 'sudo sysctl -w net.ipv6.conf.all.disable_ipv6=0' # use for gaming
 
 abbr -a neofetch 'fastfetch'
-abbr -a start_virtio '$HOME/project/dotfiles/scripts/arch/start-virtio-virtual-machine-QEMU'
+abbr -a start_virtio '$HOME/project/dotfiles/bins/arch/start-virtio-virtual-machine-QEMU'
 abbr -a stop_virtio 'sudo virsh net-destroy default'
 abbr -a stop_network 'sudo systemctl stop NetworkManager'
 abbr -a start_network 'sudo systemctl start NetworkManager'

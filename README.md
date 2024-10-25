@@ -1,17 +1,5 @@
-### Manage configs
-
-**using rsync**  
-  
-prerequisites `paru -S rsync`  
-restore
-```
-./restore_dotfiles_arch
-```
-backup
-```
-./bins/rsync-move-to-dotfiles-arch
-```
-
+Manage configs
+-------------
 **using stow**  
   
 prerequisites `paru -S stow`  
@@ -29,4 +17,16 @@ Relink
 ```
 stow -Rv -t ~/ -d configs/arch .
 stow -Rv -t ~/ -d tmux .
+```
+
+**using rsync**  
+  
+prerequisites `paru -S rsync`  
+restore
+```
+./restore_dotfiles_arch
+```
+backup
+```
+./bins/rsync-move-to-dotfiles-arch
 ```
