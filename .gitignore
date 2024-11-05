@@ -6,4 +6,4 @@
 .config/procps/
 .zsh_history
 
-.config/arch/nvim/lazy-lock.json
+configs/arch/.config/nvim/lazy-lock.json

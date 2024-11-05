@@ -84,6 +84,7 @@ end
 if command -v hyprctl > /dev/null
         abbr -a cursor_phinger_dark 'hyprctl setcursor "phinger-cursors-dark" 14'
         abbr -a cursor_pop 'hyprctl setcursor "Pop" 14'
+        abbr -a cursor_cap 'hyprctl setcursor "Capitaine" 12'
 end
 
 
@@ -369,6 +370,7 @@ function fish_prompt
 	printf '%s ' (__fish_git_prompt)
 	set_color B23F61
 	echo -n '| '
+	# echo -n '⟩ '
 	set_color normal
 end
 
