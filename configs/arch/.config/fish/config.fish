@@ -60,9 +60,11 @@ if command -v git > /dev/null
         abbr -a g git
         abbr -a gc 'git checkout'
         abbr -a ga 'git add -p'
-        abbr -a gl 'git log --all --decorate --oneline --graph'
+        abbr -a gl 'git log --all --decorate --oneline -40 --graph'
         abbr -a gs 'git status'
         abbr -a gss 'git diff --cached'
+        abbr -a gsm 'git submodule update --init --recursive'
+        abbr -a gr 'git rebase -i HEAD~3'
 end
 
 #A cat clone with syntax highlighting https://github.com/sharkdp/bat
