@@ -432,7 +432,6 @@ function fish_greeting
       set_color 6A6362
       echo -e '       *Move to kyber PQcrypt from GNUPG Soon!'
       echo -e '       *gnupg devel 2.5.0 with libcrypt 1.11.0 Add Kyber, Waiting gnupg 2.6!'
-      echo -e '       *cant download magnetlink webtorrent!'
       set_color normal
       echo 
 
