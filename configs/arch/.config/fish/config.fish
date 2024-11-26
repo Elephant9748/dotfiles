@@ -81,6 +81,7 @@ end
 if command -v nvim > /dev/null
         abbr -a vi 'nvim'
         abbr -a vim 'nvim'
+        abbr -a ndiff 'nvim -d'
 end
 
 if command -v hyprctl > /dev/null
