@@ -163,6 +163,11 @@ if status --is-interactive
    # man: can't open the manpath configuration file /etc/man_db.conf
    # do this: 
    # sudo aa-enforce usr.bin.man
+   # or put into complain:
+   # sudo aa-complain usr.bin.man || sudo aa-complain /etc/apparmor.d/usr.bin.man
+   # or something related to this:
+   # ERROR: Profile for /usr/lib/@{chromium}/@{chromium} exists in /etc/apparmor.d/chromium_browser 
+   # and {'f': '/etc/apparmor.d/chromium', 'p': 'chromium', 're': AARE('/usr/lib/@{chromium}/@{chromium}')}
    set MANPATH (manpath) $MANPATH
    set -g man_blink -o red
    set -g man_bold -o green
@@ -326,6 +331,29 @@ end
 function rick
         if command -v ssh > /dev/null
                 ssh rick
+        end
+end
+
+#battery
+function battery_status
+        if command -v upower > /dev/null
+                set_color green;
+                printf "Battery_BAT1\n"
+                printf "------------\n"
+                set_color normal
+                upower -i /org/freedesktop/UPower/devices/battery_BAT1 
+                set_color green;
+                printf "line_power_ACAD\n"
+                printf "---------------\n"
+                set_color normal;
+                upower -i /org/freedesktop/UPower/devices/line_power_ACAD
+                set_color green;
+                printf "DisplayDevice\n"
+                printf "-------------\n"
+                set_color normal;
+                upower -i /org/freedesktop/UPower/devices/DisplayDevice
+        else 
+                printf "upower binaries not foun!"
         end
 end
 
