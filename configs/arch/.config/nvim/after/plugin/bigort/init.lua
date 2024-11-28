@@ -23,6 +23,7 @@
 -- 
 
 vim.o.background = "dark"
+-- vim.g.gruvbox_contrast_dark = "hard"
 
 vim.o.termguicolors = true
 vim.o.cursorline = true

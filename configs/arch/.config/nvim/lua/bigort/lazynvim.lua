@@ -22,25 +22,33 @@ require('lazy').setup({
              end,
      },
      -- colorscheme
-     -- 'ackyshake/Spacegray.vim',
      'dikiaap/minimalist',
      {
              'nanotech/jellybeans.vim',
+             -- config = function()
+             --         vim.cmd([[
+             --         colorscheme jellybeans 
+             --
+             --         " transparent background
+             --         " highlight Normal guibg=none
+             --         " highlight NonText guibg=none
+             --         " highlight Normal ctermbg=none
+             --         " highlight NonText ctermbg=none
+             --         ]])
+             -- end,
+     },
+     {
+             "catppuccin/nvim", name = "catppuccin", priority = 1000 
+     },
+     {
+             'Elephant9748/rigel254-colorscheme',
              config = function()
                      vim.cmd([[
-                     colorscheme jellybeans 
-
-                     " transparent background
-                     " highlight Normal guibg=none
-                     " highlight NonText guibg=none
-                     " highlight Normal ctermbg=none
-                     " highlight NonText ctermbg=none
+                                colorscheme rigel254-colorscheme
                      ]])
              end,
      },
-     -- 'sho-87/kanagawa-paper.nvim',
      -- 'ryross/ryderbeans',
-     'ellisonleao/gruvbox.nvim',
      'gruvbox-community/gruvbox',
      {
              'nvim-lualine/lualine.nvim',
@@ -48,18 +56,7 @@ require('lazy').setup({
      },
      'tinted-theming/base16-vim',
      'vim-scripts/candyman.vim',
-     'navarasu/onedark.nvim',
-     -- 'rose-pine/neovim',
      'rafi/awesome-vim-colorschemes',
-     'tjdevries/gruvbuddy.nvim',
-     'tjdevries/colorbuddy.vim',
-     'ErichDonGubler/vim-sublime-monokai',
-     'aktersnurra/no-clown-fiesta.nvim',
-     'srcery-colors/srcery-vim',
-     'ozkanonur/nimda.vim',
-     -- 'wincent/base16-nvim',
-     -- 'bradcush/base16-nvim',
-     --
      {
              'nvim-telescope/telescope.nvim', tag = '0.1.5',
              -- or                            , branch = '0.1.x',
