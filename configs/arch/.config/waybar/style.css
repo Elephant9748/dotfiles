@@ -29,7 +29,10 @@ window#waybar {
 	margin: 0px;
 	background: transparent;
 	/* color: #ff8700; */
+
+    /* green */
 	color: #16A661; 
+
 	/*
 	color: #00afd7;
 	color: #ffffff;
@@ -46,6 +49,8 @@ window#waybar {
 #workspaces button.active {
 	/* background: #e88939; */
 	/* background: #252C2F; */
+
+    /* white */
 	color: #FAFAFA;  
 }
 
