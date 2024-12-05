@@ -55,6 +55,17 @@ abbr -a screen_sharing 'wf-recorder --muxer=v4l2 --codec=rawvideo --file=/dev/vi
 #wf-recorder screen_sharing portion of the screen (need install slurp)
 abbr -a screen_sharing_portion 'wf-recorder -g "$(slurp)" --muxer=v4l2 --codec=rawvideo --file=/dev/video2 -x yuv420p'
 
+#v4l2loopback droid
+# https://github.com/Genymobile/scrcpy/blob/v2.3.1/doc/camera.md
+# https://github.com/Genymobile/scrcpy/blob/v2.3.1/doc/v4l2.md
+abbr -a droid-list-camera 'scrcpy --list-cameras'
+abbr -a droid-list-camera-sizes 'scrcpy --list-camera-sizes'
+abbr -a droid-camera-front 'scrcpy --video-source=camera --camera-size=720x480 --camera-facing=front --camera-fps=30 \
+--orientation=90 --no-audio --v4l2-sink=/dev/video2'
+abbr -a droid-camera-back 'scrcpy --video-source=camera --camera-size=720x480 --camera-facing=back --camera-fps=30 \
+--orientation=90 --no-audio --v4l2-sink=/dev/video2'
+abbr -a droid-adb-network 'adb tcpip 12001'
+
 #git
 if command -v git > /dev/null
         abbr -a g git
@@ -121,6 +132,9 @@ if status --is-interactive
 
    #pipx PATH
    export PATH="$HOME/.local/bin:$PATH"
+
+   #paper_backup PATH
+   export PATH="$HOME/project/paper_backup/target/release:$PATH"
 
    # git clone error RPC failed:curl 56 GnuTLS recv error (-54):Error in the pull function .
    # ```
