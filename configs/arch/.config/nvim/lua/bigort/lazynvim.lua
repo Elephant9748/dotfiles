@@ -44,7 +44,7 @@ require('lazy').setup({
              'Elephant9748/rigel254-colorscheme',
              config = function()
                      vim.cmd([[
-                                colorscheme rigel254-colorscheme
+                                colorscheme rigel254-colorscheme-green
                      ]])
              end,
      },
