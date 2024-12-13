@@ -260,6 +260,17 @@ function start_ssh_agent
         timeout_ssh_agent
 end
 
+#ssh-agent start lan
+abbr -a list_ssh_lan 'ps -e | grep \'ssh\' && cat $HOME/.ssh/ssh_auth_sock'
+function start_ssh_agent_lan
+        eval (ssh-agent -c) 
+        ssh-add ~/.ssh/rpi_earendel_ed25519
+        ssh-add ~/.ssh/hive_wendy_ed25519
+        ssh-add ~/.ssh/rick_phoebe_ed25519
+        echo $SSH_AUTH_SOCK > $HOME/.ssh/ssh_auth_sock
+        timeout_ssh_agent
+end
+
 #ssh-agent github start 
 function start_ssh_agent_only_git
         eval (ssh-agent -c) 
@@ -475,6 +486,7 @@ function fish_greeting
       set_color 6A6362
       echo -e '       *Move to kyber PQcrypt from GNUPG Soon!'
       echo -e '       *gnupg devel 2.5.0 with libcrypt 1.11.0 Add Kyber, Waiting gnupg 2.6!'
+      echo -e '       *rustaceans page 125 120dpi, Async Multithreading'
       set_color normal
       echo 
 
