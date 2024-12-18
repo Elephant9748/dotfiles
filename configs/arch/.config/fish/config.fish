@@ -1,5 +1,4 @@
 abbr -a yr 'cal -y'
-abbr -a c cargo
 abbr -a e nvim
 abbr -a m make
 abbr -a o xdg-open
@@ -76,6 +75,28 @@ if command -v git > /dev/null
         abbr -a gss 'git diff --cached'
         abbr -a gsm 'git submodule update --init --recursive'
         abbr -a gr 'git rebase -i HEAD~3'
+end
+
+#cargo
+if command -v cargo > /dev/null
+        abbr -a cb 'cargo b'
+        abbr -a cr 'cargo r'
+        abbr -a cc 'cargo c'
+        abbr -a cw 'cargo c --workspace'
+        # .
+        # ├── Cargo.toml
+        # ├── examples
+        # │   └── example.rs
+        # └── src
+        # └── main.rs
+        #
+        # cargo r --example [name file of examples]
+        abbr -a cx 'cargo r --example'
+end
+
+#mini-redis
+if command -v mini-redis-server > /dev/null
+        abbr -a mr 'mini-redis-server --port 7000'
 end
 
 #A cat clone with syntax highlighting https://github.com/sharkdp/bat
@@ -439,7 +460,7 @@ function fish_greeting
     echo -e (awk -F ':' '/model name/ {print " \\\\e[1mCPU: \\\\e[0;32m"$2"\\\\e[0m"; exit}' /proc/cpuinfo)
     echo -e (lspci | grep -E "VGA|3D controller" | awk -F ':' '/VGA/ {print " \\\\e[1mVGA:\\\\e[0;32m"$3"\\\\e[0m"; exit}')                 # packages pciutils
     echo -e (lspci | grep -E "VGA|3D controller" | awk -F ':' '/3D/ {print " \\\\e[1m3D:\\\\e[0;32m"$3"\\\\e[0m"; exit}')                   # packages pciutils
-	echo -e (echo $XDG_SESSION_TYPE | awk '{print " \\\\e[1mSession: \\\\e[0;32m"$0"\\\\e[0m"}')
+	echo -e (echo $XDG_SESSION_TYPE | awk '{print " \\\\e[1mSession: \\\\e[0;32m"$0"\\\\e[0m"}')(echo $XDG_CURRENT_DESKTOP | awk '{print " \\\\e[0;32m"$0"\\\\e[0m"}')
     echo -e (whoami | awk '{print " \\\\e[1mUser: \\\\e[0;32m"$0"\\\\e[0m"}')
 	echo -e " \\e[1mDisk usage:\\e[0m"
 	echo
@@ -486,7 +507,7 @@ function fish_greeting
       set_color 6A6362
       echo -e '       *Move to kyber PQcrypt from GNUPG Soon!'
       echo -e '       *gnupg devel 2.5.0 with libcrypt 1.11.0 Add Kyber, Waiting gnupg 2.6!'
-      echo -e '       *rustaceans page 125 120dpi, Async Multithreading'
+      echo -e '       *rustaceans page 125 120dpi, Async Interfaces'
       set_color normal
       echo 
 
