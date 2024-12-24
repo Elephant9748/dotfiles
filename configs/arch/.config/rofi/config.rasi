@@ -7,8 +7,8 @@ configuration {
 }
 
 * {
-    /* font: "Noto Sans Mono 9.5"; */
-    font: "JetBrainsMono Nerd Font 9.5";
+    // font: "Noto Sans Mono 9.5"; 
+    font: "JetBrainsMono Nerd Font 8.5";
     foreground: #8E8F8F;
     active-foreground: #ffffff;
     background-color: #010404;
@@ -29,7 +29,7 @@ configuration {
     border-radius:    1;
     border-color:     @bordercolor;
     padding:          15;
-    width: 40%;
+    width: 50%;
 }
 #mainbox {
     border:  0;
