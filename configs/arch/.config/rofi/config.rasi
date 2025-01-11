@@ -11,7 +11,8 @@ configuration {
     font: "JetBrainsMono Nerd Font 8.5";
     foreground: #8E8F8F;
     active-foreground: #ffffff;
-    background-color: #010404;
+    // background-color: #010404;
+    background-color: #0E0E10;
     active-background: #151515;
     urgent-background: #ffffff;
     urgent-foreground: #7E818D;
