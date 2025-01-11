@@ -110,6 +110,11 @@ if command -v yazi > /dev/null
         abbr -a y 'yazi'
 end
 
+if command -v fd > /dev/null
+        abbr -a ft 'fd -H -t f -d 1' #find type file max deep 1 
+        abbr -a fd1 'fd -H -t d -d 1' #find type directory max deep 1 
+end
+
 if command -v nvim > /dev/null
         abbr -a vi 'nvim'
         abbr -a vim 'nvim'
@@ -215,6 +220,7 @@ if command -v eza > /dev/null
 	abbr -a l 'eza'
 	abbr -a ls 'eza'
 	abbr -a ll 'eza -l'
+	abbr -a lg 'eza -l -G'
 	abbr -a lll 'eza -la'
     abbr -a nix 'nix-env'
 else
