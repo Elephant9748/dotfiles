@@ -83,6 +83,9 @@ if command -v cargo > /dev/null
         abbr -a cr 'cargo r'
         abbr -a cc 'cargo c'
         abbr -a cw 'cargo c --workspace'
+        abbr -a cn 'cargo new'
+        abbr -a cnb 'cargo new --bin'
+        abbr -a cnl 'cargo new --lib'
         # .
         # ├── Cargo.toml
         # ├── examples
@@ -336,8 +339,18 @@ end
 #timeout
 function timeout_ssh_agent
         set delay 3600
-        dunstify -u normal "SSH AGENT Timeout: $delay second"
-        $HOME/.config/fish/timeout-ssh-agent.fish -t $delay &
+        # if command -v dunstify > /dev/null
+        #         dunstify -u normal "SSH AGENT Timeout: $delay second"
+        #         $HOME/.config/fish/timeout-ssh-agent.fish -t $delay &
+        # else 
+        #         printf "No notify Agent found!"
+        # end 
+        if command -v hyprctl > /dev/null
+                hyprctl notify 1 5000 "rgb(16985A)" "SSH Agent Timeout: $delay second"
+                $HOME/.config/fish/timeout-ssh-agent.fish -t $delay &
+        else 
+                printf "No notify Agent found!"
+        end
 end
 
 function timeout_clipboard
