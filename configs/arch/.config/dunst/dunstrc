@@ -32,7 +32,7 @@
 
     # Position the notification in the top right corner
     # origin = bottom-right
-    origin = bottom-center
+    origin = bottom-left
 
     # Offset from the origin
     # offset = 12x50
@@ -331,7 +331,7 @@
 [urgency_normal]
     background = "#000000"
     foreground = "#C9C9B7"
-    timeout = 10
+    timeout = 5
     override_pause_level = 30
     # Icon for notifications with normal urgency, uncomment to enable
     #default_icon = /path/to/icon
