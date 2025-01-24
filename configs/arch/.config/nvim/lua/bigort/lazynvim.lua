@@ -28,19 +28,6 @@ require('lazy').setup({
              },
              config = function()
                      vim.g.fzf_layout = {  down= '~15%' }
-                     function list_cmd()
-                             local base = vim.fn.fnamemodify(vim.fn.expand('%'), ':h:.:S')
-                             if base == '.' then
-                                     -- if there is no current file,
-                                     -- proximity-sort can't do its thing
-                                     return 'fd --hidden --type file --follow --exclude ".git"'
-                             else
-                                     return vim.fn.printf('fd --hidden --type file --follow --exclude ".git" | proximity-sort %s', vim.fn.shellescape(vim.fn.expand('%')))
-                             end
-                     end
-                     vim.api.nvim_create_user_command('Files', function(arg)
-                             vim.fn['fzf#vim#files'](arg.qargs, { source = list_cmd(), options = '--scheme=path --tiebreak=index' }, arg.bang)
-                     end, { bang = true, nargs = '?', complete = "dir" })
              end,
      },
      -- colorscheme

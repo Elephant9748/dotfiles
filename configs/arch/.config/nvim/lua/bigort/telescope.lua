@@ -2,7 +2,7 @@
 
 require('telescope').setup{
         defaults = {
-                layout_strategy = 'vertical',
+                layout_strategy = 'bottom_pane',
                 layout_config = {
                         vertical = { 
                                 width = 0.55,
