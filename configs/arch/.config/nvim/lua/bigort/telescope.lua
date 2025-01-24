@@ -2,6 +2,18 @@
 
 require('telescope').setup{
         defaults = {
+                layout_strategy = 'vertical',
+                layout_config = {
+                        vertical = { 
+                                width = 0.55,
+                                prompt_position = "bottom"
+                        },
+                        bottom_pane = { 
+                                height = 0.40,
+                                width = 0.40,
+                                prompt_position = "bottom"
+                        }
+                },
                 prompt_prefix = "$ ",
                 mappings = {
                         i = {

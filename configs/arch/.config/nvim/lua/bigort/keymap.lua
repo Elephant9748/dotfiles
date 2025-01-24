@@ -18,6 +18,8 @@ vim.keymap.set("v", "J", ":m '<-2<CR>gv=gv", {buffer=0})
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "<leader>e", vim.cmd.Ex)
+vim.keymap.set("n", "ft", vim.cmd.Files)
+vim.keymap.set("n", "<leader>w", "<cmd>w<cr>")
 
 -- asbjornHaland
 vim.keymap.set("n", "<leader>y", "\"+y")
