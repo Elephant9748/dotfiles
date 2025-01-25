@@ -18,8 +18,10 @@ vim.keymap.set("v", "J", ":m '<-2<CR>gv=gv", {buffer=0})
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "<leader>e", vim.cmd.Ex)
-vim.keymap.set("n", "ft", "<cmd>call fzf#run(fzf#wrap({'source': 'fd --hidden --type file --follow --exclude \".git\"'}))<cr>", {})
+vim.keymap.set("n", "ff", "<cmd>call fzf#run(fzf#wrap({'source': 'fd --hidden --type file --follow --exclude \".git\"'}))<cr>", {})
 vim.keymap.set("n", "<leader>w", "<cmd>w<cr>")
+vim.keymap.set("n", "<leader>q", "<cmd>q!<cr>")
+vim.keymap.set("n", "<leader>v", "<cmd>vsp<cr>")
 
 -- asbjornHaland
 vim.keymap.set("n", "<leader>y", "\"+y")
