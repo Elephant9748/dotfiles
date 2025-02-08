@@ -30,6 +30,17 @@ require('lazy').setup({
                      vim.g.fzf_layout = {  down= '~15%' }
              end,
      },
+     -- svelte
+     { 'othree/html5.vim' },
+     { 'pangloss/vim-javascript'},
+     { 'evanleck/vim-svelte' },
+     -- prettier
+     {
+             'prettier/vim-prettier',
+             build = {
+                     'npm install --frozen-lockfile --production'
+             },
+     },
      -- colorscheme
      'dikiaap/minimalist',
      {
@@ -75,14 +86,7 @@ require('lazy').setup({
              'nvim-telescope/telescope-fzf-native.nvim', 
              build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' 
      },
-     -- {'neoclide/coc.nvim', branch = 'master', build = 'yarn install --frozen-lockfile'},
      'neovim/nvim-lspconfig',  -- Configurations for Nvim LSP
-     -- {
-     --            'fannheyward/telescope-coc.nvim'
-     -- }
-
-
-     -- nvim-cmp-lua 
      -- Installation
      'L3MON4D3/LuaSnip',
      {

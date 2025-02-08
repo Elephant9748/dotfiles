@@ -20,6 +20,7 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "<leader>e", vim.cmd.Ex)
 vim.keymap.set("n", "ff", "<cmd>call fzf#run(fzf#wrap({'source': 'fd --hidden --type file --follow --exclude \".git\"'}))<cr>", {})
 vim.keymap.set("n", "<leader>w", "<cmd>w<cr>")
+vim.keymap.set("i", "<leader>w", "<Esc><cmd>w<cr>")
 vim.keymap.set("n", "<leader>q", "<cmd>q!<cr>")
 vim.keymap.set("n", "<leader>v", "<cmd>vsp<cr>")
 

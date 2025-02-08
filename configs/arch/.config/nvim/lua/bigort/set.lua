@@ -19,6 +19,10 @@ vim.opt.wrap = false
 
 vim.g.mapleader = " "
 
+-- svelte 
+vim.g.svelte_indent_script = 0
+vim.g.svelte_indent_style = 0
+
 
 local modes = {
                 ["n"] = "NORMAL",
