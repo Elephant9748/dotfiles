@@ -126,7 +126,7 @@ end
 
 if command -v hyprctl > /dev/null
         abbr -a cursor_phinger_dark 'hyprctl setcursor "phinger-cursors-dark" 14'
-        abbr -a cursor_pop 'hyprctl setcursor "Pop" 14'
+        abbr -a cursor_pop 'hyprctl setcursor "Pop" 20'
         abbr -a cursor_cap 'hyprctl setcursor "Capitaine" 12'
 end
 
@@ -191,7 +191,18 @@ if status --is-interactive
    set MANPATH $NPM_PACKAGES/share/man $MANPATH
 
    #android-platform
-   export PATH="/opt/android-sdk/platform-tools/:$PATH"
+   # export PATH="/opt/android-sdk/platform-tools/:$PATH"
+
+   #tauri android 
+   set -x JAVA_HOME /mnt/d/android-studio/jbr/
+   set -x ANDROID_HOME /mnt/d/android-project/Android-Sdk/
+   set -x PATH $PATH $ANDROID_HOME/cmdline-tools
+   set -x PATH $PATH $ANDROID_HOME/build-tools/35.0.1
+   set NDK_dir (ls -1 $ANDROID_HOME/ndk)
+   set -x NDK_HOME $ANDROID_HOME/ndk/$NDK_dir
+   set -x PATH $PATH $ANDROID_HOME/ndk/$NDK_dir
+
+   set -x PATH $PATH $ANDROID_HOME/platform-tools
 
    # ssh gnome/keyring
    # set SSH_AUTH_SOCK "$XDG_RUNTIME_DIR/gcr/ssh"
@@ -534,6 +545,7 @@ function fish_greeting
       set_color 6A6362
       echo -e '       *Move to kyber PQcrypt from GNUPG Soon!'
       echo -e '       *gnupg devel 2.5.0 with libcrypt 1.11.0 Add Kyber, Waiting gnupg 2.6!'
+      echo -e '       *backup_nextcloud add symetric key AES256'
       set_color normal
       echo 
 
