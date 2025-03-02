@@ -151,6 +151,20 @@ if status --is-interactive
    #alias ssh="alacritty $(which ssh)"
 
    export GPG_TTY=$(tty)
+   # ssh agent for ssh
+   # ----------------------------
+   # ssh gnome/keyring
+   # set SSH_AUTH_SOCK "$XDG_RUNTIME_DIR/gcr/ssh"
+   set SSH_AUTH_SOCK ""
+   set SSH_AUTH_SOCK (cat $HOME/.ssh/ssh_auth_sock)
+
+   # ssh agent from gnupg
+   # ----------------------------
+   # set SSH_AGENT_PID ""
+   # set -x -U SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
+   # set -x -U SSH_AUTH_SOCK "$XDG_RUNTIME_DIR/gnupg/S.gpg-agent.ssh"
+
+   set -x PASSWORD_STORE_DIR $HOME/Pgp/pinned/boxpass
 
    #rust
    export PATH="$HOME/.cargo/bin:$PATH"
@@ -201,13 +215,7 @@ if status --is-interactive
    set NDK_dir (ls -1 $ANDROID_HOME/ndk)
    set -x NDK_HOME $ANDROID_HOME/ndk/$NDK_dir
    set -x PATH $PATH $ANDROID_HOME/ndk/$NDK_dir
-
    set -x PATH $PATH $ANDROID_HOME/platform-tools
-
-   # ssh gnome/keyring
-   # set SSH_AUTH_SOCK "$XDG_RUNTIME_DIR/gcr/ssh"
-   set SSH_AUTH_SOCK ""
-   set SSH_AUTH_SOCK (cat $HOME/.ssh/ssh_auth_sock)
 
    # override color_command
    # set -U fish_color_command 16AA64
@@ -294,9 +302,9 @@ end
 abbr -a list_ssh_agent 'ps -e | grep \'ssh\' && cat $HOME/.ssh/ssh_auth_sock'
 function start_ssh_agent
         eval (ssh-agent -c) 
-        ssh-add ~/.ssh/rpi_earendel_ed25519
-        ssh-add ~/.ssh/hive_wendy_ed25519
-        ssh-add ~/.ssh/rick_phoebe_ed25519
+        ssh-add ~/.ssh/rpi_earendel_ed25519 
+        ssh-add ~/.ssh/hive_wendy_ed25519 
+        ssh-add ~/.ssh/rick_phoebe_ed25519 
         ssh-add ~/.ssh/id_ed25519
         echo $SSH_AUTH_SOCK > $HOME/.ssh/ssh_auth_sock
         timeout_ssh_agent
@@ -306,9 +314,9 @@ end
 abbr -a list_ssh_lan 'ps -e | grep \'ssh\' && cat $HOME/.ssh/ssh_auth_sock'
 function start_ssh_agent_lan
         eval (ssh-agent -c) 
-        ssh-add ~/.ssh/rpi_earendel_ed25519
-        ssh-add ~/.ssh/hive_wendy_ed25519
-        ssh-add ~/.ssh/rick_phoebe_ed25519
+        ssh-add ~/.ssh/rpi_earendel_ed25519 
+        ssh-add ~/.ssh/hive_wendy_ed25519 
+        ssh-add ~/.ssh/rick_phoebe_ed25519 
         echo $SSH_AUTH_SOCK > $HOME/.ssh/ssh_auth_sock
         timeout_ssh_agent
 end
@@ -321,25 +329,9 @@ function start_ssh_agent_only_git
         timeout_ssh_agent
 end
 
-#fzf_key_bindings
-function fish_user_key_bindings
-	fzf_key_bindings
-end
-
-#torsocks
-function start_tor 
-        if command -v torsocks > /dev/null
-                sudo systemctl start tor
-        end
-end
-function stop_tor
-        if command -v torsocks > /dev/null
-                sudo systemctl stop tor
-        end
-end
-
 function stop_ssh_agent
-        kill $SSH_AGENT_PID
+        set get_pid (ps -e | rg -i "ssh" | awk '{print $1}')
+        kill $get_pid
         cat /dev/null > $HOME/.ssh/ssh_auth_sock
 end
 
@@ -377,6 +369,23 @@ function stop_dunst
                 cat /dev/null > $HOME/.config/dunst/dunst_sock
         else 
                 printf "No Pid available!"
+        end
+end
+
+#fzf_key_bindings
+function fish_user_key_bindings
+	fzf_key_bindings
+end
+
+#torsocks
+function start_tor 
+        if command -v torsocks > /dev/null
+                sudo systemctl start tor
+        end
+end
+function stop_tor
+        if command -v torsocks > /dev/null
+                sudo systemctl stop tor
         end
 end
 
