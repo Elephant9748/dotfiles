@@ -65,6 +65,11 @@ abbr -a droid-camera-back 'scrcpy --video-source=camera --camera-size=720x480 --
 --orientation=90 --no-audio --v4l2-sink=/dev/video2'
 abbr -a droid-adb-network 'adb tcpip 12001'
 
+#dust 
+if command -v dust > /dev/null 
+        abbr -a size 'dust -d 1 -c -B'
+end
+
 #git
 if command -v git > /dev/null
         abbr -a g git
@@ -554,8 +559,8 @@ function fish_greeting
       echo -e ' note!: '
       set_color 6A6362
       echo -e '       *gnupg devel 2.5.5 with libcrypt 1.11.0 Add Kyber, Waiting gnupg 2.6!'
-      echo -e '       *backup_nextcloud add symetric key AES256'
-      echo -e '       *Hyprland commit e86d3a14 \'fps issue everytime @UjinT34 commit\''
+      echo -e '       *bc_nc add symetric key AES256'
+      echo -e '       *tried detach luks header on usb'
       set_color normal
       echo 
 
