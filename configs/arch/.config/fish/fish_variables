@@ -1,6 +1,7 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
 SETUVAR --export ANDROID_HOME:/mnt/d/android\x2dproject/Android\x2dSdk/
+SETUVAR --export EDITOR:nvim
 SETUVAR --export JAVA_HOME:/mnt/d/android\x2dstudio/jbr/
 SETUVAR --export NDK_HOME:/mnt/d/android\x2dproject/Android\x2dSdk//ndk/28\x2e0\x2e13004108
 SETUVAR --export NDR_dir:28\x2e0\x2e13004108
