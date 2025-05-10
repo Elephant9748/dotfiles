@@ -66,7 +66,7 @@ abbr -a droid-camera-back 'scrcpy --video-source=camera --camera-size=720x480 --
 abbr -a droid-adb-network 'adb tcpip 12001'
 
 #sudo-rs
-if command -v sudo > /dev/null
+if command -v sudo-rs > /dev/null
         abbr -a sudo 'sudo-rs'
 end
 
