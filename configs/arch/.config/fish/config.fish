@@ -129,6 +129,7 @@ if command -v fd > /dev/null
 end
 
 if command -v nvim > /dev/null
+        abbr -a v 'nvim'
         abbr -a vi 'nvim'
         abbr -a vim 'nvim'
         abbr -a ndiff 'nvim -d'
