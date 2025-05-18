@@ -2,7 +2,6 @@
 
 rsync -azP $HOME/.config/hypr $HOME/project/dotfiles/configs/arch/.config/ && \
 rsync -azP $HOME/.config/alacritty $HOME/project/dotfiles/configs/arch/.config/ && \
-rsync -azP $HOME/.config/awesome $HOME/project/dotfiles/configs/arch/.config/ && \
 rsync -azP $HOME/.config/bspwm $HOME/project/dotfiles/configs/arch/.config/ && \
 rsync -azP $HOME/.config/fish $HOME/project/dotfiles/configs/arch/.config/ && \
 rsync -azP $HOME/.config/nvim $HOME/project/dotfiles/configs/arch/.config/ && \
