@@ -34,13 +34,6 @@ require('lazy').setup({
      { 'othree/html5.vim' },
      { 'pangloss/vim-javascript'},
      { 'evanleck/vim-svelte' },
-     -- prettier
-     {
-             'prettier/vim-prettier',
-             build = {
-                     'npm install --frozen-lockfile --production'
-             },
-     },
      -- colorscheme
      'dikiaap/minimalist',
      {
@@ -86,7 +79,14 @@ require('lazy').setup({
              'nvim-telescope/telescope-fzf-native.nvim', 
              build = 'make' 
      },
-     'neovim/nvim-lspconfig',  -- Configurations for Nvim LSP
+     {
+             'neovim/nvim-lspconfig',  -- Configurations for Nvim LSP 
+             config = function()
+                     vim.cmd([[
+                             lua vim.lsp.set_log_level("debug")
+                     ]])
+             end,
+     },
      -- Installation
      'L3MON4D3/LuaSnip',
      {
