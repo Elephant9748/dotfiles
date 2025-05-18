@@ -35,7 +35,7 @@ abbr -a .nix-update 'nix-env -u'
 abbr -a .ipv6_off 'sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1'
 abbr -a .ipv6_on 'sudo sysctl -w net.ipv6.conf.all.disable_ipv6=0' # use for gaming
 
-abbr -a neofetch 'fastfetch'
+abbr -a fa 'fastfetch'
 abbr -a start_virtio '$HOME/project/dotfiles/bins/arch/start-virtio-virtual-machine-QEMU'
 abbr -a stop_virtio 'sudo virsh net-destroy default'
 abbr -a stop_network 'sudo systemctl stop NetworkManager'
@@ -89,6 +89,8 @@ end
 
 #cargo
 if command -v cargo > /dev/null
+        abbr -a cbn 'cargo b && dunstify -u normal -i "/home/rigel/.local/share/icons/rustacean-flat-happy.svg"  "🦀 cargo compilling finished!"'
+        abbr -a crn 'cargo b -r && dunstify -u normal -i "/home/rigel/.local/share/icons/rustacean-flat-happy.svg"  "🦀 cargo compilling finished!"'
         abbr -a cb 'cargo b'
         abbr -a cr 'cargo r'
         abbr -a cc 'cargo c'
