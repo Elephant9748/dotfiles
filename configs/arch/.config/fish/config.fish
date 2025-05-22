@@ -514,7 +514,8 @@ end
 
 function fish_greeting
 	echo 
-	echo -e (uname -ro | awk '{print " \\\\e[1mOS: \\\\e[0;32m"$0"\\\\e[0m"}')
+	echo -en (uname -ro | awk '{print " \\\\e[1mOS: \\\\e[0;32m"$0"\\\\e[0m"}')
+    echo -e (timedatectl show -P NTPSynchronized | awk '{if ($0=="yes") print " \\\\e[1mTimesync: \\\\e[0;32mOk\\\\e[0m";else print " \\\\e[1mTimesync: \\\\033[0;31mOops!\\\\e[0m"}')
 	echo -e (uptime -p | sed 's/^up //' | awk '{print " \\\\e[1mUptime: \\\\e[0;32m"$0"\\\\e[0m"}')                                         # packages procps
 	echo -e (uname -n | awk '{print " \\\\e[1mHostname: \\\\e[0;32m"$0"\\\\e[0m"}')                                                         # packages lsb-release
     echo -e (lsb_release -d | awk -F ':' '/Description/ {gsub("\t","",$2);print " \\\\e[1mDescription: \\\\e[0;32m"$2"\\\\e[0m"; exit}')
@@ -568,7 +569,7 @@ function fish_greeting
       set_color 6A6362
       echo -e '       *gnupg devel 2.5.5 with libcrypt 1.11.0 Add Kyber, Waiting gnupg 2.6!'
       echo -e '       *bc_nc add symetric key AES256'
-      echo -e '       *tried detach luks header on usb'
+      echo -e '       *build chrodium ci/cd inside container'
       set_color normal
       echo 
 
