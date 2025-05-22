@@ -7,4 +7,6 @@ rsync -azP $HOME/project/dotfiles/configs/pop/.config/fish $HOME/.config/ && \
 rsync -azP $HOME/project/dotfiles/configs/pop/.config/nvim $HOME/.config/ && \
 rsync -azP $HOME/project/dotfiles/configs/pop/.config/polybar $HOME/.config/ && \
 rsync -azP $HOME/project/dotfiles/configs/pop/.config/rofi $HOME/.config/ && \
+rsync -azP $HOME/project/dotfiles/configs/arch/.config/$HOME/.config/gtk-3.0 $HOME/.config/ && \
+rsync -azP $HOME/project/dotfiles/configs/arch/.config/$HOME/.config/gtk-4.0 $HOME/.config/ && \
 rsync -azP $HOME/project/dotfiles/configs/pop/.config/sxhkd $HOME/.config/
