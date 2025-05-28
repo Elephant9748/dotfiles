@@ -514,9 +514,9 @@ end
 
 function fish_greeting
 	echo 
-	echo -en (uname -ro | awk '{print " \\\\e[1mOS: \\\\e[0;32m"$0"\\\\e[0m"}')
-    echo -e (timedatectl show -P NTPSynchronized | awk '{if ($0=="yes") print " \\\\e[1mTimesync: \\\\e[0;32mOk\\\\e[0m";else print " \\\\e[1mTimesync: \\\\033[0;31mOops!\\\\e[0m"}')
-	echo -e (uptime -p | sed 's/^up //' | awk '{print " \\\\e[1mUptime: \\\\e[0;32m"$0"\\\\e[0m"}')                                         # packages procps
+	echo -e (uname -ro | awk '{print " \\\\e[1mOS: \\\\e[0;32m"$0"\\\\e[0m"}')
+	echo -en (uptime -p | sed 's/^up //' | awk '{print " \\\\e[1mUptime: \\\\e[0;32m"$0"\\\\e[0m"}')                                         # packages procps
+    echo -e (timedatectl show -P NTPSynchronized | awk '{if ($0=="yes") print " \\\\e[1mNtp: \\\\e[0;32mOk\\\\e[0m";else print " \\\\e[1mNtp: \\\\033[0;31mOops!\\\\e[0m"}')
 	echo -e (uname -n | awk '{print " \\\\e[1mHostname: \\\\e[0;32m"$0"\\\\e[0m"}')                                                         # packages lsb-release
     echo -e (lsb_release -d | awk -F ':' '/Description/ {gsub("\t","",$2);print " \\\\e[1mDescription: \\\\e[0;32m"$2"\\\\e[0m"; exit}')
     echo -e (awk -F ':' '/model name/ {print " \\\\e[1mCPU: \\\\e[0;32m"$2"\\\\e[0m"; exit}' /proc/cpuinfo)
