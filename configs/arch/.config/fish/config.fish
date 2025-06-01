@@ -65,6 +65,10 @@ abbr -a droid-camera-back 'scrcpy --video-source=camera --camera-size=720x480 --
 --orientation=90 --no-audio --v4l2-sink=/dev/video2'
 abbr -a droid-adb-network 'adb tcpip 12001'
 
+# system monitor cli
+if command -v btm > /dev/null
+        abbr -a monitors 'btm --theme gruvbox-light -T'
+end
 #sudo-rs
 if command -v sudo-rs > /dev/null
         abbr -a sudo 'sudo-rs'
