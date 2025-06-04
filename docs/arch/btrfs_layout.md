@@ -69,3 +69,12 @@ remount subvolume
 ---------------
 mount -o compress=zstd,subvol=[subvol] /dev/[deviceblock] /[mounted to]
 ```
+
+#### for snapshot use
+```
+grub-btrfs
+snapper
+```
+
+##### next step follo arch wiki
+`....`
