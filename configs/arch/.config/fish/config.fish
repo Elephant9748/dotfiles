@@ -68,6 +68,8 @@ abbr -a droid-adb-network 'adb tcpip 12001'
 # system monitor cli
 if command -v btm > /dev/null
         abbr -a monitors 'btm --theme gruvbox-light -T'
+        # config `~/.config/bottom/bottom.toml`
+        # now just use `btm`
 end
 #sudo-rs
 if command -v sudo-rs > /dev/null
