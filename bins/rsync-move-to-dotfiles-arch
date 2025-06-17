@@ -15,6 +15,7 @@ rsync -azP $HOME/.config/dunst $HOME/project/dotfiles/configs/arch/.config/ && \
 rsync -azP $HOME/.config/yazi $HOME/project/dotfiles/configs/arch/.config/ && \
 rsync -azP $HOME/.config/gtk-3.0 $HOME/project/dotfiles/configs/arch/.config/ && \
 rsync -azP $HOME/.config/gtk-4.0 $HOME/project/dotfiles/configs/arch/.config/ && \
+rsync -azP $HOME/.config/bottom $HOME/project/dotfiles/configs/arch/.config/ && \
 rsync -azP $HOME/.themes $HOME/project/dotfiles/configs/ && \
 rsync -azP $HOME/.tmux.conf $HOME/project/dotfiles/tmux/.tmux.conf
 
