@@ -42,31 +42,30 @@ subvolid=5
 #### setup manual installation on archlinux
 ```
 for gpt
--------
+---------------------------
 cgdisk /dev/[block device]
 
 EFI ef00
 Linux Filesystem 8300
 Linux Filesystem 8300
-------
+---------------------------
 
 for mbr
-------
+---------------------------
 cfdisk /dev/[block device]
 
 EFI ef00
 Linux Filesystem 8300
 Linux Filesystem 8300
-------
-.
-.
+---------------------------
 
 mount btrfs file system to /mnt 
+cd /mnt
 create btrfs subvolume 
 umount -R /mnt
 
 remount subvolume
----------------
+-----------------
 mount -o compress=zstd,subvol=[subvol] /dev/[deviceblock] /[mounted to]
 ```
 
@@ -77,4 +76,4 @@ snapper
 ```
 
 ##### next step follo arch wiki
-`....`
+`...`
