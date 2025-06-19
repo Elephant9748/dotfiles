@@ -15,12 +15,12 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
-     {
-             'numToStr/Comment.nvim',
-             config = function()
-                     require('Comment').setup()
-             end,
-     },
+     -- {
+     --         'numToStr/Comment.nvim',
+     --         config = function()
+     --                 require('Comment').setup()
+     --         end,
+     -- },
      {
              'junegunn/fzf.vim',
              dependencies = {
