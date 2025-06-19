@@ -1,0 +1,11 @@
+### sddm
+```
+theme follow config of: 
+https://github.com/Keyitdev/sddm-astronaut-theme.git
+
+testing sddm:
+sddm-greeter-qt6 --test-mode --theme /usr/share/sddm/themes/sddm-astronaut-theme/
+
+more info:
+sddm arch wiki
+```
