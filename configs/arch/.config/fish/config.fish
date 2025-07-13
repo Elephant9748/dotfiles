@@ -575,7 +575,6 @@ function fish_greeting
       set_color 6A6362
       echo -e '       *gnupg devel 2.5.5 with libcrypt 1.11.0 Add Kyber, Waiting gnupg 2.6!'
       echo -e '       *bc_nc add symetric key AES256'
-      echo -e '       *build chrodium ci/cd inside container'
       set_color normal
       echo 
 
