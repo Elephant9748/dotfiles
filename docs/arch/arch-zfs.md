@@ -329,6 +329,8 @@ add zfs before filesystems hook
 HOOKS=(base udev autodetect microcode modconf keyboard keymap block zfs filesystems fsck)
 ```
 
+configure **[zfs dracut](https://github.com/Elephant9748/dotfiles/blob/main/docs/arch/arch-zfs-dracut.md)**
+
 generate mkinitcpio 
 ```
 mkinitcpio -P
