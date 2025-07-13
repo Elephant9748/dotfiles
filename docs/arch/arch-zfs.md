@@ -85,6 +85,9 @@ ls -la /dev/disk/by-partuuid
 ```
 
 create ZFS pool
+
+> [!INFO]
+> to destroy zpool ``zpool destroy [name of the pool or 'rpool']``
 ```
 zpool create -f -o ashift=12    \
          -O acltype=posixacl    \
@@ -117,6 +120,11 @@ zpool create -f -o ashift=12    \
          -R /mnt                \
          rpool /dev/disk/by-partuuid/[UUID insert here]
 ```
+
+FDE on ZFS
+1.  FDE ZFS **[Native encryption arch wiki](https://wiki.archlinux.org/title/ZFS#Native_encryption)**
+    * go to **[arch-zfs-FDE](https://github.com/Elephant9748/dotfiles/blob/main/docs/arch/arch-zfs-FDE-native.md)**
+2.  FDE ZFS **[using dm-crypt](https://wiki.archlinux.org/title/ZFS#Encryption_in_ZFS_using_dm-crypt)**
 
 checking zfs 
 ```
@@ -152,6 +160,12 @@ zfs umount -a
 export zfs pool
 ```
 zpool export [name of the pool in this case 'rpool']
+```
+
+remove /mnt/{mount mount}
+```
+sudo rm -rf /mnt/home
+sudo rm -rf /mnt/var
 ```
 
 import zfs pool
@@ -190,6 +204,7 @@ zpool get bootfs
 
 populate zfs-list cache
 ```
+mkdir -p /mnt/etc/zfs/
 cp -r /etc/zfs/zfs-list.cache /mnt/etc/zfs/
 ```
 
@@ -319,6 +334,8 @@ pacman -S zfs-linux
 
 if zfs-linux behind get from AUR **[Binary Kernel Module](https://wiki.archlinux.org/title/ZFS#Binary_kernel_module)**
 ```
+paru zfs-dkms
+or
 paru zfs-linux
 ```
 
