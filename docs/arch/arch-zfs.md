@@ -179,6 +179,7 @@ df -hT
 set bootfs, cachefile ZFS
 ```
 zpool set bootfs=rpool/ROOT/genesis_zfs_root rpool
+zgenhostid $(hostid)
 zpool set cachefile=/etc/zfs/zfs-list.cache rpool
 ```
 
