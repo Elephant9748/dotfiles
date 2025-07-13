@@ -357,8 +357,17 @@ grub-mkconfig -o /boot/EFI/grub.cfg && grub-mkconfig -o /boot/grub/grub.cfg
 
 enable zfs service at boot
 ```
+minimum
+---------
+systemctl enable zfs.target
+systemctl enable zfs-import-cache
+systemctl enable zfs-mount
+systemctl enable zfs-import.target
+---------
+
 systemctl enable zfs-import-cache
 systemctl enable zfs-import-scan
+systemctl enable zfs-import.target
 systemctl enable zfs-mount
 systemctl enable zfs-share
 systemctl enable zfs-zed
