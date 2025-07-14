@@ -10,7 +10,8 @@ or
 sudo ln -s .cache/kwin /var/lock
 ```
 
-## kde wont startyland ``dbus-run-sesions`` issue
+## kde wont startwayland ``dbus-run-sesions`` issue on ZFS filesystem
+Can't mount path /run/user/1000/doc
 ```
 dbus-run-sesions startplasma-wayland
 ```
