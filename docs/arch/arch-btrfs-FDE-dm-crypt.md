@@ -117,6 +117,7 @@
       mkinitcpio -P
       ```
 3.  Configure bootloader & initramfs to boot on luks
+    - initramfs if use dracut **[arch-btrfs-dracut](https://github.com/Elephant9748/dotfiles/blob/main/docs/arch/dracut_configure.md)**
     - configure mkinitcpio **[arch wiki](https://wiki.archlinux.org/title/Dm-crypt/Encrypting_an_entire_system#Configuring_mkinitcpio)** ``/etc/mkinitcpio.conf``
       ```
       HOOKS=(base systemd autodetect microcode modconf kms keyboard sd-vconsole block sd-encrypt filesystems fsck)
