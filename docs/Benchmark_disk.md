@@ -1,10 +1,10 @@
 ## Test Write Speed
-<p>run</p>
+run
 ```
 sync; dd if=/dev/zero of=/path/to/tempfile bs=1M count=1024; sync
 ```
 ## Test Read Speed
-<p>run</p>
+run
 ```
 dd if=/path/to/tempfile of=/dev/null bs=1M count=1024
 ```
@@ -15,7 +15,6 @@ sudo /sbin/sysctl -w vm.drop_caches=3
 ```
 dd if=tempfile of=/dev/null bs=1M count=1024
 ```
-
 
 
 ## hdparm
