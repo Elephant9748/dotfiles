@@ -134,9 +134,9 @@
         systemctl enable zfs-load-key.service
         ```
         additional at ``/usr/lib/systemd/system/zfs-import-cache.service`` edit to
-> [!NOTE]
-> To import a pool with keys, one needs to specify the -l flag, 
-> without this flag encrypted datasets will be left unavailable until the keys are loaded. See #Importing a pool created by id.
+        > [!NOTE]
+        > To import a pool with keys, one needs to specify the -l flag, 
+        > without this flag encrypted datasets will be left unavailable until the keys are loaded. See #Importing a pool created by id.
         ```
         .
         .
