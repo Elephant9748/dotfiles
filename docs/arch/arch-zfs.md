@@ -73,7 +73,7 @@ Device       Start       End   Sectors  Size Type
 mkfs.fat -F32 /dev/vda1
 mkfs.ext4 /dev/vda2
 ```
-> [!INFO]
+> [!NOTE]
 > to know sector size 
 ```
 lsblk -td

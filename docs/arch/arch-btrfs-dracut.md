@@ -17,7 +17,7 @@ omit_dracutmodules+=" brltty "
 ```
 
 additional kernel parameter dracut [wiki](https://wiki.archlinux.org/title/Dracut#Kernel_command_line_options)
-> [!INFO]
+> [!NOTE]
 > LUKS on a partition already configure at ``/etc/default/grub`` doesnt need ``etc/dracut.conf.d/cmdline.conf``
 > LUKS on LVM used below:
 ```
