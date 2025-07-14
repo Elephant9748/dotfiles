@@ -137,9 +137,19 @@
         > [!TIP]
         > To import a pool with keys, one needs to specify the -l flag, without this flag encrypted datasets will be left unavailable until the keys are loaded. See #Importing a pool created by id.
         ```
-        ...
+        .
+        .
         ExecStart=/usr/bin/zpool import -l -c /etc/zfs/zpool.cache -aN $ZPOOL_IMPORT_OPTS
-        ...
+        .
+        .
+        ```
+        if using dracut for some reason doesnt mount the correct edit at ``/etc/systemd/system/zfs-load-key.service``
+        ```
+        .
+        .
+        ExecStart=/bin/sh -c '/usr/sbin/zfs load-key -a && /usr/sbin/zfs mount [zfs pool here]/[corresponding datasets to be mounted]'
+        .
+        .
         ```
     *   Unlock at login time:PAM **[arch wiki](https://wiki.archlinux.org/title/ZFS#Unlock_at_login_time:_PAM)**
 
