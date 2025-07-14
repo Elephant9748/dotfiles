@@ -11,7 +11,7 @@ hostonly="yes"
 force="yes"
 early_microcode="yes"
 compress="zstd"
-nofsck="yes"
+# nofsck="yes"
 add_dracutmodules+=" zfs "
 omit_dracutmodules+=" btrfs brltty "
 ```
