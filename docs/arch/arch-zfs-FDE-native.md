@@ -103,59 +103,29 @@ cp -r /etc/zfs/zfs-list.cache /mnt/etc/zfs/
     ```
     arch-chroot /mnt/
     ```
-    *   Unlock/Mount at boot time: systemd 
-        * unlocking the rpool/data/home datasets using Custom script
+    *   unlock mounting encrypted zfs other datasets at boot (unlocking all key), 
+        create ``/etc/systemd/system/zfs-load-key.service`` or go **[arch wiki](https://wiki.archlinux.org/title/ZFS#Unlock/Mount_at_boot_time:_systemd)**
         ```
-        zfs list -o name,mountpoint,canmount,encryption
-        ...............................................
-        NAME                 MOUNTPOINT  CANMOUNT  ENCRYPTION
-        rpool                none        off       off
-        rpool/ROOT           none        on        aes-256-gcm
-        rpool/ROOT/var_log   /var/log    on        aes-256-gcm
-        rpool/ROOT/zfs_root  /           noauto    aes-256-gcm
-        rpool/data           none        on        aes-256-gcm
-        rpool/data/home      legacy      noauto    aes-256-gcm
+        [Unit]
+        Description=Load ZFS encryption keys
+        DefaultDependencies=no
+        After=zfs-import.target
+        Before=zfs-mount.service
+
+        [Service]
+        Type=oneshot
+        RemainAfterExit=yes
+        # ExecStart=/usr/sbin/zfs load-key -a
+        ExecStart=/usr/bin/zfs load-key -a
+        StandardInput=tty-force
+
+        [Install]
+        WantedBy=zfs-mount.service
         ```
-        * set the mountpoint to legacy to avoid having it mounted by zfs mount -a
+        enable systemd zfs load-key
         ```
-         zfs set mountpoint=legacy rpool/data/home
+        systemctl enable zfs-load-key.service
         ```
-        * Ensure that it is in ``/etc/fstab``
-        ```
-        /etc/fstab
-        ...............
-        rpool/home         /home           zfs             rw,xattr,posixacl,noauto        0 0
-        ```
-        * alternatively, you can keep using ZFS mounts if you use both
-        ```
-        zfs set canmount=noauto rpool/home
-        zfs set org.openzfs.systemd:ignore=on rpool/home
-        ```
-        * create ``/usr/local/bin/mount-zfs-homedir`` dont forget ``chmod +x /usr/local/bin/mount-zfs-homedir``
-        ```
-        #!/bin/bash
-        set -eu
-        
-        # $PAM_USER will be the username of the user, you can use it for per-user home volumes.
-        HOME_VOLUME="rpool/home" 
-        
-        if [ "$(zfs get keystatus "${HOME_VOLUME}" -Ho value)" != "available" ]; then
-          PASSWORD=$(cat -)
-          zfs load-key "${HOME_VOLUME}" <<< "$PASSWORD" || continue
-        fi
-        
-        # This will also mount any child datasets, unless they use a different key.
-        echo "$(zfs list -rHo name,keystatus,mounted "${HOME_VOLUME}")" | while IFS=$'\t' read -r NAME KEYSTATUS MOUNTED; do
-          if [ "${MOUNTED}" != "yes" ] && [ "${KEYSTATUS}" == "available" ]; then
-            zfs mount "${NAME}" || true
-          fi
-        done
-        ```
-        * add the following line to ``/etc/pam.d/system-auth``
-        ```
-        /etc/pam.d/system-auth
-        ........................
-        auth       optional                    pam_exec.so          expose_authtok /usr/local/bin/mount-zfs-homedir
-        ```
+    *   Unlock at login time:PAM **[arch wiki](https://wiki.archlinux.org/title/ZFS#Unlock_at_login_time:_PAM)**
 
 14. finishing the rest of step follow **[arch-zfs.md](https://github.com/Elephant9748/dotfiles/blob/main/docs/arch/arch-zfs.md)**
