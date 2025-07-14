@@ -143,7 +143,7 @@
         .
         .
         ```
-        if using dracut for some reason doesnt mount the correct edit at ``/etc/systemd/system/zfs-load-key.service``
+        if using dracut for some reason doesnt mount the correct datasets edit at ``/etc/systemd/system/zfs-load-key.service``
         ```
         .
         .
