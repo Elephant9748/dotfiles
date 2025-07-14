@@ -18,6 +18,8 @@ omit_dracutmodules+=" btrfs brltty "
 
 edit ``/etc/dracut.conf.d/cmdline.conf`` based of [wiki](https://wiki.archlinux.org/title/Install_Arch_Linux_on_ZFS#zfs-utils-poscat)
 ```
+root=zfs:[pool of zfs]/[datasets]
+....................................
 root=zfs:rpool/ROOT/genesis_zfs_root
 ```
 
