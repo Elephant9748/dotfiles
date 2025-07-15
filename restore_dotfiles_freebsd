@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# clone base16shell color
+git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell && \
+
+rsync -azP $HOME/project/dotfiles/configs/freebsd/.config/fish $HOME/.config/ && \
+rsync -azP $HOME/project/dotfiles/configs/freebsd/.config/nvim $HOME/.config/ && \
+rsync -azP $HOME/project/dotfiles/configs/arch/.config/bottom $HOME/.config/ && \
+rsync -azP $HOME/project/dotfiles/configs/arch/.config/bat $HOME/.config/ && \
+rsync -azP $HOME/project/dotfiles/tmux/.tmux.conf $HOME/
+
