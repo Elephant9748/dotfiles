@@ -4,7 +4,6 @@
 git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell && \
 
 rsync -azP $HOME/project/dotfiles/configs/arch/.config/alacritty $HOME/.config/ && \
-rsync -azP $HOME/project/dotfiles/configs/arch/.config/awesome $HOME/.config/ && \
 rsync -azP $HOME/project/dotfiles/configs/arch/.config/bspwm $HOME/.config/ && \
 rsync -azP $HOME/project/dotfiles/configs/arch/.config/fish $HOME/.config/ && \
 rsync -azP $HOME/project/dotfiles/configs/arch/.config/nvim $HOME/.config/ && \
