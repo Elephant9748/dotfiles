@@ -38,3 +38,12 @@ The deinstallation will free 229 kB
 ```
 
 more on **[freebsd handbook](https://docs.freebsd.org/en/books/handbook/ports/)**
+
+## mouse not moving on kvm qemu 
+```
+pkg install utouch-kmod xf86-input-evdev
+```
+edit ``/boot/loader.conf`` add:
+```
+utouch_load="YES"
+```
