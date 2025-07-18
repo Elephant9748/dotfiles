@@ -103,5 +103,22 @@
 ## 5. extra
     - [alpine pi graphics](https://wiki.alpinelinux.org/wiki/Raspberry_Pi#Linux_Kernel_Graphics_Modes)
     - [apparmor](https://wiki.alpinelinux.org/wiki/AppArmor)
+    - run script at startup using ``local`` service at ``/etc/local.d/``
+
+      ```
+      enable at boot local service
+      ..............................
+      rc-update add local default
+
+      *.start extension will run will be run when the local service started
+      .....................................................................
+
+      *.stop extension will run will be stop when the local service stopped
+      ....................................................................
+
+      make executable all
+      ....................................................................
+      chmod +x *.start *.stop
+      ```
 
 
