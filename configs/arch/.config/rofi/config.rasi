@@ -30,7 +30,7 @@ configuration {
     border-radius:    1;
     border-color:     @bordercolor;
     padding:          15;
-    width: 35%;
+    width: 25%;
 }
 #mainbox {
     border:  0;
