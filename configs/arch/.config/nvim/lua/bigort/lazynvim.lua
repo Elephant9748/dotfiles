@@ -35,20 +35,9 @@ require('lazy').setup({
      { 'pangloss/vim-javascript'},
      { 'evanleck/vim-svelte' },
      -- colorscheme
-     'dikiaap/minimalist',
+     {'stevedylandev/darkmatter-nvim'},
      {
              'nanotech/jellybeans.vim',
-             -- config = function()
-             --         vim.cmd([[
-             --         colorscheme jellybeans 
-             --
-             --         " transparent background
-             --         " highlight Normal guibg=none
-             --         " highlight NonText guibg=none
-             --         " highlight Normal ctermbg=none
-             --         " highlight NonText ctermbg=none
-             --         ]])
-             -- end,
      },
      {
              "catppuccin/nvim", name = "catppuccin", priority = 1000 

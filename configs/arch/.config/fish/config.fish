@@ -1,70 +1,3 @@
-abbr -a yr 'cal -y'
-abbr -a e nvim
-abbr -a m make
-abbr -a o xdg-open
-abbr -a vimdiff 'nvim -d'
-abbr -a ct 'cargo t'
-
-abbr -a cle 'clear'
-abbr -a cl 'clear'
-abbr -a .lua 'cd $HOME/.config/nvim/lua/bigort/'
-abbr -a .packer 'nvim $HOME/.config/nvim/lua/bigort/packer.lua'
-abbr -a .after 'nvim $HOME/.config/nvim/after/plugin/bigort/init.lua'
-abbr -a .bspwm 'nvim $HOME/.config/bspwm/bspwmrc'
-abbr -a .sxhkd 'nvim $HOME/.config/sxhkd/sxhkdrc'
-abbr -a .fish 'nvim $HOME/.config/fish/config.fish'
-abbr -a .alacritty 'nvim $HOME/.config/alacritty/alacritty.toml'
-abbr -a .hypr 'nvim $HOME/.config/hypr'
-abbr -a .waybar 'nvim $HOME/.config/waybar'
-abbr -a .project 'cd $HOME/project'
-abbr -a .dotfiles 'cd $HOME/project/dotfiles'
-abbr -a .paper 'nvim $HOME/project/paper_backup/src/main.rs'
-abbr -a .pinguin 'nvim $HOME/project/pinguin-graphql/src/main.rs'
-abbr -a .t 'tmux new -s rigel'
-abbr -a .ta 'tmux a'
-abbr -a .bwarden 'gpg -d $HOME/.nextcloud/Kleopatra.box/brandon/bwarden-brandon.asc && gpgconf --kill all'
-abbr -a gree 'fish_greeting'
-abbr -a .config 'cd $HOME/.config/'
-
-abbr -a .db_pinguin 'psql -h 192.168.100.144 -p 5432 db_pinguin -U stomp'
-abbr -a .nix-list 'nix-env -q'
-abbr -a .nix-update 'nix-env -u'
-#upgrade nix 
-#abbr -a .nix-env-upgrade 'nix-channel --update; nix-env --install --attr nixpkgs.nix nixpkgs.cacert; systemctl daemon-reload; systemctl restart nix-daemon'
-
-abbr -a .ipv6_off 'sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1'
-abbr -a .ipv6_on 'sudo sysctl -w net.ipv6.conf.all.disable_ipv6=0' # use for gaming
-
-abbr -a fa 'fastfetch'
-abbr -a start_virtio '$HOME/project/dotfiles/bins/arch/start-virtio-virtual-machine-QEMU'
-abbr -a stop_virtio 'sudo virsh net-destroy default'
-abbr -a stop_network 'sudo systemctl stop NetworkManager'
-abbr -a start_network 'sudo systemctl start NetworkManager'
-abbr -a start_ssh 'sudo systemctl start sshd'
-abbr -a stop_ssh 'sudo systemctl stop sshd'
-
-
-#v4l2loopback
-abbr -a v4l2_load 'sudo modprobe v4l2loopback video_nr=2 card_label=v4l2loopback_screen_sharing exclusive_caps=1'
-abbr -a v4l2_unload 'sudo modprobe -r v4l2loopback'
-abbr -a v4l2_list 'v4l2-ctl --list-devices'
-
-#wf-recorder screen_sharing full screen
-abbr -a screen_sharing 'wf-recorder --muxer=v4l2 --codec=rawvideo --file=/dev/video2 -x yuv420p'
-#wf-recorder screen_sharing portion of the screen (need install slurp)
-abbr -a screen_sharing_portion 'wf-recorder -g "$(slurp)" --muxer=v4l2 --codec=rawvideo --file=/dev/video2 -x yuv420p'
-
-#v4l2loopback droid
-# https://github.com/Genymobile/scrcpy/blob/v2.3.1/doc/camera.md
-# https://github.com/Genymobile/scrcpy/blob/v2.3.1/doc/v4l2.md
-abbr -a droid-list-camera 'scrcpy --list-cameras'
-abbr -a droid-list-camera-sizes 'scrcpy --list-camera-sizes'
-abbr -a droid-camera-front 'scrcpy --video-source=camera --camera-size=720x480 --camera-facing=front --camera-fps=30 \
---orientation=90 --no-audio --v4l2-sink=/dev/video2'
-abbr -a droid-camera-back 'scrcpy --video-source=camera --camera-size=720x480 --camera-facing=back --camera-fps=30 \
---orientation=90 --no-audio --v4l2-sink=/dev/video2'
-abbr -a droid-adb-network 'adb tcpip 12001'
-
 # system monitor cli
 if command -v btm > /dev/null
         abbr -a monitors 'btm --theme gruvbox-light -T'
@@ -573,9 +506,78 @@ function fish_greeting
       set_color 16AA64
       echo -e ' note!: '
       set_color 6A6362
-      echo -e '       *gnupg devel 2.5.5 with libcrypt 1.11.0 Add Kyber, Waiting gnupg 2.6!'
-      echo -e '       *bc_nc add symetric key AES256'
+      echo -e '\t*gnupg devel 2.5.5 with libcrypt 1.11.0 Add Kyber, Waiting gnupg 2.6!'
+      echo -e '\t*bc_nc add symetric key AES256'
       set_color normal
       echo 
 
 end
+
+
+abbr -a yr 'cal -y'
+abbr -a e nvim
+abbr -a m make
+abbr -a o xdg-open
+abbr -a vimdiff 'nvim -d'
+abbr -a ct 'cargo t'
+
+abbr -a cle 'clear'
+abbr -a cl 'clear'
+abbr -a .lua 'cd $HOME/.config/nvim/lua/bigort/'
+abbr -a .packer 'nvim $HOME/.config/nvim/lua/bigort/packer.lua'
+abbr -a .after 'nvim $HOME/.config/nvim/after/plugin/bigort/init.lua'
+abbr -a .bspwm 'nvim $HOME/.config/bspwm/bspwmrc'
+abbr -a .sxhkd 'nvim $HOME/.config/sxhkd/sxhkdrc'
+abbr -a .fish 'nvim $HOME/.config/fish/config.fish'
+abbr -a .alacritty 'nvim $HOME/.config/alacritty/alacritty.toml'
+abbr -a .hypr 'nvim $HOME/.config/hypr'
+abbr -a .waybar 'nvim $HOME/.config/waybar'
+abbr -a .project 'cd $HOME/project'
+abbr -a .dotfiles 'cd $HOME/project/dotfiles'
+abbr -a .paper 'nvim $HOME/project/paper_backup/src/main.rs'
+abbr -a .pinguin 'nvim $HOME/project/pinguin-graphql/src/main.rs'
+abbr -a .t 'tmux new -s rigel'
+abbr -a .ta 'tmux a'
+abbr -a .bwarden 'gpg -d $HOME/.nextcloud/Kleopatra.box/brandon/bwarden-brandon.asc && gpgconf --kill all'
+abbr -a gree 'fish_greeting'
+abbr -a .config 'cd $HOME/.config/'
+
+abbr -a .db_pinguin 'psql -h 192.168.100.144 -p 5432 db_pinguin -U stomp'
+abbr -a .nix-list 'nix-env -q'
+abbr -a .nix-update 'nix-env -u'
+#upgrade nix 
+#abbr -a .nix-env-upgrade 'nix-channel --update; nix-env --install --attr nixpkgs.nix nixpkgs.cacert; systemctl daemon-reload; systemctl restart nix-daemon'
+
+abbr -a .ipv6_off 'sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1'
+abbr -a .ipv6_on 'sudo sysctl -w net.ipv6.conf.all.disable_ipv6=0' # use for gaming
+
+abbr -a fa 'fastfetch'
+abbr -a start_virtio '$HOME/project/dotfiles/bins/arch/start-virtio-virtual-machine-QEMU'
+abbr -a stop_virtio 'sudo virsh net-destroy default'
+abbr -a stop_network 'sudo systemctl stop NetworkManager'
+abbr -a start_network 'sudo systemctl start NetworkManager'
+abbr -a start_ssh 'sudo systemctl start sshd'
+abbr -a stop_ssh 'sudo systemctl stop sshd'
+
+
+#v4l2loopback
+abbr -a v4l2_load 'sudo modprobe v4l2loopback video_nr=2 card_label=v4l2loopback_screen_sharing exclusive_caps=1'
+abbr -a v4l2_unload 'sudo modprobe -r v4l2loopback'
+abbr -a v4l2_list 'v4l2-ctl --list-devices'
+
+#wf-recorder screen_sharing full screen
+abbr -a screen_sharing 'wf-recorder --muxer=v4l2 --codec=rawvideo --file=/dev/video2 -x yuv420p'
+#wf-recorder screen_sharing portion of the screen (need install slurp)
+abbr -a screen_sharing_portion 'wf-recorder -g "$(slurp)" --muxer=v4l2 --codec=rawvideo --file=/dev/video2 -x yuv420p'
+
+#v4l2loopback droid
+# https://github.com/Genymobile/scrcpy/blob/v2.3.1/doc/camera.md
+# https://github.com/Genymobile/scrcpy/blob/v2.3.1/doc/v4l2.md
+abbr -a droid-list-camera 'scrcpy --list-cameras'
+abbr -a droid-list-camera-sizes 'scrcpy --list-camera-sizes'
+abbr -a droid-camera-front 'scrcpy --video-source=camera --camera-size=720x480 --camera-facing=front --camera-fps=30 \
+--orientation=90 --no-audio --v4l2-sink=/dev/video2'
+abbr -a droid-camera-back 'scrcpy --video-source=camera --camera-size=720x480 --camera-facing=back --camera-fps=30 \
+--orientation=90 --no-audio --v4l2-sink=/dev/video2'
+abbr -a droid-adb-network 'adb tcpip 12001'
+
