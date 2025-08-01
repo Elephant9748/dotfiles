@@ -23,6 +23,7 @@
          */
         #main-window body { flex-direction: column-reverse !important; }
         #navigator-toolbox { flex-direction: column-reverse !important; }
+        #urlbar-searchmode-switcher { position: static !important; }
         #urlbar {
 
                 /* fixed miss align urlbarview result firefox 126.0b1(64bit) nightly */
