@@ -328,6 +328,8 @@ pacman -S zfs-linux
 
 if zfs-linux behind get from AUR **[Binary Kernel Module](https://wiki.archlinux.org/title/ZFS#Binary_kernel_module)**
 ```
+paru zfs-dkms-staging-git 
+or
 paru zfs-dkms
 or
 paru zfs-linux
