@@ -92,7 +92,7 @@
 		"family": "ipv4",
 		// "interface": "wlp2*", // (Optional) To force the use of this interface
 		// "format-wifi": "<span color='#589df6'> </span> <span color='#2BB196'>{essid}</span> {frequency} <span color='#589df6'>{signaldBm} dB</span> <span color='#589df6'>⇵</span> {bandwidthUpBits}/{bandwidthDownBits}",
-		"format-wifi": "<span color='#2BB196'> </span> <span color='#3C3836'>{signalStrength}% {signaldBm}dBm</span>",
+		"format-wifi": "<span color='#2BB196'> </span> <span color='#3C3836'>{signalStrength}% {signaldBm}dBm</span> ",
 		"format-ethernet": "{ifname}: {ipaddr}/{cidr} 󰊗",
 		"format-linked": "{ifname} (No IP) ",
 		"format-disconnected": "Disconnected ⚠",

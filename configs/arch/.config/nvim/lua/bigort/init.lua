@@ -40,17 +40,25 @@ require("bigort.lualine")
 
 -- require("bigort.treesitter")
 
-require("catppuccin").setup {
-    color_overrides = {
-        all = {
-            text = "#ffffff",
-        },
-        latte = {},
-        frappe = {},
-        macchiato = {},
-        mocha = {
-            base = "#151515",
-            overlay0 = "#3C3836",
-        },
-    }
-}
+-- require("catppuccin").setup {
+--     color_overrides = {
+--         all = {
+--             text = "#ffffff",
+--         },
+--         latte = {},
+--         frappe = {},
+--         macchiato = {},
+--         mocha = {
+--             base = "#151515",
+--             overlay0 = "#3C3836",
+--         },
+--     }
+-- }
+
+-- vim.cmd [[
+--   highlight Normal guibg=none
+--   highlight NonText guibg=none
+--   highlight Normal ctermbg=none
+--   highlight NonText ctermbg=none
+-- ]]
+

@@ -118,6 +118,9 @@ if status --is-interactive
 
    set -x PASSWORD_STORE_DIR $HOME/Pgp/pinned/boxpass
 
+   # paperpass dev
+   set -x PAPERPASS_CONFIG paperpass.toml
+
    #rust
    export PATH="$HOME/.cargo/bin:$PATH"
    export PATH="$HOME/project/depot_tools:$PATH"
@@ -506,8 +509,9 @@ function fish_greeting
       set_color 16AA64
       echo -e ' note!: '
       set_color 6A6362
-      echo -e '\t*gnupg devel 2.5.5 with libcrypt 1.11.0 Add Kyber, Waiting gnupg 2.6!'
+      echo -e '\t*gnupg devel 2.5.11 with libcrypt 1.11.2 Add Kyber, Waiting gnupg 2.6!'
       echo -e '\t*bc_nc add symetric key AES256'
+      echo -e '\t*Issue build v4l2loopback on kernel 6.16 or something wrong with linux-headers 6.16'
       set_color normal
       echo 
 
@@ -559,6 +563,9 @@ abbr -a start_network 'sudo systemctl start NetworkManager'
 abbr -a start_ssh 'sudo systemctl start sshd'
 abbr -a stop_ssh 'sudo systemctl stop sshd'
 
+#printer service
+abbr -a start_printer 'sudo systemctl start cups'
+abbr -a stop_printer 'sudo systemctl stop cups'
 
 #v4l2loopback
 abbr -a v4l2_load 'sudo modprobe v4l2loopback video_nr=2 card_label=v4l2loopback_screen_sharing exclusive_caps=1'
