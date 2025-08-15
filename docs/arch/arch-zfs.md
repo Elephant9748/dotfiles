@@ -11,23 +11,9 @@ paru archiso-git
 * build an modified profile
 ```
 mkdir ~/archlive
-cp -r /usr/share/archiso/configs/releng/ ~/archlive
+cp -r /usr/share/archiso/configs/releng/* ~/archlive
+cd archlive
 mkdir archiso
-```
-* get *.zst file then repo add 
-
-some packages build have expired pgp so use ``makepkg --skippgpcheck`` to skip pgp check
-```
-repo-add /path/to/custom.db.tar.zst /path/to/package-1.0-1-x86_64.pkg.tar.zst /path/to/package-1.0-1-x86_64.pkg.tar.zst
-```
-
-* Using self-built ZFS packages from the AUR include the built packages into  ``packages.x86_64``
-```
-archlive/packages.x86_64
-........................
-linux-headers
-zfs-dkms
-zfs-utils
 ```
 
 * Using the archzfs unofficial user repository include the built packages into  ``packages.x86_64``
@@ -36,6 +22,22 @@ archlive/packages.x86_64
 ........................
 linux-headers
 archzfs-linux
+```
+
+* Using self-built ZFS packages from the AUR include the built packages into  ``packages.x86_64``
+
+get *.zst (zfs-dkms,zfs-utils) file then repo add 
+ 
+some packages build have expired pgp so use ``makepkg --skippgpcheck`` to skip pgp check
+```
+repo-add /path/to/custom.db.tar.zst /path/to/package-1.0-1-x86_64.pkg.tar.zst /path/to/package-1.0-1-x86_64.pkg.tar.zst
+```
+```
+archlive/packages.x86_64
+........................
+linux-headers
+zfs-dkms
+zfs-utils
 ```
 
 * add custom local repo ``pacman.conf``
