@@ -511,7 +511,6 @@ function fish_greeting
       set_color 6A6362
       echo -e '\t*gnupg devel 2.5.11 with libcrypt 1.11.2 Add Kyber, Waiting gnupg 2.6!'
       echo -e '\t*bc_nc add symetric key AES256'
-      echo -e '\t*Issue build v4l2loopback on kernel 6.16 or something wrong with linux-headers 6.16'
       set_color normal
       echo 
 
