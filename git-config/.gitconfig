@@ -1,0 +1,12 @@
+[user]
+	name = @Elephant9748
+	email = adytamasurya@protonmail.com
+[credential]
+	helper = store
+[safe]
+	directory = /mnt/e/VSProject/strip-metadata-python
+[core]
+	editor = nvim
+
+[init]
+	defaultBranch = main
