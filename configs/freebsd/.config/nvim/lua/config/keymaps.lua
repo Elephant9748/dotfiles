@@ -1,0 +1,45 @@
+
+local opt = { noremap = true, silent = true }
+
+-- Mappings
+
+vim.keymap.set("n", "tc", "<cmd>Telescope current_buffer_fuzzy_find sorting_strategy=ascending<cr>", {}) 
+
+vim.keymap.set("v", "K", ":m '>+1<CR>gv=gv", {buffer=0})
+vim.keymap.set("v", "J", ":m '<-2<CR>gv=gv", {buffer=0})
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+vim.keymap.set("n", "<leader>e", vim.cmd.Ex)
+vim.keymap.set("n", "ff", "<cmd>call fzf#run(fzf#wrap({'source': 'fd --hidden --type file --follow --exclude \".git\"'}))<cr>", {})
+vim.keymap.set("n", "<leader>w", "<cmd>w<cr>")
+vim.keymap.set("i", "<leader>w", "<Esc><cmd>w<cr>")
+vim.keymap.set("n", "<leader>q", "<cmd>q!<cr>")
+vim.keymap.set("n", "<leader>v", "<cmd>vsp<cr>")
+
+-- asbjornHaland
+vim.keymap.set("n", "<leader>y", "\"+y")
+vim.keymap.set("v", "<leader>y", "\"+y")
+-- vim.keymap.set("v", "<leader>y", "\"+y")
+-- vim.keymap.set("n", "<leader>Y", "\"+Y")
+
+--
+vim.keymap.set("i", "<C-c>", "<Esc>")
+vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
+-- AutoFormat *LSP on every write
+-- vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
+-- or
+vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
+
+
+-- CUSTOM lua mapping
+-- local mappings = {}
+-- 
+-- mappings.curr_buff = function() 
+--         local opt = require('telescope.themes').get_ivy({sorting_strategy="ascending",})
+--         -- local opt = require('telescope.themes').get_dropdown({height=10})
+--         require('telescope.builtin').current_buffer_fuzzy_find(opt)
+-- end
+-- return mappings
+
+
