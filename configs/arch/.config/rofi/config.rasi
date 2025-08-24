@@ -13,6 +13,7 @@ configuration {
     active-foreground: #ffffff;
     // background-color: #010404;
     background-color: #0E0E10;
+    // background-color: rgba(14, 14, 16, 0.8);
     active-background: #151515;
     urgent-background: #ffffff;
     urgent-foreground: #7E818D;
