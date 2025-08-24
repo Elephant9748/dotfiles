@@ -511,6 +511,7 @@ function fish_greeting
       set_color 6A6362
       echo -e '\t*gnupg devel 2.5.11 with libcrypt 1.11.2 Add Kyber, Waiting gnupg 2.6!'
       echo -e '\t*bc_nc add symetric key AES256'
+      echo -e '\t*reconfigure nvim'
       set_color normal
       echo 
 
@@ -526,7 +527,7 @@ abbr -a ct 'cargo t'
 
 abbr -a cle 'clear'
 abbr -a cl 'clear'
-abbr -a .lua 'cd $HOME/.config/nvim/lua/bigort/'
+abbr -a .lua 'cd $HOME/.config/nvim/lua'
 abbr -a .packer 'nvim $HOME/.config/nvim/lua/bigort/packer.lua'
 abbr -a .after 'nvim $HOME/.config/nvim/after/plugin/bigort/init.lua'
 abbr -a .bspwm 'nvim $HOME/.config/bspwm/bspwmrc'
