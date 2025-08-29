@@ -29,7 +29,7 @@ return {
 
                              highlight = {
                                      -- `false` will disable the whole extension
-                                     enable = true,
+                                     enable = true, -- disabling this if use nvim as root (ruin the colors)
 
                                      -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
                                      -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).

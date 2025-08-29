@@ -116,10 +116,11 @@ if status --is-interactive
    # set -x -U SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
    # set -x -U SSH_AUTH_SOCK "$XDG_RUNTIME_DIR/gnupg/S.gpg-agent.ssh"
 
+   # gopass
    set -x PASSWORD_STORE_DIR $HOME/Pgp/pinned/boxpass
 
-   # paperpass dev
-   set -x PAPERPASS_CONFIG paperpass.toml
+   # paperpass
+   set -x PAPERPASS_CONFIG /home/rigel/.config/paperpass/paperpass.toml
 
    #rust
    export PATH="$HOME/.cargo/bin:$PATH"
@@ -131,8 +132,10 @@ if status --is-interactive
    #pipx PATH
    export PATH="$HOME/.local/bin:$PATH"
 
-   #paper_backup PATH
-   export PATH="$HOME/project/paper_backup/target/release:$PATH"
+   #paperbackup PATH
+   export PATH="$HOME/project/paperbackup/target/release:$PATH"
+   #paperpass PATH
+   export PATH="$HOME/project/paperpass/target/release:$PATH"
 
    # git clone error RPC failed:curl 56 GnuTLS recv error (-54):Error in the pull function .
    # ```
@@ -511,7 +514,7 @@ function fish_greeting
       set_color 6A6362
       echo -e '\t*gnupg devel 2.5.11 with libcrypt 1.11.2 Add Kyber, Waiting gnupg 2.6!'
       echo -e '\t*bc_nc add symetric key AES256'
-      echo -e '\t*reconfigure nvim'
+      echo -e '\t*move to sway'
       set_color normal
       echo 
 
@@ -538,7 +541,7 @@ abbr -a .hypr 'nvim $HOME/.config/hypr'
 abbr -a .waybar 'nvim $HOME/.config/waybar'
 abbr -a .project 'cd $HOME/project'
 abbr -a .dotfiles 'cd $HOME/project/dotfiles'
-abbr -a .paper 'nvim $HOME/project/paper_backup/src/main.rs'
+abbr -a .paper 'nvim $HOME/project/paperbackup/src/main.rs'
 abbr -a .pinguin 'nvim $HOME/project/pinguin-graphql/src/main.rs'
 abbr -a .t 'tmux new -s rigel'
 abbr -a .ta 'tmux a'
