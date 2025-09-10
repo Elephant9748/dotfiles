@@ -2,18 +2,18 @@
 
 create custom archiso include zfs-dkms, zfs-utils
 
-* install archiso
+* install
 ```
 paru archiso
 or 
 paru archiso-git
+paru pacman-contrib
 ```
 * build an modified profile
 ```
 mkdir ~/archlive
 cp -r /usr/share/archiso/configs/releng/* ~/archlive
 cd archlive
-mkdir zfsrepo
 ```
 
 * Using self-built ZFS packages from the AUR include the built packages into  ``packages.x86_64``
@@ -22,14 +22,42 @@ get *.zst (zfs-dkms,zfs-utils) file then repo add
 
 some packages build have expired pgp so use ``makepkg --skippgpcheck`` to skip pgp check
 ```
-repo-add /path/to/custom.db.tar.zst /path/to/package-1.0-1-x86_64.pkg.tar.zst /path/to/package-1.0-1-x86_64.pkg.tar.zst
+mkdir zfsrepo
+cd zfsrepo
 ```
+* Build individual packages, example:
+```
+git clone https://aur.archlinux.org/paru-bin.git
+cd paru-bin
+updpkgsums
+makepkg --skippgpcheck
+cp *.zst ../
+```
+* Repo add
+
+``repo-add /path/to/custom.db.tar.zst /path/to/package-1.0-1-x86_64.pkg.tar.zst /path/to/package-1.0-1-x86_64.pkg.tar.zst``
+```
+repo-add zfsrepo.db.tar.zst pacman-7.0.0.r7.g1f38429-0-x86_64.pkg.tar.zst paru-bin-2.1.0-1-x86_64.pkg.tar.zst zfs-dkms-staging-git-2.3.4.r0.g34f96a15c7-1-any.pkg.tar.zst zfs-utils-staging-git-2.3.4.r0.g34f96a15c7-1-x86_64.pkg.tar.zst
+```
+* Add packages
 ```
 archlive/packages.x86_64
 ........................
+
+
+# ZFS With Linux not LTS
+# ----------------------
+
 linux-headers
-zfs-dkms
-zfs-utils
+libunwind
+zfs-utils-staging-git
+zfs-dkms-staging-git
+
+# Other
+# -----
+paru-bin
+pacman
+git-delta
 ```
 
 * add custom local repo ``pacman.conf``
@@ -38,7 +66,7 @@ archlive/pacman.conf
 .....................
 [customrepo]
 SigLevel = Optional TrustAll
-Server = file:///path/to/customrepo
+Server = file:///full/path/to/customrepo
 ```
 
 * create working directory & output iso directory
