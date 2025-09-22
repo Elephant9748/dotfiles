@@ -1,3 +1,99 @@
+function fish_greeting
+	echo 
+	echo -e (uname -ro | awk '{print " \\\\e[1mOS: \\\\e[0;32m"$0"\\\\e[0m"}')
+	echo -en (uptime -p | sed 's/^up //' | awk '{print " \\\\e[1mUptime: \\\\e[0;32m"$0"\\\\e[0m"}')                                         # packages procps
+    echo -e (timedatectl show -P NTPSynchronized | awk '{if ($0=="yes") print " \\\\e[1mNtp: \\\\e[0;32mOk\\\\e[0m";else print " \\\\e[1mNtp: \\\\033[0;31mOops!\\\\e[0m"}')
+	echo -e (uname -n | awk '{print " \\\\e[1mHostname: \\\\e[0;32m"$0"\\\\e[0m"}')                                                         # packages lsb-release
+    echo -e (lsb_release -d | awk -F ':' '/Description/ {gsub("\t","",$2);print " \\\\e[1mDescription: \\\\e[0;32m"$2"\\\\e[0m"; exit}')
+    echo -e (awk -F ':' '/model name/ {print " \\\\e[1mCPU: \\\\e[0;32m"$2"\\\\e[0m"; exit}' /proc/cpuinfo)
+    echo -e (lspci | grep -E "VGA|3D controller" | awk -F ':' '/VGA/ {print " \\\\e[1mVGA:\\\\e[0;32m"$3"\\\\e[0m"; exit}')                 # packages pciutils
+    echo -e (lspci | grep -E "VGA|3D controller" | awk -F ':' '/3D/ {print " \\\\e[1m3D:\\\\e[0;32m"$3"\\\\e[0m"; exit}')                   # packages pciutils
+	echo -e (echo $XDG_SESSION_TYPE | awk '{print " \\\\e[1mSession: \\\\e[0;32m"$0"\\\\e[0m"}')(echo $XDG_CURRENT_DESKTOP | awk '{print " \\\\e[0;32m"$0"\\\\e[0m"}')
+    echo -e (whoami | awk '{print " \\\\e[1mUser: \\\\e[0;32m"$0"\\\\e[0m"}')
+	echo -e " \\e[1mDisk usage:\\e[0m"
+	echo
+	echo -ne (\
+		df -l -h | grep -E 'dev/(xvda|sd|mapper|vda)' | \
+		awk '{printf "\\\\t%s\\\\t%4s / %4s  %s\\\\n\n", $6, $3, $2, $5}' | \
+		sed -e 's/^\(.*\([8][5-9]\|[9][0-9]\)%.*\)$/\\\\e[0;31m\1\\\\e[0m/' -e 's/^\(.*\([7][5-9]\|[8][0-4]\)%.*\)$/\\\\e[0;33m\1\\\\e[0m/' | \
+		paste -sd ''\
+	)
+	echo
+
+	echo -e " \\e[1mNetwork:\\e[0m"
+	echo
+	# http://tdt.rocks/linux_network_interface_naming.html
+	echo -ne (\
+		ip addr show up scope global | \
+			grep -E ': <|inet' | \
+			sed \
+				-e 's/^[[:digit:]]\+: //' \
+				-e 's/: <.*//' \
+				-e 's/.*inet[[:digit:]]* //' \
+				-e 's/\/.*//'| \
+			awk 'BEGIN {i=""} /\.|:/ {print i" "$0"\\\n"; next} // {i = $0}' | \
+			sort | \
+			column -t -R1 | \
+			# public addresses are underlined for visibility \
+			sed 's/ \([^ ]\+\)$/ \\\e[4m\1/' | \
+			# private addresses are not \
+			sed 's/m\(\(10\.\|172\.\(1[6-9]\|2[0-9]\|3[01]\)\|192\.168\.\).*\)/m\\\e[24m\1/' | \
+			# unknown interfaces are cyan \
+			sed 's/^\( *[^ ]\+\)/\\\e[36m\1/' | \
+			# ethernet interfaces are normal \
+			sed 's/\(\(en\|enp\|em\|eth\)[^ ]* .*\)/\\\e[39m\1/' | \
+			# wireless interfaces are purple \
+			sed 's/\(wl[^ ]* .*\)/\\\e[35m\1/' | \
+			# wwan interfaces are yellow \
+			sed 's/\(ww[^ ]* .*\).*/\\\e[33m\1/' | \
+			sed 's/$/\\\e[0m/' | \
+			sed 's/^/\t/' \
+		)
+      echo
+      set_color 16AA64
+      echo -e ' note!: '
+      set_color 6A6362
+      echo -e '\t*gnupg devel 2.5.11 with libcrypt 1.11.2 Add Kyber, Waiting gnupg 2.6!'
+      echo -e '\t*bc_nc add symetric key AES256'
+      echo -e '\t*move to sway'
+      set_color F53C3C
+      echo -e '\t*supply chain attack: before open wallet check dependencies npm packages.!!! '
+      set_color 4E4EAB
+      echo -e '\t*https://socket.dev/blog/npm-author-qix-compromised-in-major-supply-chain-attack'
+      echo -e '\t*https://gist.github.com/sindresorhus/2b7466b1ec36376b8742dc711c24db20'
+      echo -e '\t*https://github.com/chalk/chalk/issues/656'
+      set_color F53C3C
+      echo -e '\t*DONT UPRADE webtorrent-cli, prettier yet'
+      set_color normal
+      echo 
+
+end
+
+function fish_prompt
+	set_color brblack
+	echo -n "["(date "+%H:%M")"] "
+    set_color 16AA64
+	echo -n (hostnamectl hostname)
+	if [ $PWD != $HOME ]
+		set_color brblack
+		echo -n ':'
+		set_color 7A4DBD
+		echo -n (basename $PWD)
+	end
+	set_color 1796B8
+	printf '%s ' (__fish_git_prompt)
+	set_color B23F61
+	echo -n '| '
+	# echo -n '⟩ '
+	set_color normal
+end
+
+#reflector mirror sync in arch
+if command -v reflector > /dev/null
+        abbr -a mirror_sync 'sudo reflector -c NL -p https --sort age --sort score -l 20 --save /etc/pacman.d/mirrorlist'
+end
+
+
 # system monitor cli
 if command -v btm > /dev/null
         abbr -a monitors 'btm --theme gruvbox-light -T'
@@ -120,7 +216,7 @@ if status --is-interactive
    set -x PASSWORD_STORE_DIR $HOME/Pgp/pinned/boxpass
 
    # paperpass
-   set -x PAPERPASS_CONFIG /home/rigel/.config/paperpass/paperpass.toml
+   set -x PAPERPASS_CONFIG $HOME/.config/paperpass/paperpass.toml
 
    #rust
    export PATH="$HOME/.cargo/bin:$PATH"
@@ -437,89 +533,6 @@ function fish_user_key_bindings
 		fzf_key_bindings
 	end
 end
-
-function fish_prompt
-	set_color brblack
-	echo -n "["(date "+%H:%M")"] "
-    set_color 16AA64
-	echo -n (hostnamectl hostname)
-	if [ $PWD != $HOME ]
-		set_color brblack
-		echo -n ':'
-		set_color 7A4DBD
-		echo -n (basename $PWD)
-	end
-	set_color 1796B8
-	printf '%s ' (__fish_git_prompt)
-	set_color B23F61
-	echo -n '| '
-	# echo -n '⟩ '
-	set_color normal
-end
-
-function fish_greeting
-	echo 
-	echo -e (uname -ro | awk '{print " \\\\e[1mOS: \\\\e[0;32m"$0"\\\\e[0m"}')
-	echo -en (uptime -p | sed 's/^up //' | awk '{print " \\\\e[1mUptime: \\\\e[0;32m"$0"\\\\e[0m"}')                                         # packages procps
-    echo -e (timedatectl show -P NTPSynchronized | awk '{if ($0=="yes") print " \\\\e[1mNtp: \\\\e[0;32mOk\\\\e[0m";else print " \\\\e[1mNtp: \\\\033[0;31mOops!\\\\e[0m"}')
-	echo -e (uname -n | awk '{print " \\\\e[1mHostname: \\\\e[0;32m"$0"\\\\e[0m"}')                                                         # packages lsb-release
-    echo -e (lsb_release -d | awk -F ':' '/Description/ {gsub("\t","",$2);print " \\\\e[1mDescription: \\\\e[0;32m"$2"\\\\e[0m"; exit}')
-    echo -e (awk -F ':' '/model name/ {print " \\\\e[1mCPU: \\\\e[0;32m"$2"\\\\e[0m"; exit}' /proc/cpuinfo)
-    echo -e (lspci | grep -E "VGA|3D controller" | awk -F ':' '/VGA/ {print " \\\\e[1mVGA:\\\\e[0;32m"$3"\\\\e[0m"; exit}')                 # packages pciutils
-    echo -e (lspci | grep -E "VGA|3D controller" | awk -F ':' '/3D/ {print " \\\\e[1m3D:\\\\e[0;32m"$3"\\\\e[0m"; exit}')                   # packages pciutils
-	echo -e (echo $XDG_SESSION_TYPE | awk '{print " \\\\e[1mSession: \\\\e[0;32m"$0"\\\\e[0m"}')(echo $XDG_CURRENT_DESKTOP | awk '{print " \\\\e[0;32m"$0"\\\\e[0m"}')
-    echo -e (whoami | awk '{print " \\\\e[1mUser: \\\\e[0;32m"$0"\\\\e[0m"}')
-	echo -e " \\e[1mDisk usage:\\e[0m"
-	echo
-	echo -ne (\
-		df -l -h | grep -E 'dev/(xvda|sd|mapper|vda)' | \
-		awk '{printf "\\\\t%s\\\\t%4s / %4s  %s\\\\n\n", $6, $3, $2, $5}' | \
-		sed -e 's/^\(.*\([8][5-9]\|[9][0-9]\)%.*\)$/\\\\e[0;31m\1\\\\e[0m/' -e 's/^\(.*\([7][5-9]\|[8][0-4]\)%.*\)$/\\\\e[0;33m\1\\\\e[0m/' | \
-		paste -sd ''\
-	)
-	echo
-
-	echo -e " \\e[1mNetwork:\\e[0m"
-	echo
-	# http://tdt.rocks/linux_network_interface_naming.html
-	echo -ne (\
-		ip addr show up scope global | \
-			grep -E ': <|inet' | \
-			sed \
-				-e 's/^[[:digit:]]\+: //' \
-				-e 's/: <.*//' \
-				-e 's/.*inet[[:digit:]]* //' \
-				-e 's/\/.*//'| \
-			awk 'BEGIN {i=""} /\.|:/ {print i" "$0"\\\n"; next} // {i = $0}' | \
-			sort | \
-			column -t -R1 | \
-			# public addresses are underlined for visibility \
-			sed 's/ \([^ ]\+\)$/ \\\e[4m\1/' | \
-			# private addresses are not \
-			sed 's/m\(\(10\.\|172\.\(1[6-9]\|2[0-9]\|3[01]\)\|192\.168\.\).*\)/m\\\e[24m\1/' | \
-			# unknown interfaces are cyan \
-			sed 's/^\( *[^ ]\+\)/\\\e[36m\1/' | \
-			# ethernet interfaces are normal \
-			sed 's/\(\(en\|enp\|em\|eth\)[^ ]* .*\)/\\\e[39m\1/' | \
-			# wireless interfaces are purple \
-			sed 's/\(wl[^ ]* .*\)/\\\e[35m\1/' | \
-			# wwan interfaces are yellow \
-			sed 's/\(ww[^ ]* .*\).*/\\\e[33m\1/' | \
-			sed 's/$/\\\e[0m/' | \
-			sed 's/^/\t/' \
-		)
-      echo
-      set_color 16AA64
-      echo -e ' note!: '
-      set_color 6A6362
-      echo -e '\t*gnupg devel 2.5.11 with libcrypt 1.11.2 Add Kyber, Waiting gnupg 2.6!'
-      echo -e '\t*bc_nc add symetric key AES256'
-      echo -e '\t*move to sway'
-      set_color normal
-      echo 
-
-end
-
 
 abbr -a yr 'cal -y'
 abbr -a e nvim
