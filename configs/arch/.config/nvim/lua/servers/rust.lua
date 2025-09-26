@@ -1,6 +1,6 @@
-return function(lspconfig, capabilities, on_attach)
+return function(capabilities, on_attach)
         -- Rust rust_analyzer
-        lspconfig.rust_analyzer.setup{
+        vim.lsp.config('rust_analyzer', {
                 capabilities = capabilities,
                 on_attach = on_attach,
                 settings = {
@@ -11,5 +11,6 @@ return function(lspconfig, capabilities, on_attach)
                         }
                 }
 
-        }
+        })
+        vim.lsp.enable('rust_analyzer')
 end

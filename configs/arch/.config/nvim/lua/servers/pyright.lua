@@ -1,6 +1,6 @@
 return function(lspconfig, capabilities, on_attach)
         -- pyright
-        lspconfig.pyright.setup{
+        vim.lsp.config('pyright',{
                 capabilities = capabilities,
                 on_attach = on_attach,
                 settings = {
@@ -12,5 +12,7 @@ return function(lspconfig, capabilities, on_attach)
                                 }
                         }
                 }
-        }
+        })
+
+        vim.lsp.enable('pyright')
 end

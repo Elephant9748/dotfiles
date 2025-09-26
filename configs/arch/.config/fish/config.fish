@@ -93,6 +93,9 @@ if command -v reflector > /dev/null
         abbr -a mirror_sync 'sudo reflector -c NL -p https --sort age --sort score -l 20 --save /etc/pacman.d/mirrorlist'
 end
 
+if command -v webtorrent > /dev/null
+        abbr -a wt 'webtorrent'
+end
 
 # system monitor cli
 if command -v btm > /dev/null

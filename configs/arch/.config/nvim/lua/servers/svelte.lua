@@ -1,12 +1,14 @@
 return function(lspconfig, lspconfig_util, capabilities, on_attach)
         -- svelte
-        lspconfig.svelte.setup{
+        vim.lsp.config('svelte',{
                 capabilities = capabilities,
                 default_config = {
                         cmd = {"svelteserver","--stdio"},
                         filetypes = { "svelte" },
-                        root_dir = lspconfig_util.root_pattern('package.json', '.git'),
+                        root_markers = { 'package.json', '.git'},
                 },
                 on_attach = on_attach,
-        }
+        })
+
+        vim.lsp.enable('svelte')
 end
