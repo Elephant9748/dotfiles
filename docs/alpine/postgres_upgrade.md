@@ -28,15 +28,21 @@ run-container
 stop-container
 
 sudo cp postgres[version]_willy_data_backup_[date].sql [docker-volume-postgres-new]/
+or
+sudo docker cp ./postgres_backup.sql postgres:/var/lib/postgresql
 
 docker-compose exec postgres sh
 
-psql -U "willy" -d- "db_nxcloud"<  /var/lib/postgresql/data/postgres[version]_willy_data_backup_[data].sql
+psql -U "willy" -d "db_nxcloud"<  /var/lib/postgresql/data/postgres[version]_willy_data_backup_[data].sql
 
 run-container
 ```
 
 
+###### connectdb using psql
+```
+sudo docker exec -it postgres psql -h [host] -U [user] -d [dbname]
+```
 ###### important note
 ```
 1. helpful link : https://hollo.me/devops/upgrade-postgresql-database-with-docker.html
