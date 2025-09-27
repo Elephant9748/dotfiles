@@ -59,14 +59,14 @@
 4.  Generate systemd cryptsetup
     ```
     systemctl daemon-reload
-    systemctl start systemd-cryptsetup@luks_external_c44b9b6e.service
-    systemctl enable systemd-cryptsetup@luks_external_c44b9b6e.service
+    systemctl start systemd-cryptsetup@luks_external_5098c414.service
+    systemctl enable systemd-cryptsetup@luks_external_5098c414.service
     ```
     - Tips if service doesnt want to enable
       ```
-      sudo cp /run/systemd/generator/systemd-cryptsetup@luks_external_c44b9b6e.service /usr/lib/systemd/system/luks_external_c44b9b6e.service
+      sudo cp /run/systemd/generator/systemd-cryptsetup@luks_external_5098c414.service /usr/lib/systemd/system/luks_external_5098c414.service
       ```
-      edit ``/usr/lib/systemd/system/luks_external_c44b9b6e.service`` add:
+      edit ``/usr/lib/systemd/system/luks_external_5098c414.service`` add:
       ```
       [Install]
       WantedBy = multi-user.target
