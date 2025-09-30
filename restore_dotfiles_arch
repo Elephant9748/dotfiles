@@ -19,9 +19,13 @@ rsync -azP $HOME/project/dotfiles/configs/arch/.config/gtk-3.0 $HOME/.config/ &&
 rsync -azP $HOME/project/dotfiles/configs/arch/.config/gtk-4.0 $HOME/.config/ && \
 rsync -azP $HOME/project/dotfiles/configs/arch/.config/bottom $HOME/.config/ && \
 rsync -azP $HOME/project/dotfiles/configs/arch/.config/bat $HOME/.config/ && \
+# theme
 rsync -azP $HOME/project/dotfiles/configs/.themes $HOME/ && \
+# icon
+rsync -azP configs/arch/icons/Pop /usr/share/icons/ && \
 rsync -azP $HOME/project/dotfiles/tmux/.tmux.conf $HOME/ 
 
 # sddm look
-# rsync -azP $HOME/project/dotfiles/configs/arch/sddm/sddm-astronaut-theme /usr/share/sddm/themes/sddm-astronaut-theme
+# sudo rsync -azP $HOME/project/dotfiles/configs/arch/sddm/sddm-astronaut-theme /usr/share/sddm/themes/
+# sudo $HOME/project/dotfiles/configs/arch/sddm/sddm.conf.d/ /usr/lib/sddm/sddm.conf.d/
 
