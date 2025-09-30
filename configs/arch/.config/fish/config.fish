@@ -206,8 +206,8 @@ if status --is-interactive
    # ----------------------------
    # ssh gnome/keyring
    # set SSH_AUTH_SOCK "$XDG_RUNTIME_DIR/gcr/ssh"
-   set SSH_AUTH_SOCK ""
-   set SSH_AUTH_SOCK (cat $HOME/.ssh/ssh_auth_sock)
+   set -x SSH_AUTH_SOCK ""
+   set -x SSH_AUTH_SOCK (cat $HOME/.ssh/ssh_auth_sock)
 
    # ssh agent from gnupg
    # ----------------------------
