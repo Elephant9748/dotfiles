@@ -90,6 +90,13 @@ mkarchiso -v -w /path/to/work_dir -o /path/to/out_dir /path/to/profile/
 
 * boot into iso & config ZFS pool, vdev
 
+modprobe
+```
+modprobe zfs
+lsmod | grep -i "zfs"
+zpool status
+```
+
 disk structure
 ```
 Device       Start       End   Sectors  Size Type
