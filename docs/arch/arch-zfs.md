@@ -74,6 +74,12 @@ Server = file:///full/path/to/customrepo
 mkdir ~/archlive/{work,isoout}
 ```
 
+* add file to image
+```
+sudo cp /etc/paru.conf archlive/airootfs/etc/
+sudo cp /etc/pacman.conf archlive/airootfs/etc/
+```
+
 * build custom iso
 
 > [!NOTE]
