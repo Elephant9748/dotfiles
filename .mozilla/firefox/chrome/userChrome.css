@@ -16,6 +16,11 @@
 /* ``` */
 
 @-moz-document url(chrome://browser/content/browser.xhtml) {
+        /*stop rounded tab*/
+        :root {
+                --border-radius-medium: 4px !important;
+        }
+
         /* tabs on bottom of window */
         /* requires that you set
          * toolkit.legacyUserProfileCustomizations.stylesheets = true
