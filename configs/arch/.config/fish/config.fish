@@ -94,7 +94,7 @@ if command -v reflector > /dev/null
 end
 
 if command -v webtorrent > /dev/null
-        abbr -a wt 'webtorrent'
+        abbr -a wt 'webtorrent download'
 end
 
 # system monitor cli
@@ -220,6 +220,8 @@ if status --is-interactive
 
    # paperpass
    set -x PAPERPASS_CONFIG $HOME/.config/paperpass/paperpass.toml
+   #paperbackup
+   set -x PAPERBACKUP_CONFIG $HOME/.config/paperbackup/config.toml
 
    #rust
    export PATH="$HOME/.cargo/bin:$PATH"
@@ -400,18 +402,19 @@ end
 #timeout
 function timeout_ssh_agent
         set delay 3600
-        # if command -v dunstify > /dev/null
-        #         dunstify -u normal "SSH AGENT Timeout: $delay second"
-        #         $HOME/.config/fish/timeout-ssh-agent.fish -t $delay &
-        # else 
-        #         printf "No notify Agent found!"
-        # end 
-        if command -v hyprctl > /dev/null
-                hyprctl notify 1 5000 "rgb(16985A)" "SSH Agent Timeout: $delay second"
+        if command -v dunstify > /dev/null
+                dunstify -u normal -i "/home/rigel/.local/share/icons/ssh.png" "SSH AGENT Timeout: $delay second"
                 $HOME/.config/fish/timeout-ssh-agent.fish -t $delay &
         else 
                 printf "No notify Agent found!"
-        end
+        end 
+        # # native hyprland notify
+        # if command -v hyprctl > /dev/null
+        #         hyprctl notify 1 5000 "rgb(16985A)" "SSH Agent Timeout: $delay second"
+        #         $HOME/.config/fish/timeout-ssh-agent.fish -t $delay &
+        # else 
+        #         printf "No notify Agent found!"
+        # end
 end
 
 function timeout_clipboard

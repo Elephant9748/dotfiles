@@ -21,7 +21,8 @@ function notify_dunst -d "start"
                                 kill $ssh_pid
                                 cat /dev/null > $HOME/.ssh/ssh_auth_sock
                                 #printf "\nSSH AGENT Time is up!"
-                                dunstify -u normal "SSH AGENT Time is up!"
+                                # dunstify -u normal "SSH AGENT Time is up!"
+                                dunstify -u normal -i "/home/rigel/.local/share/icons/ssh.png" "SSH AGENT Timeout: $delay second"
                                 ps -e | grep 'dunst' | awk '{print $1}' | cat > $HOME/.config/dunst/dunst_sock
                         case "*"
                                 printf "error: %s\n" $option
@@ -53,4 +54,4 @@ function notify_hyprctl -d "start"
         end
 end
 
-notify_hyprctl $argv &
+notify_dunst $argv &
