@@ -5,9 +5,28 @@ return function(capabilities, on_attach)
                 on_attach = on_attach,
                 settings = {
                         ['rust-analyzer'] = {
-                                diagnostics = {
-                                        enable = false;
-                                }
+                                -- diagnostics = {
+                                --         enable = false;
+                                -- },
+                                cargo = {
+                                        features = "all",
+                                },
+                                checkOnSave = {
+                                        enable = true,
+                                },
+                                check = {
+                                        command = "clippy",
+                                },
+                                imports = {
+                                        group = {
+                                                enable = false,
+                                        },
+                                },
+                                completion = {
+                                        postfix = {
+                                                enable = false,
+                                        },
+                                },
                         }
                 }
 
