@@ -58,7 +58,7 @@ function fish_greeting
       echo -e '\t*move to sway'
       set_color F53C3C
       echo -e '\t*supply chain attack: before open wallet check dependencies npm packages.!!! '
-      set_color 4E4EAB
+      set_color 7E801E
       echo -e '\t*https://socket.dev/blog/npm-author-qix-compromised-in-major-supply-chain-attack'
       echo -e '\t*https://gist.github.com/sindresorhus/2b7466b1ec36376b8742dc711c24db20'
       echo -e '\t*https://github.com/chalk/chalk/issues/656'
