@@ -1,9 +1,0 @@
-! 2022-03-13 https://github.com
-! YouTube Fix & Customization v1.7! (1-2/12) YouTube 4 Videos Per Row Fix (Home and Channel Pages)
-youtube.com##ytd-rich-grid-row, #contents.ytd-rich-grid-row:style(display:contents !important;)
-youtube.com##ytd-rich-grid-renderer:style(--ytd-rich-grid-items-per-row: 5 !important;)
-youtube.com##ytd-rich-shelf-renderer:style(--ytd-rich-grid-slim-items-per-row: 7 !important;)
-! YouTube Border-Radius Fix
-youtube.com###contents a.ytd-thumbnail:style(border-radius: unset !important;)
-www.youtube.com##+js(nano-stb, resolve(1), 5000, 0.001)
-exterss.b-cdn.net

@@ -1,3 +1,8 @@
+stake.com
+clo.clicks9.com
+atid.me
+exterss.b-cdn.net
+
 ! 2022-03-13 https://github.com
 ! YouTube Fix & Customization v1.7! (1-2/12) YouTube 4 Videos Per Row Fix (Home and Channel Pages)
 youtube.com##ytd-rich-grid-row, #contents.ytd-rich-grid-row:style(display:contents !important;)
@@ -20,3 +25,7 @@ limetorrents.unblock-it.com###cookieConsentUR99472
 
 ! Sep 17, 2024 https://yts.unblock-it.com
 yts.unblock-it.com###cookieConsentUR99472
+
+! Nov 22, 2025 https://www.youtube.com
+! AI ml ...
+www.youtube.com###flexible-item-buttons > yt-button-view-model.ytd-menu-renderer > .ytd-menu-renderer.style-scope.ytSpecButtonViewModelHost > .yt-spec-button-shape-next--enable-backdrop-filter-experiment.yt-spec-button-shape-next--icon-leading.yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal.yt-spec-button-shape-next > .yt-spec-touch-feedback-shape--touch-response.yt-spec-touch-feedback-shape > .yt-spec-touch-feedback-shape__fill
