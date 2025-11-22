@@ -71,7 +71,7 @@
        eapol_key_index_workaround=0
        eap_server=0
        own_ip_addr=127.0.0.1
-       wpa_passphrase=earendel9090
+       wpa_passphrase=YOUR_PASSPHRASE
        wpa=3
        wpa_key_mgmt=WPA-PSK WPA-PSK-SHA256
        wpa_pairwise=TKIP CCMP
@@ -82,6 +82,11 @@
        Enable hostapd ``rc-update add hostapd default``
 
        Enable when boot``rc-update add hostapd default``
+
+       *Optional generate passphrase psk ``wpa_passphrase "SSID" "PSK"``, ucomment wpa_passphrase replace with:
+       ```
+       wpa_psk=VALUE OF PSK
+       ```
 
   4. Set up NAT with iptables
        ```
