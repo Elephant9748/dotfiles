@@ -24,7 +24,8 @@
 #pulseaudio-slider highlight {
     min-width: 10px;
     border-radius: 5px;
-    background-color: #F5F5F5;
+    /*background-color: #F5F5F5;*/
+    background-color: #DCE2D8;
 }
 
 window#waybar {
@@ -33,7 +34,8 @@ window#waybar {
 	/* color: gray; */
 
     /* white */
-	color: #ffffff; 
+	/*color: #ffffff; */
+    color: #DCE2D8;
 }
 
 #window {
@@ -54,7 +56,8 @@ window#waybar {
 	/* color: #ff8700; */
 
     /* green */
-	color: #16A661; 
+	/*color: #16A661; */
+	color: #363837;  
 
 	/*
 	color: #00afd7;
@@ -74,7 +77,9 @@ window#waybar {
 	/* background: #252C2F; */
 
     /* white */
-	color: #FAFAFA;  
+	/*color: #FAFAFA;  */
+	/*color: #563ACC; */
+    color: #BC4520;
 }
 
 #workspaces button.focused {
