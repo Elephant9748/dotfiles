@@ -6,9 +6,9 @@
 
 	// Choose the order of the modules
 	// "modules-left": ["clock", "hyprland/workspaces", "wlr/mode"],
-	"modules-left": ["clock", "hyprland/workspaces"],
+	"modules-left": ["clock", "hyprland/window"],
 	// "modules-left": ["custom/clock_manual", "hyprland/workspaces", ], // TEMP until std::chrono::tzdb FIX !!!
-	"modules-center": ["hyprland/window"],
+	"modules-center": ["hyprland/workspaces"],
 	"modules-right": ["network", "pulseaudio/slider","pulseaudio", "cpu", "memory", "battery", "privacy","tray"],
 
 	// Modules configuration
@@ -37,7 +37,7 @@
                 "4": [],
                 "5": [],
                 "6": [],
-                "7": []
+                "7": [],
         }
 	},
     "pulseaudio/slider": {
