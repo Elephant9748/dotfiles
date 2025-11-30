@@ -9,6 +9,7 @@ cp /usr/share/limine/BOOTX64.EFI /boot/EFI/limine/
 ```
 
 ### 2. Configure
+#### LVM
 add ``/boot/EFI/limine/limine.conf``
 ```
 timeout: 3
@@ -21,11 +22,26 @@ remember_last_entry: yes
         // Linux
                 protocol: linux
                 path: boot():/vmlinuz-linux
-                cmdline: rd.luks.name=DEVICE-UUID=luks-79cf1728 rd.luks.options=no-read-workqueue,no-write-workqueue root=/dev/lvm_vol_group/starfish_root loglevel=3 quiet
+                cmdline: rd.luks.name=DEVICE-UUID=luks-79cf1728 rd.luks.options=no-read-workqueue,no-write-workqueue root=/dev/lvm_vol_group/starfish_root rw loglevel=3 quiet 
                 module_path: boot():/initramfs-linux.img
 / Grub Boot Loader
         protocol: efi
         path: boot():/EFI/grub/grubx64.efi
+```
+#### BTRFS
+```
+timeout: 3
+wallpaper: boot():/EFI/limine/limine.png
+wallpaper_style: centered
+backdrop: centered
+remember_last_entry: yes
+
+/+ Arch Linux
+        // Linux
+                protocol: linux
+                path: boot():/vmlinuz-linux
+                cmdline: rd.luks.name=DEVICE-UUID-LUKS=LUKS_NAME root=/dev/mapper/LUKS_NAME rw rootflags=subvol=@ rootfstype=btrfs loglevel=3 quiet
+                module_path: boot():/initramfs-linux.img
 ```
 
 To add chainloader limine on grub ``esp/WHERE the .cfg file`` add this line:
