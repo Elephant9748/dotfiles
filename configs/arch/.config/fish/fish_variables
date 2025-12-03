@@ -6,7 +6,7 @@ SETUVAR --export JAVA_HOME:/mnt/d/android\x2dstudio/jbr/
 SETUVAR --export NDK_HOME:/mnt/d/android\x2dproject/Android\x2dSdk//ndk/28\x2e0\x2e13004108
 SETUVAR --export NDR_dir:28\x2e0\x2e13004108
 SETUVAR --export PASSWORD_STORE_DIR:/home/rigel/Pgp/pinned/boxpass
-SETUVAR --export SSH_AUTH_SOCK:/run/user/1000/gnupg/S\x2egpg\x2dagent\x2essh
+SETUVAR --export SSH_AUTH_SOCK:/home/rigel/\x2essh/agent/s\x2ei1AkmyKHNQ\x2eagent\x2e1XL4muSZds
 SETUVAR SXHKD_SHELL:sh
 SETUVAR __fish_initialized:3800
 SETUVAR _fish_abbr_ais:aws\x20ec2\x20describe\x2dinstances\x20\x7c\x20jq\x20\x27\x2eReservations\x5b\x5d\x20\x7c\x20\x2eInstances\x5b\x5d\x20\x7c\x20\x7biid\x3a\x20\x2eInstanceId\x2c\x20type\x3a\x20\x2eInstanceType\x2c\x20key\x3a\x2eKeyName\x2c\x20state\x3a\x2eState\x2eName\x2c\x20host\x3a\x2ePublicDnsName\x7d\x27

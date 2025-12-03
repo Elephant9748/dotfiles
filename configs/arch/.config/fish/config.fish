@@ -382,11 +382,15 @@ end
 #ssh-agent gpg Auth
 function start_ssh_agent_gpg
         set -x SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
+        sed -i 's:pinentry-program /usr/bin/pinentry-curses:# pinentry-program /usr/bin/pinentry-curses:g' ~/.gnupg/gpg-agent.conf
+        sed -i 's:# pinentry-program /usr/bin/pinentry-gtk:pinentry-program /usr/bin/pinentry-gtk:' ~/.gnupg/gpg-agent.conf
         gpgconf --launch gpg-agent
 end
 
 function stop_ssh_agent_gpg
         set -x SSH_AUTH_SOCK ""
+        sed -i 's:# pinentry-program /usr/bin/pinentry-curses:pinentry-program /usr/bin/pinentry-curses:g' ~/.gnupg/gpg-agent.conf
+        sed -i 's:pinentry-program /usr/bin/pinentry-gtk:# pinentry-program /usr/bin/pinentry-gtk:' ~/.gnupg/gpg-agent.conf
         gpgconf --kill all
 end
 
