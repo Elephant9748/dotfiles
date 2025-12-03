@@ -66,6 +66,7 @@ ssh SERVER_NAME
 ```
 > !For some reason ssh doesnt show password input
 > try another pinentry
-> list pinentry ls -al /usr/bin/ | grep -i "pinentry"
+> list pinentry ```bash ls -al /usr/bin/ | grep -i "pinentry"```
 > edit ``~/.gnupg/gpg-agent.conf``
+
 > ```pinentry-program /usr/bin/pinentry```
