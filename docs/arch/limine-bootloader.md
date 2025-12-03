@@ -44,6 +44,16 @@ remember_last_entry: yes
                 module_path: boot():/initramfs-linux.img
 ```
 
+#### limine config alternative for apparmor and kernel hardening
+```
+# limine + apparmor
+cmdline: rd.luks.name=DEVICES-UUID=LUKS_NAME rd.luks.options=no-read-workqueue,no-write-workqueue root=/dev/lvm_vol_group/starfish_root lsm=landlock,lockdown,yama,integrity,apparmor,bpf randomize_kstack_offset=on vsyscall=none loglevel=3 quiet
+
+# limine, apparmor + hardening
+cmdline: rd.luks.name=DEVICES-UUID=LUKS_NAME rd.luks.options=no-read-workqueue,no-write-workqueue root=/dev/lvm_vol_group/starfish_root lsm=landlock,lockdown,yama,integrity,apparmor,bpf slab_nomerge init_on_alloc=1 init_on_free=1 page_alloc.shuffle=1 pti=on vsyscall=none debugfs=off oops=panic module.sig_enforce=1 lockdown=confidentiality mce=0 loglevel=3 quiet
+module_path: boot():/initramfs-linux.img
+```
+
 To add chainloader limine on grub ``esp/WHERE the .cfg file`` add this line:
 ```
 menuentry 'Limine Boot Loader' {
