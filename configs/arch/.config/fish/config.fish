@@ -379,6 +379,17 @@ function start_ssh_agent_lan
         timeout_ssh_agent
 end
 
+#ssh-agent gpg Auth
+function start_ssh_agent_gpg
+        set -x SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
+        gpgconf --launch gpg-agent
+end
+
+function stop_ssh_agent_gpg
+        set -x SSH_AUTH_SOCK ""
+        gpgconf --kill all
+end
+
 #ssh-agent github start 
 function start_ssh_agent_only_git
         eval (ssh-agent -c) 
