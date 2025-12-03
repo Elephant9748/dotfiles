@@ -177,3 +177,17 @@ user_pref("gfx.webrender.software", true);
 // user_pref("privacy.resistFingerprinting.letterboxing", true); // Used to help resist fingerprinting… set to `false` to disable letterboxing
 // user_pref("webgl.disabled", true);
 
+// Make firefox noticeably faster
+user_pref("browser.ml.enable", false);
+user_pref('browser.ml.chat.enabled', false);
+user_pref('browser.ml.chat.menu',false);
+user_pref('browser.ml.chat.page',false);
+user_pref('browser.ml.chat.page.footerBadge', false);
+user_pref('browser.ml.chat.page.menuBadge',false);
+user_pref('browser.ml.linkPreview.enabled',false);
+user_pref('browser.ml.pageAssist.enabled', false);
+user_pref('browser.tabs.groups.smart.enabled', false);
+user_pref('browser.tabs.groups.smart.userEnabled', false);
+user_pref('extensions.ml.enabled', false);
+user_pref('browser.search.visualSearch.featureGate', false);
+
