@@ -288,6 +288,11 @@ if status --is-interactive
    # or something related to this:
    # ERROR: Profile for /usr/lib/@{chromium}/@{chromium} exists in /etc/apparmor.d/chromium_browser 
    # and {'f': '/etc/apparmor.d/chromium', 'p': 'chromium', 're': AARE('/usr/lib/@{chromium}/@{chromium}')}
+
+   # Apparmor disabled manpage 
+   # sudo apparmor_parser -R /etc/apparmor.d/usr.bin.man
+   # Apparmor enabled manpage 
+   # sudo apparmor_parser /etc/apparmor.d/usr.bin.man
    set MANPATH (manpath) $MANPATH
    set -g man_blink -o red
    set -g man_bold -o green
