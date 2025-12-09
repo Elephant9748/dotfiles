@@ -19,7 +19,7 @@
     min-height: 2px;
     min-width: 30px;
     border-radius: 5px;
-    background-color: black;
+    background-color: #1D3034;
 }
 #pulseaudio-slider highlight {
     min-width: 10px;
@@ -80,6 +80,7 @@ window#waybar {
 	/*color: #FAFAFA;  */
 	/*color: #563ACC; */
     color: #BC4520;
+    border-bottom: 0.75px solid #BC4520;
 }
 
 #workspaces button.focused {
@@ -135,9 +136,11 @@ window#waybar {
 }
 
 #cpu {
+    border-bottom: 0.75px solid #B6221C;
 }
 
 #memory {
+    border-bottom: 0.75px solid #BF9127;
 }
 
 #network {
@@ -152,6 +155,7 @@ window#waybar {
 }
 
 #pulseaudio {
+    border-bottom: 0.75px solid #D9E1D3;
 }
 
 #pulseaudio.muted {
