@@ -232,11 +232,6 @@ if status --is-interactive
    #pipx PATH
    export PATH="$HOME/.local/bin:$PATH"
 
-   #paperbackup PATH
-   export PATH="$HOME/project/paperbackup/target/release:$PATH"
-   #paperpass PATH
-   export PATH="$HOME/project/paperpass/target/release:$PATH"
-
    # git clone error RPC failed:curl 56 GnuTLS recv error (-54):Error in the pull function .
    # ```
    # export GIT_TRACE_PACKET=1
@@ -414,6 +409,7 @@ function stop_ssh_agent
 end
 
 function list_ssh_agent
+        ssh-add -L
         ps -e | grep 'ssh'
         cat $HOME/.ssh/ssh_auth_sock
 end
