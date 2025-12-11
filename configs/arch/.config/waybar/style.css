@@ -80,7 +80,7 @@ window#waybar {
 	/*color: #FAFAFA;  */
 	/*color: #563ACC; */
     color: #BC4520;
-    border-bottom: 0.75px solid #BC4520;
+    /*border-bottom: 0.75px solid #C38418;*/
 }
 
 #workspaces button.focused {
@@ -136,11 +136,11 @@ window#waybar {
 }
 
 #cpu {
-    border-bottom: 0.75px solid #B6221C;
+    /*border-bottom: 0.75px solid #B6221C;*/
 }
 
 #memory {
-    border-bottom: 0.75px solid #BF9127;
+    /*border-bottom: 0.75px solid #BF9127;*/
 }
 
 #network {
@@ -155,7 +155,7 @@ window#waybar {
 }
 
 #pulseaudio {
-    border-bottom: 0.75px solid #D9E1D3;
+    /*border-bottom: 0.75px solid #D9E1D3;*/
 }
 
 #pulseaudio.muted {

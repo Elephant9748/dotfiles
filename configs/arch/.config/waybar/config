@@ -10,6 +10,7 @@
 	// "modules-left": ["custom/clock_manual", "hyprland/workspaces", ], // TEMP until std::chrono::tzdb FIX !!!
 	"modules-center": ["hyprland/window"],
 	"modules-right": ["network", "pulseaudio/slider","pulseaudio", "cpu", "memory", "battery", "privacy","tray"],
+    // "modules-right": ["network", "cpu","memory","pulseaudio/slider","pulseaudio","battery","tray"],
 
 	// Modules configuration
 	"hyprland/workspaces": {
