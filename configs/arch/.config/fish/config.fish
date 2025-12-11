@@ -54,7 +54,6 @@ function fish_greeting
       echo -e ' note!: '
       set_color 6A6362
       echo -e '\t*created emergency backup (tracy,proton)'
-      echo -e '\t*move to sway'
       set_color F53C3C
       echo -e '\t*supply chain attack: check dependencies npm packages.!!! '
       set_color 605F5E
@@ -197,7 +196,7 @@ complete --command aurman --wraps pacman
 
 if status --is-interactive
    clear
-   alias ssh="TERM=xterm-256color $(which ssh)"
+   alias ssh="TERM=xterm-256color $(command -v ssh)"
    #alias ssh="alacritty $(which ssh)"
 
    export GPG_TTY=$(tty)
@@ -205,8 +204,10 @@ if status --is-interactive
    # ----------------------------
    # ssh gnome/keyring
    # set SSH_AUTH_SOCK "$XDG_RUNTIME_DIR/gcr/ssh"
-   set -x SSH_AUTH_SOCK ""
-   set -x SSH_AUTH_SOCK (cat $HOME/.ssh/ssh_auth_sock)
+   if test -e $HOME/.ssh_auth_sock
+           set -x SSH_AUTH_SOCK ""
+           set -x SSH_AUTH_SOCK (cat $HOME/.ssh/ssh_auth_sock)
+   end
 
    # ssh agent from gnupg
    # ----------------------------
@@ -261,14 +262,16 @@ if status --is-interactive
    # export PATH="/opt/android-sdk/platform-tools/:$PATH"
 
    #tauri android 
-   set -x JAVA_HOME /mnt/d/android-studio/jbr/
-   set -x ANDROID_HOME /mnt/d/android-project/Android-Sdk/
-   set -x PATH $PATH $ANDROID_HOME/cmdline-tools
-   set -x PATH $PATH $ANDROID_HOME/build-tools/35.0.1
-   set NDK_dir (ls -1 $ANDROID_HOME/ndk)
-   set -x NDK_HOME $ANDROID_HOME/ndk/$NDK_dir
-   set -x PATH $PATH $ANDROID_HOME/ndk/$NDK_dir
-   set -x PATH $PATH $ANDROID_HOME/platform-tools
+   if test -d /mnt/d/android-studio
+           set -x JAVA_HOME /mnt/d/android-studio/jbr/
+           set -x ANDROID_HOME /mnt/d/android-project/Android-Sdk/
+           set -x PATH $PATH $ANDROID_HOME/cmdline-tools
+           set -x PATH $PATH $ANDROID_HOME/build-tools/35.0.1
+           set NDK_dir (ls -1 $ANDROID_HOME/ndk)
+           set -x NDK_HOME $ANDROID_HOME/ndk/$NDK_dir
+           set -x PATH $PATH $ANDROID_HOME/ndk/$NDK_dir
+           set -x PATH $PATH $ANDROID_HOME/platform-tools
+   end
 
    # override color_command
    # set -U fish_color_command 16AA64
