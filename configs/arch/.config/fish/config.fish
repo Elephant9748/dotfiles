@@ -291,11 +291,13 @@ if status --is-interactive
    # sudo apparmor_parser -R /etc/apparmor.d/usr.bin.man
    # Apparmor enabled manpage 
    # sudo apparmor_parser /etc/apparmor.d/usr.bin.man
-   set MANPATH (manpath) $MANPATH
-   set -g man_blink -o red
-   set -g man_bold -o green
-   set -g man_standout -b black 93a1a1
-   set -g man_underline -u 93a1a1
+   if command -v mandb > /dev/null
+           set MANPATH (manpath) $MANPATH
+           set -g man_blink -o red
+           set -g man_bold -o green
+           set -g man_standout -b black 93a1a1
+           set -g man_underline -u 93a1a1
+   end
 
 end
 
