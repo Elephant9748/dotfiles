@@ -22,7 +22,9 @@ rsync -azP $HOME/project/dotfiles/configs/arch/.config/bat $HOME/.config/ && \
 # theme
 rsync -azP $HOME/project/dotfiles/configs/.themes $HOME/ && \
 # icon
-# rsync -azP configs/arch/icons/Pop /usr/share/icons/ && \
+# rsync -azP configs/arch/icons/Pop $HOME/.local/share/icons && \
+# rsync -azP configs/arch/icons/breeze_cursors $HOME/.local/share/icons && \
+# rsync -azP configs/arch/icons/Materia-Manjaro-2 $HOME/.local/share/icons && \
 rsync -azP $HOME/project/dotfiles/tmux/.tmux.conf $HOME/ 
 
 # sddm look
