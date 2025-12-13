@@ -29,6 +29,6 @@ rsync -azP $HOME/.tmux.conf $HOME/project/dotfiles/configs/tmux/.tmux.conf && \
 # !need sudo,doas
 # sddm
 rsync -azP /usr/share/sddm/themes/sddm-astronaut-theme $HOME/project/dotfiles/configs/sddm/ && \
-rsync -azP /usr/lib/sddm/sddm.conf.d $HOME/project/configs/sddm/ && \
+rsync -azP /usr/lib/sddm/sddm.conf.d $HOME/project/configs/sddm/ 
 
 
