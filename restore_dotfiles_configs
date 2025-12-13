@@ -1,0 +1,38 @@
+#!/bin/bash
+
+# clone base16shell color
+if [[ ! -d "$HOME/.config/base16-shell" ]]; then
+        git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell && \
+fi
+
+if command -v rsync &> /dev/null; then
+        rsync -azP $HOME/project/dotfiles/configs/.config/alacritty $HOME/.config/ && \
+        rsync -azP $HOME/project/dotfiles/configs/.config/bspwm $HOME/.config/ && \
+        rsync -azP $HOME/project/dotfiles/configs/.config/fish $HOME/.config/ && \
+        rsync -azP $HOME/project/dotfiles/configs/.config/nvim $HOME/.config/ && \
+        rsync -azP $HOME/project/dotfiles/configs/.config/polybar $HOME/.config/ && \
+        rsync -azP $HOME/project/dotfiles/configs/.config/rofi $HOME/.config/ && \
+        rsync -azP $HOME/project/dotfiles/configs/.config/sxhkd $HOME/.config/ && \
+        rsync -azP $HOME/project/dotfiles/configs/.config/waybar $HOME/.config/ && \
+        rsync -azP $HOME/project/dotfiles/configs/.config/hypr $HOME/.config/ && \
+        rsync -azP $HOME/project/dotfiles/configs/.config/swappy $HOME/.config/ && \
+        rsync -azP $HOME/project/dotfiles/configs/.config/dunst $HOME/.config/ && \
+        rsync -azP $HOME/project/dotfiles/configs/.config/yazi $HOME/.config/ && \
+        rsync -azP $HOME/project/dotfiles/configs/.config/gtk-3.0 $HOME/.config/ && \
+        rsync -azP $HOME/project/dotfiles/configs/.config/gtk-4.0 $HOME/.config/ && \
+        rsync -azP $HOME/project/dotfiles/configs/.config/bottom $HOME/.config/ && \
+        rsync -azP $HOME/project/dotfiles/configs/.config/bat $HOME/.config/ && \
+        # theme
+        rsync -azP $HOME/project/dotfiles/configs/.themes $HOME/ && \
+        # icon
+        # rsync -azP configs/icons/Pop $HOME/.local/share/icons && \
+        # rsync -azP configs/icons/breeze_cursors $HOME/.local/share/icons && \
+        # rsync -azP configs/icons/Materia-Manjaro-2 $HOME/.local/share/icons && \
+        rsync -azP $HOME/project/dotfiles/configs/tmux/.tmux.conf $HOME/ 
+
+        # !need sudo,doas
+        # sddm look
+        # sudo rsync -azP $HOME/project/dotfiles/configs/sddm/sddm-astronaut-theme /usr/share/sddm/themes/
+        # sudo rsync $HOME/project/dotfiles/configs/sddm/sddm.conf.d/ /usr/lib/sddm/sddm.conf.d/
+fi
+

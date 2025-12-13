@@ -1,11 +1,20 @@
 #!/bin/bash
 
-# clone base16shell color
-git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell && \
+if [[ ! -d "$HOME/.config/base16-shell" ]]; then
+        git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell && \
+fi
 
-rsync -azP $HOME/project/dotfiles/configs/freebsd/.config/fish $HOME/.config/ && \
-rsync -azP $HOME/project/dotfiles/configs/freebsd/.config/nvim $HOME/.config/ && \
-rsync -azP $HOME/project/dotfiles/configs/arch/.config/bottom $HOME/.config/ && \
-rsync -azP $HOME/project/dotfiles/configs/arch/.config/bat $HOME/.config/ && \
-rsync -azP $HOME/project/dotfiles/tmux/.tmux.conf $HOME/
+if command -v rsync &> /dev/null; then
+        # clone base16shell color
+
+        rsync -azP $HOME/project/dotfiles/configs/freebsd/.config/fish $HOME/.config/ && \
+        rsync -azP $HOME/project/dotfiles/configs/freebsd/.config/nvim $HOME/.config/ && \
+        rsync -azP $HOME/project/dotfiles/configs/.config/bottom $HOME/.config/ && \
+        rsync -azP $HOME/project/dotfiles/configs/.config/bat $HOME/.config/ && \
+        rsync -azP $HOME/project/dotfiles/configs/tmux/.tmux.conf $HOME/
+else 
+        echo "rsync command not found!"
+fi
+
+
 
