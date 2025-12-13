@@ -5,17 +5,17 @@ Manage configs
 prerequisites `paru -S stow`  
 Link
 ```
-stow -Sv -t ~/ -d configs/arch .
+stow -Sv -t ~/ -d configs/ .
 stow -Sv -t ~/ -d tmux .
 ```
 Unlink
 ```
-stow -Dv -t ~/ -d configs/arch .
+stow -Dv -t ~/ -d configs/ .
 stow -Dv -t ~/ -d tmux .
 ```
 Relink
 ```
-stow -Rv -t ~/ -d configs/arch .
+stow -Rv -t ~/ -d configs/ .
 stow -Rv -t ~/ -d tmux .
 ```
 
@@ -24,9 +24,9 @@ stow -Rv -t ~/ -d tmux .
 prerequisites `paru -S rsync`  
 restore
 ```
-./restore_dotfiles_arch
+./restore_dotfiles_configs
 ```
 backup
 ```
-./bins/rsync-move-to-dotfiles-arch
+./bins/rsync-move-to-dotfiles
 ```
