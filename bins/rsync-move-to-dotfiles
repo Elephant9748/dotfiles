@@ -1,0 +1,34 @@
+#!/bin/bash
+
+rsync -azP $HOME/.config/hypr $HOME/project/dotfiles/configs/.config/ && \
+rsync -azP $HOME/.config/alacritty $HOME/project/dotfiles/configs/.config/ && \
+rsync -azP $HOME/.config/bspwm $HOME/project/dotfiles/configs/.config/ && \
+rsync -azP $HOME/.config/fish $HOME/project/dotfiles/configs/.config/ && \
+rsync -azP $HOME/.config/nvim $HOME/project/dotfiles/configs/.config/ && \
+rsync -azP $HOME/.config/polybar $HOME/project/dotfiles/configs/.config/ && \
+rsync -azP $HOME/.config/rofi $HOME/project/dotfiles/configs/.config/ && \
+rsync -azP $HOME/.config/sxhkd $HOME/project/dotfiles/configs/.config/ && \
+rsync -azP $HOME/.config/hypr $HOME/project/dotfiles/configs/.config/ && \
+rsync -azP $HOME/.config/waybar $HOME/project/dotfiles/configs/.config/ && \
+rsync -azP $HOME/.config/swappy $HOME/project/dotfiles/configs/.config/ && \
+rsync -azP $HOME/.config/dunst $HOME/project/dotfiles/configs/.config/ && \
+rsync -azP $HOME/.config/yazi $HOME/project/dotfiles/configs/.config/ && \
+rsync -azP $HOME/.config/gtk-3.0 $HOME/project/dotfiles/configs/.config/ && \
+rsync -azP $HOME/.config/gtk-4.0 $HOME/project/dotfiles/configs/.config/ && \
+rsync -azP $HOME/.config/bottom $HOME/project/dotfiles/configs/.config/ && \
+rsync -azP $HOME/.config/bat $HOME/project/dotfiles/configs/.config/ && \
+# theme
+rsync -azP $HOME/.themes $HOME/project/dotfiles/configs/ && \
+# icons
+rsync -azP $HOME/.local/share/icons/Pop $HOME/project/configs/icons/ && \
+rsync -azP $HOME/.local/share/icons/Materia-Manjaro-2 $HOME/project/configs/icons/ && \
+rsync -azP $HOME/.local/share/icons/breeze_cursors $HOME/project/configs/icons/ && \
+# tmux
+rsync -azP $HOME/.tmux.conf $HOME/project/dotfiles/configs/tmux/.tmux.conf && \
+
+# !need sudo,doas
+# sddm
+rsync -azP /usr/share/sddm/themes/sddm-astronaut-theme $HOME/project/dotfiles/configs/sddm/ && \
+rsync -azP /usr/lib/sddm/sddm.conf.d $HOME/project/configs/sddm/ && \
+
+
