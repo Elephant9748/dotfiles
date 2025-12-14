@@ -16,6 +16,6 @@
         recursive = true;
     };
 
-    home.stateVersion = "${vars.version}"";
+    home.stateVersion = "${vars.version}";
 }
 
