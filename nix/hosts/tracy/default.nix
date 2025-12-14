@@ -104,6 +104,7 @@
     procps
     pciutils
     lsb-release
+    vim
     neovim
     ripgrep
     fd
@@ -111,6 +112,18 @@
     bat
     openssh
     eza
+    make
+    gettext
+    ninja
+    meson
+    curl
+    gnumake
+    gcc
+    wget
+    unzip
+    zip
+    fzf
+    fish
   ];
 
   # Enable the OpenSSH daemon.
