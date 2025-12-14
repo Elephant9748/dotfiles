@@ -4,7 +4,7 @@
 # ├── flake.nix
 # └── hosts
 #     ├── default.nix
-#     └── tracy-vm
+#     └── tracy
 #         ├── default.nix <--- the same as /etc/nixos/configuration.nix
 #         ├── hardware-configuration.nix
 #         └── home.nix
