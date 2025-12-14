@@ -22,7 +22,7 @@
     };
   };
 
-  outputs = inputs @ { self, home-manager, nixpkgs-unstable, hyprland }: 
+  outputs = inputs @ { self, home-manager, nixpkgs-unstable }: 
     let
         vars = { 
                 # changed this if using another profile
