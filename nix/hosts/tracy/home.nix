@@ -9,20 +9,55 @@
     };
 
     # fish
-    home.file.".config/fish/config.fish" = {
-        source = ../../../configs/.config/fish/config.fish;
+    # ----
+    # manual copy need constant w access
+    # ----
+
+
+    home.file.".config/alacritty" = {
+        source = ../../../configs/.config/alacritty;
         recursive = true;
     };
-    home.file.".config/fish/completions" = {
-        source = ../../../configs/.config/fish/completions;
+    home.file.".config/bat" = {
+        source = ../../../configs/.config/bat;
         recursive = true;
     };
-    home.file.".config/fish/conf.d" = {
-        source = ../../../configs/.config/fish/conf.d;
+    home.file.".config/bottom" = {
+        source = ../../../configs/.config/bottom;
         recursive = true;
     };
-    home.file.".config/fish/functions" = {
-        source = ../../../configs/.config/fish/functions;
+    home.file.".config/dunst/dunstrc" = {
+        source = ../../../configs/.config/dunst/dunstrc;
+        recursive = true;
+    };
+
+    # gtk-*
+    # ------
+    # manual copy need w access
+    # required by nwg-look
+
+    home.file.".config/hypr" = {
+        source = ../../../configs/.config/hypr;
+        recursive = true;
+    };
+    home.file.".config/rofi" = {
+        source = ../../../configs/.config/rofi;
+        recursive = true;
+    };
+    home.file.".config/swappy" = {
+        source = ../../../configs/.config/swappy;
+        recursive = true;
+    };
+    home.file.".config/sway" = {
+        source = ../../../configs/.config/sway;
+        recursive = true;
+    };
+    home.file.".config/waybar" = {
+        source = ../../../configs/.config/waybar;
+        recursive = true;
+    };
+    home.file.".config/yazi" = {
+        source = ../../../configs/.config/yazi;
         recursive = true;
     };
 
