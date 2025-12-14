@@ -36,9 +36,7 @@ in
                     inherit vars;
             };
 	        home-manager.nixosModules.home-manager {
-                home-manager.extraSpecialArgs = { 
-                        inherit vars;
-                };
+                home-manager.extraSpecialArgs = { inherit vars; };
                 home-manager.useGlobalPkgs = true;
 	    	    home-manager.useUserPackages = true;
 	    	    home-manager.users.${vars.user}.imports = [
