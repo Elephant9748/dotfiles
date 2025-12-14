@@ -25,14 +25,20 @@ in
     tracy = lib.nixosSystem {
 	    specialArgs = {
                 inherit inputs system unstable vars;
-	        host = {
-	            hostname = "${vars.host}";
-	        };
+                host = {
+                        hostname = "${vars.host}";
+                };
 	    };
 	    modules = [
 	        ./${vars.user}
 
+            home-manager.extraSpecialArgs = {
+                    inherit vars;
+            };
 	        home-manager.nixosModules.home-manager {
+                home-manager.extraSpecialArgs = { 
+                        inherit vars;
+                };
                 home-manager.useGlobalPkgs = true;
 	    	    home-manager.useUserPackages = true;
 	    	    home-manager.users.${vars.user}.imports = [

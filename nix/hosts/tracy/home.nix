@@ -11,11 +11,6 @@
         recursive = true;
     };
 
-    home.file.".config/hypr" = {
-        source = ../../../configs/.config/hypr;
-        recursive = true;
-    };
-
     home.stateVersion = "${vars.version}";
 }
 
