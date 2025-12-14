@@ -7,7 +7,7 @@
     };
 
     home.file.".config/fish" = {
-        source = ../../../configs/.config/fish;
+        source = ../../../configs/.config/fish/config.fish;
         recursive = true;
     };
 
