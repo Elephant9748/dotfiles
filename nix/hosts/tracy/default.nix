@@ -32,9 +32,29 @@
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
-  services.pipewire = {
-    enable = true;
-    pulse.enable = true;
+
+  services = {
+          pipewire = {
+                  enable = true;
+                  pulse.enable = true;
+          };
+          openssh = {
+                  enable = true;
+                  ports = [ 22 ];
+                  settings = {
+                          PermitRootLogin = "no";
+                          PasswordAuthentication = false;
+                          KbdInteractiveAuthentication = false;
+                          AllowUsers = [ "${vars.user}" ];
+                  };
+          };
+          xserver.enable = false;
+          displayManager.sddm = {
+                  enable = true;
+                  wayland.enable = true;
+                  theme = "catppuccin-sddm-corners";
+          };
+          desktopManager.plasma6.enable = true;
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -49,13 +69,16 @@
 		group = "${vars.user}";
 		extraGroups = [
 			"sudo"
-			"tracy"
+			"${vars.user}"
 		];
 		packages = with pkgs; [
 		   tree
 		];
 		shell = pkgs.fish;
 		useDefaultShell = true;
+        openssh.authorizedKeys.keys = [
+                "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFCMCsfI7ZZjtHp63JxrFWMfsQHwDUVAb7TbsO3ChOzc walter.vm"
+        ];
 	};
 	groups = {
 		sudo = {
@@ -98,6 +121,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    catppuccin-sddm-corners
     home-manager
     gnupg
     git
@@ -124,12 +148,6 @@
     fzf
     fish
   ];
-
-  # Enable the OpenSSH daemon.
-  services = {
-  	openssh.enable = true;
-	xserver.enable = false;
-  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

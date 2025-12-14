@@ -24,6 +24,12 @@
 		device = "/dev/disk/by-uuid/b47ff84f-984c-4078-81f9-5041bfb212f1";
 		allowDiscards = true;
 	};
+    kernelParams = [
+        "quiet"
+        "loglevel=3"
+        "randomize_kstack_offset=on"
+        "vsyscall=none"
+    ];
   };
 
   fileSystems."/" = {

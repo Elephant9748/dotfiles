@@ -1,5 +1,8 @@
 { pkgs, vars, ... }: {
-    home.packages = with pkgs; [ htop ];
+    home.packages = with pkgs; [
+        rustup
+        fastfetch
+    ];
 
     home.stateVersion = "${vars.version}";
 
