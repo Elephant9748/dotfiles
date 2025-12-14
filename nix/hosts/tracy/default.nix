@@ -112,7 +112,6 @@
     bat
     openssh
     eza
-    make
     gettext
     ninja
     meson
