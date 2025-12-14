@@ -9,7 +9,7 @@
 #         ├── hardware-configuration.nix
 #         └── home.nix
 # -----------------------------------------------
-{ lib, vars, inputs, nixpkgs-unstable, home-manager, hyprland,  ... }:
+{ lib, vars, inputs, nixpkgs-unstable, home-manager, ... }:
 let
     system = "${vars.system}";
 
