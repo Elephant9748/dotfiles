@@ -26,6 +26,8 @@ vda                  253:0    0   80G  0 disk
 ```
 nixos-generate-config --root /mnt
 ```
+then adjust configurations at ``hosts/<user>`` directory
+
 ### Instruction first install
 ```
 $ sudo -i
