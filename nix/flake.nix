@@ -30,7 +30,7 @@
                 user = "tracy";
                 host = "tracy-vm";
                 system = "x86_64-linux";
-                version = "121425.1212";
+                version = "25.11";
                 editor = "nvim";
         };
     in
