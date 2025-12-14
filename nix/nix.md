@@ -8,9 +8,9 @@
 
 user/host:
 ```
-tracy
+tracy #qemu vm
 ```
-### Create device block & mount them LVM on Luks [Dm-crypt](https://wiki.archlinux.org/title/Dm-crypt/Encrypting_an_entire_system)
+### Create device block & mount them. ``LVM on Luks`` [Dm-crypt](https://wiki.archlinux.org/title/Dm-crypt/Encrypting_an_entire_system)
 ```bash 
 cgdisk /dev/[your disk]
 ```
@@ -29,16 +29,17 @@ nixos-generate-config --root /mnt
 then adjust configurations at ``hosts/<user>`` directory
 
 ### Instruction first install
-```
-$ sudo -i
-# nix-env -iA nixos.git
-# git clone <repo url>
-# nixos-install --flake .#<user/host>
-# reboot
+```bash
+sudo -i
+nix-env -iA nixos.git
+git clone <repo url>
+nixos-install --flake .#<user/host> --verbose
+reboot
 ```
 
 
 ### Flake rebuild
+> !Make sure UUID device 
 ```
 $ sudo nixos-rebuild switch --flake .#<user/host>
 ```
@@ -47,9 +48,14 @@ $ sudo nixos-rebuild switch --flake .#<user/host>
 ```
 $ nix flake update
 ```
+### To Enter Chroot
+```
+nixos-enter
+```
 
 #### Other command
 ```
+nix-collect-garbage -d
 home-manager generations
 nixos-rebuild list-generations
 ```
