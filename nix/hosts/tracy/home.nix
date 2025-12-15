@@ -83,8 +83,8 @@
         recursive = true;
     };
 
-    home.file.".local/share/icons/breeze_cursors" = {
-        source = ../../../configs/icons/breeze_cursors;
+    home.file.".local/share/icons" = {
+        source = ../../../configs/icons;
         recursive = true;
     };
     home.file.".tmux.conf" = {
