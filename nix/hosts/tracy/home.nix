@@ -12,6 +12,8 @@
         rofi
         hyprcursor
         hyprpaper
+        pavucontrol
+        pulseaudio
         rust-bin.stable.latest.default
     ];
 
