@@ -14,15 +14,21 @@
   description = "Nixos Flake";
 
   inputs = {
-	nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";	
+	nixpkgs-unstable = {
+        url = "github:nixos/nixpkgs/nixos-unstable";	
+    };
 
 	home-manager = {                                                  
         url = "github:nix-community/home-manager";
         inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
   };
 
-  outputs = inputs @ { self, home-manager, nixpkgs-unstable }: 
+  outputs = inputs @ { self, home-manager, nixpkgs-unstable, rust-overlay, ... }: 
     let
         vars = { 
                 # changed this if using another profile
@@ -30,15 +36,15 @@
                 user = "tracy";
                 host = "tracy-vm";
                 system = "x86_64-linux";
-                version = "25.11";
+                version = "26.05";
                 editor = "nvim";
         };
     in
     {
       nixosConfigurations = (
         import ./hosts {
-            inherit (nixpkgs-unstable) lib;
-            inherit inputs nixpkgs-unstable home-manager vars;
+            inherit (nixpkgs-unstable);
+            inherit nixpkgs-unstable inputs home-manager vars rust-overlay;
         }
       );
     };

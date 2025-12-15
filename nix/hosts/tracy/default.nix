@@ -1,4 +1,8 @@
-{ inputs, pkgs, vars,... }:
+# pkgs --> nixpkgs-unstable
+# pkgs-overlays --> nixpkgs-unstable with overlays
+# ---------------------------
+
+{ pkgs-overlays, vars,... }:
 
 {
   imports =
@@ -8,9 +12,8 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-
   # Use latest kernel.
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs-overlays.linuxPackages_latest;
 
   networking.hostName = "${vars.host}"; 
 
@@ -32,7 +35,6 @@
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
-
   services = {
           pipewire = {
                   enable = true;
@@ -49,18 +51,12 @@
                   };
           };
           xserver.enable = false;
-          displayManager.sddm = {
-                  enable = true;
-                  wayland.enable = true;
-                  theme = "catppuccin-sddm-corners";
-          };
-          desktopManager.plasma6.enable = true;
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users = {
 	users.root = {
-		shell = pkgs.fish;
+		shell = pkgs-overlays.fish;
 		useDefaultShell = true;
 	};
   	users.${vars.user} = {
@@ -71,10 +67,7 @@
 			"sudo"
 			"${vars.user}"
 		];
-		packages = with pkgs; [
-		   tree
-		];
-		shell = pkgs.fish;
+		shell = pkgs-overlays.fish;
 		useDefaultShell = true;
         openssh.authorizedKeys.keys = [
                 "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFCMCsfI7ZZjtHp63JxrFWMfsQHwDUVAb7TbsO3ChOzc walter.vm"
@@ -90,26 +83,37 @@
 	};
   };
 
-  security.sudo = {
-	  enable = true;
-	  extraRules = [{
-		  groups = [ "sudo" ];
-		  host = "ALL";
-		  runAs = "ALL:ALL";
-		  commands = [
-		  	{
-				command = "ALL";
-			}
-		  ];
-	  }];
+  security = { 
+          sudo = {
+              enable = true;
+              extraRules = [{
+                  groups = [ "sudo" ];
+                  host = "ALL";
+                  runAs = "ALL:ALL";
+                  commands = [
+                    {
+                        command = "ALL";
+                    }
+                  ];
+              }];
+          };
+          polkit = {
+                  enable = true;
+                  package = pkgs-overlays.polkit;
+          };
   };
 
   programs = {
 	fish = {
 		enable = true;
+        loginShellInit = ''
+                if test (tty) = "/dev/tty1"; and test -z "$WAYLAND_DISPLAY"; and test -n "$XDG_VTNR"; and test "$XDG_VTNR" -eq 1
+                    exec Hyprland
+                  end
+        '';
 	};
 	ssh = {
-		package = pkgs.openssh;
+		package = pkgs-overlays.openssh;
 		kexAlgorithms = ["mlkem768x25519-sha256"];
 	};
 	gnupg = {
@@ -118,10 +122,16 @@
 			enableSSHSupport = true;
 		};
 	};
+    hyprland = {
+            enable = true;
+            package = pkgs-overlays.hyprland;
+            portalPackage = pkgs-overlays.xdg-desktop-portal-hyprland;
+    };
   };
 
-  environment.systemPackages = with pkgs; [
-    catppuccin-sddm-corners
+
+
+  environment.systemPackages = with pkgs-overlays; [
     home-manager
     gnupg
     git
@@ -132,6 +142,7 @@
     neovim
     ripgrep
     fd
+    jq
     bottom
     bat
     openssh
@@ -146,14 +157,14 @@
     unzip
     zip
     fzf
-    fish
+    rust-bin.stable.latest.default
   ];
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  networking.firewall.enable = false;
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
@@ -166,7 +177,7 @@
   # Most users should NEVER change this value after the initial install, for any reason,
   # even if you've upgraded your system to a new NixOS release.
   #
-  # This value does NOT affect the Nixpkgs version your packages and OS are pulled from,
+  # This value does NOT affect the Nixpkgs-overlays.version your packages and OS are pulled from,
   # so changing it will NOT upgrade your system - see https://nixos.org/manual/nixos/stable/#sec-upgrading for how
   # to actually do that.
   #
@@ -180,5 +191,3 @@
   system.stateVersion = "${vars.version}"; # Did you read the comment?
 
 }
-
-

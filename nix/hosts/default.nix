@@ -9,13 +9,14 @@
 #         ├── hardware-configuration.nix
 #         └── home.nix
 # -----------------------------------------------
-{ lib, vars, inputs, nixpkgs-unstable, home-manager, ... }:
+{ vars, inputs, nixpkgs-unstable, home-manager, rust-overlay, ... }:
 let
     system = "${vars.system}";
 
-    unstable = import nixpkgs-unstable {
+    pkgs-overlays = import nixpkgs-unstable {
         inherit system;
 	    config.allowUnfree = true;
+        overlays = [ (import rust-overlay) ];
     };
 
     lib = nixpkgs-unstable.lib;
@@ -24,7 +25,7 @@ in
     # tracy (LVM on LUKS)
     tracy = lib.nixosSystem {
 	    specialArgs = {
-                inherit inputs system unstable vars;
+                inherit inputs system pkgs-overlays vars;
                 host = {
                         hostname = "${vars.host}";
                 };

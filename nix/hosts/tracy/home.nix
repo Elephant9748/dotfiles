@@ -1,7 +1,17 @@
 { pkgs, vars, ... }: {
     home.packages = with pkgs; [
-        rustup
         fastfetch
+        waybar
+        alacritty
+        nerd-fonts.jetbrains-mono
+        noto-fonts-cjk-sans
+        noto-fonts-cjk-serif
+        noto-fonts
+        public-sans
+        tmux
+        rofi
+        hyprcursor
+        hyprpaper
     ];
 
     home.stateVersion = "${vars.version}";
@@ -64,5 +74,12 @@
         recursive = true;
     };
 
+    home.file.".local/share/icons/breeze_cursors" = {
+        source = ../../../configs/icons/breeze_cursors;
+        recursive = true;
+    };
+    home.file.".tmux.conf" = {
+        source = ../../../configs/tmux/.tmux.conf;
+        recursive = true;
+    };
 }
-
