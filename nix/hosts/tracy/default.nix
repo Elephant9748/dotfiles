@@ -108,7 +108,7 @@
 		enable = true;
         loginShellInit = ''
                 if test (tty) = "/dev/tty1"; and test -z "$WAYLAND_DISPLAY"; and test -n "$XDG_VTNR"; and test "$XDG_VTNR" -eq 1
-                    exec Hyprland
+                    exec start-hyprland
                   end
         '';
 	};
