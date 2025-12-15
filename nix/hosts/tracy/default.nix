@@ -51,6 +51,10 @@
                   };
           };
           xserver.enable = false;
+          udisks2 = {
+                  enable = true;
+                  package = pkgs-overlays.udisks;
+          };
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -127,6 +131,7 @@
             package = hypr.packages.${vars.system}.hyprland;
             portalPackage = hypr.packages.${vars.system}.xdg-desktop-portal-hyprland;
     };
+    gnome-disks.enable = true;
   };
 
 
@@ -157,6 +162,7 @@
     unzip
     zip
     fzf
+    cryptomator
   ];
 
   # Open ports in the firewall.

@@ -12,8 +12,14 @@
         rofi
         hyprcursor
         hyprpaper
+        wl-clipboard
+        imagemagick
         pavucontrol
         pulseaudio
+        nwg-look
+        rofi-power-menu
+        rofi-calc
+        polkit_gnome
         rust-bin.stable.latest.default
     ];
 
