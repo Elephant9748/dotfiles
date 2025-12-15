@@ -9,7 +9,7 @@
 #         ├── hardware-configuration.nix
 #         └── home.nix
 # -----------------------------------------------
-{ vars, inputs, nixpkgs-unstable, home-manager, rust-overlay, ... }:
+{ vars, inputs, nixpkgs-unstable, home-manager, hypr, rust-overlay, ... }:
 let
     system = "${vars.system}";
 
@@ -25,7 +25,7 @@ in
     # tracy (LVM on LUKS)
     tracy = lib.nixosSystem {
 	    specialArgs = {
-                inherit inputs system pkgs-overlays vars;
+                inherit inputs system pkgs-overlays vars hypr;
                 host = {
                         hostname = "${vars.host}";
                 };

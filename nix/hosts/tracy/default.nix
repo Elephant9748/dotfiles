@@ -2,7 +2,7 @@
 # pkgs-overlays --> nixpkgs-unstable with overlays
 # ---------------------------
 
-{ pkgs-overlays, vars,... }:
+{ pkgs-overlays, hypr, vars,... }:
 
 {
   imports =
@@ -124,8 +124,8 @@
 	};
     hyprland = {
             enable = true;
-            package = pkgs-overlays.hyprland;
-            portalPackage = pkgs-overlays.xdg-desktop-portal-hyprland;
+            package = hypr.packages.${vars.system}.hyprland;
+            portalPackage = hypr.packages.${vars.system}.xdg-desktop-portal-hyprland;
     };
   };
 

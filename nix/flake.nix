@@ -26,9 +26,13 @@
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+    hypr = {
+      url = "github:hyprwm/Hyprland";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
   };
 
-  outputs = inputs @ { self, home-manager, nixpkgs-unstable, rust-overlay, ... }: 
+  outputs = inputs @ { self, home-manager, nixpkgs-unstable, hypr, rust-overlay, ... }:
     let
         vars = { 
                 # changed this if using another profile
@@ -44,7 +48,7 @@
       nixosConfigurations = (
         import ./hosts {
             inherit (nixpkgs-unstable);
-            inherit nixpkgs-unstable inputs home-manager vars rust-overlay;
+            inherit nixpkgs-unstable inputs home-manager vars hypr rust-overlay;
         }
       );
     };
