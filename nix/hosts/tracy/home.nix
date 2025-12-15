@@ -1,5 +1,5 @@
-{ pkgs, vars, ... }: {
-    home.packages = with pkgs; [
+{ pkgs-overlays, vars, ... }: {
+    home.packages = with pkgs-overlays; [
         fastfetch
         waybar
         alacritty
@@ -12,6 +12,7 @@
         rofi
         hyprcursor
         hyprpaper
+        rust-bin.stable.latest.default
     ];
 
     home.stateVersion = "${vars.version}";

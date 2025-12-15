@@ -157,7 +157,6 @@
     unzip
     zip
     fzf
-    rust-bin.stable.latest.default
   ];
 
   # Open ports in the firewall.

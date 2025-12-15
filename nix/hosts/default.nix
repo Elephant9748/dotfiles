@@ -37,7 +37,7 @@ in
                 home-manager.useGlobalPkgs = true;
 	    	    home-manager.useUserPackages = true;
                 home-manager.extraSpecialArgs = { 
-                        inherit vars; 
+                        inherit vars pkgs-overlays; 
                 };
 	    	    home-manager.users.${vars.user}.imports = [
                     ./${vars.user}/home.nix

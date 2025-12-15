@@ -17,10 +17,11 @@
   boot = {
   	loader = {
 		systemd-boot.enable = true;
-		systemd-boot.configurationLimit = 5;
+		systemd-boot.configurationLimit = 4;
 		efi.canTouchEfiVariables = true;
+        timeout = 2;
 	};
-	initrd.luks.devices.cryptroot = {
+	initrd.luks.devices.Nix-Luks-b47ff84f = {
 		device = "/dev/disk/by-uuid/b47ff84f-984c-4078-81f9-5041bfb212f1";
 		allowDiscards = true;
 	};
