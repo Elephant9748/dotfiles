@@ -17,7 +17,7 @@
   boot = {
   	loader = {
 		systemd-boot.enable = true;
-		systemd-boot.configurationLimit = 4;
+		systemd-boot.configurationLimit = 3;
 		efi.canTouchEfiVariables = true;
         timeout = 2;
 	};
@@ -26,7 +26,7 @@
 		allowDiscards = true;
 	};
     kernelParams = [
-        "quiet"
+        # "quiet"
         "loglevel=3"
         "randomize_kstack_offset=on"
         "vsyscall=none"

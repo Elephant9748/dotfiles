@@ -19,7 +19,6 @@
         nwg-look
         rofi-power-menu
         rofi-calc
-        polkit_gnome
         rust-bin.stable.latest.default
     ];
 
@@ -62,6 +61,7 @@
         source = ../../../configs/.config/hypr;
         recursive = true;
     };
+
     home.file.".config/rofi" = {
         source = ../../../configs/.config/rofi;
         recursive = true;

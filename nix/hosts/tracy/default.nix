@@ -32,31 +32,6 @@
     useXkbConfig = false; # use xkb.options in tty.
   };
 
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
-
-  services = {
-          pipewire = {
-                  enable = true;
-                  pulse.enable = true;
-          };
-          openssh = {
-                  enable = true;
-                  ports = [ 22 ];
-                  settings = {
-                          PermitRootLogin = "no";
-                          PasswordAuthentication = false;
-                          KbdInteractiveAuthentication = false;
-                          AllowUsers = [ "${vars.user}" ];
-                  };
-          };
-          xserver.enable = false;
-          udisks2 = {
-                  enable = true;
-                  package = pkgs-overlays.udisks;
-          };
-  };
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users = {
 	users.root = {
@@ -70,6 +45,8 @@
 		extraGroups = [
 			"sudo"
 			"${vars.user}"
+            "wheel"
+            "networkmanager"
 		];
 		shell = pkgs-overlays.fish;
 		useDefaultShell = true;
@@ -103,7 +80,31 @@
           };
           polkit = {
                   enable = true;
-                  package = pkgs-overlays.polkit;
+          };
+  };
+
+  # Enable CUPS to print documents.
+  # services.printing.enable = true;
+
+  services = {
+          pipewire = {
+                  enable = true;
+                  pulse.enable = true;
+          };
+          openssh = {
+                  enable = true;
+                  ports = [ 22 ];
+                  settings = {
+                          PermitRootLogin = "no";
+                          PasswordAuthentication = false;
+                          KbdInteractiveAuthentication = false;
+                          AllowUsers = [ "${vars.user}" ];
+                  };
+          };
+          xserver.enable = false;
+          udisks2 = {
+                  enable = true;
+                  package = pkgs-overlays.udisks;
           };
   };
 
@@ -134,8 +135,6 @@
     gnome-disks.enable = true;
   };
 
-
-
   environment.systemPackages = with pkgs-overlays; [
     home-manager
     gnupg
@@ -163,6 +162,7 @@
     zip
     fzf
     cryptomator
+    polkit_gnome
   ];
 
   # Open ports in the firewall.
