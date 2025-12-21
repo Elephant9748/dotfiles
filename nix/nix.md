@@ -16,11 +16,25 @@ cgdisk /dev/[your disk]
 ```
 result
 ```
-vda                  253:0    0   80G  0 disk
-├─vda1               253:1    0    1G  0 part  /mnt/boot
-└─vda2               253:2    0   79G  0 part
-  └─luks             254:0    0   79G  0 crypt
-    └─vg_nix-lv_root 254:1    0   79G  0 lvm   /mnt
+Part. #     Size        Partition Type            Partition Name
+----------------------------------------------------------------
+            1007.0 KiB  free space
+   1        550.0 MiB   EFI system partition      EFI
+   2        1024.0 MiB  Linux filesystem          BOOT
+   3        78.5 GiB    Linux LUKS                LUKS
+            1007.5 KiB  free space
+```
+filesystems
+```
+NAME                  MAJ:MIN RM  SIZE RO TYPE  MOUNTPOINTS
+loop0                   7:0    0  1.4G  1 loop  /nix/.ro-store
+sr0                    11:0    1  1.5G  0 rom   /iso
+vda                   253:0    0   80G  0 disk
+├─vda1                253:1    0  550M  0 part  /mnt/boot/EFI
+├─vda2                253:2    0    1G  0 part  /mnt/boot
+└─vda3                253:3    0 78.5G  0 part
+  └─Nix-Luks-ca8d59c4 254:0    0 78.4G  0 crypt
+    └─vg_nix-nix_root 254:1    0 78.4G  0 lvm   /mnt 
 ```
 ### Generate nixos config
 ```

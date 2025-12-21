@@ -21,8 +21,8 @@
 		efi.canTouchEfiVariables = true;
         timeout = 2;
 	};
-	initrd.luks.devices.Nix-Luks-b47ff84f = {
-		device = "/dev/disk/by-uuid/b47ff84f-984c-4078-81f9-5041bfb212f1";
+	initrd.luks.devices.Nix-Luks-ca8d59c4 = {
+		device = "/dev/disk/by-uuid/ca8d59c4-3318-4dfc-8fd9-f885666586dd";
 		allowDiscards = true;
 	};
     kernelParams = [
@@ -33,21 +33,18 @@
     ];
   };
 
-  fileSystems."/" = {
-    options = [
-      "noatime"
-      "nodiratime"
-      "discard"
-    ];
-  };
-
   fileSystems."/" =
-    { device = "/dev/mapper/vg_nix-lv_root";
+    { device = "/dev/mapper/vg_nix-nix_root";
       fsType = "ext4";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/8444-33B6";
+    { device = "/dev/disk/by-uuid/5c9800f1-9914-42a4-a04f-61df259332f8";
+      fsType = "ext4";
+    };
+
+  fileSystems."/boot/EFI" =
+    { device = "/dev/disk/by-uuid/9D71-FB13";
       fsType = "vfat";
       options = [ "fmask=0022" "dmask=0022" ];
     };
