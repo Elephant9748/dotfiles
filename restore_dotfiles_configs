@@ -33,6 +33,6 @@ if command -v rsync &> /dev/null; then
         # !need sudo,doas
         # sddm look
         # sudo rsync -azP $HOME/project/dotfiles/configs/sddm/sddm-astronaut-theme /usr/share/sddm/themes/
-        # sudo rsync $HOME/project/dotfiles/configs/sddm/sddm.conf.d/ /usr/lib/sddm/sddm.conf.d/
+        # sudo rsync -azP $HOME/project/dotfiles/configs/sddm/sddm.conf.d/ /usr/lib/sddm/sddm.conf.d/
 fi
 
