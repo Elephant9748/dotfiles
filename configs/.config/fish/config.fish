@@ -237,11 +237,10 @@ if status --is-interactive
    #rust
    export PATH="$HOME/.cargo/bin:$PATH"
    export PATH="$HOME/project/depot_tools:$PATH"
-
    #Go
    export PATH="$HOME/go/bin:$PATH"
 
-   #pipx PATH
+   #pipx is local PATH
    export PATH="$HOME/.local/bin:$PATH"
 
    # git clone error RPC failed:curl 56 GnuTLS recv error (-54):Error in the pull function .
@@ -261,8 +260,10 @@ if status --is-interactive
    #source "$PIP_VENV/activate.fish"
 
    #base16_shell -->> git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
-   set BASE16_SHELL "$HOME/.config/base16-shell/"
-   source "$BASE16_SHELL/profile_helper.fish"
+   if test -d $HOME/.config/base16_shell
+           set BASE16_SHELL "$HOME/.config/base16-shell/"
+           source "$BASE16_SHELL/profile_helper.fish"
+   end
 
    # npm packages
    set NPM_PACKAGES "$HOME/.npm-packages"
@@ -354,12 +355,6 @@ if test -e /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish;
   . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish;
 end
 # End Ni
-
-#manual load hyprpaper image
-function load_image
-        hyprctl hyprpaper preload "~/Pictures/wallhaven.cc/wallhaven-md37wk_1920x1080.png"
-        hyprctl hyprpaper wallpaper "HDMI-A-1,~/Pictures/wallhaven.cc/wallhaven-md37wk_1920x1080.png"
-end
 
 #check ssh_auth_sock exist!
 if test -e !$HOME/.ssh/ssh_auth_sock;
