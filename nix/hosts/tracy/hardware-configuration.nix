@@ -19,10 +19,11 @@
 		systemd-boot.enable = true;
 		systemd-boot.configurationLimit = 3;
 		efi.canTouchEfiVariables = true;
+		efi.efiSysMountPoint = "/boot/EFI";
         timeout = 2;
 	};
-	initrd.luks.devices.Nix-Luks-ca8d59c4 = {
-		device = "/dev/disk/by-uuid/ca8d59c4-3318-4dfc-8fd9-f885666586dd";
+	initrd.luks.devices.Nix-Luks-e1aaf288 = {
+		device = "/dev/disk/by-uuid/e1aaf288-17ca-49e9-a91b-afaade4506c9";
 		allowDiscards = true;
 	};
     kernelParams = [
@@ -39,12 +40,12 @@
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/5c9800f1-9914-42a4-a04f-61df259332f8";
+    { device = "/dev/disk/by-uuid/cbdc7de6-6330-4cf8-b6e5-4de536836c5c";
       fsType = "ext4";
     };
 
   fileSystems."/boot/EFI" =
-    { device = "/dev/disk/by-uuid/9D71-FB13";
+    { device = "/dev/disk/by-uuid/6D7A-1F36";
       fsType = "vfat";
       options = [ "fmask=0022" "dmask=0022" ];
     };
