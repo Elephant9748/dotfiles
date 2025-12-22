@@ -60,11 +60,13 @@ function fish_greeting
     set_color 16AA64
     echo -e ' note!: '
     if string match -q "rigel" (whoami)
-            set_color 6A6362
-            echo -e '\t*created emergency backup (tracy,proton)'
+            set_color C38F00
+            echo -e '\t*!Info move initramfs before update nvidia,linux,.. drive usage issue /boot'
+            set_color AD4759
+            echo -e '\t*!Created emergency backup (tracy,proton)'
             set_color F53C3C
-            echo -e '\t*supply chain attack: check dependencies npm packages.!!! '
-            set_color 605F5E
+            echo -e '\t*!Supply chain attack: check dependencies npm packages.!!! '
+            set_color 51557A
             echo -e '\t*https://socket.dev/blog/npm-author-qix-compromised-in-major-supply-chain-attack'
             echo -e '\t*https://gist.github.com/sindresorhus/2b7466b1ec36376b8742dc711c24db20'
             echo -e '\t*https://github.com/chalk/chalk/issues/656'
