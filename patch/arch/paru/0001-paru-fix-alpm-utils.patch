@@ -1,0 +1,47 @@
+From 459cdc59f5ab03cb65e43dd87ac8856513d42565 Mon Sep 17 00:00:00 2001
+From: "@Elephant9748" <adytamasurya@protonmail.com>
+Date: Sat, 20 Dec 2025 12:06:28 +0700
+Subject: [PATCH] paru: fix alpm-utils
+
+---
+ PKGBUILD | 17 ++++++++++++++---
+ 1 file changed, 14 insertions(+), 3 deletions(-)
+
+diff --git a/PKGBUILD b/PKGBUILD
+index fb6b480..d36a41d 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -1,7 +1,7 @@
+ # Maintainer: Morgan <morganamilo@archlinux.org>
+ pkgname=paru
+ pkgver=2.1.0
+-pkgrel=2
++pkgrel=2.1
+ pkgdesc='Feature packed AUR helper'
+ url='https://github.com/morganamilo/paru'
+ source=("$pkgname-$pkgver.tar.gz::https://github.com/Morganamilo/paru/archive/v$pkgver.tar.gz")
+@@ -15,8 +15,19 @@ sha256sums=('eea4dbb524db765d5316f540f9ee670c0bf81aae4827b5417eebb4c9b5651727')
+ 
+ prepare() {
+   cd "$pkgname-$pkgver"
+-  cargo update alpm alpm-utils
+-  cargo fetch --locked --target "$(rustc -vV | sed -n 's|host: ||p')"
++   patch -Np1 <<EOF
++diff --git a/Cargo.toml b/Cargo.toml
++index 26063f7..eb556cf 100644
++--- a/Cargo.toml
+++++ b/Cargo.toml
++@@ -75,2 +75,2 @@ mock_chroot = ["mock"]
++-#alpm = { path = "../alpm.rs/alpm" }
++-#alpm-utils = { path = "../alpm.rs/alpm-utils" }
+++alpm = { git = "https://github.com/archlinux/alpm.rs.git", rev = "b010ec79ee92b54e87f07fa4e287cbabc035c0ca" }
+++alpm-utils = { git = "https://github.com/archlinux/alpm.rs.git", rev = "b010ec79ee92b54e87f07fa4e287cbabc035c0ca" }
++EOF
++  rm -rf Cargo.lock
++  cargo fetch --target "$(rustc -vV | sed -n 's|host: ||p')"
+ }
+ 
+ build () {
+-- 
+2.52.0
+
