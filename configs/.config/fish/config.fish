@@ -81,17 +81,17 @@ end
 function fish_prompt
 	set_color brblack
 	echo -n "["(date "+%H:%M")"] "
-    set_color 16AA64
+    set_color 427B58
 	echo -n (hostnamectl hostname)
 	if [ $PWD != $HOME ]
 		set_color brblack
 		echo -n ':'
-		set_color 7A4DBD
+		set_color 076678
 		echo -n (basename $PWD)
 	end
-	set_color 1796B8
+    set_color 98971A
 	printf '%s ' (__fish_git_prompt)
-	set_color B23F61
+	set_color AF3A03
 	echo -n '| '
 	# echo -n '⟩ '
 	set_color normal
@@ -458,6 +458,20 @@ end
 #fzf_key_bindings
 function fish_user_key_bindings
 	fzf_key_bindings
+end
+
+#arti tor rust
+function start_arti
+        if command -v arti > /dev/null
+                export all_proxy="socks5://localhost:9150"
+                arti proxy -l info &
+        end
+end
+function stop_arti
+        if command -v arti > /dev/null
+                export all_proxy=""
+                kill arti
+        end
 end
 
 #torsocks
