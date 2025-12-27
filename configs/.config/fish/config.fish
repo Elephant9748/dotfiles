@@ -205,6 +205,13 @@ abbr -a .venv 'source $HOME/.venv/bin/activate.fish'
 
 complete --command aurman --wraps pacman
 
+# check ssh_auth_sock exists
+if test -s $HOME/.ssh/ssh_auth_sock
+        set ssh_auth_sock (cat $HOME/.ssh/ssh_auth_sock)
+else 
+        set ssh_auth_sock ""
+end
+
 if status --is-interactive
    clear
    alias ssh="TERM=xterm-256color $(command -v ssh)"
@@ -215,10 +222,9 @@ if status --is-interactive
    # ----------------------------
    # ssh gnome/keyring
    # set SSH_AUTH_SOCK "$XDG_RUNTIME_DIR/gcr/ssh"
-   if test -e $HOME/.ssh_auth_sock
-           set -x SSH_AUTH_SOCK ""
-           set -x SSH_AUTH_SOCK (cat $HOME/.ssh/ssh_auth_sock)
-   end
+   # set -x SSH_AUTH_SOCK ""
+   # set -x SSH_AUTH_SOCK (cat $HOME/.ssh/ssh_auth_sock)
+   set -x SSH_AUTH_SOCK $ssh_auth_sock
 
    # ssh agent from gnupg
    # ----------------------------
@@ -368,9 +374,8 @@ end
 abbr -a list_ssh_agent 'ps -e | grep \'ssh\' && cat $HOME/.ssh/ssh_auth_sock'
 function start_ssh_agent
         eval (ssh-agent -c) 
-        ssh-add ~/.ssh/rpi_earendel_ed25519 
+        ssh-add ~/.ssh/brandon.earendel
         ssh-add ~/.ssh/hive_wendy_ed25519 
-        ssh-add ~/.ssh/rick_phoebe_ed25519 
         ssh-add ~/.ssh/id_ed25519
         echo $SSH_AUTH_SOCK > $HOME/.ssh/ssh_auth_sock
         timeout_ssh_agent
@@ -414,6 +419,7 @@ function stop_ssh_agent
         set get_pid (ps -e | rg -i "ssh" | awk '{print $1}')
         kill $get_pid
         cat /dev/null > $HOME/.ssh/ssh_auth_sock
+        set -x SSH_AUTH_SOCK ""
 end
 
 function list_ssh_agent
