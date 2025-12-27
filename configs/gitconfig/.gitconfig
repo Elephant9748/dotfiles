@@ -1,6 +1,6 @@
 [user]
 	name = @Elephant9748
-	email = adytamasurya@protonmail.com
+	email = adytamasurya@proton.me
 [credential]
 	helper = store
 [safe]
@@ -10,3 +10,17 @@
 
 [init]
 	defaultBranch = main
+[alias]
+        s = status
+        cm = commit -m
+        co = checkout
+        lo = log --all --decorate --oneline -50 --graph
+        l = log
+        r = rebase
+        r2 = rebase -i HEAD~2
+        r3 = rebase -i HEAD~3
+        bs = restore --stage
+        b = restore
+        pc = push codeberg main
+        pg = push github main
+        
