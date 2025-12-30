@@ -266,10 +266,8 @@ if status --is-interactive
    #source "$PIP_VENV/activate.fish"
 
    #base16_shell -->> git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
-   if test -d $HOME/.config/base16_shell
-           set BASE16_SHELL "$HOME/.config/base16-shell/"
-           source "$BASE16_SHELL/profile_helper.fish"
-   end
+   set BASE16_SHELL "$HOME/.config/base16-shell/"
+   source "$BASE16_SHELL/profile_helper.fish"
 
    # npm packages
    set NPM_PACKAGES "$HOME/.npm-packages"
