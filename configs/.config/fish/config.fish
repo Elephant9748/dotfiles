@@ -132,6 +132,8 @@ if command -v git > /dev/null
         abbr -a gss 'git diff --cached'
         abbr -a gsm 'git submodule update --init --recursive'
         abbr -a gr 'git rebase -i HEAD~3'
+        abbr -a pcg 'git push codeberg main && git push github main'
+        abbr -a pcgf 'git push codeberg main -f && git push github main -f'
 end
 
 #cargo
