@@ -16,6 +16,14 @@
 /* ``` */
 
 @-moz-document url(chrome://browser/content/browser.xhtml) {
+
+        /* hide min max button */
+        .titlebar-min,
+        .titlebar-max,
+        .titlebar-restore {
+                display: none !important;
+        }
+
         /*stop rounded tab*/
         :root {
                 --border-radius-medium: 4px !important;
@@ -53,10 +61,6 @@
                 bottom: calc(var(--urlbar-min-height) * 1.6) !important;
                 top: unset !important;
         }
-
-        /* hide min max button */
-        /* .titlebar-max {display:none!important;}
-        .titlebar-min {display:none!important;} */
 
         #urlbar > * {
                 flex: none;
