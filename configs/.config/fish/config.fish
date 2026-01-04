@@ -97,6 +97,114 @@ function fish_prompt
 	set_color normal
 end
 
+if status --is-interactive
+   clear
+   alias ssh="TERM=xterm-256color $(command -v ssh)"
+   #alias ssh="alacritty $(which ssh)"
+
+   export GPG_TTY=$(tty)
+   # ssh agent for ssh
+   # ----------------------------
+   # ssh gnome/keyring
+   # set SSH_AUTH_SOCK "$XDG_RUNTIME_DIR/gcr/ssh"
+   # set -x SSH_AUTH_SOCK ""
+   # set -x SSH_AUTH_SOCK (cat $HOME/.ssh/ssh_auth_sock)
+   set -x SSH_AUTH_SOCK $ssh_auth_sock
+
+   # ssh agent from gnupg
+   # ----------------------------
+   # set SSH_AGENT_PID ""
+   # set -x -U SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
+   # set -x -U SSH_AUTH_SOCK "$XDG_RUNTIME_DIR/gnupg/S.gpg-agent.ssh"
+
+   # gopass
+   set -x PASSWORD_STORE_DIR $HOME/Pgp/pinned/boxpass
+
+   # paperpass
+   set -x PAPERPASS_CONFIG $HOME/.config/paperpass/paperpass.toml
+   #paperbackup
+   set -x PAPERBACKUP_CONFIG $HOME/.config/paperbackup/config.toml
+
+   #rust
+   export PATH="$HOME/.cargo/bin:$PATH"
+   export PATH="$HOME/project/depot_tools:$PATH"
+   #Go
+   export PATH="$HOME/go/bin:$PATH"
+
+   #pipx is local PATH
+   export PATH="$HOME/.local/bin:$PATH"
+
+   # git clone error RPC failed:curl 56 GnuTLS recv error (-54):Error in the pull function .
+   # ```
+   # export GIT_TRACE_PACKET=1
+   # export GIT_TRACE=1
+   # export GIT_CURL_VERBOSE=1
+   # ```
+
+   #cosmic
+   #export CARGO_HOME="$srcdir/cargo-home"
+   #export RUSTUP_TOOLCHAIN=stable
+
+
+   #pip python venv
+   #set PIP_VENV "$HOME/.venv/bin/"
+   #source "$PIP_VENV/activate.fish"
+
+   #base16_shell -->> git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
+   set BASE16_SHELL "$HOME/.config/base16-shell/"
+   source "$BASE16_SHELL/profile_helper.fish"
+
+   # npm packages
+   set NPM_PACKAGES "$HOME/.npm-packages"
+   set PATH $PATH $NPM_PACKAGES/bin
+   set MANPATH $NPM_PACKAGES/share/man $MANPATH
+
+   #android-platform
+   # export PATH="/opt/android-sdk/platform-tools/:$PATH"
+
+   #tauri android 
+   if test -d /mnt/d/android-studio
+           set -x JAVA_HOME /mnt/d/android-studio/jbr/
+           set -x ANDROID_HOME /mnt/d/android-project/Android-Sdk/
+           set -x PATH $PATH $ANDROID_HOME/cmdline-tools
+           set -x PATH $PATH $ANDROID_HOME/build-tools/35.0.1
+           set NDK_dir (ls -1 $ANDROID_HOME/ndk)
+           set -x NDK_HOME $ANDROID_HOME/ndk/$NDK_dir
+           set -x PATH $PATH $ANDROID_HOME/ndk/$NDK_dir
+           set -x PATH $PATH $ANDROID_HOME/platform-tools
+           # gradle home user
+           set -x GRADLE_USER_HOME /mnt/d/.gradle
+   end
+
+   # override color_command
+   # set -U fish_color_command 16AA64
+   # set -U fish_color_param 7A4DBD
+
+   # MANPAGE
+   # man: can't open the manpath configuration file /etc/man_db.conf
+   # do this: 
+   # sudo aa-enforce usr.bin.man
+   # or put into complain:
+   # sudo aa-complain usr.bin.man || sudo aa-complain /etc/apparmor.d/usr.bin.man
+   # or something related to this:
+   # ERROR: Profile for /usr/lib/@{chromium}/@{chromium} exists in /etc/apparmor.d/chromium_browser 
+   # and {'f': '/etc/apparmor.d/chromium', 'p': 'chromium', 're': AARE('/usr/lib/@{chromium}/@{chromium}')}
+
+   # Apparmor disabled manpage 
+   # sudo apparmor_parser -R /etc/apparmor.d/usr.bin.man
+   # Apparmor enabled manpage 
+   # sudo apparmor_parser /etc/apparmor.d/usr.bin.man
+   if command -v mandb > /dev/null
+           set MANPATH (manpath) $MANPATH
+           set -g man_blink -o red
+           set -g man_bold -o green
+           set -g man_standout -b black 93a1a1
+           set -g man_underline -u 93a1a1
+   end
+
+end
+
+
 #reflector mirror sync in arch
 if command -v reflector > /dev/null
         abbr -a mirror_sync 'sudo reflector -c NL -p https --sort age --sort score -l 20 --save /etc/pacman.d/mirrorlist'
@@ -212,111 +320,6 @@ if test -s $HOME/.ssh/ssh_auth_sock
         set ssh_auth_sock (cat $HOME/.ssh/ssh_auth_sock)
 else 
         set ssh_auth_sock ""
-end
-
-if status --is-interactive
-   clear
-   alias ssh="TERM=xterm-256color $(command -v ssh)"
-   #alias ssh="alacritty $(which ssh)"
-
-   export GPG_TTY=$(tty)
-   # ssh agent for ssh
-   # ----------------------------
-   # ssh gnome/keyring
-   # set SSH_AUTH_SOCK "$XDG_RUNTIME_DIR/gcr/ssh"
-   # set -x SSH_AUTH_SOCK ""
-   # set -x SSH_AUTH_SOCK (cat $HOME/.ssh/ssh_auth_sock)
-   set -x SSH_AUTH_SOCK $ssh_auth_sock
-
-   # ssh agent from gnupg
-   # ----------------------------
-   # set SSH_AGENT_PID ""
-   # set -x -U SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
-   # set -x -U SSH_AUTH_SOCK "$XDG_RUNTIME_DIR/gnupg/S.gpg-agent.ssh"
-
-   # gopass
-   set -x PASSWORD_STORE_DIR $HOME/Pgp/pinned/boxpass
-
-   # paperpass
-   set -x PAPERPASS_CONFIG $HOME/.config/paperpass/paperpass.toml
-   #paperbackup
-   set -x PAPERBACKUP_CONFIG $HOME/.config/paperbackup/config.toml
-
-   #rust
-   export PATH="$HOME/.cargo/bin:$PATH"
-   export PATH="$HOME/project/depot_tools:$PATH"
-   #Go
-   export PATH="$HOME/go/bin:$PATH"
-
-   #pipx is local PATH
-   export PATH="$HOME/.local/bin:$PATH"
-
-   # git clone error RPC failed:curl 56 GnuTLS recv error (-54):Error in the pull function .
-   # ```
-   # export GIT_TRACE_PACKET=1
-   # export GIT_TRACE=1
-   # export GIT_CURL_VERBOSE=1
-   # ```
-
-   #cosmic
-   #export CARGO_HOME="$srcdir/cargo-home"
-   #export RUSTUP_TOOLCHAIN=stable
-
-
-   #pip python venv
-   #set PIP_VENV "$HOME/.venv/bin/"
-   #source "$PIP_VENV/activate.fish"
-
-   #base16_shell -->> git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
-   set BASE16_SHELL "$HOME/.config/base16-shell/"
-   source "$BASE16_SHELL/profile_helper.fish"
-
-   # npm packages
-   set NPM_PACKAGES "$HOME/.npm-packages"
-   set PATH $PATH $NPM_PACKAGES/bin
-   set MANPATH $NPM_PACKAGES/share/man $MANPATH
-
-   #android-platform
-   # export PATH="/opt/android-sdk/platform-tools/:$PATH"
-
-   #tauri android 
-   if test -d /mnt/d/android-studio
-           set -x JAVA_HOME /mnt/d/android-studio/jbr/
-           set -x ANDROID_HOME /mnt/d/android-project/Android-Sdk/
-           set -x PATH $PATH $ANDROID_HOME/cmdline-tools
-           set -x PATH $PATH $ANDROID_HOME/build-tools/35.0.1
-           set NDK_dir (ls -1 $ANDROID_HOME/ndk)
-           set -x NDK_HOME $ANDROID_HOME/ndk/$NDK_dir
-           set -x PATH $PATH $ANDROID_HOME/ndk/$NDK_dir
-           set -x PATH $PATH $ANDROID_HOME/platform-tools
-   end
-
-   # override color_command
-   # set -U fish_color_command 16AA64
-   # set -U fish_color_param 7A4DBD
-
-   # MANPAGE
-   # man: can't open the manpath configuration file /etc/man_db.conf
-   # do this: 
-   # sudo aa-enforce usr.bin.man
-   # or put into complain:
-   # sudo aa-complain usr.bin.man || sudo aa-complain /etc/apparmor.d/usr.bin.man
-   # or something related to this:
-   # ERROR: Profile for /usr/lib/@{chromium}/@{chromium} exists in /etc/apparmor.d/chromium_browser 
-   # and {'f': '/etc/apparmor.d/chromium', 'p': 'chromium', 're': AARE('/usr/lib/@{chromium}/@{chromium}')}
-
-   # Apparmor disabled manpage 
-   # sudo apparmor_parser -R /etc/apparmor.d/usr.bin.man
-   # Apparmor enabled manpage 
-   # sudo apparmor_parser /etc/apparmor.d/usr.bin.man
-   if command -v mandb > /dev/null
-           set MANPATH (manpath) $MANPATH
-           set -g man_blink -o red
-           set -g man_bold -o green
-           set -g man_standout -b black 93a1a1
-           set -g man_underline -u 93a1a1
-   end
-
 end
 
 if command -v eza > /dev/null

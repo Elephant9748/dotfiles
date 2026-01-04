@@ -1,5 +1,6 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
+SETUVAR __fish_initialized:4300
 SETUVAR base16_theme:3024
 SETUVAR fish_color_autosuggestion:4a4543
 SETUVAR fish_color_cancel:\x2dr
@@ -27,3 +28,4 @@ SETUVAR fish_pager_color_completion:normal
 SETUVAR fish_pager_color_description:yellow\x1e\x2d\x2ddim
 SETUVAR fish_pager_color_prefix:white\x1e\x2d\x2dbold
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
+SETUVAR fish_user_paths:/home/rigel/\x2elocal/share/nvim/lazy/fzf/bin
