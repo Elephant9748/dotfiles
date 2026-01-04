@@ -1,0 +1,36 @@
+From bb830d60253d03c3ed62f30b9413053abf6c4ffd Mon Sep 17 00:00:00 2001
+From: "@Elephant9748" <adytamasurya@protonmail.com>
+Date: Fri, 28 Feb 2025 12:35:56 +0700
+Subject: [PATCH] PKGBUILD: to /mnt/d patch
+
+---
+ PKGBUILD | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/PKGBUILD b/PKGBUILD
+index 0e36e86..7a6bab4 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -37,9 +37,9 @@ package() {
+   cd $srcdir/$pkgname
+ 
+   # Install the application
+-  install -d $pkgdir/{opt/$pkgname,usr/bin}
+-  cp -a bin lib jbr plugins license LICENSE.txt build.txt product-info.json $pkgdir/opt/$pkgname
+-  ln -s /opt/android-studio/bin/studio $pkgdir/usr/bin/$pkgname
++  install -d $pkgdir/{/mnt/d/$pkgname,usr/bin}
++  cp -a bin lib jbr plugins license LICENSE.txt build.txt product-info.json $pkgdir/mnt/d/$pkgname
++  ln -s /mnt/d/android-studio/bin/studio $pkgdir/usr/bin/$pkgname
+ 
+   # Copy licenses
+   install -Dm644 LICENSE.txt "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE.txt"
+@@ -49,5 +49,5 @@ package() {
+   install -Dm644 bin/studio.png $pkgdir/usr/share/pixmaps/$pkgname.png
+   install -Dm644 $srcdir/$pkgname.desktop $pkgdir/usr/share/applications/$pkgname.desktop
+ 
+-  chmod -R ugo+rX $pkgdir/opt
++  chmod -R ugo+rX $pkgdir/mnt/d/android-studio
+ }
+-- 
+2.48.1
+
