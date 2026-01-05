@@ -62,6 +62,8 @@ function fish_greeting
     if string match -q "rigel" (whoami)
             set_color C38F00
             echo -e '\t*!Info move initramfs before update nvidia,linux,.. drive usage issue /boot'
+            set_color 13606E
+            echo -e '\t*https://gnupg.fail'
             set_color AD4759
             echo -e '\t*!Created emergency backup (tracy,proton)'
             set_color F53C3C
@@ -96,6 +98,14 @@ function fish_prompt
 	# echo -n '⟩ '
 	set_color normal
 end
+
+# check ssh_auth_sock exists
+if test -s $HOME/.ssh/ssh_auth_sock
+        set ssh_auth_sock (cat $HOME/.ssh/ssh_auth_sock)
+else 
+        set ssh_auth_sock ""
+end
+
 
 if status --is-interactive
    clear
@@ -310,22 +320,10 @@ abbr -a .duplexshow 'sudo ethtool enp4s0'
 #to deactive just type: deactive
 abbr -a .venv 'source $HOME/.venv/bin/activate.fish'
 
-#steam debugger nvidia_offload
-#nvidia-smi pmon # running process on nvidia
-
-complete --command aurman --wraps pacman
-
-# check ssh_auth_sock exists
-if test -s $HOME/.ssh/ssh_auth_sock
-        set ssh_auth_sock (cat $HOME/.ssh/ssh_auth_sock)
-else 
-        set ssh_auth_sock ""
-end
-
 if command -v eza > /dev/null
 	abbr -a l 'eza'
 	abbr -a ls 'eza'
-	abbr -a ll 'eza -l'
+	abbr -a ll 'eza -la'
 	abbr -a lg 'eza -l -G'
 	abbr -a llg 'eza -la -G'
 	abbr -a lll 'eza -la'
