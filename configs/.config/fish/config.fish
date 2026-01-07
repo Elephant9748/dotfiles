@@ -109,6 +109,7 @@ end
 
 if status --is-interactive
    clear
+   set -x EDITOR nvim
    alias ssh="TERM=xterm-256color $(command -v ssh)"
    #alias ssh="alacritty $(which ssh)"
 
