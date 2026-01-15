@@ -185,6 +185,8 @@ if status --is-interactive
            set -x PATH $PATH $ANDROID_HOME/platform-tools
            # gradle home user
            set -x GRADLE_USER_HOME /mnt/d/.gradle
+           # gradle home user tauri
+           # set -x GRADLE_USER_HOME /mnt/d/.gradle-tauri
    end
 
    # override color_command
