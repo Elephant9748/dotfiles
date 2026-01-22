@@ -62,8 +62,6 @@ function fish_greeting
     if string match -q "rigel" (whoami)
             set_color C38F00
             echo -e '\t*!Info move initramfs before update nvidia,linux,.. limited sized /boot'
-            set_color 13606E
-            echo -e '\t*https://gnupg.fail'
             set_color AD4759
             echo -e '\t*!Created emergency backup (tracy,proton)'
     end
