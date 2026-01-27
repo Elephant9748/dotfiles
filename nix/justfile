@@ -1,0 +1,14 @@
+set quiet
+bangbash := '#!/usr/bin/env bash'
+
+gen:
+        nixos-generate-config --root /mnt
+install $host:
+        {{bangbash}}
+        nixos-install --flake .#{{host}} --verbose
+build $host:
+        {{bangbash}}
+        sudo nixos-rebuild switch --flake .#{{host}}
+flake-up:
+        nix flake update
+
