@@ -2,13 +2,20 @@
 # -----------------------------------------------
 # nix
 # ├── flake.nix
-# └── hosts
-#     ├── default.nix
-#     └── tracy
-#         ├── default.nix <--- the same as /etc/nixos/configuration.nix
-#         ├── hardware-configuration.nix
-#         └── home.nix
+# └─── hosts
+#     ├── gui.nix <--- the same as /etc/nixos/configuration.nix
+#     ├── nogui.nix <--- the same as /etc/nixos/configuration.nix
+#     └── tracy
+#         ├── default.nix
+#         ├── hardware-configuration.nix
+#         └── modules
+#             ├── base.nix
+#             ├── full.nix
+#             ├── home.nix
+#             └── home_nogui.nix
 # -----------------------------------------------
+
+
 { vars, inputs, nixpkgs-unstable, home-manager, hypr, rust-overlay, ... }:
 let
     system = "${vars.system}";
@@ -31,7 +38,7 @@ in
                 };
 	    };
 	    modules = [
-	        ./${vars.user}
+	        ./${vars.user}/nogui.nix
 
 	        home-manager.nixosModules.home-manager {
                 home-manager.useGlobalPkgs = true;
@@ -40,7 +47,7 @@ in
                         inherit vars pkgs-overlays; 
                 };
 	    	    home-manager.users.${vars.user}.imports = [
-                    ./${vars.user}/home.nix
+                    ./${vars.user}/modules/home_nogui.nix
                 ];
 	        }
 	    ];
