@@ -1,8 +1,9 @@
 set quiet 
 
-sync-dot:
-        #!/bin/bash
-        if command -v rsync &> /dev/null; then
+# rsync to dotfiles
+to-dot:
+        #!/usr/bin/env bash
+        if command -v rsync &> /dev/null; then 
                 rsync -azP $HOME/.config/hypr $HOME/project/dotfiles/configs/.config/ && \
                 rsync -azP $HOME/.config/alacritty $HOME/project/dotfiles/configs/.config/ && \
                 rsync -azP $HOME/.config/bspwm $HOME/project/dotfiles/configs/.config/ && \
@@ -34,13 +35,14 @@ sync-dot:
                 # !need sudo,doas
                 # sddm
                 rsync -azP /usr/share/sddm/themes/sddm-astronaut-theme configs/sddm/ && \
-                rsync -azP /usr/lib/sddm/sddm.conf.d configs/sddm/
+                rsync -azP /usr/lib/sddm/sddm.conf.d configs/sddm/ 
         else
                 echo "rsync command not found!"
         fi
 
-restore-dot:
-        #!/bin/bash
+# rsync install dotfiles
+install-dot:
+        #!/usr/bin/env bash
         # clone base16shell color
         if [[ ! -d "$HOME/.config/base16-shell" ]]; then
                 git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell 
@@ -77,9 +79,9 @@ restore-dot:
                 # sudo rsync -azP $HOME/project/dotfiles/configs/sddm/sddm.conf.d/ /usr/lib/sddm/sddm.conf.d/
         fi
 
-restore-freebsd-dot:
-        #!/bin/bash
-
+# rsync install dotfiles for freebsd
+install-dot-freebsd:
+        #!/usr/bin/env bash
         if [[ ! -d "$HOME/.config/base16-shell" ]]; then
                 git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell && \
         fi
