@@ -63,7 +63,7 @@
     neovim = {
             enable = true;
             package = neovim-nightly.packages.${vars.system}.default;
-    }
+    };
     # below hyprland using build from source
     hyprland = {
             enable = true;
