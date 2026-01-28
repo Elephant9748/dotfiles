@@ -75,6 +75,7 @@
     unzip
     zip
     fzf
+    just
   ];
 }
 

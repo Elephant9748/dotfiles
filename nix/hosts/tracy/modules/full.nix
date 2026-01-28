@@ -94,6 +94,7 @@
     unzip
     zip
     fzf
+    just
     cryptomator
     polkit_gnome
   ];
