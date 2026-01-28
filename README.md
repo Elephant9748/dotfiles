@@ -19,14 +19,14 @@ stow -Rv -t ~/ -d configs/ .
 stow -Rv -t ~/ -d tmux .
 ```
 
-**using rsync**  
-  
+**using just**  
 
-Available recipes:
-    install-dot         # rsync install dotfiles
-    install-dot-freebsd # rsync install dotfiles for freebsd
-    to-dot              # rsync to dotfiles
 prerequisites `paru -S just rsync`  
+
+list just recipe
+```
+just -l
+```
 restore
 ```
 just install-dot
