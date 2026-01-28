@@ -8,6 +8,7 @@
   imports =
     [ 
       ./hardware-configuration.nix
+      ./modules/base.nix
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -63,136 +64,6 @@
 		};
 	};
   };
-
-  security = { 
-          sudo = {
-              enable = true;
-              extraRules = [{
-                  groups = [ "sudo" ];
-                  host = "ALL";
-                  runAs = "ALL:ALL";
-                  commands = [
-                    {
-                        command = "ALL";
-                    }
-                  ];
-              }];
-          };
-          polkit = {
-                  enable = true;
-          };
-  };
-
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
-
-  services = {
-          pipewire = {
-                  enable = true;
-                  pulse.enable = true;
-          };
-          openssh = {
-                  enable = true;
-                  ports = [ 22 ];
-                  settings = {
-                          PermitRootLogin = "no";
-                          PasswordAuthentication = false;
-                          KbdInteractiveAuthentication = false;
-                          AllowUsers = [ "${vars.user}" ];
-                  };
-          };
-          xserver.enable = false;
-          udisks2 = {
-                  enable = true;
-                  package = pkgs-overlays.udisks;
-          };
-  };
-
-  programs = {
-	fish = {
-		enable = true;
-        loginShellInit = ''
-                if test (tty) = "/dev/tty1"; and test -z "$WAYLAND_DISPLAY"; and test -n "$XDG_VTNR"; and test "$XDG_VTNR" -eq 1
-                    exec start-hyprland
-                  end
-        '';
-	};
-	ssh = {
-		package = pkgs-overlays.openssh;
-		kexAlgorithms = ["mlkem768x25519-sha256"];
-	};
-	gnupg = {
-		agent = {
-			enable = true;
-			enableSSHSupport = true;
-		};
-	};
-    hyprland = {
-            enable = true;
-            package = hypr.packages.${vars.system}.hyprland;
-            portalPackage = hypr.packages.${vars.system}.xdg-desktop-portal-hyprland;
-    };
-    gnome-disks.enable = true;
-  };
-
-  environment.systemPackages = with pkgs-overlays; [
-    home-manager
-    gnupg
-    git
-    procps
-    pciutils
-    lsb-release
-    vim
-    neovim
-    ripgrep
-    fd
-    jq
-    bottom
-    bat
-    openssh
-    eza
-    gettext
-    ninja
-    meson
-    curl
-    gnumake
-    gcc
-    wget
-    unzip
-    zip
-    fzf
-    cryptomator
-    polkit_gnome
-  ];
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
   networking.firewall.enable = false;
-
-  # Copy the NixOS configuration file and link it from the resulting system
-  # (/run/current-system/configuration.nix). This is useful in case you
-  # accidentally delete configuration.nix.
-  # system.copySystemConfiguration = true;
-
-  # This option defines the first version of NixOS you have installed on this particular machine,
-  # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
-  #
-  # Most users should NEVER change this value after the initial install, for any reason,
-  # even if you've upgraded your system to a new NixOS release.
-  #
-  # This value does NOT affect the Nixpkgs-overlays.version your packages and OS are pulled from,
-  # so changing it will NOT upgrade your system - see https://nixos.org/manual/nixos/stable/#sec-upgrading for how
-  # to actually do that.
-  #
-  # This value being lower than the current NixOS release does NOT mean your system is
-  # out of date, out of support, or vulnerable.
-  #
-  # Do NOT change this value unless you have manually inspected all the changes it would make to your configuration,
-  # and migrated your data accordingly.
-  #
-  # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
-  system.stateVersion = "${vars.version}"; # Did you read the comment?
-
+  system.stateVersion = "${vars.version}"; 
 }
