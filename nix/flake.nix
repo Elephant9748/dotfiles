@@ -2,12 +2,17 @@
 # -----------------------------------------------
 # nix
 # ├── flake.nix
-# └── hosts
-#     ├── default.nix
-#     └── tracy
-#         ├── default.nix <--- the same as /etc/nixos/configuration.nix
-#         ├── hardware-configuration.nix
-#         └── home.nix
+# └─── hosts
+#     ├── gui.nix <--- the same as /etc/nixos/configuration.nix
+#     ├── nogui.nix <--- the same as /etc/nixos/configuration.nix
+#     └── tracy
+#         ├── default.nix
+#         ├── hardware-configuration.nix
+#         └── modules
+#             ├── base.nix
+#             ├── full.nix
+#             ├── home.nix
+#             └── home_nogui.nix
 # -----------------------------------------------
 
 {
@@ -46,7 +51,8 @@
     in
     {
       nixosConfigurations = (
-        import ./hosts {
+        # define modules with gui or just terminal
+        import ./hosts/nogui.nix {
             inherit (nixpkgs-unstable);
             inherit nixpkgs-unstable inputs home-manager vars hypr rust-overlay;
         }

@@ -38,7 +38,7 @@ in
                 };
 	    };
 	    modules = [
-	        ./${vars.user}/nogui.nix
+	        ./${vars.user}
 
 	        home-manager.nixosModules.home-manager {
                 home-manager.useGlobalPkgs = true;
