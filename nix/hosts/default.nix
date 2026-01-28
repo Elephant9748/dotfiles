@@ -23,7 +23,7 @@ let
 in
 {
     # tracy (LVM on LUKS)
-    tracy = lib.nixosSystem {
+    ${vars.user} = lib.nixosSystem {
 	    specialArgs = {
                 inherit inputs system pkgs-overlays vars hypr;
                 host = {
