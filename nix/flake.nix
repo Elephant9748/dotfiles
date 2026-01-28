@@ -43,26 +43,34 @@
     };
   };
 
-  outputs = inputs @ { self, home-manager, nixpkgs-unstable, hypr, rust-overlay, neovim-nightly, ... }:
-    let
-        vars = { 
-                # changed this if using another profile
-                # this where host/user --flake
-                user = "tracy";
-                host = "tracy-vm";
-                system = "x86_64-linux";
-                version = "26.05";
-                editor = "nvim";
-        };
-    in
-    {
-      nixosConfigurations = (
-        # define modules with gui or just terminal
-        import ./hosts/nogui.nix {
-            inherit (nixpkgs-unstable);
-            inherit nixpkgs-unstable inputs home-manager vars hypr rust-overlay neovim-nightly;
-        }
-      );
-    };
+  outputs = inputs @ {
+          self, 
+          home-manager, 
+          nixpkgs-unstable, 
+          hypr, 
+          # neovim-nightly,
+          rust-overlay, ... 
+  }:
+  let
+      vars = { 
+              # changed this if using another profile
+              # this where host/user --flake
+              user = "tracy";
+              host = "tracy-vm";
+              system = "x86_64-linux";
+              version = "26.05";
+              editor = "nvim";
+      };
+  in
+  {
+    nixosConfigurations = (
+      # define modules with gui or just terminal
+      import ./hosts/nogui.nix {
+          inherit (nixpkgs-unstable);
+          # inherit nixpkgs-unstable inputs home-manager vars hypr rust-overlay neovim-nightly;
+          inherit nixpkgs-unstable inputs home-manager vars hypr rust-overlay;
+      }
+    );
+  };
 }
 
