@@ -27,17 +27,23 @@
         url = "github:nix-community/home-manager";
         inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
-    rust-overlay = {
-      url = "github:oxalica/rust-overlay";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
     hypr = {
       url = "github:hyprwm/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+
+    # overlays
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+    neovim-nightly = {                                                                                                                                         │ 19   outputs = inputs @ { self, home-manager, nixpkgs-unstable, hypr, rust-overlay, ... }:
+        url = "github:nix-community/neovim-nightly-overlay";                                                                                                   │ 20     let
+        inputs.nixpkgs.follows = "nixpkgs-unstable";                                                                                                           │ 21         vars = {
+    };
   };
 
-  outputs = inputs @ { self, home-manager, nixpkgs-unstable, hypr, rust-overlay, ... }:
+  outputs = inputs @ { self, home-manager, nixpkgs-unstable, hypr, rust-overlay, neovim-nightly, ... }:
     let
         vars = { 
                 # changed this if using another profile
@@ -54,7 +60,7 @@
         # define modules with gui or just terminal
         import ./hosts/nogui.nix {
             inherit (nixpkgs-unstable);
-            inherit nixpkgs-unstable inputs home-manager vars hypr rust-overlay;
+            inherit nixpkgs-unstable inputs home-manager vars hypr rust-overlay neovim-nightly;
         }
       );
     };

@@ -1,4 +1,4 @@
-{ pkgs-overlays, hypr, vars, ... }:
+{ pkgs-overlays, neovim-nightly, hypr, vars, ... }:
 {
   security = { 
           sudo = {
@@ -60,6 +60,11 @@
 			enableSSHSupport = true;
 		};
 	};
+    neovim = {
+            enable = true;
+            package = neovim-nightly.packages.${vars.system}.default;
+    }
+    # below hyprland using build from source
     hyprland = {
             enable = true;
             package = hypr.packages.${vars.system}.hyprland;
@@ -76,7 +81,7 @@
     pciutils
     lsb-release
     vim
-    neovim
+    # neovim
     ripgrep
     fd
     jq
