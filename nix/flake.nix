@@ -37,9 +37,9 @@
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
-    neovim-nightly = {                                                                                                                                         │ 19   outputs = inputs @ { self, home-manager, nixpkgs-unstable, hypr, rust-overlay, ... }:
-        url = "github:nix-community/neovim-nightly-overlay";                                                                                                   │ 20     let
-        inputs.nixpkgs.follows = "nixpkgs-unstable";                                                                                                           │ 21         vars = {
+    neovim-nightly = {                                                                                                                                     
+        url = "github:nix-community/neovim-nightly-overlay";                                                                                               
+        inputs.nixpkgs.follows = "nixpkgs-unstable";                                                                                                       
     };
   };
 
