@@ -95,6 +95,7 @@
     zip
     fzf
     just
+    glaze
     cryptomator
     polkit_gnome
   ];
