@@ -12,6 +12,25 @@ build $host:
 flake-up:
         nix flake update
 
+# change user
+flake-user $user:
+        {{bangbash}}
+        sed -i 's/\(user = "\)[^"]*"/\1{{user}}"/' flake.nix
+# change host
+flake-host $host:
+        {{bangbash}}
+        sed -i 's/\(host = "\)[^"]*"/\1{{host}}"/' flake.nix
+# change gui
+flake-gui:
+        {{bangbash}}
+        sed -i 's/.\/hosts\/nogui.nix/.\/hosts\/gui.nix/' flake.nix
+        sed -i 's/.\/modules\/base.nix/.\/modules\/full.nix/' hosts/tracy/default.nix
+# change nogui
+flake-nogui:
+        {{bangbash}}
+        sed -i 's/.\/hosts\/gui.nix/.\/hosts\/nogui.nix/' flake.nix
+        sed -i 's/.\/modules\/full.nix/.\/modules\/base.nix/' hosts/tracy/default.nix
+
 # rsync fish config manual
 fish-config:
         #!/usr/bin/env bash
