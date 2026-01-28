@@ -25,7 +25,7 @@
     home.stateVersion = "${vars.version}";
 
     home.file.".config/nvim" = {
-        source = ../../../configs/.config/nvim;
+        source = ../../../../configs/.config/nvim;
         recursive = true;
     };
 
@@ -36,19 +36,19 @@
 
 
     home.file.".config/alacritty" = {
-        source = ../../../configs/.config/alacritty;
+        source = ../../../../configs/.config/alacritty;
         recursive = true;
     };
     home.file.".config/bat" = {
-        source = ../../../configs/.config/bat;
+        source = ../../../../configs/.config/bat;
         recursive = true;
     };
     home.file.".config/bottom" = {
-        source = ../../../configs/.config/bottom;
+        source = ../../../../configs/.config/bottom;
         recursive = true;
     };
     home.file.".config/dunst/dunstrc" = {
-        source = ../../../configs/.config/dunst/dunstrc;
+        source = ../../../../configs/.config/dunst/dunstrc;
         recursive = true;
     };
 
@@ -58,37 +58,37 @@
     # required by nwg-look
 
     home.file.".config/hypr" = {
-        source = ../../../configs/.config/hypr;
+        source = ../../../../configs/.config/hypr;
         recursive = true;
     };
 
     home.file.".config/rofi" = {
-        source = ../../../configs/.config/rofi;
+        source = ../../../../configs/.config/rofi;
         recursive = true;
     };
     home.file.".config/swappy" = {
-        source = ../../../configs/.config/swappy;
+        source = ../../../../configs/.config/swappy;
         recursive = true;
     };
     home.file.".config/sway" = {
-        source = ../../../configs/.config/sway;
+        source = ../../../../configs/.config/sway;
         recursive = true;
     };
     home.file.".config/waybar" = {
-        source = ../../../configs/.config/waybar;
+        source = ../../../../configs/.config/waybar;
         recursive = true;
     };
     home.file.".config/yazi" = {
-        source = ../../../configs/.config/yazi;
+        source = ../../../../configs/.config/yazi;
         recursive = true;
     };
 
     home.file.".local/share/icons" = {
-        source = ../../../configs/icons;
+        source = ../../../../configs/icons;
         recursive = true;
     };
     home.file.".tmux.conf" = {
-        source = ../../../configs/tmux/.tmux.conf;
+        source = ../../../../configs/tmux/.tmux.conf;
         recursive = true;
     };
 }

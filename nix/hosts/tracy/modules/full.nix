@@ -1,4 +1,4 @@
-{ pkgs-overlays, hypr, vars }:
+{ pkgs-overlays, hypr, vars, ... }:
 {
   security = { 
           sudo = {
