@@ -21,12 +21,17 @@ stow -Rv -t ~/ -d tmux .
 
 **using rsync**  
   
-prerequisites `paru -S rsync`  
+
+Available recipes:
+    install-dot         # rsync install dotfiles
+    install-dot-freebsd # rsync install dotfiles for freebsd
+    to-dot              # rsync to dotfiles
+prerequisites `paru -S just rsync`  
 restore
 ```
-./restore_dotfiles_configs
+just install-dot
 ```
 backup
 ```
-./bins/rsync-move-to-dotfiles
+just to-dot
 ```
