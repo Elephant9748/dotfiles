@@ -12,3 +12,15 @@ build $host:
 flake-up:
         nix flake update
 
+# rsync fish config manual
+fish-config:
+        #!/usr/bin/env bash
+        if [[ ! -d "$HOME/.config/base16-shell" ]]; then
+                git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
+        fi
+        if command -v rsync &> /dev/null; then
+                rsync -azP ../configs/.config/fish $HOME/.config/
+        else
+                echo "rsync command not found!"
+        fi
+
