@@ -24,16 +24,16 @@
                   enable = true;
                   pulse.enable = true;
           };
-          openssh = {
-                  enable = true;
-                  ports = [ 22 ];
-                  settings = {
-                          PermitRootLogin = "no";
-                          PasswordAuthentication = false;
-                          KbdInteractiveAuthentication = false;
-                          AllowUsers = [ "${vars.user}" ];
-                  };
-          };
+          # openssh = {
+          #         enable = true;
+          #         ports = [ 22 ];
+          #         settings = {
+          #                 PermitRootLogin = "no";
+          #                 PasswordAuthentication = false;
+          #                 KbdInteractiveAuthentication = false;
+          #                 AllowUsers = [ "${vars.user}" ];
+          #         };
+          # };
           xserver.enable = false;
           udisks2 = {
                   enable = true;
@@ -50,10 +50,10 @@
                   end
         '';
 	};
-	ssh = {
-		package = pkgs-overlays.openssh;
-		kexAlgorithms = ["mlkem768x25519-sha256"];
-	};
+	# ssh = {
+	# 	package = pkgs-overlays.openssh;
+	# 	kexAlgorithms = ["mlkem768x25519-sha256"];
+	# };
 	gnupg = {
 		agent = {
 			enable = true;

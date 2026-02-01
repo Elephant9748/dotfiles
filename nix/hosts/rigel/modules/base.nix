@@ -16,18 +16,18 @@
           };
   };
 
-  services = {
-          openssh = {
-                  enable = true;
-                  ports = [ 22 ];
-                  settings = {
-                          PermitRootLogin = "no";
-                          PasswordAuthentication = false;
-                          KbdInteractiveAuthentication = false;
-                          AllowUsers = [ "${vars.user}" ];
-                  };
-          };
-  };
+  # services = {
+  #         openssh = {
+  #                 enable = true;
+  #                 ports = [ 22 ];
+  #                 settings = {
+  #                         PermitRootLogin = "no";
+  #                         PasswordAuthentication = false;
+  #                         KbdInteractiveAuthentication = false;
+  #                         AllowUsers = [ "${vars.user}" ];
+  #                 };
+  #         };
+  # };
 
   programs = {
 	fish = {
@@ -38,10 +38,10 @@
                   end
         '';
 	};
-	ssh = {
-		package = pkgs-overlays.openssh;
-		kexAlgorithms = ["mlkem768x25519-sha256"];
-	};
+	# ssh = {
+	# 	package = pkgs-overlays.openssh;
+	# 	kexAlgorithms = ["mlkem768x25519-sha256"];
+	# };
 	gnupg = {
 		agent = {
 			enable = true;
