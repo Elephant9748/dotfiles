@@ -21,15 +21,15 @@ flake-host $host:
         {{bangbash}}
         sed -i 's/\(host = "\)[^"]*"/\1{{host}}"/' flake.nix
 # change gui
-flake-gui:
+flake-gui $user:
         {{bangbash}}
         sed -i 's/.\/hosts\/nogui.nix/.\/hosts\/gui.nix/' flake.nix
-        sed -i 's/.\/modules\/base.nix/.\/modules\/full.nix/' hosts/tracy/default.nix
+        sed -i 's/.\/modules\/base.nix/.\/modules\/full.nix/' hosts/{{user}}/default.nix
 # change nogui
-flake-nogui:
+flake-nogui $user:
         {{bangbash}}
         sed -i 's/.\/hosts\/gui.nix/.\/hosts\/nogui.nix/' flake.nix
-        sed -i 's/.\/modules\/full.nix/.\/modules\/base.nix/' hosts/tracy/default.nix
+        sed -i 's/.\/modules\/full.nix/.\/modules\/base.nix/' hosts/{{user}}/default.nix
 
 # rsync fish config manual
 fish-config:
