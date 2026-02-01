@@ -28,6 +28,7 @@
   inputs = {
 	nixpkgs-unstable = {
         url = "github:nixos/nixpkgs/nixos-unstable";	
+        flake = false;
     };
 
 	home-manager = {                                                  
