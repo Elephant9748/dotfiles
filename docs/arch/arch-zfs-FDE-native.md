@@ -1,9 +1,9 @@
 ## FDE Native ZFS
 
 1.  create the encrypted zpool
-    **[by justin.smithies](https://justine.smithies.me.uk/2024/01/03/installing-void-linux-with-encrypted-root-on-zfs/)**
+    **[by justin.smithies](https://justine.smithies.me.uk/void-linux-with-encrypted-root-on-zfs.html)**
     ```
-    zpool create -f -o ashift=12 \
+     zpool create -f -o ashift=12 \
      -O compression=lz4 \
      -O acltype=posixacl \
      -O xattr=sa \
