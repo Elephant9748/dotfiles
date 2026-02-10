@@ -16,11 +16,13 @@
     ```
     create zpool
     ```
-    zpool create -f -o ashift=12    \
+    zpool create -f -o ashift=12 -o autotrim=on   \
              -O acltype=posixacl    \
              -O xattr=sa            \
              -O relatime=on         \
              -O dnodesize=auto      \
+             -O encryption=aes-256-gcm \
+             -O keyformat=passphrase \
              -O normalization=formD \
              -O compression=zstd    \
              -O mountpoint=none     \

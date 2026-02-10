@@ -460,6 +460,10 @@ list snapshots
 ```
 zfs list -t snapshot
 ```
+list options
+```
+zfs list -o name,mountpoint,canmount,encryption
+```
 create snapshot
 ```
 sudo zfs snapshot rpool/ROOT/genesis_zfs_root@fish_install
