@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+pkexec --disable-internal-agent env WAYLAND_DISPLAY=$WAYLAND_DISPLAY /usr/bin/rpi-imager
