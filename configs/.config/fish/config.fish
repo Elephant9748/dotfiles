@@ -250,6 +250,7 @@ end
 if command -v cargo > /dev/null
         abbr -a cbn 'cargo b && dunstify -u normal -i "/home/rigel/.local/share/icons/rustacean-flat-happy.svg"  "🦀 cargo compilling finished!"'
         abbr -a crn 'cargo b -r && dunstify -u normal -i "/home/rigel/.local/share/icons/rustacean-flat-happy.svg"  "🦀 cargo compilling finished!"'
+        abbr -a crns 'cargo b --profile release-small -j2 && dunstify -u normal -i "/home/rigel/.local/share/icons/rustacean-flat-happy.svg"  "🦀 cargo compilling finished!"'
         abbr -a cb 'cargo b'
         abbr -a cr 'cargo r'
         abbr -a cc 'cargo c'
@@ -459,6 +460,15 @@ function fish_user_key_bindings
 	fzf_key_bindings
 end
 
+# bluetooth start
+function start_bt
+        sudo systemctl start bluetooth.service
+end
+# bluetooth stop
+function start_bt
+        sudo systemctl stop bluetooth.service
+end
+
 #arti tor rust
 function start_arti
         if command -v arti > /dev/null
@@ -646,3 +656,6 @@ abbr -a droid-camera-back 'scrcpy --video-source=camera --camera-size=720x480 --
 --orientation=90 --no-audio --v4l2-sink=/dev/video2'
 abbr -a droid-adb-network 'adb tcpip 12001'
 
+#bluetooth
+abbr -a btlog 'sudo journalctl --since=today -f | rg -i "bluetooth"'
+abbr -a btdmesg 'sudo dmesg -w'
