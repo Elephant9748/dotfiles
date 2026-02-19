@@ -1,13 +1,14 @@
 return function(capabilities, on_attach)
         -- Rust rust_analyzer
+        vim.lsp.enable('rust_analyzer')
         vim.lsp.config('rust_analyzer', {
                 capabilities = capabilities,
                 on_attach = on_attach,
                 settings = {
                         ['rust-analyzer'] = {
-                                -- diagnostics = {
-                                --         enable = false;
-                                -- },
+                                diagnostics = {
+                                        enable = true;
+                                },
                                 cargo = {
                                         features = "all",
                                 },
@@ -27,9 +28,14 @@ return function(capabilities, on_attach)
                                                 enable = false,
                                         },
                                 },
+                                lens = {
+                                        enable = true,
+                                        run = {
+                                                enable = true
+                                        },
+                                },
                         }
                 }
 
         })
-        vim.lsp.enable('rust_analyzer')
 end
