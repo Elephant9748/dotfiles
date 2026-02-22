@@ -1,111 +1,119 @@
 * {
-	border: none;
-	border-radius: 0;
-	font-family: "monospace";
-	/*font-family: "Noto Sans Mono";*/
-	font-size: 9px;
-	min-height: 0;
-	margin: 0px;
+  border: none;
+  border-radius: 0;
+  font-family: "monospace";
+  /*font-family: "Noto Sans Mono";*/
+  font-size: 9px;
+  min-height: 0;
+  margin: 0px;
 }
 
 #pulseaudio-slider slider {
-    min-height: 0px;
-    min-width: 0px;
-    opacity: 0;
-    background-image: none;
-    border: none;
-    box-shadow: none;
+  min-height: 0px;
+  min-width: 0px;
+  opacity: 0;
+  background-image: none;
+  border: none;
+  box-shadow: none;
 }
 #pulseaudio-slider trough {
-    min-height: 2px;
-    min-width: 30px;
-    border-radius: 5px;
-    background-color: #1D3034;
+  min-height: 2px;
+  min-width: 30px;
+  border-radius: 5px;
+  background-color: #1d3034;
 }
 #pulseaudio-slider highlight {
-    min-width: 10px;
-    border-radius: 5px;
-    /*background-color: #F5F5F5;*/
-    background-color: #DCE2D8;
+  min-width: 10px;
+  border-radius: 5px;
+  /*background-color: #F5F5F5;*/
+  background-color: #dce2d8;
 }
 
 window#waybar {
-	/*background: #000000;*/
-	background: rgba(0, 0, 0, 0.7);
-	/* color: gray; */
+  /*background: #000000;*/
+  background: rgba(0, 0, 0, 0.7);
+  /* color: gray; */
 
-    /* white */
-	/*color: #ffffff; */
-    color: #DCE2D8;
+  /* white */
+  /*color: #ffffff; */
+  color: #dce2d8;
 }
 
 #window {
-	/* color: #e4e4e4; */
-	color: #484745; 
-	font-weight: bold;
+  /* color: #e4e4e4; */
+  color: #484745;
+  font-weight: bold;
 }
 
 #workspaces {
-	padding: 0px;
-	margin: 0px;
+  padding: 0px;
+  margin: 0px;
 }
 
 #workspaces button {
-	padding: 0 2px;
-	margin: 0px;
-	background: transparent;
-	/* color: #ff8700; */
+  padding: 0 2px;
+  margin: 0px;
+  background: transparent;
+  /* color: #ff8700; */
 
-    /* green */
-	/*color: #16A661; */
-	color: #363837;  
+  /* green */
+  /*color: #16A661; */
+  color: #363837;
 
-	/*
+  /*
 	color: #00afd7;
 	color: #ffffff;
 	border: 1px solid #00afd7;
 	*/
-	/* border: 1px solid #1b1d1e; */
-	font-weight: bold;
+  /* border: 1px solid #1b1d1e; */
+  font-weight: bold;
 }
 #workspaces button:hover {
-	box-shadow: inherit;
-	text-shadow: inherit;
+  box-shadow: inherit;
+  text-shadow: inherit;
 }
 
 #workspaces button.active {
-	/* background: #e88939; */
-    /*background: #252C2F; */
-    background: #151515; 
+  /* background: #e88939; */
+  /*background: #252C2F; */
+  background: #151515;
 
-    /* white */
-	/*color: #FAFAFA;  */
-	/*color: #563ACC; */
-    /*color: #BC4520;*/
-    /*color: #16AA64;*/
-    color: #DDD5C4;
-    border-radius: 3;
-    /*border-bottom: 0.75px solid #C38418;*/
+  /* white */
+  /*color: #FAFAFA;  */
+  /*color: #563ACC; */
+  /*color: #BC4520;*/
+  /*color: #16AA64;*/
+  color: #ddd5c4;
+  border-radius: 3;
+  /*border-bottom: 0.75px solid #C38418;*/
 }
 
 #workspaces button.focused {
-	background: #e88939;
-	background: #00afd7;
-	color: #1b1d1e;
+  background: #e88939;
+  background: #00afd7;
+  color: #1b1d1e;
 }
 
 #workspaces button.urgent {
-	background: #af005f;
-	color: #1b1d1e;
+  background: #af005f;
+  color: #1b1d1e;
 }
 
 #mode {
-	background: #af005f;
-	color: #1b1d1e;
+  background: #af005f;
+  color: #1b1d1e;
 }
-#clock, #battery, #cpu, #memory, #network, #pulseaudio, #custom-spotify, #tray, #mode {
-	padding: 0 3px;
-	margin: 0 2px;
+#clock,
+#battery,
+#cpu,
+#memory,
+#network,
+#pulseaudio,
+#custom-spotify,
+#tray,
+#mode {
+  padding: 0 3px;
+  margin: 0 2px;
 }
 
 #clock {
@@ -115,59 +123,59 @@ window#waybar {
 }
 
 #battery icon {
-    color: red;
+  color: red;
 }
 
 #battery.charging {
 }
 
 @keyframes blink {
-    to {
-        background-color: #af005f;
-    }
+  to {
+    background-color: #af005f;
+  }
 }
 
 #battery.warning:not(.charging) {
-	background-color: #ff8700;
-	color: #1b1d1e;
+  background-color: #ff8700;
+  color: #1b1d1e;
 }
 #battery.critical:not(.charging) {
-    color: white;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+  color: white;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
 #cpu {
-    /*border-bottom: 0.75px solid #B6221C;*/
+  /*border-bottom: 0.75px solid #B6221C;*/
 }
 
 #memory {
-    /*border-bottom: 0.75px solid #BF9127;*/
+  /*border-bottom: 0.75px solid #BF9127;*/
 }
 
 #network {
 }
 
 #network.disconnected {
-    background: #3C3836;
+  background: #3c3836;
 }
 
 #network.wifi {
-	color: #FAFAFA;  
+  color: #fafafa;
 }
 
 #pulseaudio {
-    /*border-bottom: 0.75px solid #D9E1D3;*/
+  /*border-bottom: 0.75px solid #D9E1D3;*/
 }
 
 #pulseaudio.muted {
 }
 
 #custom-spotify {
-    color: rgb(102, 220, 105);
+  color: rgb(102, 220, 105);
 }
 
 #tray {
