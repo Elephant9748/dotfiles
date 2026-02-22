@@ -30,7 +30,7 @@ return {
                         }
 
                         vim.lsp.config('efm', vim.tbl_extend('force', efmls_config, {
-                                cmd = { 'efm-langserver' },
+                                cmd = { 'efm-langserver' }, -- need bin efm-langserver
                                 capabilities = capabilities,
                                 on_attach = on_attach,
                         }))

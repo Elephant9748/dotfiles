@@ -85,7 +85,7 @@ window#waybar {
   /*color: #16AA64;*/
   color: #ddd5c4;
   border-radius: 3;
-  /*border-bottom: 0.75px solid #C38418;*/
+  border-bottom: 0.75px solid #3c3836;
 }
 
 #workspaces button.focused {
@@ -149,11 +149,15 @@ window#waybar {
 }
 
 #cpu {
-  /*border-bottom: 0.75px solid #B6221C;*/
+  /*border-bottom: 0.75px solid #5e2217;*/
+  /*color: black;*/
+  /*background-color: #fc0233;*/
 }
 
 #memory {
-  /*border-bottom: 0.75px solid #BF9127;*/
+  /*border-bottom: 0.75px solid #bf9127;*/
+  /*color: black;*/
+  /*background-color: #4689d6;*/
 }
 
 #network {
