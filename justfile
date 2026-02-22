@@ -97,3 +97,8 @@ install-dot-freebsd:
         else 
                 echo "rsync command not found!"
         fi
+# rsync nvim to root
+install-nvim-root:
+        #!/usr/bin/env bash
+        sudo rsync -azP configs/.config/nvim /root/.config/ 
+
