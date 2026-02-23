@@ -149,3 +149,7 @@ chmod +x /mnt/root/configure_system
 # chroot
 printf "\033[0;32m:: Chroot\n\033[0m"
 arch-chroot /mnt /root/configure_system
+
+# cleanup
+printf "\033[0;32m:: Cleanup\n\033[0m"
+rm -rf /mnt/root/configure_system
