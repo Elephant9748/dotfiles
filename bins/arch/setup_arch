@@ -151,7 +151,7 @@ efibootmgr --create --disk $BLOCK --part 1 --label 'Arch Linux Limine Boot Loade
 efibootmgr
 
 printf \"\\\033[0;32m:: User\\\n\\\033[0m\"
-sed -i '95s/^.*%sudo.*/%sudo ALL=\(ALL:ALL\) ALL/g' /etc/sudoers
+sed -i 's/^.*sudo ALL.*/%sudo ALL=(ALL:ALL) ALL/' /etc/sudoers
 groupadd sudo
 useradd -g sudo -m rigel -s /usr/bin/fish
 printf \"\\\033[0;32m:: passwd root\\\n\\\033[0m\"
