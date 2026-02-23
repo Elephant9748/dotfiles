@@ -1,5 +1,23 @@
 #!/usr/bin/bash
 
+# pacman download slow
+sed -i 's/^.*HookDir.*/HookDir     = \/etc\/pacman.d\/hooks\//' /etc/pacman.conf
+sed -i 's/Parall.*/ParallelDownloads = 20/' /etc/pacman.conf
+sed -i 's/#Color/Color\nILoveCandy/' /etc/pacman.conf
+sed -i 's/DownloadUser = alpm/#DownloadUser = alpm/' /etc/pacman.conf
+sed -i 's/^.*multilib]/[multilib]/' /etc/pacman.conf
+sed -i '95s/^.*Include =.*/Include = \/etc\/pacman.d\/mirrorlist/g' /etc/pacman.conf
+
+printf "\033[0;31m"
+grep -nE '^.*HookDir.*' /etc/pacman.conf
+grep -nE 'Parall.*' /etc/pacman.conf
+grep -nE 'Color' /etc/pacman.conf
+grep -nE 'ILoveCandy' /etc/pacman.conf
+grep -nE 'DownloadUser = alpm.*' /etc/pacman.conf
+grep -nE '^.*multilib]' /etc/pacman.conf
+grep -nE '^.*Include =.*' /etc/pacman.conf | grep 95
+printf "\033[0m"
+
 BLOCK="/dev/vda"
 luksname="lukscrypt" 
 bootloader="/boot/EFI/limine/limine.conf"
@@ -133,13 +151,28 @@ efibootmgr --create --disk $BLOCK --part 1 --label 'Arch Linux Limine Boot Loade
 efibootmgr
 
 printf \"\\\033[0;32m:: User\\\n\\\033[0m\"
-sed -i 's/^.*%sudo.*/%sudo ALL=\(ALL:ALL\) ALL/' /etc/sudoers
+sed -i '95s/^.*%sudo.*/%sudo ALL=\(ALL:ALL\) ALL/g' /etc/sudoers
 groupadd sudo
 useradd -g sudo -m rigel -s /usr/bin/fish
 printf \"\\\033[0;32m:: passwd root\\\n\\\033[0m\"
 passwd
 printf \"\\\033[0;32m:: passwd rigel\\\n\\\033[0m\"
 passwd rigel
+
+sed -i 's/^.*HookDir.*/HookDir     = \\\/etc\\\/pacman.d\\\/hooks\\\//' /etc/pacman.conf
+sed -i 's/Parall.*/ParallelDownloads = 20/' /etc/pacman.conf
+sed -i 's/#Color/Color\\\nILoveCandy/' /etc/pacman.conf
+sed -i 's/DownloadUser = alpm/#DownloadUser = alpm/' /etc/pacman.conf
+sed -i 's/^.*multilib]/[multilib]/' /etc/pacman.conf
+sed -i '95s/^.*Include =.*/Include = \\\/etc\\\/pacman.d\\\/mirrorlist/g' /etc/pacman.conf
+
+grep -nE '^.*HookDir.*' /etc/pacman.conf
+grep -nE 'Parall.*' /etc/pacman.conf
+grep -nE 'Color' /etc/pacman.conf
+grep -nE 'ILoveCandy' /etc/pacman.conf
+grep -nE 'DownloadUser = alpm.*' /etc/pacman.conf
+grep -nE '^.*multilib]' /etc/pacman.conf
+grep -nE '^.*Include =.*' /etc/pacman.conf | grep 95
 
 
 " > /mnt/root/configure_system
