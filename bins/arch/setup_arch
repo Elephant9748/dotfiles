@@ -151,16 +151,19 @@ efibootmgr --create --disk $BLOCK --part 1 --label 'Arch Linux Limine Boot Loade
 efibootmgr
 
 printf \"\\\033[0;32m:: User\\\n\\\033[0m\"
-sed -i 's/^.*sudo ALL.*/%sudo ALL=(ALL:ALL) ALL/' /etc/sudoers
+sed -i 's/^.*sudo ALL.*/%%sudo ALL=(ALL:ALL) ALL/' /etc/sudoers
+
+groupadd rigel
 groupadd sudo
-useradd -g sudo -m rigel -s /usr/bin/fish
+useradd -g rigel -m rigel -s /usr/bin/fish
+usermod -aG sudo rigel
 printf \"\\\033[0;32m:: passwd root\\\n\\\033[0m\"
 passwd
 printf \"\\\033[0;32m:: passwd rigel\\\n\\\033[0m\"
 passwd rigel
 
 sed -i 's/^.*HookDir.*/HookDir     = \\\/etc\\\/pacman.d\\\/hooks\\\//' /etc/pacman.conf
-sed -i 's/Parall.*/ParallelDownloads = 20/' /etc/pacman.conf
+sed -i 's/Parall.*/ParallelDownloads = 12/' /etc/pacman.conf
 sed -i 's/#Color/Color\\\nILoveCandy/' /etc/pacman.conf
 sed -i 's/DownloadUser = alpm/#DownloadUser = alpm/' /etc/pacman.conf
 sed -i 's/^.*multilib]/[multilib]/' /etc/pacman.conf
