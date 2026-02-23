@@ -1,8 +1,16 @@
 #!/usr/bin/bash
 
+BLOCK="/dev/vda"
+LUKSNAME=$(lsblk -f | grep crypto_LUKS | awk '{print $4}' | awk -F '-' '{print $1}')
+LUKSUUID=$(lsblk -f | grep crypto_LUKS | awk '{print $4}')
+luksname="lukscrypt"
+bootloader="/boot/EFI/limine/limine.conf"
+initconf="/etc/mkinitcpio.conf"
+hostname="kiwi.vm"
+
+
 # Partitioning
 printf "\033[0;31m:: Partitioning\n\033[0m"
-BLOCK="/dev/vdb"
 
 # wipe disk
 wipefs -a $BLOCK
@@ -26,8 +34,6 @@ sgdisk -p /dev/vdb
 # LVM on LUKS
 printf "\033[0;33m:: LVM on LUKS\n\033[0m"
 
-luksname="lukscrypt"
-printf "\033[0;33m:: Create Luks\n\033[0m"
 cryptsetup luksFormat "${BLOCK}2"
 printf "\033[0;33m:: Open Luks\n\033[0m"
 cryptsetup open "${BLOCK}2" $luksname
@@ -39,12 +45,12 @@ vgcreate $vg /dev/mapper/$luksname
 # lvcreate -L 32G -n root $vg
 lv="lv_root"
 lvcreate -l 100%FREE -n $lv $vg
+lsblk -f
 
 # formating drive
 printf "\033[0;33m:: Formating\n\033[0m"
 mkfs.fat -F32 "${BLOCK}1"
 mkfs.ext4 /dev/$vg/$lv
-lsblk -f
 # mounting
 printf "\033[0;33m:: Mounting\n\033[0m"
 mount /dev/$vg/$lv /mnt
@@ -53,15 +59,13 @@ lsblk -f
 
 # pacstrap
 printf "\033[0;34m:: Pacstrap\n\033[0m"
-pacstrap -K /mnt base base-devel linux linux-headers linux-firmware efibootmgr dosfstools networkmanager fish git ripgrep fd bottom rsync \
-        neovim lvm2 e2fsprogs openssh git-delta
+pacstrap -K /mnt base base-devel linux linux-headers linux-firmware efibootmgr dosfstools networkmanager fish git ripgrep fd bottom rsync neovim lvm2 e2fsprogs openssh git-delta
 
 # generate fstab
+printf "\033[0;34m:: Generate fstab\n\033[0m"
 genfstab -U /mnt >> /mnt/etc/fstab
 
-# chroot
-printf "\033[0;32m:: Chroot\n\033[0m"
-arch-chroot /mnt
+printf "#!/usr/bin/bash
 
 # configure chroot system
 ln -sf /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
@@ -70,38 +74,32 @@ hwclock --systohc --verbose
 sed -i 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/g' /etc/locale.gen
 locale-gen
 
-echo "LANG=en_US.UTF-8" > /etc/locale.conf
-echo "KEYMAP=us" > /etc/vconsole.conf
+echo 'LANG=en_US.UTF-8' > /etc/locale.conf
+echo 'KEYMAP=us' > /etc/vconsole.conf
 
-
-read -p "Hostname for this machine : " hostname
-echo "$hostname" > /etc/hostname
+echo \"$hostname\" > /etc/hostname
 
 systemctl enable NetworkManager
 systemctl enable sshd
 
 # initramfs
-printf "\033[0;32m:: Initramfs\n\033[0m"
-pacman -S --needed lvm2
+printf \"\\\033[0;32m:: Initramfs\\\n\\\033[0m\"
+pacman -S --needed --noconfirm lvm2
 
 # config for lvm on luks
-initconf="/etc/mkinitcpio.conf"
 sed -i 's/^HOOKS=(.*/HOOKS=(base systemd autodetect microcode modconf kms keyboard sd-vconsole block sd-encrypt lvm2 filesystems fsck)/' $initconf
 
 # generate initramfs
 mkinitcpio -P
 
 # bootloader
-printf "\033[0;32m:: Bootlader\n\033[0m"
-pacman -S --needed limine efibootmgr
+printf \"\\\033[0;32m:: Bootlader\\\n\\\033[0m\"
+pacman -S --needed --noconfirm limine efibootmgr
 
 mkdir -p /boot/EFI/limine
 cp /usr/share/limine/BOOTX64.EFI /boot/EFI/limine/
 
-LUKSNAME=$(lsblk -f | grep crypto_LUKS | awk '{print $4}' | awk -F '-' '{print $1}')
-LUKSUUID=$(lsblk -f | grep crypto_LUKS | awk '{print $4}')
-conf="limine.conf"
-printf "timeout: 3
+printf \"timeout: 3
 # wallpaper: boot():/EFI/limine/limine.png
 # wallpaper_style: centered
 backdrop: centered
@@ -116,27 +114,36 @@ remember_last_entry: yes
 / Grub Boot Loader
         protocol: efi
         path: boot():/EFI/grub/grubx64.efi
-" $LUKSUUID $LUKSNAME $vg $lv > $conf
+\" \"${LUKSUUID}\" \"${LUKSNAME}\" \"${vg}\" \"${lv}\" > $bootloader
 
 mkdir -p /etc/pacman.d/hooks
-printf "[Trigger]
+printf \"[Trigger]
 Operation = Install
 Operation = Upgrade
 Type = Package
-Target = limine              
+Target = limine
 
 [Action]
 Description = Deploying Limine after upgrade...
 When = PostTransaction
-Exec = /usr/bin/cp /usr/share/limine/BOOTX64.EFI /boot/EFI/limine/" > /etc/pacman.d/hooks/99-limine.hook
+Exec = /usr/bin/cp /usr/share/limine/BOOTX64.EFI /boot/EFI/limine/\" > /etc/pacman.d/hooks/99-limine.hook
 
-printf "\033[0;32m:: efibootmgr List\n\033[0m"
-efibootmgr \
-  --create \
-  --disk /dev/$BLOCK \
+printf \"\\\033[0;32m:: efibootmgr List\\\n\\\033[0m\"
+efibootmgr \\\
+  --create \\\
+  --disk $BLOCK \\\
   --part 1 \
-  --label "Arch Linux Limine Boot Loader" \
-  --loader '\EFI\limine\BOOTX64.EFI' \
+  --label 'Arch Linux Limine Boot Loader' \\\
+  --loader '\\\EFI\\\limine\\\BOOTX64.EFI' \\\
   --unicode
 
 efibootmgr
+" > /mnt/root/configure_system
+
+chmod +x /mnt/root/configure_system
+
+# chroot
+printf "\033[0;32m:: Chroot\n\033[0m"
+arch-chroot /mnt /root/configure_system
+
+
