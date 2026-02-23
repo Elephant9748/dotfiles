@@ -3,7 +3,7 @@
 BLOCK="/dev/vda"
 LUKSNAME=$(lsblk -f | grep crypto_LUKS | awk '{print $4}' | awk -F '-' '{print $1}')
 LUKSUUID=$(lsblk -f | grep crypto_LUKS | awk '{print $4}')
-luksname="lukscrypt"
+luksname="lukscrypt" 
 bootloader="/boot/EFI/limine/limine.conf"
 initconf="/etc/mkinitcpio.conf"
 hostname="kiwi.vm"
@@ -109,7 +109,7 @@ remember_last_entry: yes
         // Linux
                 protocol: linux
                 path: boot():/vmlinuz-linux
-                cmdline: rd.luks.name=%s=luks-%s rd.luks.options=no-read-workqueue,no-write-workqueue root=/dev/%s/%s rw loglevel=3 quiet
+                cmdline: rd.luks.name=%s=luks-\%s rd.luks.options=no-read-workqueue,no-write-workqueue root=/dev/\%s/\%s rw loglevel=3 quiet
                 module_path: boot():/initramfs-linux.img
 / Grub Boot Loader
         protocol: efi
@@ -126,18 +126,22 @@ Target = limine
 [Action]
 Description = Deploying Limine after upgrade...
 When = PostTransaction
-Exec = /usr/bin/cp /usr/share/limine/BOOTX64.EFI /boot/EFI/limine/\" > /etc/pacman.d/hooks/99-limine.hook
+Exec = /usr/bin/cp /usr/share/limine/BOOTX64.EFI /boot/EFI/limine/\\n\" > /etc/pacman.d/hooks/99-limine.hook
 
 printf \"\\\033[0;32m:: efibootmgr List\\\n\\\033[0m\"
-efibootmgr \\\
-  --create \\\
-  --disk $BLOCK \\\
-  --part 1 \
-  --label 'Arch Linux Limine Boot Loader' \\\
-  --loader '\\\EFI\\\limine\\\BOOTX64.EFI' \\\
-  --unicode
-
+efibootmgr --create --disk $BLOCK --part 1 --label 'Arch Linux Limine Boot Loader' --loader '\\\EFI\\\limine\\\BOOTX64.EFI' --unicode 
 efibootmgr
+
+printf \"\\\033[0;32m:: User\\\n\\\033[0m\"
+sed -i 's/^.*%sudo.*/%sudo ALL=\(ALL:ALL\) ALL/' /etc/sudoers
+groupadd sudo
+useradd -g sudo -m rigel -s /usr/bin/fish
+printf \"\\\033[0;32m:: passwd root\\\n\\\033[0m\"
+passwd
+printf \"\\\033[0;32m:: passwd rigel\\\n\\\033[0m\"
+passwd rigel
+
+
 " > /mnt/root/configure_system
 
 chmod +x /mnt/root/configure_system
@@ -145,5 +149,3 @@ chmod +x /mnt/root/configure_system
 # chroot
 printf "\033[0;32m:: Chroot\n\033[0m"
 arch-chroot /mnt /root/configure_system
-
-
