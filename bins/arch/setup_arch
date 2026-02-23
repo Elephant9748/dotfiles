@@ -1,8 +1,6 @@
 #!/usr/bin/bash
 
 BLOCK="/dev/vda"
-LUKSNAME=$(lsblk -f | grep crypto_LUKS | awk '{print $4}' | awk -F '-' '{print $1}')
-LUKSUUID=$(lsblk -f | grep crypto_LUKS | awk '{print $4}')
 luksname="lukscrypt" 
 bootloader="/boot/EFI/limine/limine.conf"
 initconf="/etc/mkinitcpio.conf"
@@ -51,6 +49,8 @@ lsblk -f
 printf "\033[0;33m:: Formating\n\033[0m"
 mkfs.fat -F32 "${BLOCK}1"
 mkfs.ext4 /dev/$vg/$lv
+LUKSNAME=$(lsblk -f | grep crypto_LUKS | awk '{print $4}' | awk -F '-' '{print $1}')
+LUKSUUID=$(lsblk -f | grep crypto_LUKS | awk '{print $4}')
 # mounting
 printf "\033[0;33m:: Mounting\n\033[0m"
 mount /dev/$vg/$lv /mnt
