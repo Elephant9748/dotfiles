@@ -109,11 +109,11 @@ remember_last_entry: yes
         // Linux
                 protocol: linux
                 path: boot():/vmlinuz-linux
-                cmdline: rd.luks.name=%%s=luks-%%s rd.luks.options=no-read-workqueue,no-write-workqueue root=/dev/%%s/%%s rw loglevel=3 quiet
+                cmdline: rd.luks.name=%%s=luks-%%s root=/dev/%%s/%%s rw loglevel=3 
                 module_path: boot():/initramfs-linux.img
-/ Grub Boot Loader
-        protocol: efi
-        path: boot():/EFI/grub/grubx64.efi
+# / Grub Boot Loader
+#         protocol: efi
+#         path: boot():/EFI/grub/grubx64.efi
 \" \"${LUKSUUID}\" \"${LUKSNAME}\" \"${vg}\" \"${lv}\" > $bootloader
 
 mkdir -p /etc/pacman.d/hooks
