@@ -48,7 +48,7 @@ lsblk -f
 # mounting
 printf "\033[0;33m:: Mounting\n\033[0m"
 mount /dev/$vg/$lv /mnt
-mount --mkdir /dev/${BLOCK}1 /mnt/boot
+mount --mkdir "${BLOCK}1" /mnt/boot
 lsblk -f
 
 # pacstrap
@@ -102,8 +102,8 @@ LUKSNAME=$(lsblk -f | grep crypto_LUKS | awk '{print $4}' | awk -F '-' '{print $
 LUKSUUID=$(lsblk -f | grep crypto_LUKS | awk '{print $4}')
 conf="limine.conf"
 printf "timeout: 3
-wallpaper: boot():/EFI/limine/limine.png
-wallpaper_style: centered
+# wallpaper: boot():/EFI/limine/limine.png
+# wallpaper_style: centered
 backdrop: centered
 remember_last_entry: yes
 
