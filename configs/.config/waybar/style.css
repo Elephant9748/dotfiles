@@ -117,6 +117,7 @@ window#waybar {
 }
 
 #clock {
+  /*border-bottom: 0.75px solid #640064;*/
 }
 
 #battery {
@@ -149,15 +150,15 @@ window#waybar {
 }
 
 #cpu {
-  /*border-bottom: 0.75px solid #5e2217;*/
-  /*color: black;*/
-  /*background-color: #fc0233;*/
+  border-bottom: 0.75px solid #607e54;
+  /*color: #932439;*/
+  /*background-color: #a3761d;*/
 }
 
 #memory {
-  /*border-bottom: 0.75px solid #bf9127;*/
-  /*color: black;*/
-  /*background-color: #4689d6;*/
+  border-bottom: 0.75px solid #a3761d;
+  /*color: #8e4630;*/
+  /*background-color: #607e54;*/
 }
 
 #network {
@@ -172,7 +173,7 @@ window#waybar {
 }
 
 #pulseaudio {
-  /*border-bottom: 0.75px solid #D9E1D3;*/
+  border-bottom: 0.75px solid #006868;
 }
 
 #pulseaudio.muted {
