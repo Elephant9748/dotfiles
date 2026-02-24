@@ -118,7 +118,7 @@ printf "#!/usr/bin/bash
 echo "${BLOCK}2"
 echo "${BLOCK}2"
 SWAP_UUID=$(ls -al /dev/disk/by-uuid | grep vda2 | awk '{print $9}')
-echo \"UUID=${SWAP_UUID} none    swap    defaults 0 0\" >> fstab
+echo \"UUID=${SWAP_UUID} none    swap    defaults 0 0\" >> /etc/fstab
 
 # configure chroot system
 ln -sf /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
