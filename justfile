@@ -106,19 +106,19 @@ to-host-stow:
         #!/usr/bin/env bash
         if command -v stow &> /dev/null; then
                 stow -Sv -t ~/.config -d configs/.config/ .
-                stow -Sv -t ~/ -d configs/.config/tmux .
+                stow -Sv -t ~/ -d configs/tmux/ .
         fi
 # Stow UnLink
 to-host-stow-unlink:
         #!/usr/bin/env bash
         if command -v stow &> /dev/null; then
                 stow -Dv -t ~/.config -d configs/.config/ .
-                stow -Dv -t ~/ -d configs/.config/tmux .
+                stow -Dv -t ~/ -d configs/tmux/ .
         fi
 # Stow ReLink
 to-host-stow-relink:
         #!/usr/bin/env bash
         if command -v stow &> /dev/null; then
                 stow -Rv -t ~/.config -d configs/.config/ .
-                stow -Rv -t ~/ -d configs/.config/tmux .
+                stow -Rv -t ~/ -d configs/tmux/ .
         fi
