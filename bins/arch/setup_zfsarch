@@ -250,6 +250,8 @@ sudo systemctl enable zfs.target
 sudo systemctl enable zfs-import-cache
 sudo systemctl enable zfs-mount
 sudo systemctl enable zfs-import.target
+sudo timedatectl set-ntp true
+timedatectl
 
 \\\" > /home/rigel/setup_extra
 chmod +x /home/rigel/setup_extra
