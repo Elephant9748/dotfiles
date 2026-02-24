@@ -243,6 +243,13 @@ cd zfs-dkms-staging-git
 updpkgsums
 makepkg --skippgpcheck -si
 cd
+git clone https://aur.archlinux.org/paru.git
+cd paru
+updpkgsums
+makepkg --skippgpcheck -si
+sudo sed 's/#BottomUp/BottomUp/' /etc/paru.conf
+sudo sed 's/#UseAsk/UseAsk/' /etc/paru.conf
+sudo sed 's/#[bin]/[bin]\\\nPager = delta --color-only | delta/' /etc/paru.conf
 
 sudo systemctl enable zfs-load-key.service
 sudo sed -i 's/ExecStart=.*/ExecStart=\\\/usr\\\/bin\\\/zpool import -l -c \\\/etc\/zfs\\\/zpool.cache -aN \\\$ZPOOL_IMPORT_OPTS/' /usr/lib/systemd/system/zfs-import-cache.service
