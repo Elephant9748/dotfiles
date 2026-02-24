@@ -41,7 +41,7 @@ to-dot:
         fi
 
 # rsync install dotfiles
-install-dot:
+to-host:
         #!/usr/bin/env bash
         # clone base16shell color
         if [[ ! -d "$HOME/.config/base16-shell" ]]; then
@@ -80,7 +80,7 @@ install-dot:
         fi
 
 # rsync install dotfiles for freebsd
-install-dot-freebsd:
+to-host-freebsd:
         #!/usr/bin/env bash
         if [[ ! -d "$HOME/.config/base16-shell" ]]; then
                 git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell && \
@@ -98,7 +98,27 @@ install-dot-freebsd:
                 echo "rsync command not found!"
         fi
 # rsync nvim to root
-install-nvim-root:
+to-host-nvimroot:
         #!/usr/bin/env bash
         sudo rsync -azP configs/.config/nvim /root/.config/ 
-
+# Stow
+to-host-stow:
+        #!/usr/bin/env bash
+        if command -v stow &> /dev/null; then
+                stow -Sv -t ~/.config -d configs/.config/ .
+                stow -Sv -t ~/ -d configs/.config/tmux .
+        fi
+# Stow UnLink
+to-host-stow-unlink:
+        #!/usr/bin/env bash
+        if command -v stow &> /dev/null; then
+                stow -Dv -t ~/.config -d configs/.config/ .
+                stow -Dv -t ~/ -d configs/.config/tmux .
+        fi
+# Stow ReLink
+to-host-stow-relink:
+        #!/usr/bin/env bash
+        if command -v stow &> /dev/null; then
+                stow -Rv -t ~/.config -d configs/.config/ .
+                stow -Rv -t ~/ -d configs/.config/tmux .
+        fi
