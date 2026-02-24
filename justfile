@@ -114,9 +114,6 @@ to-host-stow:
 # Stow UnLink
 to-host-stow-unlink:
         #!/usr/bin/env bash
-        if [[ ! -d "$HOME/.config/base16-shell" ]]; then
-                git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell 
-        fi
         if command -v stow &> /dev/null; then
                 stow -Dv -t ~/.config -d configs/.config/ .
                 stow -Dv -t ~/ -d configs/tmux/ .
@@ -124,9 +121,6 @@ to-host-stow-unlink:
 # Stow ReLink
 to-host-stow-relink:
         #!/usr/bin/env bash
-        if [[ ! -d "$HOME/.config/base16-shell" ]]; then
-                git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell 
-        fi
         if command -v stow &> /dev/null; then
                 stow -Rv -t ~/.config -d configs/.config/ .
                 stow -Rv -t ~/ -d configs/tmux/ .
