@@ -102,12 +102,6 @@ zpool set cachefile=/etc/zfs/zfs-list.cache rpool
 mkdir -p /mnt/etc/zfs/
 cp -r /etc/zfs/zfs-list.cache /mnt/etc/zfs/
 
-# swap partition !future move to zram
-mkswap "${BLOCK}2"
-swapon "${BLOCK}2"
-SWAP_UUID=$(ls -al /dev/disk/by-uuid | grep vda2 | awk '{print $9}')
-echo "UUID=${SWAP_UUID} none    swap    defaults 0 0" >> /mnt/etc/fstab
-
 # pacstrap
 printf "\033[0;34m:: Pacstrap\n\033[0m"
 pacstrap -K /mnt base base-devel linux linux-headers linux-firmware efibootmgr dosfstools \
@@ -119,6 +113,12 @@ printf "\033[0;34m:: Generate fstab\n\033[0m"
 genfstab -U /mnt >> /mnt/etc/fstab
 
 printf "#!/usr/bin/bash
+
+# swap partition !future move to zram
+echo "${BLOCK}2"
+echo "${BLOCK}2"
+SWAP_UUID=$(ls -al /dev/disk/by-uuid | grep vda2 | awk '{print $9}')
+echo \"UUID=${SWAP_UUID} none    swap    defaults 0 0\" >> fstab
 
 # configure chroot system
 ln -sf /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
