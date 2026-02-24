@@ -1,6 +1,7 @@
 #!/usr/bin/bash
 
 # pacman download slow
+printf "\033[0;31m:: Config pacman archiso\n\033[0m"
 sed -i 's/^.*HookDir.*/HookDir     = \/etc\/pacman.d\/hooks\//' /etc/pacman.conf
 sed -i 's/Parall.*/ParallelDownloads = 20/' /etc/pacman.conf
 sed -i 's/#Color/Color\nILoveCandy/' /etc/pacman.conf
@@ -19,6 +20,8 @@ grep -nE '^.*Include =.*' /etc/pacman.conf | grep 95
 printf "\033[0m"
 
 BLOCK="/dev/vda"
+blockhelp="vda3"
+blockswaphelp="vd2"
 luksname="lukscrypt" 
 bootloader="/boot/EFI/limine/limine.conf"
 initconf="/etc/mkinitcpio.conf"
@@ -28,8 +31,11 @@ hostname="kiwi.vm"
 # Partitioning
 printf "\033[0;31m:: Partitioning\n\033[0m"
 
-# wipe disk
+# zpool
 zpool labelclear -f $BLOCK
+zpool destroy rpool
+
+# wipe disk
 wipefs -a $BLOCK
 
 # destroy GPT & MBR data structure
@@ -38,7 +44,7 @@ sgdisk --zap-all $BLOCK
 # EFI
 sgdisk -n 1:1m:+1G -t 1:ef00 -c 1:EFI $BLOCK
 
-swap partition
+# swap partition
 sgdisk -n 2:0:+4G -t 2:8200 -c 2:SWAP $BLOCK
 
 # ZFS
@@ -54,32 +60,58 @@ sgdisk -p /dev/vdb
 
 # ZFS native encryption
 printf "\033[0;33m:: ZFS native encryption\n\033[0m"
-PARTUUID_ZFS=$(ls -al /dev/disk/by-partuuid | grep vda3 | awk '{print $9}')
 
-zpool create -f -o ashift=12 -o autotrim=on -O acltype=posixacl -O xattr=sa -O relatime=on -O dnodesize=auto -O encryption=aes-256-gcm -O keyformat=passphrase -O normalization=formD -O compression=zstd -O mountpoint=none -O canmount=off -O devices=off -R /mnt rpool /dev/disk/by-partuuid/$PARTUUID_ZFS
+# vda3 need change manually
+PARTUUID_ZFS=$(ls -al /dev/disk/by-partuuid | grep $blockhelp | awk '{print $9}')
+echo "PARTUUID_ZFS=${PARTUUID_ZFS}"
+
+zpool create -f -o ashift=12 \
+        -o autotrim=off \
+        -O acltype=posixacl \
+        -O xattr=sa \
+        -O relatime=on \
+        -O dnodesize=auto \
+        -O encryption=aes-256-gcm \
+        -O keyformat=passphrase \
+        -O normalization=formD \
+        -O compression=zstd \
+        -O mountpoint=none \
+        -O canmount=off \
+        -O devices=off \
+        -R /mnt \
+        rpool /dev/disk/by-partuuid/"${PARTUUID_ZFS}"
+
 zfs create -o mountpoint=none rpool/ROOT
 zfs create -o mountpoint=none rpool/HOME
 zfs create -o mountpoint=/ -o canmount=noauto rpool/ROOT/zfsroot
-zfs create -o mountpoint=/home -o rpool/HOME/zfshome
+zfs create -o mountpoint=/home rpool/HOME/zfshome
+zfs list
 zfs umount -a
 zpool export rpool
-zpool import -d /dev/disk/by-partuuid/$PARTUUID_ZFS
+zpool import -d /dev/disk/by-partuuid/$PARTUUID_ZFS -R /mnt rpool -N
 zfs load-key -a
 zfs mount rpool/ROOT/zfsroot
 zfs mount -a
-mount --mkdir /dev/"${BLOCK}1" /mnt/boot
+mount --mkdir "${BLOCK}1" /mnt/boot
 lsblk -f
 zfs list
-zpool set bootfs=zroot/ROOT/zfsroot rpool
+zpool set bootfs=rpool/ROOT/zfsroot rpool
 zpool get bootfs
 zgenhostid $(hostid)
 zpool set cachefile=/etc/zfs/zfs-list.cache rpool
 mkdir -p /mnt/etc/zfs/
 cp -r /etc/zfs/zfs-list.cache /mnt/etc/zfs/
 
+# swap partition !future move to zram
+mkswap "${BLOCK}2"
+SWAP_UUID=$(ls -al /dev/disk/by-uuid | grep vda2 | awk '{print $9}')
+echo "UUID=${SWAP_UUID} none    swap    defaults 0 0" >> /mnt/etc/fstab
+
 # pacstrap
 printf "\033[0;34m:: Pacstrap\n\033[0m"
-pacstrap -K /mnt base base-devel linux linux-headers linux-firmware efibootmgr dosfstools networkmanager fish git ripgrep fd bottom rsync neovim lvm2 e2fsprogs openssh git-delta
+pacstrap -K /mnt base base-devel linux linux-headers linux-firmware efibootmgr dosfstools \
+        networkmanager fish git ripgrep fd bottom rsync neovim lvm2 e2fsprogs openssh git-delta \
+        intel-ucode limine
 
 # generate fstab
 printf "\033[0;34m:: Generate fstab\n\033[0m"
@@ -104,10 +136,9 @@ systemctl enable sshd
 
 # initramfs
 printf \"\\\033[0;32m:: Initramfs\\\n\\\033[0m\"
-pacman -S --needed --noconfirm lvm2
 
-# config for lvm on luks
-sed -i 's/^HOOKS=(.*/HOOKS=(base systemd autodetect microcode modconf kms keyboard sd-vconsole block sd-encrypt lvm2 filesystems fsck)/' $initconf
+# mkinitcpio config for zfs
+sed -i 's/^HOOKS=(.*/HOOKS=(base udev autodetect microcode modconf keyboard keymap block zfs filesystems fsck)/' $initconf
 
 # generate initramfs
 mkinitcpio -P
@@ -129,12 +160,9 @@ remember_last_entry: yes
         // Linux
                 protocol: linux
                 path: boot():/vmlinuz-linux
-                cmdline: rd.luks.name=%%s=luks-%%s root=/dev/%%s/%%s rw loglevel=3 
+                cmdline: root=ZFS=rpool/ROOT/zfsroot rw loglevel=3 
                 module_path: boot():/initramfs-linux.img
-# / Grub Boot Loader
-#         protocol: efi
-#         path: boot():/EFI/grub/grubx64.efi
-\" \"${LUKSUUID}\" \"${LUKSNAME}\" \"${vg}\" \"${lv}\" > $bootloader
+\" > $bootloader
 
 mkdir -p /etc/pacman.d/hooks
 printf \"[Trigger]
@@ -153,9 +181,12 @@ efibootmgr --create --disk $BLOCK --part 1 --label 'Arch Linux Limine Boot Loade
 efibootmgr
 
 printf \"\\\033[0;32m:: User\\\n\\\033[0m\"
-sed -i 's/^.*%sudo.*/%sudo ALL=\(ALL:ALL\) ALL/' /etc/sudoers
+sed -i 's/^.*sudo ALL.*/%%sudo ALL=(ALL:ALL) ALL/' /etc/sudoers
+
+groupadd rigel
 groupadd sudo
-useradd -g sudo -m rigel -s /usr/bin/fish
+useradd -g rigel -m rigel -s /usr/bin/fish
+usermod -aG sudo rigel
 printf \"\\\033[0;32m:: passwd root\\\n\\\033[0m\"
 passwd
 printf \"\\\033[0;32m:: passwd rigel\\\n\\\033[0m\"
@@ -176,6 +207,51 @@ grep -nE 'DownloadUser = alpm.*' /etc/pacman.conf
 grep -nE '^.*multilib]' /etc/pacman.conf
 grep -nE '^.*Include =.*' /etc/pacman.conf | grep 95
 
+# uncomment zpool fstab
+sed -i 's/^.*rpool.*[ \/][home| ]/# rpool.*[ \/][home| ]/' /etc/fstab
+
+# systemd zfs load-key
+printf \"
+[Unit]
+Description=Load ZFS encryption keys
+DefaultDependencies=no
+After=zfs-import.target
+Before=zfs-mount.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+# ExecStart=/usr/sbin/zfs load-key -a
+ExecStart=/usr/bin/zfs load-key -a
+StandardInput=tty-force
+
+[Install]
+WantedBy=zfs-mount.service
+\" > /etc/systemd/system/zfs-load-key.service
+
+printf \\\"#!/bin/bash
+sudo pacman -Syu --noconfirm
+sudo pacman -S --needed --noconfirm pacman-contrib
+git clone https://aur.archlinux.org/zfs-utils-staging-git.git
+cd zfs-utils-staging-git
+updpkgsums
+makepkg --skippgpcheck -si
+cd
+git clone https://aur.archlinux.org/zfs-dkms-staging-git.git 
+cd zfs-dkms-staging-git
+updpkgsums
+makepkg --skippgpcheck -si
+cd
+
+sudo systemctl enable zfs-load-key.service
+sudo sed -i 's/ExecStart=.*/ExecStart=\\\/usr\\\/bin\\\/zpool import -l -c \\\/etc\/zfs\\\/zpool.cache -aN \\\$ZPOOL_IMPORT_OPTS/' /usr/lib/systemd/system/zfs-import-cache.service
+sudo systemctl enable zfs.target
+sudo systemctl enable zfs-import-cache
+sudo systemctl enable zfs-mount
+sudo systemctl enable zfs-import.target
+
+\\\" > /home/rigel/setup_extra
+chmod +x /home/rigel/setup_extra
 
 " > /mnt/root/configure_system
 
