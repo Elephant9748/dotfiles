@@ -104,6 +104,7 @@ cp -r /etc/zfs/zfs-list.cache /mnt/etc/zfs/
 
 # swap partition !future move to zram
 mkswap "${BLOCK}2"
+swapon "${BLOCK}2"
 SWAP_UUID=$(ls -al /dev/disk/by-uuid | grep vda2 | awk '{print $9}')
 echo "UUID=${SWAP_UUID} none    swap    defaults 0 0" >> /mnt/etc/fstab
 
