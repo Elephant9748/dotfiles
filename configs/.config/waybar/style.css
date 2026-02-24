@@ -155,10 +155,30 @@ window#waybar {
   /*background-color: #a3761d;*/
 }
 
-#memory {
+#cpu.normal {
+  border-bottom: 0.75px solid #607e54;
+}
+#cpu.medium {
   border-bottom: 0.75px solid #a3761d;
+}
+#cpu.high {
+  border-bottom: 0.75px solid #ec4632;
+}
+
+#memory {
+  border-bottom: 0.75px solid #607e54;
   /*color: #8e4630;*/
   /*background-color: #607e54;*/
+}
+
+#memory.normal {
+  border-bottom: 0.75px solid #607e54;
+}
+#memory.medium {
+  border-bottom: 0.75px solid #a3761d;
+}
+#memory.high {
+  border-bottom: 0.75px solid #ec4632;
 }
 
 #network {
