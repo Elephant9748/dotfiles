@@ -142,7 +142,7 @@ printf \"\\\033[0;32m:: Initramfs\\\n\\\033[0m\"
 sed -i 's/^HOOKS=(.*/HOOKS=(base udev autodetect microcode modconf keyboard keymap block zfs filesystems fsck)/' $initconf
 
 # generate initramfs
-mkinitcpio -P
+# mkinitcpio -P
 
 # bootloader
 printf \"\\\033[0;32m:: Bootlader\\\n\\\033[0m\"
