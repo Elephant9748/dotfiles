@@ -1,27 +1,3 @@
-# Structur modules
-# -----------------------------------------------
-# nix
-# ├── flake.nix
-# └── hosts
-#     ├── base.nix
-#     ├── full.nix
-#     ├── rigel
-#     │   ├── default.nix
-#     │   ├── hardware-configuration.nix
-#     │   └── modules
-#     │       ├── base.nix <--- the same as /etc/nixos/configuration.nix
-#     │       ├── full.nix <--- the same as /etc/nixos/configuration.nix
-#     │       ├── home_base.nix
-#     │       └── home_full.nix
-#     └── tracy
-#         ├── default.nix
-#         ├── hardware-configuration.nix
-#         └── modules
-#             ├── base.nix <--- the same as /etc/nixos/configuration.nix
-#             ├── full.nix <--- the same as /etc/nixos/configuration.nix
-#             ├── home_base.nix
-#             └── home_full.nix
-# -----------------------------------------------
 {
   description = "Nixos Flake";
 
