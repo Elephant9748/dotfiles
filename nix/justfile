@@ -76,14 +76,12 @@ nixos-disk-lvm-on-luks $block:
         # ZFS
         sgdisk -n 2:0:0 -t 2:8309 -c 2:NIXLUKS {{block}}
 
-        LUKSNAME=$(lsblk -f | grep crypto_LUKS | awk '{print $4}' | awk -F '-' '{print $1}')
-        LUKSUUID=$(lsblk -f | grep crypto_LUKS | awk '{print $4}')
         printf "\033[0;33m:: Create Luks\n\033[0m"
         cryptsetup luksFormat "${BLOCK}2"
-        cryptsetup open "{{block}}2" "Nix-Luks-${LUKSNAME}"
+        cryptsetup open "{{block}}2" Luks
 
-        pvcreate /dev/mapper/"Nix-Luks-${LUKSNAME}"
-        vgcreate vg_nix /dev/mapper/"Nix-Luks-${LUKSNAME}"
+        pvcreate /dev/mapper/Luks
+        vgcreate vg_nix /dev/mapper/Luks
         # lvcreate -L 4G -n swap $vg
         # lvcreate -L 32G -n root $vg
         lvcreate -l 100%FREE -n nix_root vg_nix
