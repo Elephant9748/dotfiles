@@ -58,7 +58,7 @@ in
                         inherit vars pkgs; 
                 };
 	    	    home-manager.users.${vars.user}.imports = [
-                    ./${vars.user}/modules/home_full.nix
+                    ../modules/home_full.nix
                 ];
 	        }
 	    ];

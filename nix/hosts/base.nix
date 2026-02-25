@@ -22,8 +22,6 @@
 #             ├── home_base.nix
 #             └── home_full.nix
 # -----------------------------------------------
-
-
 # { vars, inputs, nixpkgs, home-manager, hypr, rust-overlay, ... }:
 { vars, inputs, nixpkgs, home-manager, ... }:
 let
@@ -57,7 +55,7 @@ in
                         inherit vars pkgs; 
                 };
 	    	    home-manager.users.${vars.user}.imports = [
-                    ./${vars.user}/modules/home_base.nix
+                    ../modules/home_base.nix
                 ];
 	        }
 	    ];
