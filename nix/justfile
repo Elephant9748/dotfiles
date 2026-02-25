@@ -89,6 +89,6 @@ nixos-disk-lvm-on-luks $block:
         lsblk -f
         printf "\033[0;33m:: Formatting\n\033[0m"
         mkfs.fat -F32 "{{block}}1"
-        mkfs.ext4 -L Nix "{{block}}1"
+        mkfs.ext4 -L Nix /dev/vg_nix/nix_root
 
 
