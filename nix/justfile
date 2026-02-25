@@ -35,14 +35,30 @@ flake-base $user:
         sed -i 's/.\/hosts\/full.nix/.\/hosts\/base.nix/' flake.nix
         sed -i 's/.\/modules\/full.nix/.\/modules\/base.nix/' hosts/{{user}}/default.nix
 
-# rsync fish config manual
-fish-config:
+# rsync fish config to host manual
+to-host-fish $user:
         #!/usr/bin/env bash
         if [[ ! -d "$HOME/.config/base16-shell" ]]; then
                 git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
         fi
         if command -v rsync &> /dev/null; then
-                rsync -azP ../configs/.config/fish $HOME/.config/
+                if [[ "{{user}}" == "root"]]; then
+                        sudo rsync -azP ../configs/.config/fish /root/.config/
+                else
+                        rsync -azP ../configs/.config/fish $HOME/.config/
+                fi
+        else
+                echo "rsync command not found!"
+        fi
+# rsync nvim config to host manual
+to-host-nvim $user:
+        #!/usr/bin/env bash
+        if command -v rsync &> /dev/null; then
+                if [[ "{{user}}" == "root"]]; then
+                        sudo rsync -azP ../configs/.config/fish /root/.config/
+                else
+                        rsync -azP ../configs/.config/fish $HOME/.config/
+                fi
         else
                 echo "rsync command not found!"
         fi
