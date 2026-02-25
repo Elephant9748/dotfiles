@@ -64,7 +64,7 @@ to-host-nvim $user:
         fi
 # Partitioning disk lvm on luks "/dev/sdX|vdx|nvmX"
 nixos-disk-lvm-on-luks $block:
-        #!/usr/bin/bash
+        #!/run/current-system/sw/bin/bash
         # wipe disk
         wipefs -a {{block}}
         # destroy GPT & MBR data structure
