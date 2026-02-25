@@ -32,7 +32,7 @@ let
     pkgs = import nixpkgs {
         inherit system;
 	    config.allowUnfree = true;
-        overlays = [ (import rust-overlay) ];
+        # overlays = [ (import rust-overlay) ];
     };
 
     lib = nixpkgs.lib;

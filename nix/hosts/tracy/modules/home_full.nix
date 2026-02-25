@@ -19,7 +19,7 @@
         nwg-look
         rofi-power-menu
         rofi-calc
-        rust-bin.stable.latest.default
+        # rust-bin.stable.latest.default
     ];
 
     home.stateVersion = "${vars.version}";

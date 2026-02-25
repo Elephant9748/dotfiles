@@ -30,10 +30,10 @@ let
     pkgs = import nixpkgs {
         inherit system;
 	    config.allowUnfree = true;
-        overlays = [ 
-                (import rust-overlay) 
-                (import neovim-nightly) 
-        ];
+        # overlays = [ 
+        #         (import rust-overlay) 
+        #         (import neovim-nightly) 
+        # ];
     };
 
     lib = nixpkgs.lib;
