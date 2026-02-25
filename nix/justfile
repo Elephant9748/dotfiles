@@ -94,3 +94,4 @@ nixos-disk-lvm-on-luks $block:
         printf "\033[0;33m:: Mount\n\033[0m"
         mount /dev/vg_nix/nix_root /mnt
         mount --mkdir "{{block}}1" /mnt/boot
+        lsblk -f
