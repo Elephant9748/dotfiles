@@ -1,14 +1,18 @@
 set quiet
 bangbash := '#!/usr/bin/env bash'
 
+# generate nixos config on this machine
 gen:
         nixos-generate-config --root /mnt
+# install nixos with flake
 install $host:
         {{bangbash}}
         nixos-install --flake .#{{host}} --verbose
+# rebuild nixos with flake
 build $host:
         {{bangbash}}
         sudo nixos-rebuild switch --flake .#{{host}}
+# flake update
 flake-up:
         nix flake update
 
@@ -42,4 +46,17 @@ fish-config:
         else
                 echo "rsync command not found!"
         fi
+# Partitioning disk "/dev/sdX|vdx|nvmX"
+nixos-disk $block:
+        #!/usr/bin/bash
+        # wipe disk
+        wipefs -a {{block}}
+        # destroy GPT & MBR data structure
+        sgdisk --zap-all {{block}}
+        # EFI
+        sgdisk -n 1:1m:+1G -t 1:ef00 -c 1:EFI {{block}}
+        # swap partition
+        # sgdisk -n 2:0:+4G -t 2:8200 -c 2:SWAP {{block}}
+        # ZFS
+        sgdisk -n 2:0:0 -t 2:bf00 -c 2:NIXLUKS {{block}}
 
