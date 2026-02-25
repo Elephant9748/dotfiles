@@ -97,10 +97,33 @@ to-host-freebsd:
         else 
                 echo "rsync command not found!"
         fi
-# rsync nvim to root
-to-host-nvimroot:
+# rsync fish config to host manual
+to-host-fish $user:
         #!/usr/bin/env bash
-        sudo rsync -azP configs/.config/nvim /root/.config/ 
+        if [[ ! -d "$HOME/.config/base16-shell" ]]; then
+                git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
+        fi
+        if command -v rsync &> /dev/null; then
+                if [ "{{user}}" == "root" ]; then
+                        sudo rsync -azP configs/.config/fish /root/.config/
+                else
+                        rsync -azP configs/.config/fish $HOME/.config/
+                fi
+        else
+                echo "rsync command not found!"
+        fi
+# rsync nvim config to host manual
+to-host-nvim $user:
+        #!/usr/bin/env bash
+        if command -v rsync &> /dev/null; then
+                if [ "{{user}}" == "root" ]; then
+                        sudo rsync -azP configs/.config/nvim /root/.config/
+                else
+                        rsync -azP configs/.config/fish $HOME/.config/
+                fi
+        else
+                echo "rsync command not found!"
+        fi
 # Stow
 to-host-stow:
         #!/usr/bin/env bash
