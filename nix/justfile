@@ -65,6 +65,7 @@ to-host-nvim $user:
 # Partitioning disk lvm on luks "/dev/sdX|vdx|nvmX"
 nixos-disk-lvm-on-luks $block:
         #!/run/current-system/sw/bin/bash
+        printf "\033[0;31m:: Destroy drive\n\033[0m"
         # wipe disk
         wipefs -a {{block}}
         # destroy GPT & MBR data structure
@@ -90,5 +91,6 @@ nixos-disk-lvm-on-luks $block:
         printf "\033[0;33m:: Formatting\n\033[0m"
         mkfs.fat -F32 "{{block}}1"
         mkfs.ext4 -L Nix /dev/vg_nix/nix_root
-
-
+        printf "\033[0;33m:: Mount\n\033[0m"
+        mount /dev/vg_nix/nix_root /mnt
+        mount --mkdir "{{block}}1" /mnt/boot
