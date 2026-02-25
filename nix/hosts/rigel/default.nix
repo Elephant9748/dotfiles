@@ -1,8 +1,4 @@
-# pkgs --> nixpkgs-unstable
-# pkgs-overlays --> nixpkgs-unstable with overlays
-# ---------------------------
-
-{ pkgs-overlays, hypr, vars,... }:
+{ pkgs, hypr, vars,... }:
 
 {
   imports =
@@ -14,7 +10,7 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Use latest kernel.
-  boot.kernelPackages = pkgs-overlays.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   networking.hostName = "${vars.host}"; 
 
@@ -36,7 +32,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users = {
 	users.root = {
-		shell = pkgs-overlays.fish;
+		shell = pkgs.fish;
 		useDefaultShell = true;
 	};
   	users.${vars.user} = {
@@ -49,7 +45,7 @@
             "wheel"
             "networkmanager"
 		];
-		shell = pkgs-overlays.fish;
+		shell = pkgs.fish;
 		useDefaultShell = true;
         # openssh.authorizedKeys.keys = [
         #         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFCMCsfI7ZZjtHp63JxrFWMfsQHwDUVAb7TbsO3ChOzc walter.vm"

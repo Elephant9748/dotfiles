@@ -1,5 +1,5 @@
-{ pkgs-overlays, vars, ... }: {
-    home.packages = with pkgs-overlays; [
+{ pkgs, vars, ... }: {
+    home.packages = with pkgs; [
         fastfetch
         waybar
         alacritty

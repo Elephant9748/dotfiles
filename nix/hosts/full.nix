@@ -2,23 +2,32 @@
 # -----------------------------------------------
 # nix
 # ├── flake.nix
-# └─── hosts
-#     ├── gui.nix <--- the same as /etc/nixos/configuration.nix
-#     ├── nogui.nix <--- the same as /etc/nixos/configuration.nix
-#     └── tracy
-#         ├── default.nix
-#         ├── hardware-configuration.nix
-#         └── modules
-#             ├── base.nix
-#             ├── full.nix
-#             ├── home.nix
-#             └── home_nogui.nix
+# └── hosts
+#     ├── base.nix
+#     ├── full.nix
+#     ├── rigel
+#     │   ├── default.nix
+#     │   ├── hardware-configuration.nix
+#     │   └── modules
+#     │       ├── base.nix <--- the same as /etc/nixos/configuration.nix
+#     │       ├── full.nix <--- the same as /etc/nixos/configuration.nix
+#     │       ├── home_base.nix
+#     │       └── home_full.nix
+#     └── tracy
+#         ├── default.nix
+#         ├── hardware-configuration.nix
+#         └── modules
+#             ├── base.nix <--- the same as /etc/nixos/configuration.nix
+#             ├── full.nix <--- the same as /etc/nixos/configuration.nix
+#             ├── home_base.nix
+#             └── home_full.nix
 # -----------------------------------------------
-{ vars, inputs, nixpkgs-unstable, home-manager, hypr, rust-overlay, neovim-nightly, ... }:
+# { vars, inputs, nixpkgs, home-manager, hypr, rust-overlay, neovim-nightly, ... }:
+{ vars, inputs, nixpkgs, home-manager, ... }:
 let
     system = "${vars.system}";
 
-    pkgs-overlays = import nixpkgs-unstable {
+    pkgs = import nixpkgs {
         inherit system;
 	    config.allowUnfree = true;
         overlays = [ 
@@ -27,13 +36,14 @@ let
         ];
     };
 
-    lib = nixpkgs-unstable.lib;
+    lib = nixpkgs.lib;
 in
 {
     # tracy (LVM on LUKS)
     ${vars.user} = lib.nixosSystem {
 	    specialArgs = {
-                inherit inputs system pkgs-overlays vars hypr neovim-nightly;
+                # inherit inputs system pkgs vars hypr neovim-nightly;
+                inherit inputs system pkgs vars;
                 host = {
                         hostname = "${vars.host}";
                 };
@@ -45,7 +55,7 @@ in
                 home-manager.useGlobalPkgs = true;
 	    	    home-manager.useUserPackages = true;
                 home-manager.extraSpecialArgs = { 
-                        inherit vars pkgs-overlays; 
+                        inherit vars pkgs; 
                 };
 	    	    home-manager.users.${vars.user}.imports = [
                     ./${vars.user}/modules/home_full.nix

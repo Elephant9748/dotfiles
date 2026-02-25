@@ -1,4 +1,4 @@
-{ pkgs-overlays, hypr, vars, ... }:
+{ pkgs, hypr, vars, ... }:
 {
   security = { 
           sudo = {
@@ -39,7 +39,7 @@
         '';
 	};
 	ssh = {
-		package = pkgs-overlays.openssh;
+		package = pkgs.openssh;
 		kexAlgorithms = ["mlkem768x25519-sha256"];
 	};
 	gnupg = {
@@ -50,7 +50,7 @@
 	};
   };
 
-  environment.systemPackages = with pkgs-overlays; [
+  environment.systemPackages = with pkgs; [
     home-manager
     gnupg
     git

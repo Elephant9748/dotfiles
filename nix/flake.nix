@@ -2,19 +2,26 @@
 # -----------------------------------------------
 # nix
 # ├── flake.nix
-# └─── hosts
-#     ├── gui.nix <--- the same as /etc/nixos/configuration.nix
-#     ├── nogui.nix <--- the same as /etc/nixos/configuration.nix
-#     └── tracy
-#         ├── default.nix
-#         ├── hardware-configuration.nix
-#         └── modules
-#             ├── base.nix
-#             ├── full.nix
-#             ├── home.nix
-#             └── home_nogui.nix
+# └── hosts
+#     ├── base.nix
+#     ├── full.nix
+#     ├── rigel
+#     │   ├── default.nix
+#     │   ├── hardware-configuration.nix
+#     │   └── modules
+#     │       ├── base.nix <--- the same as /etc/nixos/configuration.nix
+#     │       ├── full.nix <--- the same as /etc/nixos/configuration.nix
+#     │       ├── home_base.nix
+#     │       └── home_full.nix
+#     └── tracy
+#         ├── default.nix
+#         ├── hardware-configuration.nix
+#         └── modules
+#             ├── base.nix <--- the same as /etc/nixos/configuration.nix
+#             ├── full.nix <--- the same as /etc/nixos/configuration.nix
+#             ├── home_base.nix
+#             └── home_full.nix
 # -----------------------------------------------
-
 {
   description = "Nixos Flake";
 
@@ -26,38 +33,49 @@
   };
 
   inputs = {
-	nixpkgs-unstable = {
-        url = "github:nixos/nixpkgs/nixos-unstable";	
-        flake = false;
-    };
+	# nixpkgs = {
+	#        url = "github:nixos/nixpkgs/nixos-unstable";	
+	#        flake = false;
+	#    };
+    
+	nixpkgs = {
+	       url = "github:NixOS/nixpkgs/nixos-25.11";	
+	       flake = false;
+	   };
 
 	home-manager = {                                                  
         url = "github:nix-community/home-manager";
-        inputs.nixpkgs.follows = "nixpkgs-unstable";
+        inputs.nixpkgs.follows = "nixpkgs";
     };
-    hypr = {
-      url = "github:hyprwm/Hyprland";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
+	# home-manager = {                                                  
+	#        url = "github:nix-community/home-manager";
+	#        inputs.nixpkgs.follows = "nixpkgs";
+	#    };
+    # hypr = {
+    #   url = "github:hyprwm/Hyprland";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
     # overlays
-    rust-overlay = {
-      url = "github:oxalica/rust-overlay";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
-    neovim-nightly = {                                                                                                                                     
-        url = "github:nix-community/neovim-nightly-overlay";                                                                                               
-        inputs.nixpkgs.follows = "nixpkgs-unstable";                                                                                                       
-    };
+    # rust-overlay = {
+    #   url = "github:oxalica/rust-overlay";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
+    # neovim-nightly = {                                                                                                                                     
+    #     url = "github:nix-community/neovim-nightly-overlay";                                                                                               
+    #     inputs.nixpkgs.follows = "nixpkgs";                                                                                                       
+    # };
   };
 
   outputs = inputs @ {
           self, 
           home-manager, 
-          nixpkgs-unstable, 
-          hypr, 
+          # nixpkgs-unstable, 
+          nixpkgs,
+          # hypr, 
           # neovim-nightly,
-          rust-overlay, ... 
+          # rust-overlay, 
+          ...
   }:
   let
       vars = { 
@@ -74,9 +92,10 @@
     nixosConfigurations = (
       # define modules with gui or just terminal
       import ./hosts/base.nix {
-          inherit (nixpkgs-unstable);
-          # inherit nixpkgs-unstable inputs home-manager vars hypr rust-overlay neovim-nightly;
-          inherit nixpkgs-unstable inputs home-manager vars hypr rust-overlay;
+          # inherit (nixpkgs);
+          # inherit nixpkgs inputs home-manager vars hypr rust-overlay neovim-nightly;
+          inherit (nixpkgs);
+          inherit nixpkgs inputs home-manager vars;
       }
     );
   };

@@ -1,4 +1,4 @@
-{ pkgs-overlays, neovim-nightly, hypr, vars, ... }:
+{ pkgs, neovim-nightly, hypr, vars, ... }:
 {
   security = { 
           sudo = {
@@ -37,7 +37,7 @@
           xserver.enable = false;
           udisks2 = {
                   enable = true;
-                  package = pkgs-overlays.udisks;
+                  package = pkgs.udisks;
           };
   };
 
@@ -51,7 +51,7 @@
         '';
 	};
 	# ssh = {
-	# 	package = pkgs-overlays.openssh;
+	# 	package = pkgs.openssh;
 	# 	kexAlgorithms = ["mlkem768x25519-sha256"];
 	# };
 	gnupg = {
@@ -73,7 +73,7 @@
     gnome-disks.enable = true;
   };
 
-  environment.systemPackages = with pkgs-overlays; [
+  environment.systemPackages = with pkgs; [
     home-manager
     gnupg
     git
