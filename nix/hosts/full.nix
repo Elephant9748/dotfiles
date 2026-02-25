@@ -14,16 +14,17 @@
 #             ├── home.nix
 #             └── home_nogui.nix
 # -----------------------------------------------
-
-
-{ vars, inputs, nixpkgs-unstable, home-manager, hypr, rust-overlay, ... }:
+{ vars, inputs, nixpkgs-unstable, home-manager, hypr, rust-overlay, neovim-nightly, ... }:
 let
     system = "${vars.system}";
 
     pkgs-overlays = import nixpkgs-unstable {
         inherit system;
 	    config.allowUnfree = true;
-        overlays = [ (import rust-overlay) ];
+        overlays = [ 
+                (import rust-overlay) 
+                (import neovim-nightly) 
+        ];
     };
 
     lib = nixpkgs-unstable.lib;
@@ -32,7 +33,7 @@ in
     # tracy (LVM on LUKS)
     ${vars.user} = lib.nixosSystem {
 	    specialArgs = {
-                inherit inputs system pkgs-overlays vars hypr;
+                inherit inputs system pkgs-overlays vars hypr neovim-nightly;
                 host = {
                         hostname = "${vars.host}";
                 };
@@ -47,7 +48,7 @@ in
                         inherit vars pkgs-overlays; 
                 };
 	    	    home-manager.users.${vars.user}.imports = [
-                    ./${vars.user}/modules/home_nogui.nix
+                    ./${vars.user}/modules/home_full.nix
                 ];
 	        }
 	    ];

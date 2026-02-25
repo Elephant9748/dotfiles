@@ -8,7 +8,7 @@
   imports =
     [ 
       ./hardware-configuration.nix
-      ./modules/base.nix # <-- define with gui or nogui
+      ./modules/base.nix # <-- define with base or full
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

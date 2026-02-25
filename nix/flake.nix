@@ -73,7 +73,7 @@
   {
     nixosConfigurations = (
       # define modules with gui or just terminal
-      import ./hosts/nogui.nix {
+      import ./hosts/base.nix {
           inherit (nixpkgs-unstable);
           # inherit nixpkgs-unstable inputs home-manager vars hypr rust-overlay neovim-nightly;
           inherit nixpkgs-unstable inputs home-manager vars hypr rust-overlay;
