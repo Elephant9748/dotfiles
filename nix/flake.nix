@@ -70,7 +70,7 @@
                 modules = [
                         ./hosts/${user}
                         #base = mininmal, full = with gui desktop
-                        (import ./modules/base.nix)
+                        (import ./modules/"${user}_base.nix")
                         home-manager.nixosModules.home-manager {
                                 home-manager.useGlobalPkgs = true;
                                 home-manager.useUserPackages = true;
@@ -78,7 +78,7 @@
                                         inherit version user; 
                                 };
                                 home-manager.users.${user}.imports = [
-                                        ./modules/home_base.nix
+                                        ./modules/home/"${user}_home_base.nix"
                                 ];
                         }
                 ];
