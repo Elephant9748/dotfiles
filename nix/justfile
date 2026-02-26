@@ -1,6 +1,9 @@
 set quiet
 bangbash := '#!/usr/bin/env bash'
 
+# pkgs ...
+tools:
+        nix-env -iA nixos.git nixos.neovim nixos.fish nixos.just
 # clean nix-collect-garbage -d
 clean:
         nix-collect-garbage -d
