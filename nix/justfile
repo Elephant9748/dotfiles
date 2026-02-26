@@ -9,7 +9,7 @@ clean:
         nix-collect-garbage -d
 # show available configurations
 show:
-        nix flake show
+        nix flake show  --experimental-features 'nix-command flakes'
 # generate nixos config on this machine
 gen:
         nixos-generate-config --root /mnt

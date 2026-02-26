@@ -22,12 +22,12 @@
 
     # UNSTABLE
     # --------------------------------------------------------------
-	nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";	
-
-	home-manager = {                                                  
-        url = "github:nix-community/home-manager";
-        inputs.nixpkgs.follows = "nixpkgs";
-    };
+	# nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";	
+	#
+	# home-manager = {                                                  
+	#        url = "github:nix-community/home-manager";
+	#        inputs.nixpkgs.follows = "nixpkgs";
+	#    };
     # --------------------------------------------------------------
 
     
