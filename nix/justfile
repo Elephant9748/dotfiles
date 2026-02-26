@@ -1,39 +1,47 @@
 set quiet
 bangbash := '#!/usr/bin/env bash'
 
+# clean nix-collect-garbage -d
+clean:
+        nix-collect-garbage -d
+# show available configurations
+show:
+        nix flake show
 # generate nixos config on this machine
 gen:
         nixos-generate-config --root /mnt
 # install nixos with flake
-install $host:
+install $machine:
         {{bangbash}}
-        nixos-install --flake .#{{host}} --verbose
+        nixos-install --flake .#{{machine}} --verbose
 # rebuild nixos with flake
-build $host:
+build $machine:
         {{bangbash}}
-        sudo nixos-rebuild switch --flake .#{{host}}
+        sudo nixos-rebuild switch --flake .#{{machine}}
 # flake update
 flake-up:
         nix flake update
 
-# change user
-flake-user $user:
+# change user for x machine flake.nix
+flake-user $machine $user:
         {{bangbash}}
-        sed -i 's/\(user = "\)[^"]*"/\1{{user}}"/' flake.nix
-# change host
-flake-host $host:
+        sed -i '/{{machine}} = {/,/};/ s/user =.*/user = "{{user}}";/' flake.nix
+# change host for x machine flake.nix
+flake-host $machine $host:
         {{bangbash}}
-        sed -i 's/\(host = "\)[^"]*"/\1{{host}}"/' flake.nix
-# change gui
+        sed -i '/{{machine}} = {/,/};/ s/host =.*/host = "{{host}}";/' flake.nix
+# change machine base = minimal, full = with gui
 flake-full $user:
         {{bangbash}}
-        sed -i 's/.\/hosts\/base.nix/.\/hosts\/full.nix/' flake.nix
-        sed -i 's/.\/modules\/base.nix/.\/modules\/full.nix/' hosts/{{user}}/default.nix
-# change base
+        sed -i 's/.\/modules\/base.nix/.\/modules\/full.nix/' flake.nix
+        sed -i 's/.\/modules\/home_base.nix/.\/modules\/home_full.nix/' flake.nix
+        echo "look flake.nix {{user}}"
+# change machine base = minimal, full = with gui
 flake-base $user:
         {{bangbash}}
-        sed -i 's/.\/hosts\/full.nix/.\/hosts\/base.nix/' flake.nix
-        sed -i 's/.\/modules\/full.nix/.\/modules\/base.nix/' hosts/{{user}}/default.nix
+        sed -i 's/.\/modules\/full.nix/.\/modules\/base.nix/' flake.nix
+        sed -i 's/.\/modules\/home_full.nix/.\/modules\/home_base.nix/' flake.nix
+        echo "look flake.nix {{user}}"
 
 # rsync fish config to host manual
 to-host-fish $user:
