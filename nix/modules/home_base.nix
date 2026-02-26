@@ -1,4 +1,4 @@
-{ pkgs, vars, ... }: {
+{ pkgs, version, ... }: {
     home.packages = with pkgs; [
         fastfetch
         nerd-fonts.jetbrains-mono
@@ -9,10 +9,10 @@
         tmux
     ];
 
-    home.stateVersion = "${vars.version}";
+    home.stateVersion = "${version}";
 
     home.file.".config/nvim" = {
-        source = ../../../../configs/.config/nvim;
+        source = ../../configs/.config/nvim;
         recursive = true;
     };
 
@@ -23,20 +23,20 @@
 
 
     home.file.".config/alacritty" = {
-        source = ../../../../configs/.config/alacritty;
+        source = ../../configs/.config/alacritty;
         recursive = true;
     };
     home.file.".config/bat" = {
-        source = ../../../../configs/.config/bat;
+        source = ../../configs/.config/bat;
         recursive = true;
     };
     home.file.".config/bottom" = {
-        source = ../../../../configs/.config/bottom;
+        source = ../../configs/.config/bottom;
         recursive = true;
     };
 
     home.file.".tmux.conf" = {
-        source = ../../../../configs/tmux/.tmux.conf;
+        source = ../../configs/tmux/.tmux.conf;
         recursive = true;
     };
 }

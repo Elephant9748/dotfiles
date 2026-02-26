@@ -1,4 +1,4 @@
-{ pkgs, hypr, vars, ... }:
+{ pkgs, user, version, host, ... }:
 {
   security = { 
           sudo = {
@@ -24,7 +24,7 @@
                           PermitRootLogin = "no";
                           PasswordAuthentication = false;
                           KbdInteractiveAuthentication = false;
-                          AllowUsers = [ "${vars.user}" ];
+                          AllowUsers = [ "${user}" ];
                   };
           };
   };
@@ -32,11 +32,6 @@
   programs = {
 	fish = {
 		enable = true;
-        loginShellInit = ''
-                if test (tty) = "/dev/tty1"; and test -z "$WAYLAND_DISPLAY"; and test -n "$XDG_VTNR"; and test "$XDG_VTNR" -eq 1
-                    exec start-hyprland
-                  end
-        '';
 	};
 	ssh = {
 		package = pkgs.openssh;

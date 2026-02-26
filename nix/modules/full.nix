@@ -1,4 +1,4 @@
-{ pkgs, neovim-nightly, hypr, vars, ... }:
+{ pkgs, neovim-nightly, hypr, user, system, ... }:
 {
   security = { 
           sudo = {
@@ -31,7 +31,7 @@
                           PermitRootLogin = "no";
                           PasswordAuthentication = false;
                           KbdInteractiveAuthentication = false;
-                          AllowUsers = [ "${vars.user}" ];
+                          AllowUsers = [ "${user}" ];
                   };
           };
           xserver.enable = false;
@@ -62,13 +62,13 @@
 	};
     neovim = {
             enable = true;
-            package = neovim-nightly.packages.${vars.system}.default;
+            package = neovim-nightly.packages.${system}.default;
     };
     # below hyprland using build from source
     hyprland = {
             enable = true;
-            package = hypr.packages.${vars.system}.hyprland;
-            portalPackage = hypr.packages.${vars.system}.xdg-desktop-portal-hyprland;
+            package = hypr.packages.${system}.hyprland;
+            portalPackage = hypr.packages.${system}.xdg-desktop-portal-hyprland;
     };
     gnome-disks.enable = true;
   };

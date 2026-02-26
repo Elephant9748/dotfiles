@@ -1,10 +1,9 @@
-{ pkgs, hypr, vars,... }:
+{ pkgs, version, user, host, system,... }:
 
 {
   imports =
     [ 
       ./hardware-configuration.nix
-      ../../../modules/base.nix # <-- define with base or full
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -12,7 +11,7 @@
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  networking.hostName = "${vars.host}"; 
+  networking.hostName = "${host}"; 
 
   # Configure network connections interactively with nmcli or nmtui.
   networking.networkmanager.enable = true;
@@ -35,13 +34,13 @@
 		shell = pkgs.fish;
 		useDefaultShell = true;
 	};
-  	users.${vars.user} = {
+  	users.${user} = {
 		isNormalUser = true;
 		createHome = true;
-		group = "${vars.user}";
+		group = "${user}";
 		extraGroups = [
 			"sudo"
-			"${vars.user}"
+			"${user}"
             "wheel"
             "networkmanager"
 		];
@@ -55,11 +54,11 @@
 		sudo = {
 			gid = 1000;
 		};
-		${vars.user} = {
+		${user} = {
 			gid = 1001;
 		};
 	};
   };
   networking.firewall.enable = false;
-  system.stateVersion = "${vars.version}"; 
+  system.stateVersion = "${version}"; 
 }
