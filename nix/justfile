@@ -36,15 +36,15 @@ flake-host $machine $host:
 # change machine base = minimal, full = with gui
 flake-full $user:
         {{bangbash}}
-        sed -i 's/.\/modules\/base.nix/.\/modules\/full.nix/' flake.nix
-        sed -i 's/.\/modules\/home_base.nix/.\/modules\/home_full.nix/' flake.nix
-        echo "look flake.nix {{user}}"
+        sed -i 's/_base.nix/_full.nix/' flake.nix
+        sed -i 's/_home_base.nix/_home_full.nix/' flake.nix
+        printf "\033[0;34m> Done look flake.nix\n\033[0m"
 # change machine base = minimal, full = with gui
 flake-base $user:
         {{bangbash}}
-        sed -i 's/.\/modules\/full.nix/.\/modules\/base.nix/' flake.nix
-        sed -i 's/.\/modules\/home_full.nix/.\/modules\/home_base.nix/' flake.nix
-        echo "look flake.nix {{user}}"
+        sed -i 's/_full.nix/_base.nix/' flake.nix
+        sed -i 's/_home_full.nix/_home_base.nix/' flake.nix
+        printf "\033[0;34m> Done look flake.nix\n\033[0m"
 
 # rsync fish config to host manual
 to-host-fish $user:
