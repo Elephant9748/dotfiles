@@ -1,11 +1,11 @@
 
-# nix-build -E 'with import <nixpkgs> {}; callPackage ./paperpass.nix {}'
+# nix-build -E 'with import <nixpkgs> {}; callPackage ./paperpass-bin.nix {}'
 
 # nixconfigurations
 # { config, pkgs, ... }:
 # {
 #   environment.systemPackages = [
-#     (pkgs.callPackage ./my-package.nix {})
+#     (pkgs.callPackage ./paperpass-bin.nix {})
 #   ];
 # }
 
