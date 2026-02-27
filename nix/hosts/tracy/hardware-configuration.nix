@@ -24,8 +24,12 @@
 		# efi.efiSysMountPoint = "/boot/EFI";
         timeout = 2;
 	};
-	initrd.luks.devices.Nix-Luks-0fd9cedc = {
-		device = "/dev/disk/by-uuid/0fd9cedc-8210-47ea-a5fd-45a0b708eeb8";
+	# initrd.luks.devices.Nix-Luks-0fd9cedc = {
+	# 	device = "/dev/disk/by-uuid/0fd9cedc-8210-47ea-a5fd-45a0b708eeb8";
+	# 	allowDiscards = true;
+	# };
+	initrd.luks.devices.NIX_LUKS = {
+		device = "/dev/disk/by-uuid/NIX_LUKS";
 		allowDiscards = true;
 	};
     kernelParams = [
@@ -41,8 +45,14 @@
       fsType = "ext4";
     };
 
+  # fileSystems."/boot" =
+  #   { device = "/dev/disk/by-uuid/A3C6-0817";
+  #     fsType = "vfat";
+  #     options = [ "fmask=0022" "dmask=0022" ];
+  #   };
+
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/A3C6-0817";
+    { device = "/dev/disk/by-label/EFI_BOOT";
       fsType = "vfat";
       options = [ "fmask=0022" "dmask=0022" ];
     };

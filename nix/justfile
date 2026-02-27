@@ -89,7 +89,7 @@ nixos-disk-lvm-on-luks $block:
         sgdisk -n 2:0:0 -t 2:8309 -c 2:NIXLUKS {{block}}
 
         printf "\033[0;33m:: Create Luks\n\033[0m"
-        cryptsetup luksFormat "{{block}}2"
+        cryptsetup luksFormat --label NIX_LUKS "{{block}}2"
         printf "\033[0;32m:: Open Luks\n\033[0m"
         cryptsetup open "{{block}}2" Luks
 
@@ -100,8 +100,8 @@ nixos-disk-lvm-on-luks $block:
         lvcreate -l 100%FREE -n nix_root vg_nix
         lsblk -f
         printf "\033[0;33m:: Formatting\n\033[0m"
-        mkfs.fat -F32 -n EFI_BOOT"{{block}}1"
-        mkfs.ext4 -L NIX /dev/vg_nix/nix_root
+        mkfs.fat -F32 -n EFI_BOOT "{{block}}1"
+        mkfs.ext4 -L NIX_LVM /dev/vg_nix/nix_root
         printf "\033[0;33m:: Mount\n\033[0m"
         mount /dev/vg_nix/nix_root /mnt
         mount --mkdir "{{block}}1" /mnt/boot
