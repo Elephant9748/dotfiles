@@ -90,7 +90,7 @@
                           system = "x86_64-linux";
                           version = "25.11";
                           editor = "nvim";
-                          label = "vm"
+                          label = "vm";
                   };
                   notebook = {
                           user = "rigel";
@@ -98,7 +98,7 @@
                           system = "x86_64-linux";
                           version = "25.11";
                           editor = "nvim";
-                          label = "notebook"
+                          label = "notebook";
                   };
           };
 
