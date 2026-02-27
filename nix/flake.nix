@@ -71,6 +71,10 @@
                         ./hosts/${label}
                         #base = mininmal, full = with gui desktop
                         (import ./modules/${label}_base.nix)
+                        # ({ pkgs, ... }: {
+                        #          nixpkgs.overlays = [ rust-overlay.overlays.default ];
+                        #          environment.systemPackages = [ pkgs.rust-bin.stable.latest.default ];
+                        # })
                         home-manager.nixosModules.home-manager {
                                 home-manager.useGlobalPkgs = true;
                                 home-manager.useUserPackages = true;
