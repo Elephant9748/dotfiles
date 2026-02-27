@@ -29,7 +29,7 @@
 	# 	allowDiscards = true;
 	# };
 	initrd.luks.devices.NIX_LUKS = {
-		device = "/dev/disk/by-uuid/NIX_LUKS";
+		device = "/dev/disk/by-label/NIX_LUKS";
 		allowDiscards = true;
 	};
     kernelParams = [
