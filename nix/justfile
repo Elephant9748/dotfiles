@@ -100,7 +100,7 @@ nixos-disk-lvm-on-luks $block:
         lvcreate -l 100%FREE -n nix_root vg_nix
         lsblk -f
         printf "\033[0;33m:: Formatting\n\033[0m"
-        mkfs.fat -F32 -L EFI_BOOT"{{block}}1"
+        mkfs.fat -F32 -n EFI_BOOT"{{block}}1"
         mkfs.ext4 -L NIX /dev/vg_nix/nix_root
         printf "\033[0;33m:: Mount\n\033[0m"
         mount /dev/vg_nix/nix_root /mnt
