@@ -1,7 +1,13 @@
 set quiet
 bangbash := '#!/usr/bin/env bash'
 
-# pkgs ...
+# list available machine
+machine:
+        #!/usr/bin/bash
+        grep -E '\s\w{2,8}\s=\s{' flake.nix | tail -n 2 |  \
+                sed -E 's/\s=\s\{//' | paste -sd "" | \
+                awk '{print "\033[0;34mMachine:\033[0;32m\n\t"$1"\n\t"$2}'
+# pkgs nix-env -iA nixos.<pkgs>
 tools:
         nix-env -iA nixos.git nixos.neovim nixos.fish nixos.just
 # clean nix-collect-garbage -d
