@@ -34,13 +34,13 @@ flake-host $machine $host:
         {{bangbash}}
         sed -i '/{{machine}} = {/,/};/ s/host =.*/host = "{{host}}";/' flake.nix
 # change machine base = minimal, full = with gui
-flake-full $user:
+flake-full $machine:
         {{bangbash}}
         sed -i 's/_base.nix/_full.nix/' flake.nix
         sed -i 's/_home_base.nix/_home_full.nix/' flake.nix
         printf "\033[0;34m> Done look flake.nix\n\033[0m"
 # change machine base = minimal, full = with gui
-flake-base $user:
+flake-base $machine:
         {{bangbash}}
         sed -i 's/_full.nix/_base.nix/' flake.nix
         sed -i 's/_home_full.nix/_home_base.nix/' flake.nix
