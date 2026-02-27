@@ -12,7 +12,7 @@
     home.stateVersion = "${version}";
 
     # --------------------------------------------------
-    # Due to he home-manager taking so long on boot time
+    # Due to the home-manager taking so long on boot time
     #             JUST RESTORE MANUAL
     # --------------------------------------------------
 
