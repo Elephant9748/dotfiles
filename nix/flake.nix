@@ -71,6 +71,8 @@
                         ./hosts/${label}
                         #base = mininmal, full = with gui desktop
                         (import ./modules/${label}_base.nix)
+                        # nix-ld
+                        # (import ./modules/nix_ld.nix)
                         # overlays
                         # (import ./overlays/rust.nix)
                         # (import ./overlays/neovim.nix)
