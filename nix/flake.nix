@@ -61,16 +61,16 @@
           ...
   } @inputs:
   let
-      mkMachine = { user, host, system, version, editor, ... }:
+      mkMachine = { user, host, system, version, editor, label, ... }:
         nixpkgs.lib.nixosSystem {
                 inherit system;
                 specialArgs = { 
                         inherit user version host system;
                 };
                 modules = [
-                        ./hosts/${user}
+                        ./hosts/${label}
                         #base = mininmal, full = with gui desktop
-                        (import ./modules/${user}_base.nix)
+                        (import ./modules/${label}_base.nix)
                         home-manager.nixosModules.home-manager {
                                 home-manager.useGlobalPkgs = true;
                                 home-manager.useUserPackages = true;
@@ -78,25 +78,27 @@
                                         inherit version user; 
                                 };
                                 home-manager.users.${user}.imports = [
-                                        ./modules/home/${user}_home_base.nix
+                                        ./modules/home/${label}_base.nix
                                 ];
                         }
                 ];
         };
           machine = {
-                  tracy = {
+                  vm = {
                           user = "tracy";
                           host = "pineapple-vm";
                           system = "x86_64-linux";
                           version = "25.11";
                           editor = "nvim";
+                          label = "vm"
                   };
-                  rigel = {
+                  notebook = {
                           user = "rigel";
                           host = "starfish-small";
                           system = "x86_64-linux";
                           version = "25.11";
                           editor = "nvim";
+                          label = "notebook"
                   };
           };
 
