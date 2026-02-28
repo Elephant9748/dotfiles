@@ -30,7 +30,7 @@ stdenv.mkDerivation rec {
 
   installPhase = ''
         mkdir -p $out/bin
-        cp -r ${pname}-${version}-${stdenv.hostPlatform.system}-gnu/* $out/bin
+        install -Dm755 ${pname}-${version}-${stdenv.hostPlatform.system}-gnu/* $out/bin
   '';
 
   meta = with lib; {
