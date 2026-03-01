@@ -76,6 +76,10 @@
                         # overlays
                         # (import ./overlays/rust.nix)
                         # (import ./overlays/neovim.nix)
+                        # Impl packaging
+                        # ({ pkgs, ... }: {
+                        #         environment.systemPackages = [(pkgs.callPackage ./packaging/paperpass.nix {})];
+                        #  })
                         # home-manager
                         home-manager.nixosModules.home-manager {
                                 home-manager.useGlobalPkgs = true;
