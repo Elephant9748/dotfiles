@@ -82,6 +82,10 @@ to-host-nvim $user:
 # Partitioning disk lvm on luks "/dev/sdX|vdx|nvmX"
 nixos-disk-lvm-on-luks $block:
         #!/run/current-system/sw/bin/bash
+        read -p $'\033[0;31mYour \033[0;33m{{block}} \033[0;31mwill destroy y/n? : ' confirm
+        if [ "n" == $confirm ]; then
+                exit
+        fi
         printf "\033[0;31m:: Destroy drive\n\033[0m"
         # wipe disk
         wipefs -a {{block}}
