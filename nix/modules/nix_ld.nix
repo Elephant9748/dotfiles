@@ -1,3 +1,4 @@
+# https://wiki.nixos.org/wiki/Nix-ld
 # find package that missing lib:
 # nix run github:nix-community/nix-index-database -- lib/libxkbcommon.so.0 --top-level
 
@@ -6,6 +7,7 @@
         programs.nix-ld.libraries = with pkgs; [
                 # stdenv.cc.cc
                 # glibc
+
                 # libxcb
                 # libX11
                 # libXrandr
