@@ -74,7 +74,7 @@ to-host-nvim $user:
                 if [ "{{user}}" == "root" ]; then
                         sudo rsync -azP ../configs/.config/nvim /root/.config/
                 else
-                        rsync -azP ../configs/.config/fish $HOME/.config/
+                        rsync -azP ../configs/.config/nvim $HOME/.config/
                 fi
         else
                 echo "rsync command not found!"
