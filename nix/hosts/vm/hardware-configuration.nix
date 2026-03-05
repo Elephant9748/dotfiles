@@ -19,7 +19,7 @@
 		# systemd-boot.enable = true;
 		# systemd-boot.configurationLimit = 5;
         limine.enable = true;
-        limine.maxGenerations = 3;
+        limine.maxGenerations = 5;
 		efi.canTouchEfiVariables = true;
 		# efi.efiSysMountPoint = "/boot/EFI";
         timeout = 2;
