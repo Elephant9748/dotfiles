@@ -10,11 +10,13 @@ set $right l
 # Your preferred terminal emulator
 set $term alacritty
 # Your preferred application launcher
-set $menu wmenu-run
+set $menu rofi -opacity 80 -show drun
+set $power rofi -show power-menu -modi "power-menu:rofi-power-menu --choices=shutdown/lockscreen/logout/reboot"
+set $calc rofi -show calc -modi calc -no-show-match -no-sort -no-history -calc-command "echo '{result}' | wl-copy"
 
 # autostart / exec
 exec waybar
-exec autotiling -l 6
+exec autotiling-rs -w 6
 exec wl-paste --type text --watch cliphist store &
 exec wl-paste --type image --watch cliphist store &
 
@@ -22,7 +24,7 @@ exec wl-paste --type image --watch cliphist store &
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-output * bg /home/jane/project/dotfiles/configs/arch/sddm/sddm-astronaut-theme/Backgrounds/other.png fill
+output * bg /home/rigel/project/dotfiles/configs/sddm/sddm-astronaut-theme/Backgrounds/v.png fill
 
 default_border pixel 2
 titlebar_padding 8 2
@@ -51,7 +53,9 @@ bindsym $mod+b exec waybar
     bindsym $mod+Shift+c kill
 
     # Start your launcher
-    bindsym $mod+Shift+p exec $menu
+    bindsym $mod+p exec $menu
+    bindsym $mod+Shift+p exec $power
+    bindsym $mod+c exec $calc
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -193,4 +197,3 @@ bindsym $mod+r mode "resize"
     bindsym Print exec grim
 
 include /etc/sway/config.d/*
-
