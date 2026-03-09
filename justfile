@@ -79,6 +79,22 @@ to-host:
                 # sudo rsync -azP configs/sddm/sddm.conf.d/ /usr/lib/sddm/sddm.conf.d/
         fi
 
+# rsync sddm 
+to-host-sddm:
+        #!/usr/bin/env bash
+        if [[ d "/usr/share/sddm" ]]; then
+                # !need sudo,doas
+                # sddm look
+                sudo rsync -azP configs/sddm/sddm-astronaut-theme /usr/share/sddm/themes/ && \
+                sudo rsync -azP configs/sddm/sddm.conf.d/ /usr/lib/sddm/sddm.conf.d/
+        fi
+# rsync sddm 
+to-host-icons:
+        #!/usr/bin/env bash
+        rsync -azP configs/icons/Pop $HOME/.local/share/icons && \
+        rsync -azP configs/icons/breeze_cursors $HOME/.local/share/icons && \
+        rsync -azP configs/icons/Materia-Manjaro-2 $HOME/.local/share/icons 
+
 # rsync install dotfiles for freebsd
 to-host-freebsd:
         #!/usr/bin/env bash
