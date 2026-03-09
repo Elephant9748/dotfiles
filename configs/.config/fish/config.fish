@@ -468,9 +468,9 @@ end
 function stop_bt
         sudo systemctl stop bluetooth.service
 end
-# bluetooth stop
+# bluetooth show
 function show_bt
-        sudo systemctl status bluetooth.service
+        sudo systemctl stop bluetooth.service
 end
 
 #arti tor rust
