@@ -61,7 +61,7 @@ function fish_greeting
     echo -e ' note!: '
     if string match -q "rigel" (whoami)
             set_color C38F00
-            echo -e '\t*!Info move initramfs before update nvidia,linux,.. limited sized /boot'
+            echo -e '\t*!Info move initramfs before update nvidia,linux,.. limited disk usage /boot'
             set_color dd422f
             echo -e '\t*!Created emergency backup (tracy,proton)'
     end
