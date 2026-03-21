@@ -56,7 +56,7 @@ mkfs.fat -F32 "${BLOCK}1"
 
 # print drive
 printf "\033[0;34m:: Result\n\033[0m"
-sgdisk -p /dev/vdb
+sgdisk -p $BLOCK
 
 # ZFS native encryption
 printf "\033[0;33m:: ZFS native encryption\n\033[0m"

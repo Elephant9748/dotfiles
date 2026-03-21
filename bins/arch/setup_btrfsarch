@@ -44,7 +44,7 @@ sgdisk -n 2:0:0 -t 2:8309 -c 2:LUKS $BLOCK
 
 # print drive
 printf "\033[0;34m:: Result\n\033[0m"
-sgdisk -p /dev/vdb
+sgdisk -p $BLOCK
 
 # BTRFS on LUKS
 printf "\033[0;33m:: BTRFS on LUKS\n\033[0m"
