@@ -53,6 +53,7 @@ cryptsetup luksFormat "${BLOCK}2"
 printf "\033[0;33m:: Open Luks\n\033[0m"
 cryptsetup open "${BLOCK}2" $luksname
 
+mkfs.fat -F32 -n EFI_BOOT "${BLOCK}1"
 mkfs.btrfs -L LUKSBTRFS "/dev/mapper/${luksname}"
 mount "/dev/mapper/${luksname}" /mnt
 cd /mnt
@@ -60,7 +61,6 @@ btrfs subvolume create @
 btrfs subvolume create @home
 btrfs subvolume create @snapshots
 umount -R /mnt
-cd
 mount -o compress=zstd,subvol=@ "/dev/mapper/${luksname}" /mnt
 mount --mkdir -o compress=zstd,subvol=@home "/dev/mapper/${luksname}" /mnt/home
 mount --mkdir -o compress=zstd,subvol=@snapshots "/dev/mapper/${luksname}" /mnt/.snapshots
