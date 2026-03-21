@@ -60,6 +60,7 @@ cd /mnt
 btrfs subvolume create @
 btrfs subvolume create @home
 btrfs subvolume create @snapshots
+cd
 umount -R /mnt
 mount -o compress=zstd,subvol=@ "/dev/mapper/${luksname}" /mnt
 mount --mkdir -o compress=zstd,subvol=@home "/dev/mapper/${luksname}" /mnt/home
@@ -118,7 +119,7 @@ remember_last_entry: yes
         // Linux
                 protocol: linux
                 path: boot():/vmlinuz-linux
-                cmdline: rd.luks.name=%%s=luks-%%s root=/dev/mapper/luks-%%s rw loglevel=3 
+                cmdline: rd.luks.name=%%s=luks-%%s root=/dev/mapper/luks-%%s rw rootflags=subvol=@ rootfstype=btrfs loglevel=3 
                 module_path: boot():/initramfs-linux.img
 # / Grub Boot Loader
 #         protocol: efi
