@@ -19,12 +19,13 @@ exec waybar
 exec autotiling-rs -w 6
 exec wl-paste --type text --watch cliphist store &
 exec wl-paste --type image --watch cliphist store &
+# exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-output * bg /home/rigel/project/dotfiles/configs/sddm/sddm-astronaut-theme/Backgrounds/v.png fill
+output * bg /home/rigel/project/dotfiles/configs/sddm/sddm-astronaut-theme/Backgrounds/astronaut.png fill
 
 default_border pixel 2
 titlebar_padding 8 2
