@@ -34,7 +34,7 @@ wipefs -a $BLOCK
 sgdisk --zap-all $BLOCK
 
 # EFI
-sgdisk -n 1:2m:+1g -t 1:ef00 -c 1:EFI $BLOCK
+sgdisk -n 1:2m:+1G -t 1:ef00 -c 1:EFI $BLOCK
 
 # swap partition
 # sgdisk -n 2::+2G -t 2:8200 -c 2:SWAP $BLOCK

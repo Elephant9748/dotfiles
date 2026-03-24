@@ -18,8 +18,8 @@ grep -nE '^.*multilib]' /etc/pacman.conf
 grep -nE '^.*Include =.*' /etc/pacman.conf | grep 95
 printf "\033[0m"
 
-BLOCK="/dev/sda"
-luksname="lukscrypt"
+BLOCK="/dev/vda"
+luksname="lukscrypt" 
 bootloader="/boot/EFI/limine/limine.conf"
 initconf="/etc/mkinitcpio.conf"
 hostname="kiwi.vm"
@@ -41,15 +41,22 @@ sgdisk -n 1:2m:+1G -t 1:ef00 -c 1:EFI $BLOCK
 # sgdisk -n 2::+2G -t 2:8200 -c 2:SWAP $BLOCK
 
 # Luks partition
-sgdisk -n 2:0:0 -t 2:8e00 -c 2:LVM $BLOCK
+sgdisk -n 2:0:0 -t 2:8309 -c 2:LUKS $BLOCK
 
 # print drive
 printf "\033[0;34m:: Result\n\033[0m"
 sgdisk -p $BLOCK
 
-pvcreate "${BLOCK}2"
+# LVM on LUKS
+printf "\033[0;33m:: LVM on LUKS\n\033[0m"
+
+cryptsetup luksFormat "${BLOCK}2"
+printf "\033[0;33m:: Open Luks\n\033[0m"
+cryptsetup open "${BLOCK}2" $luksname
+
+pvcreate /dev/mapper/$luksname
 vg="vg_arch"
-vgcreate $vg "${BLOCK}2"
+vgcreate $vg /dev/mapper/$luksname
 # lvcreate -L 4G -n swap $vg
 # lvcreate -L 32G -n root $vg
 lv="lv_root"
@@ -98,7 +105,7 @@ printf \"\\\033[0;32m:: Initramfs\\\n\\\033[0m\"
 pacman -S --needed --noconfirm lvm2
 
 # config for lvm on luks
-sed -i 's/^HOOKS=(.*/HOOKS=(base systemd autodetect microcode modconf kms keyboard sd-vconsole block lvm2 filesystems fsck)/' $initconf
+sed -i 's/^HOOKS=(.*/HOOKS=(base systemd autodetect microcode modconf kms keyboard sd-vconsole block sd-encrypt lvm2 filesystems fsck)/' $initconf
 
 # generate initramfs
 mkinitcpio -P
@@ -120,12 +127,12 @@ remember_last_entry: yes
         // Linux
                 protocol: linux
                 path: boot():/vmlinuz-linux
-                cmdline: root=/dev/%%s/%%s rw loglevel=3
+                cmdline: rd.luks.name=%%s=luks-%%s root=/dev/%%s/%%s rw loglevel=3 
                 module_path: boot():/initramfs-linux.img
 # / Grub Boot Loader
 #         protocol: efi
 #         path: boot():/EFI/grub/grubx64.efi
-\" \"${vg}\" \"${lv}\" > $bootloader
+\" \"${LUKSUUID}\" \"${LUKSNAME}\" \"${vg}\" \"${lv}\" > $bootloader
 
 mkdir -p /etc/pacman.d/hooks
 printf \"[Trigger]
@@ -140,7 +147,7 @@ When = PostTransaction
 Exec = /usr/bin/cp /usr/share/limine/BOOTX64.EFI /boot/EFI/limine/\\n\" > /etc/pacman.d/hooks/99-limine.hook
 
 printf \"\\\033[0;32m:: efibootmgr List\\\n\\\033[0m\"
-efibootmgr --create --disk $BLOCK --part 1 --label 'Arch Linux Limine Boot Loader' --loader '\\\EFI\\\limine\\\BOOTX64.EFI' --unicode
+efibootmgr --create --disk $BLOCK --part 1 --label 'Arch Linux Limine Boot Loader' --loader '\\\EFI\\\limine\\\BOOTX64.EFI' --unicode 
 efibootmgr
 
 printf \"\\\033[0;32m:: User\\\n\\\033[0m\"
@@ -182,4 +189,3 @@ arch-chroot /mnt /root/configure_system
 # cleanup
 printf "\033[0;32m:: Cleanup\n\033[0m"
 rm -rf /mnt/root/configure_system
-
