@@ -33,7 +33,7 @@ cd zfsrepo
 - Build individual packages, example:
 
 ```
-git clone https://aur.archlinux.org/paru-bin.git
+git clone https://aur.archlinux.org/paru.git
 cd paru-bin
 updpkgsums
 makepkg --skippgpcheck
@@ -81,7 +81,7 @@ zfs-dkms-staging-git
 
 # Other
 # -----
-paru-bin
+paru
 pacman
 git-delta
 ```
