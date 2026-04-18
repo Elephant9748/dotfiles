@@ -60,8 +60,12 @@ function fish_greeting
     set_color 16AA64
     echo -e ' note!: '
     if string match -q "rigel" (whoami)
+            set_color c06317
+            echo -e '\t*Replace axios in opnsense https://e18e.dev/docs/replacements/fetch.html maybe upgraded it'
             set_color C38F00
-            echo -e '\t*!Info move initramfs before update nvidia,linux,.. limited disk usage /boot'
+            echo -e '\t*Info move initramfs before update nvidia,linux,.. limited disk usage /boot'
+            set_color 8d8674
+            echo -e '\t*nvim-treesitter no longer maintained,'
             set_color dd422f
             echo -e '\t*!Created emergency backup (tracy,proton)'
     end
