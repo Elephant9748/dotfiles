@@ -191,18 +191,18 @@ theme = "gruvbox"
 [[row]]
  ratio=15
  [[row.child]]
- type="cpu"
+ type="net"
  [[row.child]]
-   [[row.child.child]]
-   type="temp"
-   [[row.child.child]]
-   type="disk"
+ type="cpu"
 [[row]]
    ratio=15
    [[row.child]]
      type="mem"
    [[row.child]]
-     type="net"
+        [[row.child.child]]
+        type="temp"
+        [[row.child.child]]
+        type="disk"
 [[row]]
  ratio=40
  [[row.child]]

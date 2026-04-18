@@ -60,7 +60,6 @@ M.on_attach = function(client, bufnr)
     -- start semantic_token current buffer
     vim.keymap.set("n","<leader>H", "<cmd>lua =vim.lsp.semantic_tokens.start(vim.api.nvim_buf_get_number(0), 1)<cr>", {buffer=0})
 
-
 	-- Order Imports (if supported by the client LSP)
 	-- if client.supports_method("textDocument/codeAction") then
 	-- 	keymap("n", "<leader>oi", function()
