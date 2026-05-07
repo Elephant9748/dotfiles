@@ -9,6 +9,7 @@ config.load_autoconfig(True)
 c.auto_save.session = False
 c.tabs.position = "bottom"
 c.statusbar.position = "bottom"
+c.statusbar.show = "in-mode"
 # c.content.headers.user_custom = "Dns-Over-Https: https://extended.dns.mullvad.net/dns-query"
 
 # c.dns.doh_providers = {
