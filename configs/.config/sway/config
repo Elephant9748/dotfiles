@@ -15,7 +15,7 @@ set $power rofi -show power-menu -modi "power-menu:rofi-power-menu --choices=shu
 set $calc rofi -show calc -modi calc -no-show-match -no-sort -no-history -calc-command "echo '{result}' | wl-copy"
 
 # autostart / exec
-exec waybar
+exec waybar ~/.config/waybar/sway-config ~/.config/waybar/sway-style.css
 exec autotiling-rs -w 6
 exec wl-paste --type text --watch cliphist store &
 exec wl-paste --type image --watch cliphist store &
