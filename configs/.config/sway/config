@@ -15,12 +15,12 @@ set $power rofi -show power-menu -modi "power-menu:rofi-power-menu --choices=shu
 set $calc rofi -show calc -modi calc -no-show-match -no-sort -no-history -calc-command "echo '{result}' | wl-copy"
 
 # autostart / exec
-exec waybar ~/.config/waybar/sway-config ~/.config/waybar/sway-style.css
-exec autotiling-rs -w 6
-exec wl-paste --type text --watch cliphist store &
-exec wl-paste --type image --watch cliphist store &
-exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-# exec swaypaper -d ~/Pictures/wallhaven.cc/ &
+exec ~/.config/sway/autostart.sh
+
+# assign app rules
+assign [app_id="Alacritty"] workspace number 2
+assign [app_id="org.qutebrowser.qutebrowser"] workspace number 1
+# assign [app_id="localsend"] floating enable, resize set 374 673, move position absolute 70 985
 
 ### Output configuration
 #
@@ -35,7 +35,7 @@ titlebar_border_thickness 2
 # client.focused $focused_border #background #text #indicator #child_border
 # client.unfocused $unfocused_border #background #text #indicator #child_border
 # client.urgent $urgent_border #background #text #indicator #child_border
-client.focused #0c4757 #1c1c1c #1c1c1c #0c4757 #0c4757
+client.focused #6b4109 #1c1c1c #1c1c1c #6b4109 #6b4109
 
 
 gaps inner 0
