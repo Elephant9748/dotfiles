@@ -16,7 +16,7 @@ index 3d9ac38..735185c 100644
  
  pkgname=gnupg
 -pkgver=2.4.9
-+pkgver=2.5.16
++pkgver=2.5.20
  pkgrel=1
  pkgdesc='Complete and free implementation of the OpenPGP standard'
  arch=(x86_64)
