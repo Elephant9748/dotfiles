@@ -208,6 +208,10 @@ if status --is-interactive
 
 end
 
+# tor/arti command
+abbr -a whereami 'curl --socks5-hostname localhost:9150 https://ipinfo.io'
+abbr -a whereamme 'curl --socks5-hostname localhost:9150 https://ip.me'
+abbr -a chromium_arti 'chromium --proxy-server="socks5://127.0.0.1:9150"'
 
 #reflector mirror sync in arch
 if command -v reflector > /dev/null
@@ -581,9 +585,10 @@ setenv LESS_TERMCAP_so \e'[38;5;246m'    # begin standout-mode - info box
 setenv LESS_TERMCAP_ue \e'[0m'           # end underline
 setenv LESS_TERMCAP_us \e'[04;38;5;146m' # begin underline
 
-setenv FZF_DEFAULT_COMMAND 'fd --type file --follow'
-setenv FZF_CTRL_T_COMMAND 'fd --type file --follow'
-setenv FZF_DEFAULT_OPTS '--height 20%'
+set -gx FZF_DEFAULT_COMMAND 'fd --type file --follow'
+set -gx FZF_CTRL_T_COMMAND 'fd --type file --follow'
+set -gx FZF_DEFAULT_OPTS '--height 20% --walker-skip .git,node_modules,target'
+# set -gx FZF_CTRL_R_OPTS "--with-nth 1,3.. --bind 'alt-t:change-with-nth(2..|3..|1,3..)'"
 
 function fish_user_key_bindings
 	bind \cz 'fg>/dev/null ^/dev/null'
