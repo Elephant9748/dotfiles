@@ -1,0 +1,35 @@
+{
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "a",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "p",
+    ): System(AppLibrary),
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "q",
+    ): System(LogOut),
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "c",
+    ): Close,
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "Escape",
+    ): Disable,
+}
