@@ -59,6 +59,7 @@
 		};
 	};
   };
+
   networking.firewall.enable = false;
   system.stateVersion = "${version}"; 
 }
