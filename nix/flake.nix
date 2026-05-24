@@ -54,7 +54,6 @@
           self, 
           nixpkgs,
           home-manager, 
-          # nixpkgs-unstable, 
           # hypr, 
           # neovim-nightly,
           # rust-overlay, 
