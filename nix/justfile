@@ -1,9 +1,8 @@
 set quiet
 bangbash := '#!/usr/bin/env bash'
 
-# list available machine
+# list available machine 
 machine:
-        #!/usr/bin/bash
         grep -E '\s\w{2,8}\s=\s{' flake.nix | tail -n 3 |  \
                 sed -E 's/\s=\s\{//' | paste -sd "" | \
                 awk '{print "\033[0;34mMachine:\033[0;32m\n\t"$1"\n\t"$2"\n\t"$3}'
