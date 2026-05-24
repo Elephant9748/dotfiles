@@ -110,6 +110,14 @@
                           editor = "nvim";
                           label = "notebook";
                   };
+                  pc = {
+                          user = "rigel";
+                          host = "ringo-pc";
+                          system = "x86_64-linux";
+                          version = "25.11";
+                          editor = "nvim";
+                          label = "pc";
+                  };
           };
 
   in
