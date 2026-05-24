@@ -110,7 +110,7 @@
                           label = "notebook";
                   };
                   pc = {
-                          user = "rigel";
+                          user = "ringo";
                           host = "ringo-pc";
                           system = "x86_64-linux";
                           version = "25.11";
