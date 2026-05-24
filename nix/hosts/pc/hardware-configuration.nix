@@ -87,10 +87,10 @@
 		# efi.efiSysMountPoint = "/boot/EFI";
         timeout = 2;
 	};
-	# initrd.luks.devices.Nix-Luks-e1aaf288 = {
-	# 	device = "/dev/disk/by-uuid/e1aaf288-17ca-49e9-a91b-afaade4506c9";
-	# 	allowDiscards = true;
-	# };
+	initrd.luks.devices.Nix-Luks = {
+		device = "/dev/disk/by-label/NIX_LUKS";
+		allowDiscards = true;
+	};
     kernelParams = [
         # "quiet"
         "loglevel=3"
