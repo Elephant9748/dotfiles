@@ -21,7 +21,7 @@
   ];
 
   # nvidia 1660 super
-  allowUnfree = true; # allow unfree software for all packages
+  nixpkgs.config.allowUnfree = true; # allow unfree software for all packages
   hardware.graphics.enable = true;
   services.xserver.videoDrivers = [ 
         "modesetting" # example for Intel iGPU; use "amdgpu" here instead if your iGPU is AMD
