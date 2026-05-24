@@ -66,7 +66,7 @@
                   nvidiaBusId = "PCI:1:0:0";
                   # amdgpuBusId = "PCI:54:0:0"; For AMD GPU
           };
-  }
+  };
 
   # microcode
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
