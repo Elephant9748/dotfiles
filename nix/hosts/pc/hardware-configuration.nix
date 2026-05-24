@@ -61,6 +61,9 @@
                           enable = true;
                           enableOffloadCmd = true;
                   };
+                  # sudo lshw -c display
+                  # or
+                  # nix shell nixpkgs#pciutils -c lspci -D -d ::03xx
                   # Make sure to use the correct Bus ID values for your system!
                   intelBusId = "PCI:0:2:0";
                   nvidiaBusId = "PCI:1:0:0";
