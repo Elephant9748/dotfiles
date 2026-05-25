@@ -33,21 +33,21 @@
         # rust-bin.stable.latest.default
     ];
 
-    programs = 
-	    fish = {
-		        enable = true;
-                loginShellInit = ''
-                        if test (tty) = "/dev/tty1"; and test -z "$WAYLAND_DISPLAY"; and test -n "$XDG_VTNR"; and test "$XDG_VTNR" -eq 1
-                                exec start-hyprland
-                        end
-                '';
-	    };
-        waybar = {
+    programs.waybar = {
             enable = true;
             package = pkgs.waybar;
         };
 
     };
+
+	programs.fish = {
+            enable = true;
+            loginShellInit = ''
+                    if test (tty) = "/dev/tty1"; and test -z "$WAYLAND_DISPLAY"; and test -n "$XDG_VTNR"; and test "$XDG_VTNR" -eq 1
+                            exec start-hyprland
+                    end
+            '';
+	};
 
     wayland.windowManager = {
             hyprland = {
