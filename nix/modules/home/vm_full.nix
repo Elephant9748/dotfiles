@@ -102,6 +102,7 @@
     dconf = {
             enable = true;
             settings = {
+                        # to get this value do : dconf dump /
                         "org/gnome/desktop/interface" = {
                                 color-scheme = "prefer-dark";
                                 theme = "Kripton-standard-buttons-v40";
