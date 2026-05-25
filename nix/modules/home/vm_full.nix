@@ -104,7 +104,6 @@
                         "org/gnome/desktop/interface" = {
                                 color-scheme = "prefer-dark";
                                 theme = "Kripton-standard-buttons-v40";
-                                color-scheme="prefer-dark";
                                 icon-theme="Pop";
                                 # cursor-size=24 # --> handle directly by hypr config
                                 # cursor-theme="Adwaita";
