@@ -38,6 +38,7 @@
         # rust-bin.stable.latest.default
     ];
 
+    # config & style from dotfiles
     programs.waybar = {
             enable = true;
             package = pkgs.waybar;
