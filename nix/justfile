@@ -22,10 +22,14 @@ gen:
 install $machine:
         {{bangbash}}
         nixos-install --flake .#{{machine}} --verbose
-# rebuild nixos with flake
+# rebuild nixos with flake apply now live
 build $machine:
         {{bangbash}}
         sudo nixos-rebuild switch --flake .#{{machine}}
+# rebuild nixos with flake apply on next boot
+build-later $machine:
+        {{bangbash}}
+        sudo nixos-rebuild boot --flake .#{{machine}}
 # flake update
 flake-up:
         nix flake update
