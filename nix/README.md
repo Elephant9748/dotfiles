@@ -73,7 +73,7 @@ reboot
 > !Make sure UUID device / just use label device
 
 ```
-$ sudo nixos-rebuild switch --flake .#<user/host>
+$ sudo nixos-rebuild switch --flake .#<machine/host>
 ```
 
 > [!NOTE]
@@ -81,7 +81,7 @@ $ sudo nixos-rebuild switch --flake .#<user/host>
 > for fast build use
 
 ```
-$ sudo nixos-rebuild boot --flake .#<user/host>
+$ sudo nixos-rebuild boot --flake .#<machine/host>
 ```
 
 ### Flake update
