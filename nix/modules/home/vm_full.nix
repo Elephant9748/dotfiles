@@ -1,7 +1,6 @@
 { pkgs, version,  ... }: {
     home.packages = with pkgs; [
         fastfetch
-        waybar
         alacritty
         nerd-fonts.jetbrains-mono
         noto-fonts-cjk-sans
@@ -19,8 +18,54 @@
         nwg-look
         rofi-power-menu
         rofi-calc
+        cryptomator
+        libreoffice-fresh
+        obs-studio 
+        qutebrowser
+        firefox-devedition
+        wmctrl
+        termusic
+        audacity
+        signal-desktop
+        mpv
+        grim
+        slurp
         # rust-bin.stable.latest.default
     ];
+
+    programs = 
+	    fish = {
+		        enable = true;
+                loginShellInit = ''
+                        if test (tty) = "/dev/tty1"; and test -z "$WAYLAND_DISPLAY"; and test -n "$XDG_VTNR"; and test "$XDG_VTNR" -eq 1
+                                exec start-hyprland
+                        end
+                '';
+	    };
+        waybar = {
+            enable = true;
+            package = pkgs.waybar;
+        };
+
+    };
+
+    wayland.windowManager = {
+            hyprland = {
+                    enable = true;
+                    xwayland = true;
+                    package = pkgs.hyprland;
+                    portalPackage = pkgs.xdg-desktop-portal-hyprland;
+                    # package = hypr.packages.${system}.hyprland;
+                    # portalPackage = hypr.packages.${system}.xdg-desktop-portal-hyprland;
+            };
+    };
+
+    services = {
+            polkit-gnome = {
+                    enable = true;
+                    package = pkgs.polkit_gnome;
+            };
+    };
 
     home.stateVersion = "${version}";
 
