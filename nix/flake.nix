@@ -43,10 +43,10 @@
     #   url = "github:oxalica/rust-overlay";
     #   inputs.nixpkgs.follows = "nixpkgs";
     # };
-    # neovim-nightly = {                                                                                                                                     
-    #     url = "github:nix-community/neovim-nightly-overlay";                                                                                               
-    #     inputs.nixpkgs.follows = "nixpkgs";                                                                                                       
-    # };
+    neovim-nightly = {                                                                                                                                     
+        url = "github:nix-community/neovim-nightly-overlay";                                                                                               
+        inputs.nixpkgs.follows = "nixpkgs";                                                                                                       
+    };
     # --------------------------------------------------------------
   };
 
@@ -55,7 +55,7 @@
           nixpkgs,
           home-manager, 
           # hypr, 
-          # neovim-nightly,
+          neovim-nightly,
           # rust-overlay, 
           ...
   } @inputs:
@@ -64,7 +64,7 @@
         nixpkgs.lib.nixosSystem {
                 inherit system;
                 specialArgs = { 
-                        inherit user version host system;
+                        inherit user version host system neovim-nightly;
                 };
                 modules = [
                         ./hosts/${label}
