@@ -64,7 +64,7 @@
                     settings = {
                             exec-once = [ " ~/.config/hypr/autostart.sh "];
                             monitor = [ 
-                                ",1600x1200@60,0x0,1" 
+                                ",1280x1024@60,0x0,1" 
                                 "eDP-1,disable" 
                             ];
                             env = [
