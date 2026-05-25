@@ -19,6 +19,8 @@
           };
   };
 
+  environment.pathsToLink = [ "/share/applications" "/share/xdg-desktop-portal" ];
+
   services = {
           pipewire = {
                   enable = true;
@@ -42,6 +44,10 @@
   };
 
   programs = {
+    fish = {
+        enable = true;
+        package = pkgs.fish;
+    };
 	ssh = {
 		package = pkgs.openssh;
 		kexAlgorithms = ["mlkem768x25519-sha256"];

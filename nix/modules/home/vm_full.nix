@@ -36,23 +36,30 @@
     programs.waybar = {
             enable = true;
             package = pkgs.waybar;
-        };
-
     };
 
-	programs.fish = {
+	programs.fish.loginShellInit = ''
+            if test (tty) = "/dev/tty1"; and test -z "$WAYLAND_DISPLAY"; and test -n "$XDG_VTNR"; and test "$XDG_VTNR" -eq 1
+                    exec start-hyprland
+            end
+    '';
+
+    xdg.portal = {
             enable = true;
-            loginShellInit = ''
-                    if test (tty) = "/dev/tty1"; and test -z "$WAYLAND_DISPLAY"; and test -n "$XDG_VTNR"; and test "$XDG_VTNR" -eq 1
-                            exec start-hyprland
-                    end
-            '';
-	};
+            extraPortals = with pkgs; [
+                xdg-desktop-portal-hyprland
+                xdg-desktop-portal-gtk
+                xdg-desktop-portal
+            ];
+    };
 
     wayland.windowManager = {
             hyprland = {
                     enable = true;
-                    xwayland = true;
+                    configType = "hyprlang";
+                    xwayland = {
+                            enable = true;
+                    };
                     package = pkgs.hyprland;
                     portalPackage = pkgs.xdg-desktop-portal-hyprland;
                     # package = hypr.packages.${system}.hyprland;
