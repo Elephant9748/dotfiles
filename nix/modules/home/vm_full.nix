@@ -32,8 +32,8 @@
         grim
         slurp
         localsend
-        glib
-        gsettings-desktop-schemas
+        # gsettings-desktop-schemas
+        # glib
         dconf
         # rust-bin.stable.latest.default
     ];
@@ -42,6 +42,84 @@
             enable = true;
             package = pkgs.waybar;
     };
+    gtk = {
+        gtk2 = {
+                enable = true;
+                theme.name = "Kripton-standard-buttons-v40";
+                iconTheme.name = "cosmic-icons";
+                font.name = "Cantarell 10";
+                cursorTheme.name = "breeze_cursors";
+                cursorTheme.size = 16;
+                extraConfig = {
+                        gtk-toolbar-style="GTK_TOOLBAR_BOTH_HORIZ";
+                        gtk-toolbar-icon-size="GTK_ICON_SIZE_LARGE_TOOLBAR";
+                        gtk-button-images=0;
+                        gtk-menu-images=0;
+                        gtk-enable-event-sounds=1;
+                        gtk-enable-input-feedback-sounds=0;
+                        gtk-xft-antialias=1;
+                        gtk-xft-hinting=1;
+                        gtk-xft-hintstyle="hintslight";
+                        gtk-xft-rgba="rgb";
+                };
+        };
+        gtk3 = {
+                enable = true;
+                theme.name = "Kripton-standard-buttons-v40";
+                iconTheme.name = "cosmic-icons";
+                font.name = "Cantarell 10";
+                cursorTheme.name = "breeze_cursors";
+                cursorTheme.size = 16;
+                extraConfig = {
+                        gtk-toolbar-style= "GTK_TOOLBAR_BOTH_HORIZ";
+                        gtk-toolbar-icon-size= "GTK_ICON_SIZE_LARGE_TOOLBAR";
+                        gtk-button-images=0;
+                        gtk-menu-images=0;
+                        gtk-enable-event-sounds=1;
+                        gtk-enable-input-feedback-sounds=0;
+                        gtk-xft-antialias=1;
+                        gtk-xft-hinting=1;
+                        gtk-xft-hintstyle="hintslight";
+                        gtk-xft-rgba="rgb";
+                        gtk-application-prefer-dark-theme=1;
+                        gtk-enable-primary-paste=false;
+                };
+        };
+        gtk4 = {
+                enable = true;
+                cursorTheme.size = 14;
+                cursorTheme.name = "Pop";
+                iconTheme.name = "Materia-Manjaro-2";
+                extraConfig = {
+                        gtk-application-prefer-dark-theme = 1;
+                };
+        };
+    };
+
+    # themes gtk using dconf
+    dconf = {
+            enable = true;
+            settings = {
+                        "org/gnome/desktop/interface" = {
+                                color-scheme = "prefer-dark";
+                                theme = "Kripton-standard-buttons-v40";
+                                color-scheme="prefer-dark"
+                                icon-theme="Pop";
+                                # cursor-size=24 # --> handle directly by hypr config
+                                # cursor-theme="Adwaita";
+                                font-antialiasing="grayscale";
+                                font-hinting="slight";
+                                font-name="Sans 11";
+                                font-rgba-order="rgb";
+                                gtk-theme="Kripton-standard-buttons-v40";
+                                text-scaling-factor=1.0;
+                                theme="Kripton-standard-buttons-v40";
+                                toolbar-icons-size="small";
+                                toolbar-style="both-horiz";
+                        };
+            };
+    };
+
 
     xdg.portal = {
             enable = true;

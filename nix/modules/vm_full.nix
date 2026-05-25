@@ -35,7 +35,10 @@
   # </video>
   hardware.opengl.enable = true;
 
-  environment.pathsToLink = [ "/share/applications" "/share/xdg-desktop-portal" ];
+  environment = {
+        pathsToLink = [ "/share/applications" "/share/xdg-desktop-portal" ];
+        # variables.GSETTINGS_SCHEMA_DIR = "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}/glib-2.0/schemas";
+  };
 
   services = {
           pipewire = {
