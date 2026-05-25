@@ -23,7 +23,8 @@
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
-    font = "Lat2-Terminus16";
+    font = "ter-v16n";
+    packages = with pkgs; [ terminus_font ];
     keyMap = "us";
     useXkbConfig = false; # use xkb.options in tty.
   };
