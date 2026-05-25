@@ -19,8 +19,61 @@
         nwg-look
         rofi-power-menu
         rofi-calc
+        cryptomator
+        libreoffice-fresh
+        obs-studio 
+        qutebrowser
+        firefox-devedition
+        wmctrl
+        termusic
+        audacity
+        signal-desktop
+        mpv
+        grim
+        slurp
         # rust-bin.stable.latest.default
     ];
+
+    programs.waybar = {
+            enable = true;
+            package = pkgs.waybar;
+    };
+
+	programs.fish.loginShellInit = ''
+            if test (tty) = "/dev/tty1"; and test -z "$WAYLAND_DISPLAY"; and test -n "$XDG_VTNR"; and test "$XDG_VTNR" -eq 1
+                    exec start-hyprland
+            end
+    '';
+
+    services = {
+            polkit-gnome = {
+                    enable = true;
+                    package = pkgs.polkit_gnome;
+            };
+    };
+
+    xdg.portal = {
+            enable = true;
+            extraPortals = with pkgs; [
+                xdg-desktop-portal-hyprland
+                xdg-desktop-portal-gtk
+                xdg-desktop-portal
+            ];
+    };
+
+    wayland.windowManager = {
+            hyprland = {
+                    enable = true;
+                    configType = "hyprlang";
+                    xwayland = {
+                            enable = true;
+                    };
+                    package = pkgs.hyprland;
+                    portalPackage = pkgs.xdg-desktop-portal-hyprland;
+                    # package = hypr.packages.${system}.hyprland;
+                    # portalPackage = hypr.packages.${system}.xdg-desktop-portal-hyprland;
+            };
+    };
 
     home.stateVersion = "${version}";
 

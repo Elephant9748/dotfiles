@@ -19,6 +19,8 @@
           };
   };
 
+  environment.pathsToLink = [ "/share/applications" "/share/xdg-desktop-portal" ];
+
   services = {
           pipewire = {
                   enable = true;
@@ -44,11 +46,6 @@
   programs = {
 	fish = {
 		enable = true;
-        loginShellInit = ''
-                if test (tty) = "/dev/tty1"; and test -z "$WAYLAND_DISPLAY"; and test -n "$XDG_VTNR"; and test "$XDG_VTNR" -eq 1
-                    exec start-hyprland
-                  end
-        '';
 	};
 	ssh = {
 		package = pkgs.openssh;
@@ -63,14 +60,6 @@
     neovim = {
             enable = true;
             package = neovim-nightly.packages.${system}.default;
-    };
-    # below hyprland using build from source
-    hyprland = {
-            enable = true;
-            package = pkgs.hyprland;
-            portalPackage = pkgs.xdg-desktop-portal-hyprland;
-            # package = hypr.packages.${system}.hyprland;
-            # portalPackage = hypr.packages.${system}.xdg-desktop-portal-hyprland;
     };
     gnome-disks.enable = true;
   };
@@ -103,7 +92,5 @@
     fzf
     just
     glaze
-    cryptomator
-    polkit_gnome
   ];
 }
