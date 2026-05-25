@@ -62,7 +62,7 @@
                     # portalPackage = hypr.packages.${system}.xdg-desktop-portal-hyprland;
 
                     settings = {
-                            exec-once = [ " ~/.config/hypr/autostart.sh "];
+                            exec-once = [ " ~/.config/hypr/autostart-nix.sh "];
                             monitor = [ 
                                 ",1280x1024@60,0x0,1" 
                                 "eDP-1,disable" 
