@@ -46,9 +46,9 @@
 		];
 		shell = pkgs.fish;
 		useDefaultShell = true;
-        # openssh.authorizedKeys.keys = [
-        #         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFCMCsfI7ZZjtHp63JxrFWMfsQHwDUVAb7TbsO3ChOzc walter.vm"
-        # ];
+        openssh.authorizedKeys.keys = [
+                "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFCMCsfI7ZZjtHp63JxrFWMfsQHwDUVAb7TbsO3ChOzc walter.vm"
+        ];
 	};
 	groups = {
 		sudo = {
