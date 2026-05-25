@@ -63,6 +63,12 @@
     fish = {
         enable = true;
         package = pkgs.fish;
+	    fish.loginShellInit = ''
+            if test (tty) = "/dev/tty1"; and test -z "$WAYLAND_DISPLAY"; and test -n "$XDG_VTNR"; and test "$XDG_VTNR" -eq 1
+                    exec start-hyprland
+            end
+        '';
+
     };
 	ssh = {
 		package = pkgs.openssh;
