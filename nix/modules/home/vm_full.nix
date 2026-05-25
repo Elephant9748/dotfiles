@@ -113,7 +113,6 @@
                                 font-rgba-order="rgb";
                                 gtk-theme="Kripton-standard-buttons-v40";
                                 text-scaling-factor=1.0;
-                                theme="Kripton-standard-buttons-v40";
                                 toolbar-icons-size="small";
                                 toolbar-style="both-horiz";
                         };
