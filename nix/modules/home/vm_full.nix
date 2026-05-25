@@ -146,18 +146,20 @@
                             animations = {
                                 enabled = "yes"; 
                                 bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
-                                animation = "windows, 1, 7, myBezier";
-                                animation = "windowsOut, 1, 7, default, popin 80%";
-                                animation = "border, 1, 10, default";
-                                animation = "borderangle, 1, 8, default";
-                                animation = "fade, 1, 7, default";
-                                animation = "workspaces, 1, 6, default, slidefadevert 5%";
+                                animation = [
+                                                "windows, 1, 7, myBezier"
+                                                "windowsOut, 1, 7, default, popin 80%"
+                                                "border, 1, 10, default"
+                                                "borderangle, 1, 8, default"
+                                                "fade, 1, 7, default"
+                                                "workspaces, 1, 6, default, slidefadevert 5%"
+                                ];
                             };
                             dwindle = {
                                 preserve_split = "yes";
                                 smart_resizing = "yes";
                             };
-                            master {
+                            master = {
                                 new_status = "slave";
                             };
                             device = {
@@ -166,79 +168,79 @@
                             };
                             "$mainMod" = "SUPER";
                             bind = [
-                                        "$mainMod, T, exec, alacritty";
-                                        "$mainMod SHIFT, C, killactive, ";
-                                        "$mainMod, mouse:274, killactive";
-                                        "$mainMod SHIFT, Q, exec, hyprctl dispatch exit";
-                                        "$mainMod, R, exec, hyprctl reload,";
-                                        "$mainMod, E, exec, thunar";
-                                        "$mainMod SHIFT, S, togglefloating, ";
-                                        "$mainMod, P, exec, rofi -opacity 80 -show drun";
-                                        "$mainMod, C, exec, rofi -show calc -modi calc -no-show-match -no-sort -no-history -calc-command \"echo '{result}' | wl-copy\"";
-                                        "$mainMod SHIFT, P, exec, rofi -show power-menu -modi \"power-menu:rofi-power-menu --choices=shutdown/lockscreen/logout/reboot\"";
-                                        "$mainMod SHIFT, D, pseudo,"; 
-                                        "$mainMod SHIFT, O, exec, hyprpicker -a --format=hex ";
-                                        "$mainMod, N, exec, nm-applet";
-                                        "$mainMod SHIFT, N, exec, /usr/bin/kill nm-applet";
-                                        "$mainMod, B, exec, waybar &";
-                                        "$mainMod SHIFT, B, exec, /usr/bin/kill waybar";
-                                        "$mainMod SHIFT, X, exec, grim -g \"$(slurp)\" - | swappy -f -";
-                                        "$mainMod SHIFT, N, exec, hyprctl dismissnotify";
-                                        "$mainMod, h, movefocus, l";
-                                        "$mainMod, l, movefocus, r";
-                                        "$mainMod, k, movefocus, u";
-                                        "$mainMod, j, movefocus, d";
-                                        "$mainMod SHIFT, h, movewindow, l";
-                                        "$mainMod SHIFT, l, movewindow, r";
-                                        "$mainMod SHIFT, k, movewindow, u";
-                                        "$mainMod SHIFT, j, movewindow, d";
-                                        "$mainMod SHIFT ALT, h, resizeactive, 10 0 ";
-                                        "$mainMod SHIFT ALT, l, resizeactive, -10 0";
-                                        "$mainMod SHIFT ALT, k, resizeactive, 0 -10";
-                                        "$mainMod SHIFT ALT, j, resizeactive, 0 10";
-                                        "$mainMod, 1, workspace, 1";
-                                        "$mainMod, 2, workspace, 2";
-                                        "$mainMod, 2, exec,$w2"; # hyprpaper set wallpaper
-                                        "$mainMod, 3, workspace, 3";
-                                        "$mainMod, 3, exec,$w3"; # hyprpaper set wallpaper
-                                        "$mainMod, 4, workspace, 4";
-                                        "$mainMod, 4, exec,$w4"; # hyprpaper set wallpaper
-                                        "$mainMod, 5, workspace, 5";
-                                        "$mainMod, 5, exec,$w5"; # hyprpaper set wallpaper
-                                        "$mainMod, 6, workspace, 6";
-                                        "$mainMod, 6, exec,$w6"; # hyprpaper set wallpaper
-                                        "$mainMod, 7, workspace, 7";
-                                        "$mainMod, 7, exec,$w7"; # hyprpaper set wallpaper
-                                        "$mainMod, 8, workspace, 8";
-                                        "$mainMod, 9, workspace, 9";
-                                        "$mainMod, 0, workspace, 10";
-                                        "$mainMod SHIFT, 1, movetoworkspace, 1";
-                                        "$mainMod SHIFT, 2, movetoworkspace, 2";
-                                        "$mainMod SHIFT, 2, exec,$w2"; # hyprpaper set wallpaper
-                                        "$mainMod SHIFT, 3, movetoworkspace, 3";
-                                        "$mainMod SHIFT, 3, exec,$w3"; # hyprpaper set wallpaper
-                                        "$mainMod SHIFT, 4, movetoworkspace, 4";
-                                        "$mainMod SHIFT, 4, exec,$w4"; # hyprpaper set wallpaper
-                                        "$mainMod SHIFT, 5, movetoworkspace, 5";
-                                        "$mainMod SHIFT, 5, exec,$w5"; # hyprpaper set wallpaper
-                                        "$mainMod SHIFT, 6, movetoworkspace, 6";
-                                        "$mainMod SHIFT, 6, exec,$w6"; # hyprpaper set wallpaper
-                                        "$mainMod SHIFT, 7, movetoworkspace, 7";
-                                        "$mainMod SHIFT, 7, exec,$w7"; # hyprpaper set wallpaper
-                                        "$mainMod SHIFT, 8, movetoworkspace, 8";
-                                        "$mainMod SHIFT, 9, movetoworkspace, 9";
-                                        "$mainMod SHIFT, 0, movetoworkspace, 10";
-                                        "$mainMod, mouse_down, workspace, e+1";
-                                        "$mainMod, mouse_up, workspace, e-1";
+                                        "$mainMod, T, exec, alacritty"
+                                        "$mainMod SHIFT, C, killactive, "
+                                        "$mainMod, mouse:274, killactive"
+                                        "$mainMod SHIFT, Q, exec, hyprctl dispatch exit"
+                                        "$mainMod, R, exec, hyprctl reload,"
+                                        "$mainMod, E, exec, thunar"
+                                        "$mainMod SHIFT, S, togglefloating, "
+                                        "$mainMod, P, exec, rofi -opacity 80 -show drun"
+                                        "$mainMod, C, exec, rofi -show calc -modi calc -no-show-match -no-sort -no-history -calc-command \"echo '{result}' | wl-copy\""
+                                        "$mainMod SHIFT, P, exec, rofi -show power-menu -modi \"power-menu:rofi-power-menu --choices=shutdown/lockscreen/logout/reboot\""
+                                        "$mainMod SHIFT, D, pseudo," 
+                                        "$mainMod SHIFT, O, exec, hyprpicker -a --format=hex "
+                                        "$mainMod, N, exec, nm-applet"
+                                        "$mainMod SHIFT, N, exec, /usr/bin/kill nm-applet"
+                                        "$mainMod, B, exec, waybar &"
+                                        "$mainMod SHIFT, B, exec, /usr/bin/kill waybar"
+                                        "$mainMod SHIFT, X, exec, grim -g \"$(slurp)\" - | swappy -f -"
+                                        "$mainMod SHIFT, N, exec, hyprctl dismissnotify"
+                                        "$mainMod, h, movefocus, l"
+                                        "$mainMod, l, movefocus, r"
+                                        "$mainMod, k, movefocus, u"
+                                        "$mainMod, j, movefocus, d"
+                                        "$mainMod SHIFT, h, movewindow, l"
+                                        "$mainMod SHIFT, l, movewindow, r"
+                                        "$mainMod SHIFT, k, movewindow, u"
+                                        "$mainMod SHIFT, j, movewindow, d"
+                                        "$mainMod SHIFT ALT, h, resizeactive, 10 0 "
+                                        "$mainMod SHIFT ALT, l, resizeactive, -10 0"
+                                        "$mainMod SHIFT ALT, k, resizeactive, 0 -10"
+                                        "$mainMod SHIFT ALT, j, resizeactive, 0 10"
+                                        "$mainMod, 1, workspace, 1"
+                                        "$mainMod, 2, workspace, 2"
+                                        "$mainMod, 2, exec,$w2" # hyprpaper set wallpaper
+                                        "$mainMod, 3, workspace, 3"
+                                        "$mainMod, 3, exec,$w3" # hyprpaper set wallpaper
+                                        "$mainMod, 4, workspace, 4"
+                                        "$mainMod, 4, exec,$w4" # hyprpaper set wallpaper
+                                        "$mainMod, 5, workspace, 5"
+                                        "$mainMod, 5, exec,$w5" # hyprpaper set wallpaper
+                                        "$mainMod, 6, workspace, 6"
+                                        "$mainMod, 6, exec,$w6" # hyprpaper set wallpaper
+                                        "$mainMod, 7, workspace, 7"
+                                        "$mainMod, 7, exec,$w7" # hyprpaper set wallpaper
+                                        "$mainMod, 8, workspace, 8"
+                                        "$mainMod, 9, workspace, 9"
+                                        "$mainMod, 0, workspace, 10"
+                                        "$mainMod SHIFT, 1, movetoworkspace, 1"
+                                        "$mainMod SHIFT, 2, movetoworkspace, 2"
+                                        "$mainMod SHIFT, 2, exec,$w2" # hyprpaper set wallpaper
+                                        "$mainMod SHIFT, 3, movetoworkspace, 3"
+                                        "$mainMod SHIFT, 3, exec,$w3" # hyprpaper set wallpaper
+                                        "$mainMod SHIFT, 4, movetoworkspace, 4"
+                                        "$mainMod SHIFT, 4, exec,$w4" # hyprpaper set wallpaper
+                                        "$mainMod SHIFT, 5, movetoworkspace, 5"
+                                        "$mainMod SHIFT, 5, exec,$w5" # hyprpaper set wallpaper
+                                        "$mainMod SHIFT, 6, movetoworkspace, 6"
+                                        "$mainMod SHIFT, 6, exec,$w6" # hyprpaper set wallpaper
+                                        "$mainMod SHIFT, 7, movetoworkspace, 7"
+                                        "$mainMod SHIFT, 7, exec,$w7" # hyprpaper set wallpaper
+                                        "$mainMod SHIFT, 8, movetoworkspace, 8"
+                                        "$mainMod SHIFT, 9, movetoworkspace, 9"
+                                        "$mainMod SHIFT, 0, movetoworkspace, 10"
+                                        "$mainMod, mouse_down, workspace, e+1"
+                                        "$mainMod, mouse_up, workspace, e-1"
                             ];
                             bindel = [
-                                        ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+";
-                                        ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
-                                        ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
+                                        ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
+                                        ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+                                        ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
                             ];
                             bindm = [
-                                        "$mainMod, mouse:272, movewindow";
-                                        "$mainMod, mouse:273, resizewindow";
+                                        "$mainMod, mouse:272, movewindow"
+                                        "$mainMod, mouse:273, resizewindow"
                             ];
                             "$w1" = "hyprctl hyprpaper wallpaper \"HDMI-A-1, ~/Pictures/wallhaven.cc/i.png\"";
                             "$w2" = "hyprctl hyprpaper wallpaper \"HDMI-A-1, ~/Pictures/wallhaven.cc/ii.png\"";
