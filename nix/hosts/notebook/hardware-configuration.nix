@@ -29,7 +29,7 @@
 	# 	allowDiscards = true;
 	# };
     kernelParams = [
-        # "quiet"
+        "quiet"
         "loglevel=3"
         "randomize_kstack_offset=on"
         "vsyscall=none"
@@ -42,7 +42,7 @@
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/6D7A-1F36";
+    { device = "/dev/disk/by-label/EFI_BOOT";
       fsType = "vfat";
       options = [ "fmask=0022" "dmask=0022" ];
     };

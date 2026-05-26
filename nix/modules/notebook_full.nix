@@ -19,6 +19,12 @@
           };
   };
 
+  environment = {
+        pathsToLink = [ "/share/applications" "/share/xdg-desktop-portal" ];
+        # variables.GSETTINGS_SCHEMA_DIR = "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}/glib-2.0/schemas";
+  };
+
+
   services = {
           pipewire = {
                   enable = true;
@@ -101,7 +107,5 @@
     fzf
     just
     glaze
-    cryptomator
-    polkit_gnome
   ];
 }
