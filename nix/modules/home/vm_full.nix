@@ -350,6 +350,10 @@
         source = ../../../configs/.config/hypr/autostart-nix.sh;
         recursive = true;
     };
+    home.file.".config/hypr/hyprpaper.conf" = {
+        source = ../../../configs/.config/hypr/hyprpaper.conf;
+        recursive = true;
+    };
 
     # --------------------------------------------------
     # Due to the home-manager taking so long on boot time
