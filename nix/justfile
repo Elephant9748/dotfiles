@@ -129,33 +129,33 @@ to-host-nix:
         fi
 
         if command -v rsync &> /dev/null; then
-                rsync -azP configs/.config/alacritty $HOME/.config/ && \
-                rsync -azP configs/.config/bspwm $HOME/.config/ && \
-                rsync -azP configs/.config/fish $HOME/.config/ && \
-                rsync -azP configs/.config/nvim $HOME/.config/ && \
-                rsync -azP configs/.config/polybar $HOME/.config/ && \
-                rsync -azP configs/.config/rofi $HOME/.config/ && \
-                rsync -azP configs/.config/sxhkd $HOME/.config/ && \
-                rsync -azP configs/.config/waybar $HOME/.config/ && \
-                # rsync -azP configs/.config/hypr $HOME/.config/ && \
-                rsync -azP configs/.config/swappy $HOME/.config/ && \
-                rsync -azP configs/.config/dunst $HOME/.config/ && \
-                rsync -azP configs/.config/yazi $HOME/.config/ && \
-                rsync -azP configs/.config/gtk-3.0 $HOME/.config/ && \
-                rsync -azP configs/.config/gtk-4.0 $HOME/.config/ && \
-                rsync -azP configs/.config/bottom $HOME/.config/ && \
-                rsync -azP configs/.config/bat $HOME/.config/ && \
+                rsync -azP ../configs/.config/alacritty $HOME/.config/ && \
+                rsync -azP ../configs/.config/bspwm $HOME/.config/ && \
+                rsync -azP ../configs/.config/fish $HOME/.config/ && \
+                rsync -azP ../configs/.config/nvim $HOME/.config/ && \
+                rsync -azP ../configs/.config/polybar $HOME/.config/ && \
+                rsync -azP ../configs/.config/rofi $HOME/.config/ && \
+                rsync -azP ../configs/.config/sxhkd $HOME/.config/ && \
+                rsync -azP ../configs/.config/waybar $HOME/.config/ && \
+                # rsync -azP ../configs/.config/hypr $HOME/.config/ && \
+                rsync -azP ../configs/.config/swappy $HOME/.config/ && \
+                rsync -azP ../configs/.config/dunst $HOME/.config/ && \
+                rsync -azP ../configs/.config/yazi $HOME/.config/ && \
+                rsync -azP ../configs/.config/gtk-3.0 $HOME/.config/ && \
+                rsync -azP ../configs/.config/gtk-4.0 $HOME/.config/ && \
+                rsync -azP ../configs/.config/bottom $HOME/.config/ && \
+                rsync -azP ../configs/.config/bat $HOME/.config/ && \
                 # theme
-                rsync -azP configs/.themes $HOME/ && \
+                rsync -azP ../configs/.themes $HOME/ && \
                 # icon
-                rsync -azP configs/icons/Pop $HOME/.local/share/icons && \
-                rsync -azP configs/icons/breeze_cursors $HOME/.local/share/icons && \
-                rsync -azP configs/icons/Materia-Manjaro-2 $HOME/.local/share/icons && \
-                rsync -azP configs/tmux/.tmux.conf $HOME/ 
+                rsync -azP ../configs/icons/Pop $HOME/.local/share/icons && \
+                rsync -azP ../configs/icons/breeze_cursors $HOME/.local/share/icons && \
+                rsync -azP ../configs/icons/Materia-Manjaro-2 $HOME/.local/share/icons && \
+                rsync -azP ../configs/tmux/.tmux.conf $HOME/ 
 
                 # !need sudo,doas
                 # sddm look
-                # sudo rsync -azP configs/sddm/sddm-astronaut-theme /usr/share/sddm/themes/
-                # sudo rsync -azP configs/sddm/sddm.conf.d/ /usr/lib/sddm/sddm.conf.d/
+                # sudo rsync -azP ../configs/sddm/sddm-astronaut-theme /usr/share/sddm/themes/
+                # sudo rsync -azP ../configs/sddm/sddm.conf.d/ /usr/lib/sddm/sddm.conf.d/
         fi
 
