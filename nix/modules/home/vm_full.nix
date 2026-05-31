@@ -345,6 +345,12 @@
 
     home.stateVersion = "${version}";
 
+    # the rest just rsync all "just to-host-nix" in ~/dotfiles/nix/
+    home.file.".config/hypr" = {
+        source = ../../../configs/.config/hypr/autostart-nix.sh;
+        recursive = true;
+    };
+
     # --------------------------------------------------
     # Due to the home-manager taking so long on boot time
     #             JUST RESTORE MANUAL
