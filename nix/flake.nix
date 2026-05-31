@@ -97,7 +97,7 @@
                           user = "tracy";
                           host = "pineapple-vm";
                           system = "x86_64-linux";
-                          version = "25.11";
+                          version = "26.11";
                           editor = "nvim";
                           label = "vm";
                   };
@@ -105,7 +105,7 @@
                           user = "rigel";
                           host = "starfish-small";
                           system = "x86_64-linux";
-                          version = "25.11";
+                          version = "26.11";
                           editor = "nvim";
                           label = "notebook";
                   };
@@ -113,7 +113,7 @@
                           user = "ringo";
                           host = "ringo-pc";
                           system = "x86_64-linux";
-                          version = "25.11";
+                          version = "26.11";
                           editor = "nvim";
                           label = "pc";
                   };
