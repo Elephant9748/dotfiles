@@ -37,6 +37,9 @@
         # glib
         dconf
         # rust-bin.stable.latest.default
+        # remote access / game stream
+        sunshine
+        moonlight-qt
     ];
 
     # config & style from dotfiles
