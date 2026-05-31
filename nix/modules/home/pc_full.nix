@@ -346,6 +346,13 @@
 
     home.stateVersion = "${version}";
 
+    # the rest just rsync all "just to-host-nix" in ~/dotfiles/nix/
+    home.file.".config/hypr" = {
+        source = ../../../configs/.config/hypr/autostart-nix.sh;
+        recursive = true;
+    };
+
+
     # home.file.".config/nvim" = {
     #     source = ../../../configs/.config/nvim;
     #     recursive = true;
