@@ -109,7 +109,7 @@
         "format-ethernet": "<span color='#6D8086'>🖧 </span> <span color='#3C3836'>{ifname}</span> ",
 		"format-linked": "{ifname} (No IP) ",
 		"format-disconnected": "Disconnected ⚠",
-		"format-alt": "{ifname}: {ipaddr}/{cidr}",
+		"format-alt": "{essid} {ifname}: {ipaddr}/{cidr}",
 		"interval": 5
 	},
 	"backlight": {
