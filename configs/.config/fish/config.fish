@@ -63,7 +63,7 @@ function fish_greeting
             set_color C38F00
             echo -e '\t*Info move initramfs before update nvidia,linux,.. limited disk usage /boot'
             set_color 8d8674
-            echo -e '\t*nvim-treesitter no longer maintained,'
+            echo -e '\t*sunshine moonlight remote access / rustdesk'
             set_color dd422f
             echo -e '\t*!Created emergency backup (tracy,proton)'
     end
@@ -668,5 +668,8 @@ abbr -a droid-camera-back 'scrcpy --video-source=camera --camera-size=720x480 --
 abbr -a droid-adb-network 'adb tcpip 12001'
 
 #bluetooth
-abbr -a btlog 'sudo journalctl --since=today -f | rg -i "bluetooth"'
-abbr -a btdmesg 'sudo dmesg -w'
+abbr -a bt_log 'sudo journalctl --since=today -f | rg -i "bluetooth"'
+abbr -a bt_dmesg 'sudo dmesg -w'
+
+# wifi
+abbr -a wifi_duplicateip 'sudo ip addr flush dev wlan0' # Force the release of current leases to clear duplicate IPs assigned to the interface
