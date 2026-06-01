@@ -153,8 +153,6 @@
         recursive = true;
     };
 
-
-
     wayland.windowManager = {
             hyprland = {
                     enable = true;
