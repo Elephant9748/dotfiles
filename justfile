@@ -34,8 +34,8 @@ to-dot:
 
                 # !need sudo,doas
                 # sddm
-                rsync -azP /usr/share/sddm/themes/sddm-astronaut-theme configs/sddm/ && \
-                rsync -azP /usr/lib/sddm/sddm.conf.d configs/sddm/ 
+                sudo rsync -azP /usr/share/sddm/themes/sddm-astronaut-theme configs/sddm/ && \
+                sudo rsync -azP /usr/lib/sddm/sddm.conf.d configs/sddm/ 
         else
                 echo "rsync command not found!"
         fi
