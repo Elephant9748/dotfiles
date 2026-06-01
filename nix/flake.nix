@@ -97,7 +97,7 @@
                           user = "tracy";
                           host = "pineapple-vm";
                           system = "x86_64-linux";
-                          version = "26.11";
+                          version = "26.05";
                           editor = "nvim";
                           label = "vm";
                   };
@@ -105,7 +105,7 @@
                           user = "rigel";
                           host = "starfish-small";
                           system = "x86_64-linux";
-                          version = "26.11";
+                          version = "26.05";
                           editor = "nvim";
                           label = "notebook";
                   };
@@ -113,12 +113,11 @@
                           user = "ringo";
                           host = "ringo-pc";
                           system = "x86_64-linux";
-                          version = "26.11";
+                          version = "26.05";
                           editor = "nvim";
                           label = "pc";
                   };
           };
-
   in
   {
           nixosConfigurations = nixpkgs.lib.mapAttrs (name: config: mkMachine config) machine;
