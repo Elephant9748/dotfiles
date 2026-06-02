@@ -4,6 +4,7 @@
         ./waybar.nix
         ./hyprland.nix
         ./gtk.nix
+        ./hyprpaper.nix
     ];
 
     home.packages = with pkgs; [
