@@ -45,6 +45,8 @@
         # rust-bin.stable.latest.default
         rustup
         dust
+        gparted-full
+        qpwgraph
     ];
 
     # todo! qt theme

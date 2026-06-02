@@ -54,6 +54,8 @@
         bluez
         bluez-tools
         bluetui
+        gparted-full
+        qpwgraph
     ];
 
     # todo! qt theme

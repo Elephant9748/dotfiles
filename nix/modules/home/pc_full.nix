@@ -55,6 +55,8 @@
         sunshine
         moonlight-qt
         nvtopPackages.full
+        gparted-full
+        qpwgraph
     ];
 
     # todo! qt theme
