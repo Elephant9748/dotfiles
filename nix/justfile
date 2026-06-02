@@ -1,6 +1,10 @@
 set quiet
 bangbash := '#!/usr/bin/env bash'
 
+# checking nix lang syntax before build or install
+check $path:
+        nix-instantiate --parse-only {{path}}
+
 # list available machine 
 machine:
         grep -E '\s\w{2,8}\s=\s{' flake.nix | tail -n 3 |  \
