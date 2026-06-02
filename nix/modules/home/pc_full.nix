@@ -4,6 +4,7 @@
         ./waybar.nix
         ./hyprland.nix
         ./gtk.nix
+        ./hyprpaper.nix
     ];
 
     home.packages = with pkgs; [
@@ -39,7 +40,6 @@
         grim
         slurp
         localsend
-        thunar
         # gsettings-desktop-schemas
         # glib
         dconf
@@ -87,16 +87,6 @@
                 xdg-desktop-portal-gtk
                 xdg-desktop-portal
             ];
-    };
-
-    # the rest just rsync all "just to-host-nix" in ~/dotfiles/nix/
-    home.file.".config/hypr/autostart-nix.sh" = {
-        source = ../../../configs/.config/hypr/autostart-nix.sh;
-        recursive = true;
-    };
-    home.file.".config/hypr/hyprpaper.conf" = {
-        source = ../../../configs/.config/hypr/hyprpaper.conf;
-        recursive = true;
     };
 
     home.stateVersion = "${version}";

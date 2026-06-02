@@ -39,7 +39,6 @@
         grim
         slurp
         localsend
-        thunar
         # gsettings-desktop-schemas
         # glib
         dconf

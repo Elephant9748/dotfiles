@@ -5,6 +5,9 @@
         source = ../../../configs/.config/hypr/autostart-nix.sh;
         recursive = true;
     };
+    home.packages = with pkgs; [
+        hyprlang
+    ];
 
     wayland.windowManager = {
             hyprland = {

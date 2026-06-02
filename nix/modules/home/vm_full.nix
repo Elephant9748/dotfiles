@@ -43,7 +43,6 @@
         # glib
         dconf
         # rust-bin.stable.latest.default
-        hyprlang
     ];
 
     # themes gtk using dconf
