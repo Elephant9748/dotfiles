@@ -54,6 +54,7 @@
         dust
         sunshine
         moonlight-qt
+        nvtopPackages.full
     ];
 
     # themes gtk using dconf

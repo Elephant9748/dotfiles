@@ -50,6 +50,10 @@
         android-tools
         rustup
         dust
+        # bluetooth
+        bluez
+        bluez-tools
+        bluetui
     ];
 
     # themes gtk using dconf
