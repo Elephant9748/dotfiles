@@ -7,6 +7,9 @@
     };
     home.packages = with pkgs; [
         hyprlang
+        hyprcursor
+        hyprpicker
+
     ];
 
     wayland.windowManager = {

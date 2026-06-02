@@ -18,8 +18,6 @@
         public-sans
         tmux
         rofi
-        hyprcursor
-        hyprpaper
         wl-clipboard
         imagemagick
         pavucontrol
