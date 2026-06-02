@@ -12,8 +12,8 @@
 # kde polkit
 # /usr/lib/polkit-kde-authentication-agent-1 &
 
-hyprpaper & 
-waybar & 
+# hyprpaper & 
+# waybar & 
 /home/rigel/utility/xdg-portall-hyprland-nuclear & 
 hyprctl setcursor "breeze_cursors" 16  
 # /home/rigel/.local/bin/hyprland-paper &
