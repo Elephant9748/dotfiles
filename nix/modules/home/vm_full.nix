@@ -43,6 +43,8 @@
         # glib
         dconf
         # rust-bin.stable.latest.default
+        rustup
+        dust
     ];
 
     # themes gtk using dconf

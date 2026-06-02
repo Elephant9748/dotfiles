@@ -45,6 +45,13 @@
         dconf
         # rust-bin.stable.latest.default
         # remote access / game stream
+        iwd
+        networkmanager
+        networkmanager-vpnc
+        networkmanagerapplet
+        android-tools
+        rustup
+        dust
         sunshine
         moonlight-qt
     ];

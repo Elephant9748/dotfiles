@@ -43,6 +43,13 @@
         # glib
         dconf
         # rust-bin.stable.latest.default
+        iwd
+        networkmanager
+        networkmanager-vpnc
+        networkmanagerapplet
+        android-tools
+        rustup
+        dust
     ];
 
     # themes gtk using dconf
