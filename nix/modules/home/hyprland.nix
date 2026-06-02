@@ -346,25 +346,25 @@
                                     _var = "SUPER";
                             };
                             w1 = {
-                                    _var = "hyprctl hyprpaper wallpaper \"HDMI-A-1, ~/Pictures/wallhaven.cc/i.png\"";
+                                    _var = "hyprctl hyprpaper wallpaper \"Virtual-1, ~/Pictures/wallhaven.cc/i.png\"";
                             };
                             w2 = {
-                                    _var = "hyprctl hyprpaper wallpaper \"HDMI-A-1, ~/Pictures/wallhaven.cc/ii.png\"";
+                                    _var = "hyprctl hyprpaper wallpaper \"Virtual-1, ~/Pictures/wallhaven.cc/ii.png\"";
                             };
                             w3 = {
-                                    _var = "hyprctl hyprpaper wallpaper \"HDMI-A-1, ~/Pictures/wallhaven.cc/iii.png\"";
+                                    _var = "hyprctl hyprpaper wallpaper \"Virtual-1, ~/Pictures/wallhaven.cc/iii.png\"";
                             };
                             w4 = {
-                                    _var = "hyprctl hyprpaper wallpaper \"HDMI-A-1, ~/Pictures/wallhaven.cc/iv.png\"";
+                                    _var = "hyprctl hyprpaper wallpaper \"Virtual-1, ~/Pictures/wallhaven.cc/iv.png\"";
                             };
                             w5 = {
-                                    _var = "hyprctl hyprpaper wallpaper \"HDMI-A-1, ~/Pictures/wallhaven.cc/v.png\"";
+                                    _var = "hyprctl hyprpaper wallpaper \"Virtual-1, ~/Pictures/wallhaven.cc/v.png\"";
                             };
                             w6 = {
-                                    _var = "hyprctl hyprpaper wallpaper \"HDMI-A-1, ~/Pictures/wallhaven.cc/vi.png\"";
+                                    _var = "hyprctl hyprpaper wallpaper \"Virtual-1, ~/Pictures/wallhaven.cc/vi.png\"";
                             };
                             w7 = {
-                                    _var = "hyprctl hyprpaper wallpaper \"HDMI-A-1, ~/Pictures/wallhaven.cc/vii.png\"";
+                                    _var = "hyprctl hyprpaper wallpaper \"Virtual-1, ~/Pictures/wallhaven.cc/vii.png\"";
                             };
                             bind = [
                                 {
