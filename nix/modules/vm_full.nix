@@ -87,6 +87,15 @@
             package = neovim-nightly.packages.${system}.default;
     };
     gnome-disks.enable = true;
+    thunar = {
+            enable = true;
+            plugins = with pkgs; [
+                gvfs 
+                tumbler 
+                thunar-volman 
+                thunar-archive-plugin
+            ];
+    };
   };
 
   environment.systemPackages = with pkgs; [

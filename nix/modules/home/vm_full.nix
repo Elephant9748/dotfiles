@@ -4,6 +4,7 @@
         ./waybar.nix
         ./hyprland.nix
         ./gtk.nix
+        ./hyprpaper.nix
     ];
 
     home.packages = with pkgs; [
@@ -18,7 +19,6 @@
         tmux
         rofi
         hyprcursor
-        hyprpaper
         wl-clipboard
         imagemagick
         pavucontrol
@@ -39,11 +39,11 @@
         grim
         slurp
         localsend
-        thunar
         # gsettings-desktop-schemas
         # glib
         dconf
         # rust-bin.stable.latest.default
+        hyprlang
     ];
 
     # themes gtk using dconf
@@ -94,10 +94,10 @@
         source = ../../../configs/.config/hypr/autostart-nix.sh;
         recursive = true;
     };
-    home.file.".config/hypr/hyprpaper.conf" = {
-        source = ../../../configs/.config/hypr/hyprpaper.conf;
-        recursive = true;
-    };
+    # home.file.".config/hypr/hyprpaper.conf" = {
+    #     source = ../../../configs/.config/hypr/hyprpaper.conf;
+    #     recursive = true;
+    # };
 
     # --------------------------------------------------
     # Due to the home-manager taking so long on boot time
