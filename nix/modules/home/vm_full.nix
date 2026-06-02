@@ -47,6 +47,8 @@
         dust
     ];
 
+    # todo! qt theme
+
     # themes gtk using dconf
     dconf = {
             enable = true;
