@@ -91,6 +91,15 @@
 
     xdg.portal = {
             enable = true;
+            config = {
+                    common = {
+                        default = [
+                                "hyprland"
+                                "gtk"
+                        ];
+                        "org.freedesktop.impl.portal.FileChooser" = "thunar";
+                    };
+            };
             extraPortals = with pkgs; [
                 xdg-desktop-portal-hyprland
                 xdg-desktop-portal-gnome
