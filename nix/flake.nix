@@ -64,6 +64,7 @@
           # hypr, 
           neovim-nightly,
           # rust-overlay, 
+          mangowm,
           ...
   } @inputs:
   let
