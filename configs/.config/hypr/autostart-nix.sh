@@ -13,7 +13,7 @@
 # /usr/lib/polkit-kde-authentication-agent-1 &
 
 # hyprpaper & 
-# waybar & 
+/etc/profiles/per-user/ringo/bin/waybar & 
 /home/rigel/utility/xdg-portall-hyprland-nuclear & 
 hyprctl setcursor "breeze_cursors" 16  
 # /home/rigel/.local/bin/hyprland-paper &
