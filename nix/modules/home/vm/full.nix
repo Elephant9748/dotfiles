@@ -1,11 +1,11 @@
 { pkgs, version, lib,  ... }: {
 
     imports = [
-        ./waybar.nix
-        ./hyprland.nix
-        ./gtk.nix
-        ./hyprpaper.nix
-        ./qt.nix
+        ../waybar.nix
+        ../hyprland.nix
+        ../gtk.nix
+        ../hyprpaper.nix
+        ../qt.nix
     ];
 
     home.packages = with pkgs; [
