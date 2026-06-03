@@ -1,6 +1,6 @@
 { pkgs, version, lib,  ... }: {
 
-    home.file.".config/mango/autostart-nix.sh" = {
+    home.file.".config/mango/autostart.sh" = {
         source = ../../../configs/.config/mango/autostart-nix.sh;
         recursive = true;
     };
