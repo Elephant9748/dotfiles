@@ -1,5 +1,7 @@
 #!/run/current-system/sw/bin/sh
 
+user=$(whoami)
+
 # Execute your favorite apps at launch
 # waybar & 
 # hyprpaper & 
@@ -13,7 +15,7 @@
 # /usr/lib/polkit-kde-authentication-agent-1 &
 
 # hyprpaper & 
-/etc/profiles/per-user/ringo/bin/waybar & 
+/etc/profiles/per-user/${user}/bin/waybar & 
 /home/rigel/utility/xdg-portall-hyprland-nuclear & 
 hyprctl setcursor "breeze_cursors" 16  
 # /home/rigel/.local/bin/hyprland-paper &
