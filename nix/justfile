@@ -88,21 +88,21 @@ flake-base $machine:
 flake-mango $machine:
         {{bangbash}}
         sed -i 's/# mangowm.nixosModules.mango/mangowm.nixosModules.mango/' flake.nix
-        sed -i 's/exec start-hyprland/# exec start-hyprland/' modules/vm/full.nix
-        sed -i 's/# exec mango/exec mango/' modules/vm/full.nix
-        sed -i 's/# mango.enable = true;/mango.enable = true;/' modules/vm/full.nix
-        sed -i 's/# ..\/mangowm.nix/..\/mangowm.nix/' modules/home/vm/full.nix
-        sed -i 's/..\/hyprpaper.nix/# ..\/hyprpaper.nix/' modules/home/vm/full.nix
+        sed -i 's/exec start-hyprland/# exec start-hyprland/' modules/{{machine}}/full.nix
+        sed -i 's/# exec mango/exec mango/' modules/{{machine}}/full.nix
+        sed -i 's/# mango.enable = true;/mango.enable = true;/' modules/{{machine}}/full.nix
+        sed -i 's/# ..\/mangowm.nix/..\/mangowm.nix/' modules/home/{{machine}}/full.nix
+        sed -i 's/..\/hyprpaper.nix/# ..\/hyprpaper.nix/' modules/home/{{machine}}/full.nix
 # default comopositor hyprland
 flake-hypr $machine:
         {{bangbash}}
         sed -i 's/mangowm.nixosModules.mango/# mangowm.nixosModules.mango/' flake.nix
-        sed -i 's/exec mango/# exec mango/' modules/vm/full.nix
-        sed -i 's/# exec start-hyprland/exec start-hyprland/' modules/vm/full.nix
-        sed -i 's/mango.enable = true;/# mango.enable = true;/' modules/vm/full.nix
-        sed -i 's/..\/mangowm.nix/# ..\/mangowm.nix/' modules/home/vm/full.nix
-        sed -i 's/# ..\/hyprland.nix/..\/hyprland.nix/' modules/home/vm/full.nix
-        sed -i 's/# ..\/hyprpaper.nix/..\/hyprpaper.nix/' modules/home/vm/full.nix
+        sed -i 's/exec mango/# exec mango/' modules/{{machine}}/full.nix
+        sed -i 's/# exec start-hyprland/exec start-hyprland/' modules/{{machine}}/full.nix
+        sed -i 's/mango.enable = true;/# mango.enable = true;/' modules/{{machine}}/full.nix
+        sed -i 's/..\/mangowm.nix/# ..\/mangowm.nix/' modules/home/{{machine}}/full.nix
+        sed -i 's/# ..\/hyprland.nix/..\/hyprland.nix/' modules/home/{{machine}}/full.nix
+        sed -i 's/# ..\/hyprpaper.nix/..\/hyprpaper.nix/' modules/home/{{machine}}/full.nix
 # rsync fish config to host manual
 to-host-fish $user:
         #!/usr/bin/env bash
