@@ -69,7 +69,8 @@
                 modules = [
                         ./hosts/${label}
                         #base = mininmal, full = with gui desktop
-                        (import ./modules/${label}_base.nix)
+                        # (import ./modules/${label}_base.nix)
+                        (import ./modules/${label})
                         # nix-ld
                         # (import ./modules/nix_ld.nix)
                         # overlays
@@ -87,7 +88,8 @@
                                         inherit version user; 
                                 };
                                 home-manager.users.${user}.imports = [
-                                        ./modules/home/${label}_base.nix
+                                        # ./modules/home/${label}_base.nix
+                                        ./modules/home/${label}
                                 ];
                         }
                 ];
