@@ -16,6 +16,9 @@ tools:
 # clean nix-collect-garbage -d
 clean:
         nix-collect-garbage -d
+# clean nix-collect-garbage older than x days
+clean-old $day:
+        nix-collect-garbage --delete-older-than {{day}}d
 # show available configurations
 show:
         nix flake show  --experimental-features 'nix-command flakes'
