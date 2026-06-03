@@ -59,9 +59,9 @@ flake-full $machine:
         sed -i 's/base/full/' modules/home/{{machine}}/default.nix
         printf "\033[0;34mflake-full:\n"
         rg -i "full" modules/{{machine}}/default.nix | head -n 1 | \
-                paste -sd "" | awk '{print "\\033[0;32m" $0}'
+                paste -sd "" | awk '{print "\033[0;32m" $0}'
         rg -i "full" modules/home/{{machine}}/default.nix | head -n 1 | \
-                paste -sd "" | awk '{print "\\033[0;32m" $0}'
+                paste -sd "" | awk '{print "\033[0;32m" $0}'
         # sed -i 's/_base.nix/_full.nix/' flake.nix
         # sed -i 's/_home_base.nix/_home_full.nix/' flake.nix
         # printf "\033[0;34m> Done look flake.nix\n\033[0m"
@@ -75,9 +75,9 @@ flake-base $machine:
         sed -i 's/full/base/' modules/home/{{machine}}/default.nix
         printf "\033[0;34mflake-full:\n"
         rg -i "full" modules/{{machine}}/default.nix | head -n 1 | \
-                paste -sd "" | awk '{print "\\033[0;32m" $0}'
+                paste -sd "" | awk '{print "\033[0;32m" $0}'
         rg -i "full" modules/home/{{machine}}/default.nix | head -n 1 | \
-                paste -sd "" | awk '{print "\\033[0;32m" $0}'
+                paste -sd "" | awk '{print "\033[0;32m" $0}'
         # sed -i 's/_full.nix/_base.nix/' flake.nix
         # sed -i 's/_home_full.nix/_home_base.nix/' flake.nix
         # printf "\033[0;34m> Done look flake.nix\n\033[0m"
