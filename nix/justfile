@@ -74,9 +74,9 @@ flake-base $machine:
         sed -i 's/full/base/' modules/{{machine}}/default.nix
         sed -i 's/full/base/' modules/home/{{machine}}/default.nix
         printf "\033[0;34mflake-full:\n"
-        rg -i "full" modules/{{machine}}/default.nix | head -n 1 | \
+        rg -i "base" modules/{{machine}}/default.nix | head -n 1 | \
                 paste -sd "" | awk '{print "\033[0;32m" $0}'
-        rg -i "full" modules/home/{{machine}}/default.nix | head -n 1 | \
+        rg -i "base" modules/home/{{machine}}/default.nix | head -n 1 | \
                 paste -sd "" | awk '{print "\033[0;32m" $0}'
         # sed -i 's/_full.nix/_base.nix/' flake.nix
         # sed -i 's/_home_full.nix/_home_base.nix/' flake.nix
