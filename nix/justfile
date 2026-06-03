@@ -165,7 +165,7 @@ to-host-nix:
                 rsync -azP ../configs/.config/polybar $HOME/.config/ && \
                 rsync -azP ../configs/.config/rofi $HOME/.config/ && \
                 rsync -azP ../configs/.config/sxhkd $HOME/.config/ && \
-                rsync -azP ../configs/.config/waybar $HOME/.config/ && \
+                # rsync -azP ../configs/.config/waybar $HOME/.config/ && \
                 # rsync -azP ../configs/.config/hypr $HOME/.config/ && \
                 rsync -azP ../configs/.config/swappy $HOME/.config/ && \
                 rsync -azP ../configs/.config/dunst $HOME/.config/ && \
