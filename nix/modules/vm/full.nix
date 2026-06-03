@@ -96,6 +96,8 @@
                 thunar-archive-plugin
             ];
     };
+    # mangowm
+    # mango.enable = true;
   };
 
   environment.systemPackages = with pkgs; [

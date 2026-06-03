@@ -47,6 +47,13 @@
         url = "github:nix-community/neovim-nightly-overlay";                                                                                               
         inputs.nixpkgs.follows = "nixpkgs";                                                                                                       
     };
+
+    # mangoWM
+    mangowm = {
+      url = "github:mangowm/mango";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # --------------------------------------------------------------
   };
 
@@ -71,6 +78,8 @@
                         #base = mininmal, full = with gui desktop
                         # (import ./modules/${label}_base.nix)
                         (import ./modules/${label})
+                        # mangowm
+                        # mangowm.nixosModules.mango
                         # nix-ld
                         # (import ./modules/nix_ld.nix)
                         # overlays
