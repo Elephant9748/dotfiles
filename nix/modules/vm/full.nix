@@ -71,7 +71,7 @@
                     exec start-hyprland
                     # mangowm
                     # set -gx WLR_NO_HARDWARE_CURSORS 1 # for vm pointer mouse upside down
-                    # mango
+                    # exec mango
             end
         '';
     };
