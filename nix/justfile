@@ -55,21 +55,35 @@ flake-host $machine $host:
 # change machine base = minimal, full = with gui
 flake-full $machine:
         {{bangbash}}
-        sed -i 's/_base.nix/_full.nix/' flake.nix
-        sed -i 's/_home_base.nix/_home_full.nix/' flake.nix
-        printf "\033[0;34m> Done look flake.nix\n\033[0m"
-        rg -i "\{label\}_" flake.nix | head -n 2 | \
-                paste -sd "" | \
-                awk '{print "\033[0;34mflake-full:\033[0;32m""\n\t"$1 $2"\n\t"$3}'
+        sed -i 's/base/full/' modules/{{machine}}/default.nix
+        sed -i 's/base/full/' modules/home/{{machine}}/default.nix
+        printf "\033[0;34mflake-full:\n"
+        rg -i "full" modules/{{machine}}/default.nix | head -n 1 | \
+                paste -sd "" | awk '{print "\\033[0;32m" $0}'
+        rg -i "full" modules/home/{{machine}}/default.nix | head -n 1 | \
+                paste -sd "" | awk '{print "\\033[0;32m" $0}'
+        # sed -i 's/_base.nix/_full.nix/' flake.nix
+        # sed -i 's/_home_base.nix/_home_full.nix/' flake.nix
+        # printf "\033[0;34m> Done look flake.nix\n\033[0m"
+        # rg -i "\{label\}_" flake.nix | head -n 2 | \
+        #         paste -sd "" | \
+        #         awk '{print "\033[0;34mflake-full:\033[0;32m""\n\t"$1 $2"\n\t"$3}'
 # change machine base = minimal, full = with gui
 flake-base $machine:
         {{bangbash}}
-        sed -i 's/_full.nix/_base.nix/' flake.nix
-        sed -i 's/_home_full.nix/_home_base.nix/' flake.nix
-        printf "\033[0;34m> Done look flake.nix\n\033[0m"
-        rg -i "\{label\}_" flake.nix | head -n 2 | \
-                paste -sd "" | \
-                awk '{print "\033[0;34mflake-base:\033[0;32m""\n\t"$1 $2"\n\t"$3}'
+        sed -i 's/full/base/' modules/{{machine}}/default.nix
+        sed -i 's/full/base/' modules/home/{{machine}}/default.nix
+        printf "\033[0;34mflake-full:\n"
+        rg -i "full" modules/{{machine}}/default.nix | head -n 1 | \
+                paste -sd "" | awk '{print "\\033[0;32m" $0}'
+        rg -i "full" modules/home/{{machine}}/default.nix | head -n 1 | \
+                paste -sd "" | awk '{print "\\033[0;32m" $0}'
+        # sed -i 's/_full.nix/_base.nix/' flake.nix
+        # sed -i 's/_home_full.nix/_home_base.nix/' flake.nix
+        # printf "\033[0;34m> Done look flake.nix\n\033[0m"
+        # rg -i "\{label\}_" flake.nix | head -n 2 | \
+        #         paste -sd "" | \
+        #         awk '{print "\033[0;34mflake-base:\033[0;32m""\n\t"$1 $2"\n\t"$3}'
 # rsync fish config to host manual
 to-host-fish $user:
         #!/usr/bin/env bash
