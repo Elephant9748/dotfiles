@@ -5,6 +5,7 @@
         ./hyprland.nix
         ./gtk.nix
         ./hyprpaper.nix
+        ./qt.nix
     ];
 
     home.packages = with pkgs; [
@@ -47,8 +48,6 @@
         gparted-full
         qpwgraph
     ];
-
-    # todo! qt theme
 
     # themes gtk using dconf
     dconf = {
