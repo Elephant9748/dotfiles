@@ -1,9 +1,21 @@
 { pkgs, version, lib,  ... }: {
+
+    home.file.".config/waybar/mango-config" = {
+        source = ../../../configs/.config/waybar/mango-config;
+        recursive = true;
+    };
+
+    home.file.".config/waybar/mango-style.css" = {
+        source = ../../../configs/.config/waybar/mango-style.css;
+        recursive = true;
+    };
+
     # config & style from dotfiles
     programs.waybar = {
             enable = true;
             package = pkgs.waybar;
             # systemd.enable = true;
+            style = builtins.readFile ../../../configs/.config/waybar/style.css;
             settings = {
                     mainbar = {
                             position = "bottom";
