@@ -61,6 +61,7 @@
         mesa-demos
         sunshine
         moonlight-qt
+        appimage-run
     ];
 
     # todo! qt theme
