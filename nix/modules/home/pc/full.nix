@@ -57,7 +57,7 @@
         nvtopPackages.full
         gparted-full
         qpwgraph
-        steam 
+        # steam 
         steam-run
         vulkan-tools
         glmark2
