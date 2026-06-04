@@ -13,6 +13,7 @@ to-dot:
                 rsync -azP $HOME/.config/rofi configs/.config/ && \
                 rsync -azP $HOME/.config/sxhkd configs/.config/ && \
                 rsync -azP $HOME/.config/hypr configs/.config/ && \
+                rsync -azP $HOME/.config/mango configs/.config/ && \
                 rsync -azP $HOME/.config/waybar configs/.config/ && \
                 rsync -azP $HOME/.config/swappy configs/.config/ && \
                 rsync -azP $HOME/.config/dunst configs/.config/ && \
@@ -58,6 +59,7 @@ to-host:
                 rsync -azP configs/.config/sxhkd $HOME/.config/ && \
                 rsync -azP configs/.config/waybar $HOME/.config/ && \
                 rsync -azP configs/.config/hypr $HOME/.config/ && \
+                rsync -azP configs/.config/mango $HOME/.config/ && \
                 rsync -azP configs/.config/swappy $HOME/.config/ && \
                 rsync -azP configs/.config/dunst $HOME/.config/ && \
                 rsync -azP configs/.config/yazi $HOME/.config/ && \
