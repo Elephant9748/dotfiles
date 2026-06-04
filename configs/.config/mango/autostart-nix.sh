@@ -1,5 +1,8 @@
 #!/run/current-system/sw/bin/sh
 
+# enable tearing
+# export WLR_DRM_NO_ATOMIC=1
+
 user=$(whoami)
 
 # waybar
