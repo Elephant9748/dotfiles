@@ -62,6 +62,7 @@
         vulkan-tools
         glmark2
         mesa-demos
+        appimage-run
     ];
 
     # todo! qt theme
