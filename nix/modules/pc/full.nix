@@ -69,6 +69,9 @@
 	    loginShellInit = ''
             if test (tty) = "/dev/tty1"; and test -z "$WAYLAND_DISPLAY"; and test -n "$XDG_VTNR"; and test "$XDG_VTNR" -eq 1
                     exec start-hyprland
+                    # mangowm
+                    # set -gx WLR_NO_HARDWARE_CURSORS 1 # for vm pointer mouse upside down
+                    # exec mango
             end
         '';
 	};
@@ -87,6 +90,8 @@
             package = neovim-nightly.packages.${system}.default;
     };
     gnome-disks.enable = true;
+    # mangowm
+    # mango.enable = true;
   };
 
   environment.systemPackages = with pkgs; [

@@ -5,6 +5,8 @@
         ../hyprland.nix
         ../gtk.nix
         ../hyprpaper.nix
+        ../qt.nix
+        # ../mangowm.nix
     ];
 
     home.packages = with pkgs; [
