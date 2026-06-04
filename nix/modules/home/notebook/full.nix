@@ -56,6 +56,11 @@
         bluetui
         gparted-full
         qpwgraph
+        vulkan-tools
+        glmark2
+        mesa-demos
+        sunshine
+        moonlight-qt
     ];
 
     # todo! qt theme

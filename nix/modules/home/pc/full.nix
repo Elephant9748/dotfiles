@@ -59,6 +59,9 @@
         qpwgraph
         steam 
         steam-run
+        vulkan-tools
+        glmark2
+        mesa-demos
     ];
 
     # todo! qt theme
