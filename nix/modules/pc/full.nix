@@ -89,6 +89,15 @@
             enable = true;
             package = neovim-nightly.packages.${system}.default;
     };
+    thunar = {
+            enable = true;
+            plugins = with pkgs; [
+                gvfs 
+                tumbler 
+                thunar-volman 
+                thunar-archive-plugin
+            ];
+    };
     gnome-disks.enable = true;
     # mangowm
     # mango.enable = true;

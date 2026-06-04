@@ -80,6 +80,15 @@
             portalPackage = hypr.packages.${system}.xdg-desktop-portal-hyprland;
     };
     gnome-disks.enable = true;
+    thunar = {
+            enable = true;
+            plugins = with pkgs; [
+                gvfs 
+                tumbler 
+                thunar-volman 
+                thunar-archive-plugin
+            ];
+    };
     # mangowm
     # mango.enable = true;
   };
