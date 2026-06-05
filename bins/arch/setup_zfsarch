@@ -113,6 +113,9 @@ pacstrap -K /mnt base base-devel linux linux-headers linux-firmware efibootmgr d
         networkmanager fish git ripgrep fd bottom rsync neovim lvm2 e2fsprogs openssh git-delta \
         intel-ucode limine
 
+mkswap "${BLOCK}2"
+SWAP_UUID=$(ls -al /dev/disk/by-uuid | grep $blockswaphelp | awk '{print $9}')
+
 # generate fstab
 printf "\033[0;34m:: Generate fstab\n\033[0m"
 genfstab -U /mnt >> /mnt/etc/fstab
@@ -121,9 +124,7 @@ printf "#!/usr/bin/bash
 
 # swap partition !future move to zram
 echo "${BLOCK}2"
-mkswap "${BLOCK}2"
-SWAP_UUID=$(ls -al /dev/disk/by-uuid | grep vda2 | awk '{print $9}')
-echo \"UUID=\${SWAP_UUID} none    swap    defaults 0 0\" >> /etc/fstab
+echo \"UUID=${SWAP_UUID} none    swap    defaults 0 0\" >> /etc/fstab
 
 # configure chroot system
 ln -sf /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
