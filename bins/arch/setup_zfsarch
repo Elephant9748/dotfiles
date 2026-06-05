@@ -21,12 +21,14 @@ printf "\033[0m"
 
 BLOCK="/dev/vda"
 blockhelp="vda3"
-blockswaphelp="vd2"
+blockswaphelp="vda2"
 luksname="lukscrypt" 
 bootloader="/boot/EFI/limine/limine.conf"
 initconf="/etc/mkinitcpio.conf"
 hostname="kiwi.vm"
 USER="rigel"
+SWAPPART="4G"
+EFISIZE="1G"
 
 read -p $'\033[0;31mYour \033[0;33m'"$BLOCK"$' \033[0;31mwill destroy y/n? : ' confirm
 if [ "n" == $confirm ]; then
@@ -47,10 +49,10 @@ wipefs -a $BLOCK
 sgdisk --zap-all $BLOCK
 
 # EFI
-sgdisk -n 1:1m:+1G -t 1:ef00 -c 1:EFI $BLOCK
+sgdisk -n 1:1m:+${EFISIZE} -t 1:ef00 -c 1:EFI $BLOCK
 
 # swap partition
-sgdisk -n 2:0:+4G -t 2:8200 -c 2:SWAP $BLOCK
+sgdisk -n 2:0:+${SWAPPART} -t 2:8200 -c 2:SWAP $BLOCK
 
 # ZFS
 sgdisk -n 3:0:0 -t 3:bf00 -c 3:ZFS_ROOT $BLOCK
@@ -113,18 +115,11 @@ pacstrap -K /mnt base base-devel linux linux-headers linux-firmware efibootmgr d
         networkmanager fish git ripgrep fd bottom rsync neovim lvm2 e2fsprogs openssh git-delta \
         intel-ucode limine
 
-mkswap "${BLOCK}2"
-SWAP_UUID=$(ls -al /dev/disk/by-uuid | grep $blockswaphelp | awk '{print $9}')
-
 # generate fstab
 printf "\033[0;34m:: Generate fstab\n\033[0m"
 genfstab -U /mnt >> /mnt/etc/fstab
 
 printf "#!/usr/bin/bash
-
-# swap partition !future move to zram
-echo "${BLOCK}2"
-echo \"UUID=${SWAP_UUID} none    swap    defaults 0 0\" >> /etc/fstab
 
 # configure chroot system
 ln -sf /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
@@ -265,6 +260,13 @@ sudo systemctl enable zfs-mount
 sudo systemctl enable zfs-import.target
 sudo timedatectl set-ntp true
 timedatectl
+
+# swap partition !future move to zram
+sudo mkswap "${BLOCK}2"
+SWAP_UUID=\\\$(ls -al /dev/disk/by-uuid | grep $blockswaphelp | awk '{print \\\$9}')
+
+echo "${BLOCK}2"
+sudo sh -c \\\\\"echo \\\\\'UUID=\\\${SWAP_UUID} none    swap    defaults 0 0\\\\\' >> /etc/fstab\\\\\"
 
 \\\" > /home/$USER/setup_extra
 chmod +x /home/$USER/setup_extra
