@@ -221,7 +221,7 @@ hl.window_rule({
         title = "Picture-in-Picture",
     },
     float = true,
-    move = "322 12",
+    move = "1204 13",
     size = "702 398",
     pin = true,
 })
