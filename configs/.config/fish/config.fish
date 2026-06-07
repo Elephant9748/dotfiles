@@ -60,21 +60,44 @@ function fish_greeting
     set_color 16AA64
     echo -e ' note!: '
     if string match -q "rigel" (whoami)
-            set_color C38F00
-            echo -e '\t*Info move initramfs before update nvidia,linux,.. limited disk usage /boot'
-            set_color 8d8674
-            echo -e '\t*sunshine moonlight remote access / rustdesk'
-            set_color dd422f
-            echo -e '\t*!Created emergency backup (tracy,proton)'
+            # file in $HOME/note
+            # note format in file
+            # info
+            # ...
+            # warning
+            # ...
+            # normal
+            # ...
+            set colorfont 8d8674
+            if test -s note
+                    while read -l content
+                            switch $content
+                                    case normal
+                                            set colorfont "8d8674"
+                                    case info
+                                            set colorfont "C38F00"
+                                    case warning
+                                            set colorfont "dd422f"
+                                    case ""
+                                            printf "\t*Empty"
+                                    case "*"
+                                            set_color $colorfont
+                                            printf "\t*%s\n" "$content"
+                            end
+                    end < $HOME/note
+            else
+                    set_color 8d8674
+                    printf "\t*Empty"
+            end
     end
     echo 
-
 end
 
 function fish_prompt
 	set_color brblack
 	echo -n "["(date "+%H:%M")"] "
-    set_color 427B58
+    # set_color 427B58
+    set_color 70753d
 	echo -n (hostnamectl hostname)
 	if [ $PWD != $HOME ]
 		set_color brblack
@@ -82,7 +105,8 @@ function fish_prompt
 		set_color 076678
 		echo -n (basename $PWD)
 	end
-    set_color 98971A
+    # set_color 98971A
+    set_color 427b58
 	printf '%s ' (__fish_git_prompt)
 	set_color AF3A03
 	echo -n '| '
