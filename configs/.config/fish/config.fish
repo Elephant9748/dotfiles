@@ -59,36 +59,34 @@ function fish_greeting
     end
     set_color 16AA64
     echo -e ' note!: '
-    if string match -q "rigel" (whoami)
-            # file in $HOME/note
-            # note format in file
-            # info
-            # ...
-            # warning
-            # ...
-            # normal
-            # ...
-            set colorfont 8d8674
-            if test -s note
-                    while read -l content
-                            switch $content
-                                    case normal
-                                            set colorfont "8d8674"
-                                    case info
-                                            set colorfont "C38F00"
-                                    case warning
-                                            set colorfont "dd422f"
-                                    case ""
-                                            printf "\t*Empty"
-                                    case "*"
-                                            set_color $colorfont
-                                            printf "\t*%s\n" "$content"
-                            end
-                    end < $HOME/note
-            else
-                    set_color 8d8674
-                    printf "\t*Empty"
-            end
+    set colorfont 8d8674
+    # file in $HOME/note
+    # note format in file
+    # info
+    # ...
+    # warning
+    # ...
+    # normal
+    # ...
+    if test -s note
+            while read -l content
+                    switch $content
+                            case normal
+                                    set colorfont "8d8674"
+                            case info
+                                    set colorfont "C38F00"
+                            case warning
+                                    set colorfont "dd422f"
+                            case ""
+                                    printf "\t*Empty"
+                            case "*"
+                                    set_color $colorfont
+                                    printf "\t*%s\n" "$content"
+                    end
+            end < $HOME/note
+    else
+            set_color 8d8674
+            printf "\t*Empty"
     end
     echo 
 end
