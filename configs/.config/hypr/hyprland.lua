@@ -268,6 +268,21 @@ hl.window_rule({
     float = true,
     pin = true,
 })
+-- moonlight
+hl.window_rule({
+    match = {
+        class = "com.moonlight_stream.Moonlight",
+    },
+    tile = true,
+    workspace = "5"
+})
+hl.window_rule({
+    match = {
+        class = "Moonlight",
+    },
+    tile = true,
+    workspace = "5"
+})
 
 -- workspace 6 rules
 hl.workspace_rule({
@@ -488,11 +503,20 @@ hl.config({
         col = {
             -- active_border = { colors = { "rgba(33ccffee)", "rgba(00ff99ee)" }, angle = 45 },
             -- active_border = { colors = { "rgba(356F89ee)", "rgba(519C62ee)" }, angle = 45 },
-            active_border = { colors = { "rgba(427B58ee)", "rgba(076678ee)" }, angle = 45 },
+
+            -- default
+            -- active_border = { colors = { "rgba(427B58ee)", "rgba(076678ee)" }, angle = 45 },
+
+            active_border = { colors = { "rgba(4c4c4cee)", "rgba(302c29ee)" }, angle = 45 },
             -- active_border = { colors = { "rgba(E0431Aee)", "rgba(304F47ee)" }, angle = 45 },
             -- active_border = { colors = { "rgba(40281Bee)", "rgba(3C3836ee)" }, angle = 45 },
             -- active_border = { colors = { "rgba(7C6F64ee)", "rgba(3C3836ee)" }, angle = 45 },
-            inactive_border = "rgba(595959aa)",
+
+            -- default
+            -- inactive_border = "rgba(595959aa)",
+
+            -- inactive_border = "rgba(060606aa)",
+            inactive_border = "rgba(0f0f0faa)",
         },
         layout = "dwindle",
     },
