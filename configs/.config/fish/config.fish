@@ -100,7 +100,8 @@ function fish_prompt
 	if [ $PWD != $HOME ]
 		set_color brblack
 		echo -n ':'
-		set_color 076678
+		# set_color 076678
+		set_color 458588
 		echo -n (basename $PWD)
 	end
     # set_color 98971A
