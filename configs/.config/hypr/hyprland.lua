@@ -283,6 +283,15 @@ hl.window_rule({
     tile = true,
     workspace = "5"
 })
+hl.window_rule({
+    match = {
+        class = "org.pulseaudio.pavucontrol",
+    },
+    size = "455 529",
+    move = "1458 528",
+    float = true,
+    pin = true
+})
 
 -- workspace 6 rules
 hl.workspace_rule({
