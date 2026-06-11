@@ -3,7 +3,7 @@ return {
                 'Elephant9748/rigel254-colorscheme', 
                 config = function()
                         -- must term gui on
-                        vim.cmd("colorscheme rigel254-colorscheme-green") 
+                        vim.cmd("colorscheme rigel254-colorscheme-dark") 
                 end,
         },
         'tinted-theming/base16-vim',
