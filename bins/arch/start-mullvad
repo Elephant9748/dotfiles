@@ -1,0 +1,11 @@
+#!/bin/bash
+
+$PATH_MULLVAD_BROWSER="path here"
+
+# doesnt load gtk themes
+# NVIDIA offload
+# __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia $PATH_MULLVAD_BROWSER/Browser/start-mullvad-browser
+
+# load gtk themes 
+# NVIDIA offload
+__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia $PATH_MULLVAD_BROWSER/Browser/mullvadbrowser

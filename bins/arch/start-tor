@@ -1,0 +1,11 @@
+#!/bin/bash
+
+$PATH_TOR_BROWSER="path here"
+
+# doesnt load gtk themes
+# NVIDIA offload
+# __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia $PATH_TOR_BROWSER/Browser/start-tor-browser
+
+# load gtk themes 
+# NVIDIA offload
+__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia $PATH_TOR_BROWSER/Browser/firefox
