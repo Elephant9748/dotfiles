@@ -590,6 +590,54 @@ function loop_battery_status
         end
 end
 
+# enter chroot hdd & mount tails persistent luks
+# ---------------------------------------------------
+function hdd-enter
+        printf "Open LUKS \n"
+        sudo cryptsetup open /dev/sda4 lukscrypt
+        sleep 2
+        if test -b /dev/vg_arch/lv_root
+                sudo mount /dev/vg_arch/lv_root /mnt/arch-chroot/
+                sudo mount --mkdir /dev/vg_arch/lv_home /mnt/arch-chroot/home/
+                sudo mount --mkdir /dev/sda1 /mnt/arch-chroot/boot/
+                printf "Enter arch-chroot \n"
+                sudo arch-chroot /mnt/arch-chroot/
+        else
+                return
+        end
+end
+function hdd-exit
+        if test -b /dev/vg_arch/lv_root
+                printf "Umount block device \n"
+                sudo umount -R /mnt/arch-chroot/
+                sudo vgchange -an
+                sudo cryptsetup close lukscrypt
+                printf "Exit okay \n"
+        else
+                return
+        end
+end
+function tails-enter
+        printf "Open Tails LUKS \n"
+        sudo cryptsetup open /dev/sdc2 tails
+        sleep 2
+        if test -b /dev/mapper/tails
+                sudo mount /dev/mapper/tails /mnt/tails/
+                cd /mnt/tails
+        else
+                return
+        end
+end
+function tails-exit
+        if test -b /dev/mapper/tails
+                sudo umount /mnt/tails
+                sudo cryptsetup close tails
+                printf "Exit okay \n"
+        else
+                return
+        end
+end
+# ---------------------------------------------------
 
 # Fish git prompt
 set __fish_git_prompt_showuntrackedfiles 'yes'
