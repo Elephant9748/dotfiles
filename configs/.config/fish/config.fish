@@ -59,7 +59,6 @@ function fish_greeting
     end
     set_color 16AA64
     echo -e ' note!: '
-    set colorfont 8d8674
     # file in $HOME/note
     # note format in file
     # info
@@ -68,6 +67,7 @@ function fish_greeting
     # ...
     # normal
     # ...
+    set colorfont 8d8674
     if test -s note
             while read -l content
                     switch $content
@@ -543,14 +543,18 @@ function d
 end
 
 # ssh
-function rpi 
-        if command -v ssh > /dev/null
+function rpi
+        if command -v ssh > /dev/null; and test (count $argv) -eq 0
                 ssh rpi
+        else 
+                ssh -t rpi $argv[1..]
         end
 end
 function hive
-        if command -v ssh > /dev/null
+        if command -v ssh > /dev/null; and test (count $argv) -eq 0
                 ssh hive
+        else 
+                ssh -t hive $argv[1..]
         end
 end
 function rick
