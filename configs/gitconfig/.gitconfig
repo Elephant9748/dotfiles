@@ -16,6 +16,7 @@
         cm = commit -m
         co = checkout
         lo = log --all --decorate --oneline -50 --graph
+        lod = log --pretty=format:'%C(Yellow)%h%Cgreen %ad%C(Yellow) | %Creset%s %Cblue[%an]' --date=short -50 --graph
         l = log
         r = rebase
         r2 = rebase -i HEAD~2
