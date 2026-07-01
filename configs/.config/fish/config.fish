@@ -267,7 +267,7 @@ if command -v git > /dev/null
         abbr -a gc 'git checkout'
         abbr -a ga 'git add -p'
         abbr -a gl 'git log --all --decorate --oneline -50 --graph'
-        abbr -a gld 'git log --pretty=format:"%C(Yellow)%h%Cgreen %ad%C(Yellow) | %Creset%s %Cblue[%an]" --date=short -50 --graph'
+        abbr -a gld 'git log --all --pretty=format:"%C(Yellow)%h %C(#40797b)%ad %C(auto)%(decorate:prefix=,suffix=,tag=,separator= ) %Creset%s %C(#366146)[%an]" --date=short -50 --graph'
         abbr -a gs 'git status'
         abbr -a gss 'git diff --cached'
         abbr -a gsm 'git submodule update --init --recursive'
