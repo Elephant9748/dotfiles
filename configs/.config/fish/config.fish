@@ -68,7 +68,7 @@ function fish_greeting
     # normal
     # ...
     set colorfont 8d8674
-    if test -s note
+    if test -s $HOME/note
             while read -l content
                     switch $content
                             case normal
