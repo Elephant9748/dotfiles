@@ -644,6 +644,48 @@ function tails-exit
 end
 # ---------------------------------------------------
 
+# virtio qemu/kvm
+# Libvirt is moving from a single monolithic daemon to separate modular daemon
+# ---------------------------------------------------
+function start_virtio --description "Start libvirt socket etc & start virtio"
+        if test (systemctl is-active virtnetworkd.socket) = "inactive"; 
+                and test (systemctl is-active virtstoraged.socket) = "inactive"
+                and test (systemctl is-active virtnodedevd.socket) = "inactive"
+                and test (systemctl is-active virtqemud.socket) = "inactive"
+
+                sudo systemctl start --now virtnetworkd.socket virtstoraged.socket virtnodedevd.socket
+                sudo systemctl start --now virtqemud.socket
+        end
+        sudo virsh net-start default
+end
+function stop_virtio --description "stop network virtio"
+        if test (systemctl is-active virtnetworkd.socket) = "inactive"; 
+                and test (systemctl is-active virtstoraged.socket) = "inactive"
+                and test (systemctl is-active virtnodedevd.socket) = "inactive"
+                and test (systemctl is-active virtqemud.socket) = "inactive"
+
+                echo "virtio already stop!!"
+                return
+        end
+        sudo virsh net-destroy default
+        sudo systemctl stop --now virtnetworkd.socket virtstoraged.socket virtnodedevd.socket
+        sudo systemctl stop --now virtqemud.socket
+end
+# ---------------------------------------------------
+
+
+# mask tpm systemd slow down boot
+# ---------------------------------------------------
+function mask_tpm --description "mask tpm cause slow boot time systemd"
+        sudo systemctl mask dev-tpmrm0.device
+        sudo systemctl mask dev-tpm0.device
+end
+function unmask_tpm --description "unmask tpm"
+        sudo systemctl unmask dev-tpmrm0.device
+        sudo systemctl unmask dev-tpm0.device
+end
+# ---------------------------------------------------
+
 # Fish git prompt
 set __fish_git_prompt_showuntrackedfiles 'yes'
 set __fish_git_prompt_showdirtystate 'yes'
@@ -712,8 +754,6 @@ abbr -a .ipv6_off 'sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1'
 abbr -a .ipv6_on 'sudo sysctl -w net.ipv6.conf.all.disable_ipv6=0' # use for gaming
 
 abbr -a fa 'fastfetch'
-abbr -a start_virtio '$HOME/project/dotfiles/bins/arch/start-virtio-virtual-machine-QEMU'
-abbr -a stop_virtio 'sudo virsh net-destroy default'
 abbr -a stop_network 'sudo systemctl stop NetworkManager'
 abbr -a start_network 'sudo systemctl start NetworkManager'
 abbr -a start_ssh 'sudo systemctl start sshd'
