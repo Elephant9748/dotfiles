@@ -59,22 +59,6 @@ vim.o.background = "dark"
 vim.o.termguicolors = true
 vim.o.cursorline = true
 
--- Set colorscheme move to lazy.nvim
--- ---------------------------------------
--- vim.cmd([[colorscheme jellybeans]])
--- vim.cmd[[colorscheme gruvbox]]
--- vim.cmd([[colorscheme ryderbeans]])
--- vim.cmd([[colorscheme base16-gruvbox-dark-hard]])
--- vim.cmd([[colorscheme gruvbox]])
--- vim.cmd([[colorscheme base16-catppuccin]])
--- vim.cmd([[colorscheme paramount]])
--- vim.cmd([[colorscheme sublimemonokai]])
--- vim.cmd([[colorscheme no-clown-fiesta]])
-
--- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
--- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-
-
 -- FOR SOME REASON CMP NOT SOURCE CORRECTLY
 -- vim.cmd([[so $HOME/.config/nvim/lua/bigort/cmp.lua]])
 

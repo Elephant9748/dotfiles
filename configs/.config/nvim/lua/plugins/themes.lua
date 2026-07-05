@@ -4,6 +4,16 @@ return {
                 config = function()
                         -- must term gui on
                         vim.cmd("colorscheme rigel254-colorscheme-dark") 
+
+                        -- vim.cmd [[
+                        --         highlight Normal guibg=none
+                        --         highlight NonText guibg=none
+                        --         highlight Normal ctermbg=none
+                        --         highlight NonText ctermbg=none
+                        --         highlight NormalFloat ctermbg=none
+                        --         highlight NeoTreeNormalNC ctermbg=none
+                        --         highlight NeoTreeNormal ctermbg=none
+                        -- ]]
                 end,
         },
         'tinted-theming/base16-vim',
