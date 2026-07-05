@@ -1,15 +1,15 @@
 function fish_greeting
 	echo 
 	echo -e (uname -ro | awk '{print " \\\\e[1mOS: \\\\e[0;32m"$0"\\\\e[0m"}')
-	echo -en (uptime -p | sed 's/^up //' | awk '{print " \\\\e[1mUptime: \\\\e[0;32m"$0"\\\\e[0m"}')                                         # packages procps
+	echo -en (uptime -p | sed 's/^up //' | awk '{print " \\\\e[1mUptime: \\\\e[0;32m"$0"\\\\e[0m"}') # packages procps
     echo -e (timedatectl show -P NTPSynchronized | awk '{if ($0=="yes") print " \\\\e[1mNtp: \\\\e[0;32mOk\\\\e[0m";else print " \\\\e[1mNtp: \\\\033[0;31mOops!\\\\e[0m"}')
-	echo -e (uname -n | awk '{print " \\\\e[1mHostname: \\\\e[0;32m"$0"\\\\e[0m"}')                                                         # packages lsb-release
+	echo -e (uname -n | awk '{print " \\\\e[1mHostname: \\\\e[0;32m"$0"\\\\e[0m"}') # packages lsb-release
     if command -v lsb_release > /dev/null
             echo -e (lsb_release -d | awk -F ':' '/Description/ {gsub("\t","",$2);print " \\\\e[1mDescription: \\\\e[0;32m"$2"\\\\e[0m"; exit}')
     end
     echo -e (awk -F ':' '/model name/ {print " \\\\e[1mCPU: \\\\e[0;32m"$2"\\\\e[0m"; exit}' /proc/cpuinfo)
-    echo -e (lspci | grep -E "VGA|3D controller" | awk -F ':' '/VGA/ {print " \\\\e[1mVGA:\\\\e[0;32m"$3"\\\\e[0m"; exit}')                 # packages pciutils
-    set 3d (lspci | grep -E "3D controller" | awk -F ':' '/3D/ {print " \\\\e[1m3D:\\\\e[0;32m"$3"\\\\e[0m"; exit}')                   # packages pciutils
+    echo -e (lspci | grep -E "VGA|3D controller" | awk -F ':' '/VGA/ {print " \\\\e[1mVGA:\\\\e[0;32m"$3"\\\\e[0m"; exit}') # packages pciutils
+    set 3d (lspci | grep -E "3D controller" | awk -F ':' '/3D/ {print " \\\\e[1m3D:\\\\e[0;32m"$3"\\\\e[0m"; exit}') # packages pciutils
     if [ -n "$3d" ]
             echo -e "$3d"
     end
@@ -648,28 +648,28 @@ end
 # Libvirt is moving from a single monolithic daemon to separate modular daemon
 # ---------------------------------------------------
 function start_virtio --description "Start libvirt socket etc & start virtio"
-        if test (systemctl is-active virtnetworkd.socket) = "inactive"; 
-                and test (systemctl is-active virtstoraged.socket) = "inactive"
-                and test (systemctl is-active virtnodedevd.socket) = "inactive"
-                and test (systemctl is-active virtqemud.socket) = "inactive"
-
-                sudo systemctl start --now virtnetworkd.socket virtstoraged.socket virtnodedevd.socket
-                sudo systemctl start --now virtqemud.socket
-        end
+        # if test (systemctl is-active virtnetworkd.socket) = "inactive"; 
+        #         and test (systemctl is-active virtstoraged.socket) = "inactive"
+        #         and test (systemctl is-active virtnodedevd.socket) = "inactive"
+        #         and test (systemctl is-active virtqemud.socket) = "inactive"
+        #
+        #         sudo systemctl start --now virtnetworkd.socket virtstoraged.socket virtnodedevd.socket
+        #         sudo systemctl start --now virtqemud.socket
+        # end
         sudo virsh net-start default
 end
 function stop_virtio --description "stop network virtio"
-        if test (systemctl is-active virtnetworkd.socket) = "inactive"; 
-                and test (systemctl is-active virtstoraged.socket) = "inactive"
-                and test (systemctl is-active virtnodedevd.socket) = "inactive"
-                and test (systemctl is-active virtqemud.socket) = "inactive"
-
-                echo "virtio already stop!!"
-                return
-        end
+        # if test (systemctl is-active virtnetworkd.socket) = "inactive"; 
+        #         and test (systemctl is-active virtstoraged.socket) = "inactive"
+        #         and test (systemctl is-active virtnodedevd.socket) = "inactive"
+        #         and test (systemctl is-active virtqemud.socket) = "inactive"
+        #
+        #         echo "virtio already stop!!"
+        #         return
+        # end
         sudo virsh net-destroy default
-        sudo systemctl stop --now virtnetworkd.socket virtstoraged.socket virtnodedevd.socket
-        sudo systemctl stop --now virtqemud.socket
+        # sudo systemctl stop --now virtnetworkd.socket virtstoraged.socket virtnodedevd.socket
+        # sudo systemctl stop --now virtqemud.socket
 end
 # ---------------------------------------------------
 
