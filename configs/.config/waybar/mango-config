@@ -1,7 +1,7 @@
 {
 	"position": "bottom", // Waybar position (top|bottom|left|right)
 	"modules-left": ["clock", "ext/workspaces"],
-	"modules-center": ["mango/window"],
+	"modules-center": ["mango/layout","mango/window"],
 	"modules-right": ["network", "pulseaudio/slider","pulseaudio", "cpu", "memory", "battery", "privacy","tray"],
 
 	// Modules configuration
@@ -51,8 +51,11 @@
                     "7": []
             }
     },
-    "dwl/window": {
-            "format": "{layout} | {title}",
+    "mango/layout": {
+            "format": "<span color='#3b3937'>{symbol}</span>"
+    },
+    "mango/window": {
+            "format": " | {app_id} {title}",
     },
     "pulseaudio/slider": {
             "min": 0,
