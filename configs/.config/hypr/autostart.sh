@@ -1,8 +1,6 @@
 #!/usr/bin/sh
 
 # Execute your favorite apps at launch
-# waybar & 
-# hyprpaper & 
 # firefox
 
 # config for polkit

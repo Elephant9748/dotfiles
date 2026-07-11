@@ -45,7 +45,8 @@ end)
 --env = GTK_THEME, Adwaita:dark
 -- TODO: manual review — malformed env on line 21: GDK_BACKEND, wayland,x11
 hl.env("QT_QPA_PLATFORM", "wayland;xcb")
-hl.env("QT_QPA_PLATFORMTHEME", "qt5ct:qt6ct")
+-- hl.env("QT_QPA_PLATFORMTHEME", "qt5ct:qt6ct")
+hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
 --env = GBM_BACKEND, nvidia-drm
 --env = __GLX_VENDOR_LIBRARY_NAME, nvidia
 
@@ -221,8 +222,8 @@ hl.window_rule({
         title = "Picture-in-Picture",
     },
     float = true,
-    move = "1204 13",
-    size = "702 398",
+    move = "1260 12",
+    size = "647 361",
     pin = true,
 })
 
@@ -310,32 +311,32 @@ hl.workspace_rule({
 hl.curve("myBezier", { type = "bezier", points = { { 0.05, 0.9 }, { 0.1, 1.05 } } })
 hl.animation({
     leaf = "windows",
-    enabled = true,
+    enabled = false,
     speed = 7,
     bezier = "myBezier",
 })
 hl.animation({
     leaf = "windowsOut",
-    enabled = true,
+    enabled = false,
     speed = 7,
     bezier = "default",
     style = "popin 80%",
 })
 hl.animation({
     leaf = "border",
-    enabled = true,
+    enabled = false,
     speed = 10,
     bezier = "default",
 })
 hl.animation({
     leaf = "borderangle",
-    enabled = true,
+    enabled = false,
     speed = 8,
     bezier = "default",
 })
 hl.animation({
     leaf = "fade",
-    enabled = true,
+    enabled = false,
     speed = 7,
     bezier = "default",
 })
@@ -360,7 +361,7 @@ hl.animation({
 -- })
 hl.animation({
     leaf = "workspaces",
-    enabled = true,
+    enabled = false,
     speed = 6,
     bezier = "default",
     style = "slidefadevert 5%",
