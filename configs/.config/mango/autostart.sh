@@ -8,7 +8,7 @@ pkill -f waybar
 waybar -c ~/.config/waybar/mango-config -s ~/.config/waybar/mango-style.css &
 
 # wallpaper
-swaybg -i ~/Pictures/wallhaven.cc/vii.png &
+swaybg -i ~/Pictures/wallhaven.cc/iii.png &
 
 # extra
 /usr/lib/xdg-desktop-portal-wlr &
