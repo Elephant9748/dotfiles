@@ -1,12 +1,12 @@
 {
 	"position": "bottom", // Waybar position (top|bottom|left|right)
 	"modules-left": ["clock", "ext/workspaces"],
-	"modules-center": ["dwl/window"],
+	"modules-center": ["mango/window"],
 	"modules-right": ["network", "pulseaudio/slider","pulseaudio", "cpu", "memory", "battery", "privacy","tray"],
 
 	// Modules configuration
     "disable-scroll": true,
-    // "dwl/tags": {
+    // "mango/tags": {
     //         "num-tags": 7,
     //         //"hide-vacent": true,
     //         //"expand": false,
