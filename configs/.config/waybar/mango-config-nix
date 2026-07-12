@@ -1,12 +1,12 @@
 {
 	"position": "bottom", // Waybar position (top|bottom|left|right)
-	"modules-left": ["clock", "ext/workspaces"],
-	"modules-center": ["dwl/window"],
+	"modules-left": ["clock", "mango/workspaces"],
+	"modules-center": ["mango/layout", "mango/window"],
 	"modules-right": ["network", "pulseaudio/slider","pulseaudio", "cpu", "memory", "battery", "privacy","tray"],
 
 	// Modules configuration
     "disable-scroll": true,
-    // "dwl/tags": {
+    // "mango/tags": {
     //         "num-tags": 7,
     //         //"hide-vacent": true,
     //         //"expand": false,
@@ -51,8 +51,36 @@
                     "7": []
             }
     },
-    "dwl/window": {
-            "format": "{layout} | {title}",
+    "mango/workspaces": {
+            "all-outputs": false,
+            "format": "{icon}",
+            "ignore-hidden": true,
+            "on-click": "activate",
+            "on-click-right": "toggle",
+            "sort-by-id": true,
+            "sort-by-name": true,
+            "overview-label": "",
+            "format-icons": {
+                    "1": "Web",
+                    "2": "Code",
+                    "3": "3",
+                    "4": "4",
+                    "5": "5",
+                    "6": "6",
+                    "7": "7",
+                    "8": "",
+                    "9": "",
+                    // "active": "",
+                    //"default": "",
+                    // "urgent": "",
+                    // "empty": ""
+            },
+    },
+    "mango/layout": {
+            "format": "<span color='#484745'>{symbol}</span>"
+    },
+    "mango/window": {
+            "format": " | {app_id} {title}",
     },
     "pulseaudio/slider": {
             "min": 0,

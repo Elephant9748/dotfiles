@@ -12,8 +12,8 @@ swaybg -i ~/Pictures/wallhaven.cc/iii.png &
 
 # extra
 /usr/lib/xdg-desktop-portal-wlr &
-wl-paste --type text --watch cliphist store &
-wl-paste --type image --watch cliphist store &
+# wl-paste --type text --watch cliphist store &
+# wl-paste --type image --watch cliphist store &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
 # Turn off eDP-1 monitor

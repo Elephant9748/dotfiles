@@ -77,7 +77,7 @@
             },
     },
     "mango/layout": {
-            "format": "<span color='#3b3937'>{symbol}</span>"
+            "format": "<span color='#484745'>{symbol}</span>"
     },
     "mango/window": {
             "format": " | {app_id} {title}",
