@@ -119,7 +119,7 @@
 		"format-icons": ["", "", ""]
 	},
 	"cpu": {
-		"format": "<span size='12pt'></span> {usage}%",
+		"format": " {usage}%",
 		"tooltip": false,
         "states": {
                 "normal": 0,
@@ -146,7 +146,7 @@
 		"family": "ipv4",
 		// "interface": "wlp2*", // (Optional) To force the use of this interface
 		// "format-wifi": "<span color='#589df6'> </span> <span color='#2BB196'>{essid}</span> {frequency} <span color='#589df6'>{signaldBm} dB</span> <span color='#589df6'>⇵</span> {bandwidthUpBits}/{bandwidthDownBits}",
-		"format-wifi": "<span size='12pt' color='#6D8086'> </span> <span color='#3C3836'>{signalStrength}% {signaldBm}dBm</span> ",
+		"format-wifi": "<span color='#6D8086'> </span> <span color='#3C3836'>{signalStrength}% {signaldBm}dBm</span> ",
         "format-ethernet": "<span size='12pt' color='#6D8086'>🖧 </span> <span color='#3C3836'>{ifname}</span> ",
 		"format-linked": "{ifname} (No IP) ",
 		"format-disconnected": "Disconnected ⚠",
@@ -160,12 +160,12 @@
 	},
 	"pulseaudio": {
 		// "scroll-step": 1, // %, can be a float
-		"format": "<span size='12pt'></span>  {volume}% {format_source}",
+		"format": "  {volume}% {format_source}",
 		"format-muted": "🔇 {format_source}",
 		"format-bluetooth": "{icon} {volume}% {format_source}",
 		"format-bluetooth-muted": "🔇 {format_source}",
 
-		"format-source": "<span size='12pt'></span> {volume}%",
+		"format-source": " {volume}%",
 		"format-source-muted": "",
         "max-volume": 145,
 
