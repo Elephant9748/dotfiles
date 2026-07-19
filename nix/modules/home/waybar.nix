@@ -1,4 +1,4 @@
-{ pkgs, version, lib,  ... }: {
+{ pkgs, version, lib, waybar-git,  ... }: {
 
     home.file.".config/waybar/mango-config" = {
         source = ../../../configs/.config/waybar/mango-config-nix;
@@ -13,7 +13,8 @@
     # config & style from dotfiles
     programs.waybar = {
             enable = true;
-            package = pkgs.waybar;
+            # package = pkgs.waybar;
+            package = waybar-git.packages.${pkgs.system}.default;
             # systemd.enable = true;
             style = builtins.readFile ../../../configs/.config/waybar/style.css;
             settings = {

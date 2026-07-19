@@ -50,9 +50,16 @@
 
     # mangoWM
     mangowm = {
-      url = "github:mangowm/mango";
-      inputs.nixpkgs.follows = "nixpkgs";
+        url = "github:mangowm/mango";
+        inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # waybar from source
+    waybar-git = {
+        url = "github:Alexays/Waybar";
+        inputs.nixpkgs.follows = "nixpkgs";
+    };
+
 
     # --------------------------------------------------------------
   };
@@ -95,7 +102,7 @@
                                 home-manager.useGlobalPkgs = true;
                                 home-manager.useUserPackages = true;
                                 home-manager.extraSpecialArgs = { 
-                                        inherit version user; 
+                                        inherit version user waybar-git; 
                                 };
                                 home-manager.users.${user}.imports = [
                                         # ./modules/home/${label}_base.nix
