@@ -50,7 +50,7 @@
 
     # mangoWM
     mangowm = {
-        url = "github:mangowm/mango";
+        url = "github:mangowm/mango/wl-only";
         inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -72,6 +72,7 @@
           neovim-nightly,
           # rust-overlay, 
           mangowm,
+          waybar-git,
           ...
   } @inputs:
   let
