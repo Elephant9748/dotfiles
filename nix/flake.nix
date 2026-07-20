@@ -76,6 +76,29 @@
           ...
   } @inputs:
   let
+      system = "x86_64-linux";
+      version = "26.05";
+      editor = "nvim";
+      machine = {
+              vm = {
+                      user = "rigel";
+                      host = "citrullus-lanatus";
+                      label = "vm";
+                      inherit system version editor;
+              };
+              notebook = {
+                      user = "rigel";
+                      host = "starfish-small";
+                      label = "notebook";
+                      inherit system version editor;
+              };
+              pc = {
+                      user = "ringo";
+                      host = "ringo-pc";
+                      label = "pc";
+                      inherit system version editor;
+              };
+      };
       mkMachine = { user, host, system, version, editor, label, ... }:
         nixpkgs.lib.nixosSystem {
                 inherit system;
@@ -112,32 +135,7 @@
                         }
                 ];
         };
-          machine = {
-                  vm = {
-                          user = "tracy";
-                          host = "pineapple-vm";
-                          system = "x86_64-linux";
-                          version = "26.05";
-                          editor = "nvim";
-                          label = "vm";
-                  };
-                  notebook = {
-                          user = "rigel";
-                          host = "starfish-small";
-                          system = "x86_64-linux";
-                          version = "26.05";
-                          editor = "nvim";
-                          label = "notebook";
-                  };
-                  pc = {
-                          user = "ringo";
-                          host = "ringo-pc";
-                          system = "x86_64-linux";
-                          version = "26.05";
-                          editor = "nvim";
-                          label = "pc";
-                  };
-          };
+
   in
   {
           nixosConfigurations = nixpkgs.lib.mapAttrs (name: config: mkMachine config) machine;
