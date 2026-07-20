@@ -63,12 +63,14 @@
                                 # cursor-theme="Adwaita";
                                 font-antialiasing="grayscale";
                                 font-hinting="slight";
-                                font-name="Sans 11";
+                                font-name="Cantarell 10";
                                 font-rgba-order="rgb";
                                 gtk-theme="Kripton-standard-buttons-v40";
-                                text-scaling-factor=1.0;
+                                text-scaling-factor=0.86;
                                 toolbar-icons-size="small";
                                 toolbar-style="both-horiz";
+                                # text-scaling-factor = lib.hm.gvariant.mkDouble 0.86;
+                                # scaling-factor = lib.hm.gvariant.mkUint32 2;
                         };
             };
     };
