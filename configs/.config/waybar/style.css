@@ -3,6 +3,7 @@
   border-radius: 0;
   font-family: "monospace";
   /*font-family: "Noto Sans Mono";*/
+  /*font-family: "JetBrainsMono NF";*/
   font-size: 9px;
   min-height: 0;
   margin: 0px;
@@ -84,7 +85,7 @@ window#waybar {
   /*color: #BC4520;*/
   /*color: #16AA64;*/
   color: #ddd5c4;
-  border-radius: 3;
+  border-radius: 3px;
   border-bottom: 0.75px solid #3c3836;
 }
 

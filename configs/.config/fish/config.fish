@@ -611,7 +611,7 @@ function hdd-enter
                 return
         end
 end
-function hdd-exit
+function hdd-closed
         if test -b /dev/vg_arch/lv_root
                 printf "Umount block device \n"
                 sudo umount -R /mnt/arch-chroot/
