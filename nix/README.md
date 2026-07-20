@@ -1,16 +1,31 @@
 ## Flake on fresh install
 
+### Install using flake
+
+prerequisites
+
+```bash
+sudo -i
+nix-env -iA nixos.git nixos.just nixos.ripgrep
+```
+
+list machine
+
+```bash
+just machine
+```
+
+Take a look `just flake-[options]` before install, Setup using `just` :
+
+```bash
+just install [machine]
+```
+
 > [!NOTE]
 >
 > - change uuid `/boot`, matched lvm_vol!
 > - force upgrade packages: `rm -rf flake.lock` then Flake rebuild
 > - if sometime stuck Flake rebuild / Flake install: comment `#python312` packages
-
-user/host:
-
-```
-tracy #qemu vm
-```
 
 ### Create device block & mount them. `LVM on Luks` [Dm-crypt](https://wiki.archlinux.org/title/Dm-crypt/Encrypting_an_entire_system)
 
