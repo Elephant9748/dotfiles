@@ -131,5 +131,8 @@
     fzf
     just
     glaze
+    # virtiofs mount
+    guestfs-tools
+    virtiofsd
   ];
 }
