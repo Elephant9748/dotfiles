@@ -104,6 +104,7 @@ flake-hypr $machine:
         # sed -i 's/exec mango/# exec mango/' modules/{{machine}}/full.nix
         # sed -i 's/# exec start-hyprland/exec start-hyprland/' modules/{{machine}}/full.nix
         sed -i 's/mango.enable = true;/# mango.enable = true;/' modules/{{machine}}/full.nix
+        sed -i 's/# hyprland.enable = true;/hyprland.enable = true;/' modules/{{machine}}/full.nix
         sed -i 's/..\/mangowm.nix/# ..\/mangowm.nix/' modules/home/{{machine}}/full.nix
         sed -i 's/# ..\/hyprland.nix/..\/hyprland.nix/' modules/home/{{machine}}/full.nix
         sed -i 's/# ..\/hyprpaper.nix/..\/hyprpaper.nix/' modules/home/{{machine}}/full.nix

@@ -106,8 +106,10 @@
             ];
     };
     gnome-disks.enable = true;
-    # mangowm
+    # mangowm so we cant list wayland-session directory
     # mango.enable = true;
+    # hyprland so we cant list wayland-session directory
+    # hyprland.enable = true;
     steam = {
         enable = true;
         # remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play

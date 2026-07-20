@@ -96,8 +96,10 @@
                 thunar-archive-plugin
             ];
     };
-    # mangowm
+    # mangowm so we cant list wayland-session directory
     # mango.enable = true;
+    # hyprland so we cant list wayland-session directory
+    # hyprland.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
