@@ -107,6 +107,14 @@ flake-hypr $machine:
         sed -i 's/..\/mangowm.nix/# ..\/mangowm.nix/' modules/home/{{machine}}/full.nix
         sed -i 's/# ..\/hyprland.nix/..\/hyprland.nix/' modules/home/{{machine}}/full.nix
         sed -i 's/# ..\/hyprpaper.nix/..\/hyprpaper.nix/' modules/home/{{machine}}/full.nix
+# display manager ly
+flake-display-ly $machine:
+        sed -i 's/# ..\/ly.nix/..\/ly.nix/' modules/{{machine}}/full.nix
+        rg -i "ly.nix" modules/{{machine}}/full.nix
+# display manager tty default nixos
+flake-display-tty $machine:
+        sed -i 's/..\/ly.nix/# ..\/ly.nix/' modules/{{machine}}/full.nix
+        rg -i "ly.nix" modules/{{machine}}/full.nix
 # rsync fish config to host manual
 to-host-fish $user:
         #!/usr/bin/env bash
