@@ -91,8 +91,8 @@ flake-base $machine:
 flake-mango $machine:
         {{bangbash}}
         sed -i 's/# mangowm.nixosModules.mango/mangowm.nixosModules.mango/' flake.nix
-        sed -i 's/exec start-hyprland/# exec start-hyprland/' modules/{{machine}}/full.nix
-        sed -i 's/# exec mango/exec mango/' modules/{{machine}}/full.nix
+        # sed -i 's/exec start-hyprland/# exec start-hyprland/' modules/{{machine}}/full.nix
+        # sed -i 's/# exec mango/exec mango/' modules/{{machine}}/full.nix
         sed -i 's/# mango.enable = true;/mango.enable = true;/' modules/{{machine}}/full.nix
         sed -i 's/# ..\/mangowm.nix/..\/mangowm.nix/' modules/home/{{machine}}/full.nix
         sed -i 's/..\/hyprland.nix/# ..\/hyprland.nix/' modules/home/{{machine}}/full.nix
@@ -101,8 +101,8 @@ flake-mango $machine:
 flake-hypr $machine:
         {{bangbash}}
         sed -i 's/mangowm.nixosModules.mango/# mangowm.nixosModules.mango/' flake.nix
-        sed -i 's/exec mango/# exec mango/' modules/{{machine}}/full.nix
-        sed -i 's/# exec start-hyprland/exec start-hyprland/' modules/{{machine}}/full.nix
+        # sed -i 's/exec mango/# exec mango/' modules/{{machine}}/full.nix
+        # sed -i 's/# exec start-hyprland/exec start-hyprland/' modules/{{machine}}/full.nix
         sed -i 's/mango.enable = true;/# mango.enable = true;/' modules/{{machine}}/full.nix
         sed -i 's/..\/mangowm.nix/# ..\/mangowm.nix/' modules/home/{{machine}}/full.nix
         sed -i 's/# ..\/hyprland.nix/..\/hyprland.nix/' modules/home/{{machine}}/full.nix
