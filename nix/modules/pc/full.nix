@@ -1,7 +1,7 @@
 { pkgs, neovim-nightly, hypr, user, system, lib, ... }:
 {
   imports = [
-        ../ly.nix
+        # ../ly.nix
   ];
 
   security = { 
