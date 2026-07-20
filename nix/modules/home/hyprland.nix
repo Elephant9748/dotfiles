@@ -51,7 +51,8 @@
                                                 _args = ["QT_QPA_PLATFORM" "wayland;xcb"];
                                         }
                                         {
-                                                _args = ["QT_QPA_PLATFORMTHEME" "qt5ct:qt6ct"];
+                                                # _args = ["QT_QPA_PLATFORMTHEME" "qt5ct:qt6ct"];
+                                                _args = ["QT_QPA_PLATFORMTHEME" "qt6ct"];
                                         }
                                         # {
                                         #         _args = "GBM_BACKEND" "nvidia-drm"
@@ -276,32 +277,32 @@
                             animation = [
                                     {
                                         leaf = "windows";
-                                        enabled = true;
+                                        enabled = false;
                                         speed = 7;
                                         bezier = "myBezier";
                                     }
                                     {
                                         leaf = "windowsOut";
-                                        enabled = true;
+                                        enabled = false;
                                         speed = 7;
                                         bezier = "default";
                                         style = "popin 80%";
                                     }
                                     {
                                         leaf = "border";
-                                        enabled = true;
+                                        enabled = false;
                                         speed = 10;
                                         bezier = "default";
                                     }
                                     {
                                         leaf = "borderangle";
-                                        enabled = true;
+                                        enabled = false;
                                         speed = 8;
                                         bezier = "default";
                                     }
                                     {
                                         leaf = "fade";
-                                        enabled = true;
+                                        enabled = false;
                                         speed = 7;
                                         bezier = "default";
                                     }
@@ -326,7 +327,7 @@
                                     # }
                                     {
                                         leaf = "workspaces";
-                                        enabled = true;
+                                        enabled = false;
                                         speed = 6;
                                         bezier = "default";
                                         style = "slidefadevert 5%";
@@ -839,13 +840,14 @@
                                             gaps_out = 3;
                                             border_size = 1;
                                             col = {
-                                                    active_border = { colors = [ "rgba(427B58ee)" "rgba(076678ee)"]; angle = 45; };
+                                                    active_border = { colors = [ "rgba(4c4c4cee)" "rgba(302c29ee)"]; angle = 45; };
+                                                    # active_border = { colors = [ "rgba(427B58ee)" "rgba(076678ee)"]; angle = 45; };
                                                     #  active_border = { colors = [ "rgba(33ccffee)" "rgba(00ff99ee)"]; angle = 45;};
                                                     #  active_border = { colors = [ "rgba(356F89ee)" "rgba(519C62ee)"]; angle = 45;};
                                                     #  active_border = { colors = [ "rgba(E0431Aee)" "rgba(304F47ee)"]; angle = 45;};
                                                     #  active_border = { colors = [ "rgba(40281Bee)" "rgba(3C3836ee)"]; angle = 45;};
                                                     #  active_border = { colors = [ "rgba(7C6F64ee)" "rgba(3C3836ee)"]; angle = 45;};
-                                                    inactive_border = "rgba(595959aa)";
+                                                    inactive_border = "rgba(0f0f0faa)";
                                             };
                                             layout = "dwindle";
                                     };

@@ -23,6 +23,9 @@
                             modules-left = ["clock" "hyprland/workspaces"];
                             modules-center = ["hyprland/window"];
                             modules-right = ["network" "pulseaudio/slider" "pulseaudio" "cpu" "memory" "battery" "privacy" "tray"];
+                            "hyprland/window": {
+                                    "format": "{class}: {title}";
+                            };
                             "hyprland/workspaces" = {
 		                                "disable-scroll" = true;
                                         "all-outputs" = false;
