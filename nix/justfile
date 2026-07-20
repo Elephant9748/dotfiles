@@ -108,7 +108,7 @@ flake-hypr $machine:
         sed -i 's/..\/mangowm.nix/# ..\/mangowm.nix/' modules/home/{{machine}}/full.nix
         sed -i 's/# ..\/hyprland.nix/..\/hyprland.nix/' modules/home/{{machine}}/full.nix
         sed -i 's/# ..\/hyprpaper.nix/..\/hyprpaper.nix/' modules/home/{{machine}}/full.nix
-# all wayland compositor install
+# install all wayland compositor 
 flake-compositor $machine:
         sed -i 's/# ..\/hyprland.nix/..\/hyprland.nix/' modules/home/{{machine}}/full.nix
         sed -i 's/# ..\/hyprpaper.nix/..\/hyprpaper.nix/' modules/home/{{machine}}/full.nix
@@ -116,6 +116,8 @@ flake-compositor $machine:
         sed -i 's/# mangowm.nixosModules.mango/mangowm.nixosModules.mango/' flake.nix
         sed -i 's/# mango.enable = true;/mango.enable = true;/' modules/{{machine}}/full.nix
         sed -i 's/# hyprland.enable = true;/hyprland.enable = true;/' modules/{{machine}}/full.nix
+        rg -U -o 'imports\s*=\s*\[(\p{any}*?)\]' -r '$1' --no-line-number modules/home/{{machine}}/full.nix | \
+                awk '{print "\033[0;32m" $0}'
 
 # display manager ly
 flake-display-ly $machine:
