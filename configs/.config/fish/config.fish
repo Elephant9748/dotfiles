@@ -455,8 +455,9 @@ end
 #timeout
 function timeout_ssh_agent
         set delay 3600
+        set realdelay (math -s0 "$delay/60")
         if command -v dunstify > /dev/null
-                dunstify -u normal -i "/home/rigel/.local/share/icons/ssh.png" "SSH AGENT Timeout: $delay second"
+                dunstify -u normal -i "/home/rigel/.local/share/icons/ssh.png" "SSH AGENT Timeout: $realdelay minute"
                 $HOME/.config/fish/timeout-ssh-agent.fish -t $delay &
         else 
                 printf "No notify Agent found!"
