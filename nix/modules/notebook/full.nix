@@ -1,5 +1,9 @@
 { pkgs, neovim-nightly, hypr, user, system, ... }:
 {
+  imports = [
+        ../ly.nix
+  ];
+
   security = { 
           sudo = {
               enable = true;
@@ -21,7 +25,10 @@
 
   environment = {
         pathsToLink = [ "/share/applications" "/share/xdg-desktop-portal" ];
-        # variables.GSETTINGS_SCHEMA_DIR = "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}/glib-2.0/schemas";
+        variables = {
+                # WLR_NO_HARDWARE_CURSORS = "1";
+                # GSETTINGS_SCHEMA_DIR = "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}/glib-2.0/schemas";
+        };
   };
 
 
@@ -50,14 +57,14 @@
   programs = {
 	fish = {
 		enable = true;
-        loginShellInit = ''
-                if test (tty) = "/dev/tty1"; and test -z "$WAYLAND_DISPLAY"; and test -n "$XDG_VTNR"; and test "$XDG_VTNR" -eq 1
-                    exec start-hyprland
-                    # mangowm
-                    # set -gx WLR_NO_HARDWARE_CURSORS 1 # for vm pointer mouse upside down
-                    # exec mango
-                  end
-        '';
+        # loginShellInit = ''
+        #         if test (tty) = "/dev/tty1"; and test -z "$WAYLAND_DISPLAY"; and test -n "$XDG_VTNR"; and test "$XDG_VTNR" -eq 1
+        #             exec start-hyprland
+        #             # mangowm
+        #             # set -gx WLR_NO_HARDWARE_CURSORS 1 # for vm pointer mouse upside down
+        #             # exec mango
+        #           end
+        # '';
 	};
 	ssh = {
 		package = pkgs.openssh;
