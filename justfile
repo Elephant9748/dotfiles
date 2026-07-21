@@ -22,6 +22,8 @@ to-dot:
                 rsync -azP $HOME/.config/gtk-4.0 configs/.config/ && \
                 rsync -azP $HOME/.config/bottom configs/.config/ && \
                 rsync -azP $HOME/.config/bat configs/.config/ && \
+                # mimeapps list
+                rsync -azP $HOME/.config/mimeapps.list configs/.config/ && \
                 # theme
                 rsync -azP $HOME/.themes configs/ && \
                 # icons
@@ -67,6 +69,8 @@ to-host:
                 rsync -azP configs/.config/gtk-4.0 $HOME/.config/ && \
                 rsync -azP configs/.config/bottom $HOME/.config/ && \
                 rsync -azP configs/.config/bat $HOME/.config/ && \
+                # mimeapps list
+                rsync -azP configs/.config/mimeapps.list $HOME/.config/ && \
                 # theme
                 rsync -azP configs/.themes $HOME/ && \
                 # icon
