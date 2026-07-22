@@ -1,0 +1,3 @@
+#!/usr/bin/bash
+
+/usr/bin/msmtp -C ~/.config/mutt/.msmtprc -a mnetwork -t "$@"

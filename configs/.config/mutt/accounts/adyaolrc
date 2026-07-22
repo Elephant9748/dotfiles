@@ -1,0 +1,27 @@
+set from = "adytama.surya@aol.com"
+set realname ="adytama.surya"
+
+set folder = "~/mails/adyaol"
+set spoolfile = "+Inbox"
+set postponed = "+Drafts"
+set record = "+Sent"
+set trash = "+Trash"
+
+unset record
+
+unmailboxes *
+mailboxes \
+        -label "  Inbox" +"Inbox" \
+        -label "All Mail" +"Bulk" \
+        -label "Drafts" +"Drafts" \
+        -label "Sent" +"Sent" \
+        -label "Saved" +"Saved" \
+        -label "Archive" +"Archive" \
+        -label "Trash" +"Trash" 
+
+set header_cache = "~/.cache/mutt/adyaol/headers"
+set message_cachedir = "~/.cache/mutt/adyaol/bodies"
+set certificate_file = "~/.cache/mutt/adyaol/certificates"
+
+set sendmail = "/home/rigel/.config/mutt/send_adyaol"
+

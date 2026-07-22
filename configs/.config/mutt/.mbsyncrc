@@ -1,0 +1,116 @@
+# --- Account: melon ---
+IMAPAccount mnetwork
+# Address to connect to
+Host imap.gmail.com
+User melon.network25@gmail.com
+Port 993
+# Pass ***************
+PassCmd "gpg -q -d ~/mails/mnetworkisync.gpg"
+TLSType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+#CertificateFile ~/.cert/imap.gmail.com.pem
+#CertificateFile ~/.cert/Equifax_Secure_CA.pem
+
+IMAPStore mnetwork-remote
+Account mnetwork
+
+MaildirStore mnetwork-local
+SubFolders Verbatim
+# The trailing "/" is important
+Path ~/mails/mnetwork/
+Inbox ~/mails/mnetwork/Inbox
+
+Channel mnetwork
+Far :mnetwork-remote:
+Near :mnetwork-local:
+# Exclude everything under the internal [Gmail] folder, except the interesting folders
+# Patterns * ![Gmail]* "[Gmail]/Sent Mail" "[Gmail]/Starred" "[Gmail]/All Mail"
+# Or include everything
+Patterns *
+# Automatically create missing mailboxes, both locally and on the server
+Create Both
+# Sync the movement of messages between folders and deletions, add after making sure the sync works
+Expunge Both
+# Save the synchronization state files in the relevant directory
+SyncState *
+# ----------------------------
+
+# --- Account: mango ---
+IMAPAccount mango
+# Address to connect to
+Host imap.gmail.com
+User adytamasurya@gmail.com
+Port 993
+# Pass ***************
+PassCmd "gpg -q -d ~/mails/mangoisync.gpg"
+TLSType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+#CertificateFile ~/.cert/imap.gmail.com.pem
+#CertificateFile ~/.cert/Equifax_Secure_CA.pem
+
+IMAPStore mango-remote
+Account mango
+
+MaildirStore mango-local
+SubFolders Verbatim
+# The trailing "/" is important
+Path ~/mails/mango/
+Inbox ~/mails/mango/Inbox
+
+Channel mango
+Far :mango-remote:
+Near :mango-local:
+# Exclude everything under the internal [Gmail] folder, except the interesting folders
+# Patterns * ![Gmail]* "[Gmail]/Sent Mail" "[Gmail]/Starred" "[Gmail]/All Mail"
+# Or include everything
+Patterns *
+# Automatically create missing mailboxes, both locally and on the server
+Create Both
+# Sync the movement of messages between folders and deletions, add after making sure the sync works
+Expunge Both
+# Save the synchronization state files in the relevant directory
+SyncState *
+# ----------------------------
+
+
+# --- Account: adyaol ---
+IMAPAccount adyaol
+# Address to connect to
+Host imap.aol.com
+User adytama.surya@aol.com
+Port 993
+# Pass ***************
+PassCmd "gpg -q -d ~/mails/adyaolisync.gpg"
+TLSType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+#CertificateFile ~/.cert/imap.gmail.com.pem
+#CertificateFile ~/.cert/Equifax_Secure_CA.pem
+
+IMAPStore adyaol-remote
+Account adyaol
+
+MaildirStore adyaol-local
+SubFolders Verbatim
+# The trailing "/" is important
+Path ~/mails/adyaol/
+Inbox ~/mails/adyaol/Inbox
+
+Channel adyaol
+Far :adyaol-remote:
+Near :adyaol-local:
+# Exclude everything under the internal [Gmail] folder, except the interesting folders
+# Patterns * ![Gmail]* "[Gmail]/Sent Mail" "[Gmail]/Starred" "[Gmail]/All Mail"
+# Or include everything
+Patterns *
+# Automatically create missing mailboxes, both locally and on the server
+Create Both
+# Sync the movement of messages between folders and deletions, add after making sure the sync works
+Expunge Both
+# Save the synchronization state files in the relevant directory
+SyncState *
+# ----------------------------
+
+Group all 
+Channel mnetwork
+Channel mango
+Channel adyaol

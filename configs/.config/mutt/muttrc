@@ -1,0 +1,192 @@
+# color themes
+source ~/.config/mutt/colors/rigel
+
+# smtp imap pass
+# source "gpg -dq ~/mails/mnetwork.gpg |"
+
+# Identity
+# set realname = "melon.network25"
+# set from = "melon.network25@gmail.com"
+
+# Gmail
+# set imap_user = "melon.network25@gmail.com"
+
+# dont use this if using isync or offlineIMAP
+# ---------------------------------------------
+# set smtp_url = "smtp://melon.network25@gmail.com@smtp.gmail.com:587/"
+# set smtp_authenticators = 'gssapi:login'
+
+# Ensure TLS is enforced
+# set ssl_starttls = yes
+# set ssl_force_tls = yes
+
+# msmtp
+set sendmail = "/home/rigel/.config/mutt/send_mnetwork"
+
+# Mailboxes
+# set folder = "imaps://imap.gmail.com:993/[Gmail]"
+set mbox_type = Maildir
+set folder = "~/mails/mnetwork/"
+set spoolfile = "+Inbox"
+set postponed = "+[Gmail]/Drafts"
+set record = "+[Gmail]/Sent Mail"
+set trash = "+[Gmail]/Trash"
+
+unset record
+
+mailboxes \
+        -label "  Inbox" +"Inbox" \
+        -label "All Mail" +"[Gmail]/All Mail" \
+        -label "Important" +"[Gmail]/Important" \
+        -label "Starred" +"[Gmail]/Starred" \
+        -label "Drafts" +"[Gmail]/Drafts" \
+        -label "Sent" +"[Gmail]/Sent Mail" \
+        -label "Spam" +"[Gmail]/Spam" \
+        -label "Trash" +"[Gmail]/Trash"
+
+set header_cache = "~/.cache/mutt/mnetwork/headers"
+set message_cachedir = "~/.cache/mutt/mnetwork/bodies"
+set certificate_file = "~/.cache/mutt/mnetwork/certificates"
+
+# folder-hook '~/mails/mnetwork/[Gmail]' 'source ~/.config/mutt/accounts/mnetworkrc'
+# folder-hook '~/mails/mango/[Gmail]' 'source ~/.config/mutt/accounts/mangorc'
+
+# folder-hook . 'source ~/.config/mutt/accounts/mnetworkrc'
+
+#sidebar
+set sidebar_visible # comment to disable sidebar by default
+set sidebar_width = 35
+set sidebar_short_path
+set sidebar_folder_indent
+set sidebar_format = "[%?N?%N / ?%S]%* %D"
+# set sidebar_format = "%B %* [%?N?%N / ?%S]"
+# set sidebar_format = "%B[%?N?%N / ?%S]"
+set mail_check_stats
+bind index,pager \CK sidebar-prev
+bind index,pager \CJ sidebar-next
+bind index,pager \CE sidebar-open
+bind index,pager B sidebar-toggle-visible
+
+# Status Bar 
+set status_chars  = " *%A"
+set status_format = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───"
+
+# Editor for composing messages
+set editor = "nvim"
+
+# set date_format = "%m/%d/%y"
+# set date_format = "%m/%d/%y-%I%M%P"
+set date_format = "%m/%d/%y-%H:%M"
+set index_format = "[%Z]  %D  %-20.20F  %s"
+# Basic behaviour
+set sort         = threads        # thread messages by conversation
+set sort_aux     = reverse-last-date-received
+set mark_old     = no             # don't mark new messages as old on exit
+set mime_forward = ask-yes        # ask whether to forward as attachment
+
+# settings
+set pager_index_lines = 10          
+set pager_context = 3                # show 3 lines of context
+set pager_stop                       # stop at end of message
+set menu_scroll                      # scroll menu
+set tilde                            # use ~ to pad mutt
+set move=no                          # don't move messages when marking as read
+set mail_check = 30                  # check for new mail every 30 seconds
+set imap_keepalive = 900             # 15 minutes
+set sleep_time = 0                   # don't sleep when idle
+set wait_key = no		     # mutt won't ask "press key to continue"
+set envelope_from                    # which from?
+set use_from
+set edit_headers                     # show headers when composing
+set fast_reply                       # skip to compose when replying
+set askcc                            # ask for CC:
+set fcc_attach                       # save attachments with the body
+set forward_format = "Fwd: %s"       # format of subject when forwarding
+set forward_decode                   # decode when forwarding
+set forward_quote                    # include message in forwards
+set mime_forward                     # forward attachments as part of body
+set attribution = "On %d, %n wrote:" # format of quoting header
+set reply_to                         # reply to Reply to: field
+set reverse_name                     # reply as whomever it was to
+set include                          # include message in replies
+set text_flowed=yes                  # correct indentation for plain text
+unset sig_dashes                     # no dashes before sig
+unset markers
+
+# Sort by newest conversation first.
+set charset = "utf-8"
+set uncollapse_jump
+set sort_re
+set sort = reverse-threads
+set sort_aux = last-date-received
+# How we reply and quote emails.
+set reply_regexp = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
+set quote_regexp = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
+set send_charset = "utf-8:iso-8859-1:us-ascii" # send in utf-8
+
+# Use GPGME
+# Use my key for signing and encrypting
+set pgp_default_key = DFBE7114C679EEE5A5EEF9DEFEB16A30533B2108
+
+# Use GPGME
+set crypt_use_gpgme = yes
+
+# Automatically sign all out-going email
+set crypt_autosign = no
+set crypt_autoencrypt = yes
+
+# Sign replies to signed emails
+set crypt_replysign = yes
+
+# Encrypt replies to encrypted emails
+set crypt_replyencrypt = yes
+
+# Encrypt and sign replies to encrypted and signed email
+set crypt_replysignencrypted = yes
+
+# Attempt to verify signatures automatically
+set crypt_verify_sig = yes
+
+# Attempt to encrypt automatically, if possible
+# I would recommend setting this to no as university often have spam filters
+# And this will cause your emails to be marked as spam
+# as they can't decrypt your emails LMAO
+set crypt_opportunistic_encrypt = no
+
+# So you can view encrypted emails automatically
+auto_view application/pgp-encrypted
+
+# macro
+# sync mail only new
+macro index,pager \Cs "<shell-escape>mbsync -c ~/.config/mutt/.mbsyncrc -a -V<enter><shell-escape>notmuch new<enter>" "Sync Mail"
+
+# notmuch
+# macro index S "<shell-escape>mbsync -V gmail<enter><shell-escape>notmuch new<enter>" "sync email"
+macro index \Cf "<enter-command>unset wait_key<enter><shell-escape>read -p 'Enter a search term to find with notmuch: ' x; echo \$x >~/.cache/mutt_terms<enter><limit>~i \"\`notmuch search --output=messages \$(cat ~/.cache/mutt_terms) | head -n 600 | perl -le '@a=<>;s/\^id:// for@a;$,=\"|\";print@a' | perl -le '@a=<>; chomp@a; s/\\+/\\\\+/ for@a;print@a' \`\"<enter>" "show only messages matching a notmuch pattern"
+
+# sourcing with macro
+macro index,pager \Cl ":source ~/.config/mutt/colors/colors-lukesmith<enter>" "Load Theme Lukesmith"
+macro index,pager <F1> "<enter-command>source ~/.config/mutt/accounts/mangorc<enter> \
+                        <change-folder>+Inbox<enter> \
+                        <enter-command>echo '- adytamasurya@gmail.com'<enter> \
+                        <enter-command>set status_format='Mango-adytamasurya@gmail.com───[ Folder: %f ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───'<enter>" "Switch to Mango"
+macro index,pager <F2> "<enter-command>source ~/.config/mutt/accounts/mnetworkrc<enter> \
+                        <change-folder>+Inbox<enter> \
+                        <enter-command>echo '- melon.network25@gmail.com'<enter> \
+                        <enter-command>set status_format='Mnetwork-melon.network25@gmail.com───[ Folder: %f ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───'<enter>" "Switch to Mnetwork"
+macro index,pager <F3> "<enter-command>source ~/.config/mutt/accounts/adyaolrc<enter> \
+                        <change-folder>+Inbox<enter> \
+                        <enter-command>echo '- adytama.surya@aol.com'<enter> \
+                        <enter-command>set status_format='Adyaol-adytama.surya@aol.com───[ Folder: %f ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───'<enter>" "Switch to Mnetwork"
+
+# bind
+unbind index,pager g
+bind index gg       first-entry
+bind index G        last-entry
+# bind index o display-message
+# Pager
+bind pager \Cu  previous-line
+bind pager \Cd  next-line
+bind pager gg top
+bind pager G  bottom
+bind pager R  group-reply

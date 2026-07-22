@@ -1,0 +1,4 @@
+#!/usr/bin/bash
+
+/usr/bin/msmtp -C ~/.config/mutt/.msmtprc -a mnetwork -t "$@"
+/usr/bin/mbsync -c ~/.config/mutt/.mbsyncrc -a -V

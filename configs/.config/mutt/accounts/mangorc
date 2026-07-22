@@ -1,0 +1,27 @@
+set from = "adytamasurya@gmail.com"
+set realname = "surya adytama"
+
+set folder = "~/mails/mango/"
+set spoolfile = "+[Gmail]/All Mail"
+set postponed = "+[Gmail]/Drafts"
+set record = "+[Gmail]/Sent Mail"
+set trash = "+[Gmail]/Bin"
+unset record
+
+unmailboxes *
+# mailboxes +"All Mail" +"Important" +"Starred" +"Drafts" +"Sent Mail" +"Spam" +"Bin"
+mailboxes \
+        -label "  Inbox" +"Inbox" \
+        -label "All Mail" +"[Gmail]/All Mail" \
+        -label "Important" +"[Gmail]/Important" \
+        -label "Starred" +"[Gmail]/Starred" \
+        -label "Drafts" +"[Gmail]/Drafts" \
+        -label "Sent" +"[Gmail]/Sent Mail" \
+        -label "Spam" +"[Gmail]/Spam" \
+        -label "Bin" +"[Gmail]/Bin" 
+
+set header_cache = "~/.cache/mutt/mango/headers"
+set message_cachedir = "~/.cache/mutt/mango/bodies"
+set certificate_file = "~/.cache/mutt/mango/certificates"
+
+set sendmail = "/home/rigel/.config/mutt/send_mango"

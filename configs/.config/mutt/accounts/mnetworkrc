@@ -1,0 +1,29 @@
+set from = "melon.network25@gmail.com"
+set realname ="melon.network25"
+
+set folder = "~/mails/mnetwork/"
+set spoolfile = "+[Gmail]/All Mail"
+set postponed = "+[Gmail]/Drafts"
+set record = "+[Gmail]/Sent Mail"
+set trash = "+[Gmail]/Trash"
+
+unset record
+
+unmailboxes *
+# mailboxes +"All Mail" +"Important" +"Starred" +"Drafts" +"Sent Mail" +"Spam" +"Trash"
+mailboxes \
+        -label "  Inbox" +"Inbox" \
+        -label "All Mail" +"[Gmail]/All Mail" \
+        -label "Important" +"[Gmail]/Important" \
+        -label "Starred" +"[Gmail]/Starred" \
+        -label "Drafts" +"[Gmail]/Drafts" \
+        -label "Sent" +"[Gmail]/Sent Mail" \
+        -label "Spam" +"[Gmail]/Spam" \
+        -label "Trash" +"[Gmail]/Trash" 
+
+set header_cache = "~/.cache/mutt/mnetwork/headers"
+set message_cachedir = "~/.cache/mutt/mnetwork/bodies"
+set certificate_file = "~/.cache/mutt/mnetwork/certificates"
+
+set sendmail = "/home/rigel/.config/mutt/send_mnetwork"
+

@@ -84,7 +84,17 @@ to-host:
                 # sudo rsync -azP configs/sddm/sddm-astronaut-theme /usr/share/sddm/themes/
                 # sudo rsync -azP configs/sddm/sddm.conf.d/ /usr/lib/sddm/sddm.conf.d/
         fi
-
+# mail: neomutt, isync, msmtp to-dot -->
+to-dot-mail:
+        #!/usr/bin/env bash
+        rsync -azP ~/.config/mutt configs/.config/ 
+# mail: neomutt, isync, msmtp to-host <--
+to-host-mail:
+        #!/usr/bin/env bash
+        if [[ ! -d "~/mails" ]]; then
+                mkdir -p ~/mails/{mnetwork,mango,adyaol}
+        fi
+        rsync -azP configs/.config/mutt ~/.config/ 
 # rsync sddm 
 to-host-sddm:
         #!/usr/bin/env bash
