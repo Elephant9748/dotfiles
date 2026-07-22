@@ -261,13 +261,22 @@ if command -v dust > /dev/null
         abbr -a size 'dust -d 1 -c -B'
 end
 
+#mail sync
+if command -v mbsync > /dev/null
+        abbr -a mail_sync 'mbsync -c ~/.config/mutt/.mbsyncrc -a'
+end
+# mail / neomutt
+if command -v neomutt > /dev/null
+        abbr -a mail 'neomutt'
+end
+
 #git
 if command -v git > /dev/null
         abbr -a g git
         abbr -a gc 'git checkout'
         abbr -a ga 'git add -p'
         abbr -a gl 'git log --all --decorate --oneline -50 --graph'
-        abbr -a gld 'git log --all --pretty=format:"%C(#655e5c)[%ad] %C(Yellow)%h %C(auto)%(decorate:tag=,separator= ) %Creset%s %C(#366146)[%an]" --date=short -50 --graph'
+        abbr -a gld 'git log --all --pretty=format:"%C(#655e5c)[%ad] %C(Yellow)%h %C(auto)%(decorate:tag=,separator= ) %Creset%s %C(#366146)%an" --date=short -50 --graph'
         abbr -a gs 'git status'
         abbr -a gss 'git diff --cached'
         abbr -a gsm 'git submodule update --init --recursive'
@@ -790,4 +799,5 @@ abbr -a bt_log 'sudo journalctl --since=today -f | rg -i "bluetooth"'
 abbr -a bt_dmesg 'sudo dmesg -w'
 
 # wifi
-abbr -a wifi_duplicateip 'sudo ip addr flush dev wlan0' # Force the release of current leases to clear duplicate IPs assigned to the interface
+# Force the release of current leases to clear duplicate IPs assigned to the interface
+abbr -a wifi_duplicateip 'sudo ip addr flush dev wlan0' 

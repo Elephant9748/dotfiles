@@ -16,7 +16,7 @@
         cm = commit -m
         co = checkout
         lo = log --all --decorate --oneline -50 --graph
-        lod = "log --all --pretty=format:'%C(#655e5c)[%ad] %C(Yellow)%h %C(auto)%(decorate:tag=,separator= ) %Creset%s %C(#366146)[%an]' --date=short -50 --graph"
+        lod = "log --all --pretty=format:'%C(#655e5c)[%ad] %C(Yellow)%h %C(auto)%(decorate:tag=,separator= ) %Creset%s %C(#366146)%an' --date=short -50 --graph"
         l = log
         r = rebase
         r2 = rebase -i HEAD~2
