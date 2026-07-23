@@ -76,9 +76,9 @@ flake-full $machine:
         sed -i 's/base/full/' modules/home/{{machine}}/default.nix
         printf "\033[0;34mflake-full:\n"
         rg -i "full" modules/{{machine}}/default.nix | head -n 1 | \
-                paste -sd "" | awk '{print "\033[0;32m" $0}'
+                paste -sd "" |  awk '{print "\033[0;32m" $0}'
         rg -i "full" modules/home/{{machine}}/default.nix | head -n 1 | \
-                paste -sd "" | awk '{print "\033[0;32m" $0}'
+                paste -sd "" |  awk '{print "\033[0;32m" $0}'
         # sed -i 's/_base.nix/_full.nix/' flake.nix
         # sed -i 's/_home_base.nix/_home_full.nix/' flake.nix
         # printf "\033[0;34m> Done look flake.nix\n\033[0m"
@@ -111,6 +111,11 @@ flake-mango $machine:
         sed -i 's/# ..\/mangowm.nix/..\/mangowm.nix/' modules/home/{{machine}}/full.nix
         sed -i 's/..\/hyprland.nix/# ..\/hyprland.nix/' modules/home/{{machine}}/full.nix
         sed -i 's/..\/hyprpaper.nix/# ..\/hyprpaper.nix/' modules/home/{{machine}}/full.nix
+        rg -i "mangowm.nixosModules.mango" flake.nix | awk '{$1=$1};1' | awk '{print "\033[0;32m" $0}'
+        rg -i "mango.enable = true;" modules/home/{{machine}}/full.nix | \
+                awk '{$1=$1};1' | awk '{print "\033[0;32m" $0}'
+        rg -U -o 'imports\s*=\s*\[(\p{any}*?)\]' -r '$1' --no-line-number modules/home/{{machine}}/full.nix | \
+                awk '{$1=$1};1' | awk '{print "\033[0;32m" $0}'
 # default comopositor hyprland
 flake-hypr $machine:
         {{bangbash}}
@@ -122,6 +127,11 @@ flake-hypr $machine:
         sed -i 's/..\/mangowm.nix/# ..\/mangowm.nix/' modules/home/{{machine}}/full.nix
         sed -i 's/# ..\/hyprland.nix/..\/hyprland.nix/' modules/home/{{machine}}/full.nix
         sed -i 's/# ..\/hyprpaper.nix/..\/hyprpaper.nix/' modules/home/{{machine}}/full.nix
+        rg -i "mangowm.nixosModules.mango" flake.nix | awk '{$1=$1};1' | awk '{$1=$1};1' | awk '{print "\033[0;32m" $0}'
+        rg -i "hyprland.enable = true;" modules/home/{{machine}}/full.nix | \
+                awk '{$1=$1};1' | awk '{print "\033[0;32m" $0}'
+        rg -U -o 'imports\s*=\s*\[(\p{any}*?)\]' -r '$1' --no-line-number modules/home/{{machine}}/full.nix | \
+                awk '{$1=$1};1' | awk '{print "\033[0;32m" $0}'
 # install all wayland compositor 
 flake-compositor $machine:
         sed -i 's/# ..\/hyprland.nix/..\/hyprland.nix/' modules/home/{{machine}}/full.nix
@@ -131,24 +141,24 @@ flake-compositor $machine:
         sed -i 's/# mango.enable = true;/mango.enable = true;/' modules/{{machine}}/full.nix
         sed -i 's/# hyprland.enable = true;/hyprland.enable = true;/' modules/{{machine}}/full.nix
         rg -U -o 'imports\s*=\s*\[(\p{any}*?)\]' -r '$1' --no-line-number modules/home/{{machine}}/full.nix | \
-                awk '{print "\033[0;32m" $0}'
+                awk '{$1=$1};1' | awk '{print "\033[0;32m" $0}'
 
 # display manager sddm
 flake-display-sddm $machine:
         sed -i 's/# ..\/sddm.nix/..\/sddm.nix/' modules/{{machine}}/full.nix
         sed -i 's/..\/ly.nix/# ..\/ly.nix/' modules/{{machine}}/full.nix
-        rg -i "ly.nix" modules/{{machine}}/full.nix
-        rg -i "sddm.nix" modules/{{machine}}/full.nix
+        rg -i "ly.nix" modules/{{machine}}/full.nix | awk '{$1=$1};1' | awk '{print "\033[0;32m" $0}'
+        rg -i "sddm.nix" modules/{{machine}}/full.nix | awk '{$1=$1};1' | awk '{print "\033[0;32m" $0}'
 # display manager ly
 flake-display-ly $machine:
         sed -i 's/# ..\/ly.nix/..\/ly.nix/' modules/{{machine}}/full.nix
         sed -i 's/..\/sddm.nix/# ..\/sddm.nix/' modules/{{machine}}/full.nix
-        rg -i "ly.nix" modules/{{machine}}/full.nix
-        rg -i "sddm.nix" modules/{{machine}}/full.nix
+        rg -i "ly.nix" modules/{{machine}}/full.nix | awk '{$1=$1};1' | awk '{print "\033[0;32m" $0}'
+        rg -i "sddm.nix" modules/{{machine}}/full.nix | awk '{$1=$1};1' | awk '{print "\033[0;32m" $0}'
 # display manager tty default nixos
 flake-display-tty $machine:
         sed -i 's/..\/ly.nix/# ..\/ly.nix/' modules/{{machine}}/full.nix
-        rg -i "ly.nix" modules/{{machine}}/full.nix
+        rg -i "ly.nix" modules/{{machine}}/full.nix | awk '{$1=$1};1' | awk '{print "\033[0;32m" $0}'
         
 # rsync fish config to host manual
 to-host-fish $user:
