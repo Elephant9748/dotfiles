@@ -10,33 +10,47 @@ machine:
         grep -E '\s\w{2,8}\s=\s{' flake.nix | tail -n 3 |  \
                 sed -E 's/\s=\s\{//' | paste -sd "" | \
                 awk '{print "\033[0;34mMachine:\033[0;32m\n\t"$1"\n\t"$2"\n\t"$3}'
+
 # pkgs nix-env -iA nixos.<pkgs> (git, just, fish, neovim)
 tools:
         nix-env -iA nixos.git nixos.neovim nixos.fish nixos.just
+
 # clean nix-collect-garbage -d
 clean:
         nix-collect-garbage -d
+
 # clean nix-collect-garbage older than x days
 clean-old $day:
         nix-collect-garbage --delete-older-than {{day}}d
+
 # show available configurations
 show:
         nix flake show  --experimental-features 'nix-command flakes'
+
 # generate nixos config on this machine
 gen:
         nixos-generate-config --root /mnt
+
 # install nixos with flake
 install $machine *arg:
         {{bangbash}}
         nixos-install --flake .#{{machine}} {{arg}}
+        
 # rebuild nixos with flake apply now live
 build $machine *arg:
         {{bangbash}}
         sudo nixos-rebuild switch --flake .#{{machine}} {{arg}}
+
 # rebuild nixos with flake apply on next boot
 build-later $machine *arg:
         {{bangbash}}
         sudo nixos-rebuild boot --flake .#{{machine}} {{arg}}
+
+# nix-store query packages
+query $query:
+        {{bangbash}}
+        nix-store --query --requisites /run/current-system | grep -i {{query}}
+
 # flake update
 flake-up:
         nix flake update
