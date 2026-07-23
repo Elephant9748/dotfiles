@@ -10,7 +10,7 @@
     style.name = "Fusion";  
     qt5ctSettings = {
       Appearance = {
-        color_scheme_path = "/usr/share/qt6ct/colors/darker.conf";
+        color_scheme_path = "${pkgs.kdePackages.qt6ct}/share/qt6ct/colors/darker.conf";
         custom_palette = true;
         icon_theme = "cosmic-icons";
         standard_dialogs = "default";
@@ -24,6 +24,7 @@
 
       Interface = {
         activate_item_on_single_click = 1;
+        color_scheme = "dark";
         buttonbox_layout = 0;
         cursor_flash_time = 1000;
         dialog_buttons_have_icons = 1;
@@ -41,7 +42,7 @@
     };
     qt6ctSettings = {
       Appearance = {
-        color_scheme_path = "/usr/share/qt6ct/colors/darker.conf";
+        color_scheme_path = "${pkgs.kdePackages.qt6ct}/share/qt6ct/colors/darker.conf";
         custom_palette = true;
         icon_theme = "cosmic-icons";
         standard_dialogs = "default";
@@ -55,6 +56,7 @@
 
       Interface = {
         activate_item_on_single_click = 1;
+        color_scheme = "dark";
         buttonbox_layout = 0;
         cursor_flash_time = 1000;
         dialog_buttons_have_icons = 1;
