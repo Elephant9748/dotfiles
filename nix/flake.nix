@@ -60,6 +60,15 @@
         inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # sddm backgrounds and font path
+    sddm-backgrounds = {
+            url = "path:../configs/sddm/sddm-astronaut-theme/Backgrounds/1.png";
+            flake = false;
+    };
+    font-sddm-manual = {
+            url = "path:../configs/sddm/sddm-astronaut-theme/Fonts";
+            flake = false;
+    };
 
     # --------------------------------------------------------------
   };
@@ -73,6 +82,8 @@
           # rust-overlay, 
           mangowm,
           waybar-git,
+          sddm-backgrounds,
+          font-sddm-manual,
           ...
   } @inputs:
   let
@@ -103,7 +114,7 @@
         nixpkgs.lib.nixosSystem {
                 inherit system;
                 specialArgs = { 
-                        inherit user version host system neovim-nightly;
+                        inherit user version host system neovim-nightly sddm-backgrounds font-sddm-manual;
                 };
                 modules = [
                         ./hosts/${label}

@@ -2,6 +2,7 @@
 {
   imports = [
         # ../ly.nix
+        # ../sddm.nix
   ];
 
   security = { 
