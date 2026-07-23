@@ -133,10 +133,18 @@ flake-compositor $machine:
         rg -U -o 'imports\s*=\s*\[(\p{any}*?)\]' -r '$1' --no-line-number modules/home/{{machine}}/full.nix | \
                 awk '{print "\033[0;32m" $0}'
 
+# display manager sddm
+flake-display-sddm $machine:
+        sed -i 's/# ..\/sddm.nix/..\/sddm.nix/' modules/{{machine}}/full.nix
+        sed -i 's/..\/ly.nix/# ..\/ly.nix/' modules/{{machine}}/full.nix
+        rg -i "ly.nix" modules/{{machine}}/full.nix
+        rg -i "sddm.nix" modules/{{machine}}/full.nix
 # display manager ly
 flake-display-ly $machine:
         sed -i 's/# ..\/ly.nix/..\/ly.nix/' modules/{{machine}}/full.nix
+        sed -i 's/..\/sddm.nix/# ..\/sddm.nix/' modules/{{machine}}/full.nix
         rg -i "ly.nix" modules/{{machine}}/full.nix
+        rg -i "sddm.nix" modules/{{machine}}/full.nix
 # display manager tty default nixos
 flake-display-tty $machine:
         sed -i 's/..\/ly.nix/# ..\/ly.nix/' modules/{{machine}}/full.nix
