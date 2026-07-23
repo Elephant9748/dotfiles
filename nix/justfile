@@ -149,6 +149,7 @@ flake-display-ly $machine:
 flake-display-tty $machine:
         sed -i 's/..\/ly.nix/# ..\/ly.nix/' modules/{{machine}}/full.nix
         rg -i "ly.nix" modules/{{machine}}/full.nix
+        
 # rsync fish config to host manual
 to-host-fish $user:
         #!/usr/bin/env bash

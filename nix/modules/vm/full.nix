@@ -1,7 +1,7 @@
 { pkgs, neovim-nightly, hypr, user, system, ... }:
 {
   imports = [
-        # ../ly.nix
+        ../ly.nix
         # ../sddm.nix
   ];
 
