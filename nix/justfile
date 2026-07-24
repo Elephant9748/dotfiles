@@ -32,11 +32,23 @@ gen:
         nixos-generate-config --root /mnt
 
 # vm full setup
-flake-vm-full:
+flake-vm-gui:
         flake-full
         flake-compositor vm
         flake-display-sddm vm
         build vm
+# notebook full setup
+flake-notebook-gui:
+        flake-full
+        flake-compositor notebook
+        flake-display-sddm notebook
+        build notebook
+# pc full setup
+flake-pc-gui:
+        flake-full
+        flake-compositor pc
+        flake-display-sddm pc
+        build pc
 
 # install nixos with flake
 install $machine *arg:
