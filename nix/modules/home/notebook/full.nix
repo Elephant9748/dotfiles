@@ -62,6 +62,7 @@
         sunshine
         moonlight-qt
         appimage-run
+        # paperpass.packages.${pkgs.system}.default
     ];
 
     # todo! qt theme

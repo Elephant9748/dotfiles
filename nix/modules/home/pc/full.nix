@@ -63,6 +63,7 @@
         glmark2
         mesa-demos
         appimage-run
+        # paperpass.packages.${pkgs.system}.default
     ];
 
     # todo! qt theme

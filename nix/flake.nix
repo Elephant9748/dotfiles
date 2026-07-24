@@ -70,6 +70,11 @@
             flake = false;
     };
 
+    # paperpass = {
+    #         url = "git+https://codeberg.org/rigel254/paperpass.git?ref=main";
+    #         inputs.nixpkgs.follows = "nixpkgs";
+    # };
+
     # --------------------------------------------------------------
   };
 
@@ -84,6 +89,7 @@
           waybar-git,
           sddm-backgrounds,
           font-sddm-manual,
+          # paperpass,
           ...
   } @inputs:
   let

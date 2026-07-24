@@ -48,6 +48,7 @@
         dust
         gparted-full
         qpwgraph
+        # paperpass.packages.${pkgs.system}.default
     ];
 
     # themes gtk using dconf
