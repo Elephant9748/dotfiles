@@ -44,7 +44,7 @@
         dconf
         # rust-bin.stable.latest.default
         rustup
-        rust-analyzer
+        # rust-analyzer # build take long 
         iwd
         networkmanager
         networkmanager-vpnc

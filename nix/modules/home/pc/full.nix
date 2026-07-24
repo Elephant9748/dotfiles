@@ -45,7 +45,7 @@
         dconf
         # rust-bin.stable.latest.default
         rustup
-        rust-analyzer
+        # rust-analyzer # build take long 
         # remote access / game stream
         iwd
         networkmanager
