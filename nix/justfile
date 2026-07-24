@@ -53,17 +53,17 @@ flake-pc-gui:
         just flake-display-sddm pc
         just build-later pc
 
-# install nixos with flake
+# install nixos with flake add -L to print all jobs
 install $machine *arg:
         {{bangbash}}
         nixos-install --flake .#{{machine}} {{arg}}
         
-# rebuild nixos with flake apply now live
+# rebuild nixos with flake apply now live add -L to print all jobs
 build $machine *arg:
         {{bangbash}}
         sudo nixos-rebuild switch --flake .#{{machine}} {{arg}}
 
-# rebuild nixos with flake apply on next boot
+# rebuild nixos with flake apply on next boot add -L to print all jobs
 build-later $machine *arg:
         {{bangbash}}
         sudo nixos-rebuild boot --flake .#{{machine}} {{arg}}
