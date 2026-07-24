@@ -31,6 +31,13 @@ show:
 gen:
         nixos-generate-config --root /mnt
 
+# vm full setup
+flake-vm-full:
+        flake-full
+        flake-compositor vm
+        flake-display-sddm vm
+        build vm
+
 # install nixos with flake
 install $machine *arg:
         {{bangbash}}
