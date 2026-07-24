@@ -43,12 +43,13 @@
         # glib
         dconf
         # rust-bin.stable.latest.default
+        rustup
+        rust-analyzer
         iwd
         networkmanager
         networkmanager-vpnc
         networkmanagerapplet
         android-tools
-        rustup
         dust
         # bluetooth
         bluez

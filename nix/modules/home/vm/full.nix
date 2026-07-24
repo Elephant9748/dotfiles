@@ -44,6 +44,7 @@
         # glib
         dconf
         # rust-bin.stable.latest.default
+        rust-analyzer
         rustup
         dust
         gparted-full

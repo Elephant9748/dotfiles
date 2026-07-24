@@ -44,13 +44,14 @@
         # glib
         dconf
         # rust-bin.stable.latest.default
+        rustup
+        rust-analyzer
         # remote access / game stream
         iwd
         networkmanager
         networkmanager-vpnc
         networkmanagerapplet
         android-tools
-        rustup
         dust
         sunshine
         moonlight-qt
