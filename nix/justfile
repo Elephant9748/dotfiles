@@ -33,22 +33,25 @@ gen:
 
 # vm full setup
 flake-vm-gui:
-        flake-full
-        flake-compositor vm
-        flake-display-sddm vm
-        build vm
+        {{bangbash}}
+        just flake-full vm
+        just flake-compositor vm
+        just flake-display-sddm vm
+        just build-later vm
 # notebook full setup
 flake-notebook-gui:
-        flake-full
-        flake-compositor notebook
-        flake-display-sddm notebook
-        build notebook
+        {{bangbash}}
+        just flake-full vm
+        just flake-compositor notebook
+        just flake-display-sddm notebook
+        just build-later notebook
 # pc full setup
 flake-pc-gui:
-        flake-full
-        flake-compositor pc
-        flake-display-sddm pc
-        build pc
+        {{bangbash}}
+        just flake-full vm
+        just flake-compositor pc
+        just flake-display-sddm pc
+        just build-later pc
 
 # install nixos with flake
 install $machine *arg:
@@ -167,17 +170,17 @@ flake-display-sddm $machine:
         sed -i 's/# ..\/sddm.nix/..\/sddm.nix/' modules/{{machine}}/full.nix
         sed -i 's/..\/ly.nix/# ..\/ly.nix/' modules/{{machine}}/full.nix
         rg -i "ly.nix" modules/{{machine}}/full.nix | awk '{$1=$1};1' | awk '{print "\033[0;32m" $0}'
-        rg -i "sddm.nix" modules/{{machine}}/full.nix | awk '{$1=$1};1' | awk '{print "\033[0;32m" $0}'
+        rg -i "sddm.nix" modules/{{machine}}/full.nix | awk '{$1=$1};1' | awk '{print "\033[0;32m" $0 "\033[0m"}'
 # display manager ly
 flake-display-ly $machine:
         sed -i 's/# ..\/ly.nix/..\/ly.nix/' modules/{{machine}}/full.nix
         sed -i 's/..\/sddm.nix/# ..\/sddm.nix/' modules/{{machine}}/full.nix
         rg -i "ly.nix" modules/{{machine}}/full.nix | awk '{$1=$1};1' | awk '{print "\033[0;32m" $0}'
-        rg -i "sddm.nix" modules/{{machine}}/full.nix | awk '{$1=$1};1' | awk '{print "\033[0;32m" $0}'
+        rg -i "sddm.nix" modules/{{machine}}/full.nix | awk '{$1=$1};1' | awk '{print "\033[0;32m" $0 "\033[0m"}'
 # display manager tty default nixos
 flake-display-tty $machine:
         sed -i 's/..\/ly.nix/# ..\/ly.nix/' modules/{{machine}}/full.nix
-        rg -i "ly.nix" modules/{{machine}}/full.nix | awk '{$1=$1};1' | awk '{print "\033[0;32m" $0}'
+        rg -i "ly.nix" modules/{{machine}}/full.nix | awk '{$1=$1};1' | awk '{print "\033[0;32m" $0 "\033[0m"}'
         
 # rsync fish config to host manual
 to-host-fish $user:
