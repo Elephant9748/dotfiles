@@ -8,8 +8,6 @@
     [ (modulesPath + "/profiles/qemu-guest.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "ahci" "xhci_pci" "virtio_pci" "sr_mod" "virtio_blk" ];
-  boot.initrd.kernelModules = [ "dm-snapshot" ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
@@ -24,19 +22,42 @@
 		# efi.efiSysMountPoint = "/boot/EFI";
         timeout = 2;
 	};
-	# initrd.luks.devices.Nix-Luks-0fd9cedc = {
-	# 	device = "/dev/disk/by-uuid/0fd9cedc-8210-47ea-a5fd-45a0b708eeb8";
-	# 	allowDiscards = true;
-	# };
-	initrd.luks.devices.NIX_LUKS = {
-		device = "/dev/disk/by-label/NIX_LUKS";
-		allowDiscards = true;
-	};
+	initrd = {
+	    # luks.devices.Nix-Luks-0fd9cedc = {
+	    # 	device = "/dev/disk/by-uuid/0fd9cedc-8210-47ea-a5fd-45a0b708eeb8";
+	    # 	allowDiscards = true;
+	    # };
+        luks.devices.NIX_LUKS = {
+	    	device = "/dev/disk/by-label/NIX_LUKS";
+	    	allowDiscards = true;
+	    };
+        availableKernelModules = [
+                "ahci"
+                "xhci_pci"
+                "virtio_pci"
+                "sr_mod"
+                "virtio_blk"
+                # "r8169"
+        ];
+        kernelModules = [ "dm-snapshot" ];
+        network = {
+                enable = true;
+                ssh = {
+                        enable = true;
+                        port = 22;
+                        authorizedKeys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFCMCsfI7ZZjtHp63JxrFWMfsQHwDUVAb7TbsO3ChOzc walter.vm" ];
+                        hostKeys = [ "/etc/secrets/initrd/ssh_host_ed25519_key" ];
+                        shell = "/usr/bin/systemd-tty-ask-password-agent";
+                };
+        };
+        systemd.users.root.shell = "/usr/bin/systemd-tty-ask-password-agent";
+    };
     kernelParams = [
         # "quiet"
         "loglevel=3"
         "randomize_kstack_offset=on"
         "vsyscall=none"
+        "ip=dhcp"
     ];
   };
 
