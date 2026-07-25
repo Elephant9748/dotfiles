@@ -1,0 +1,73 @@
+From aa5ece93ad1653258cb0b6adfa78a44f8f494ed1 Mon Sep 17 00:00:00 2001
+From: "@Elephant9748" <adytamasurya@proton.me>
+Date: Sat, 25 Jul 2026 21:46:14 +0700
+Subject: [PATCH] pqc gnupg 2.5.21
+
+---
+ PKGBUILD | 30 +++++++++++++++---------------
+ 1 file changed, 15 insertions(+), 15 deletions(-)
+
+diff --git a/PKGBUILD b/PKGBUILD
+index 15cb8ae..1d2a604 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -7,8 +7,8 @@
+ # Contributor: Judd Vinet <jvinet@zeroflux.org>
+ 
+ pkgname=gnupg
+-pkgver=2.4.9
+-pkgrel=2
++pkgver=2.5.21
++pkgrel=1
+ pkgdesc='Complete and free implementation of the OpenPGP standard'
+ arch=(x86_64)
+ url='https://www.gnupg.org/'
+@@ -61,32 +61,32 @@ source=(
+   gpg-agent-{browser,extra,ssh}{,@}.socket
+   keyboxd{,@}.{service,socket}
+   keyboxd.8
+-  $pkgname-2.4-avoid_beta_warning.patch  # do not emit beta warnings (due to misbehaving build system)
++  # $pkgname-2.4-avoid_beta_warning.patch  # do not emit beta warnings (due to misbehaving build system)
+   # patches maintained by freepg project: https://gitlab.com/freepg/gnupg/-/commits/gnupg-2.4.9-freepg
+   0001-gpg-accept-subkeys-with-a-good-revocation-but-no-sel.patch
+   0002-gpg-allow-import-of-previously-known-keys-even-witho.patch
+-  0003-tests-add-test-cases-for-import-without-uid.patch
+-  0004-gpg-drop-import-clean-from-default-keyserver-import-.patch
+-  0005-avoid-systemd-deprecation-warning.patch
++  # 0003-tests-add-test-cases-for-import-without-uid.patch
++  # 0004-gpg-drop-import-clean-from-default-keyserver-import-.patch
++  # 0005-avoid-systemd-deprecation-warning.patch
+   0006-Add-systemd-support-for-keyboxd.patch
+-  0007-Ship-sample-systemd-unit-files.patch
++  # 0007-Ship-sample-systemd-unit-files.patch
+   0008-gpg-default-El-Gamal-to-3072-bit-keys.patch
+   0009-gpg-Always-support-and-default-to-using-SHA-512.patch
+   0010-gpg-Prefer-SHA-512-and-SHA-384-in-personal-digest-pr.patch
+-  0012-Disallow-compressed-signatures-and-certificates.patch
++  # 0012-Disallow-compressed-signatures-and-certificates.patch
+   0011-Avoid-simple-memory-dumps-via-ptrace.patch
+-  0013-ssh-agent-emulation-under-systemd-inject-SSH_AUTH_SO.patch
+-  0014-gpg-Sync-compliance-mode-cleanup-with-master.patch
++  # 0013-ssh-agent-emulation-under-systemd-inject-SSH_AUTH_SO.patch
++  # 0014-gpg-Sync-compliance-mode-cleanup-with-master.patch
+   0015-gpg-emit-RSA-pubkey-algorithm-when-in-compatibility-.patch
+   0016-gpg-Reintroduce-openpgp-as-distinct-from-rfc4880.patch
+   0017-gpg-Emit-LibrePGP-material-only-in-compliance-gnupg.patch
+   0018-gpg-gpgconf-list-report-actual-compliance-mode.patch
+-  0019-gpg-Default-to-compliance-openpgp.patch
++  # 0019-gpg-Default-to-compliance-openpgp.patch
+   0020-gpg-Fix-newlines-in-Cleartext-Signature-Framework-CS.patch
+-  0021-Add-keyboxd-systemd-support.patch
+-  0022-Support-large-RSA-keygen-in-non-batch-mode.patch
+-  0023-gpg-Verify-Text-mode-Signatures-over-binary-Literal-.patch
+-  0024-gpg-Do-not-use-a-default-when-asking-for-another-out.patch
++  # 0021-Add-keyboxd-systemd-support.patch
++  # 0022-Support-large-RSA-keygen-in-non-batch-mode.patch
++  # 0023-gpg-Verify-Text-mode-Signatures-over-binary-Literal-.patch
++  # 0024-gpg-Do-not-use-a-default-when-asking-for-another-out.patch
+ )
+ sha256sums=('383fd9720a966825b9d5e45a2b49b3b340ebed356252c73cca242b26dffec0ba'
+             '80a3a80f9f1f337da555a6838483e1baca44cde8a8a3d8c4ba7743626304b981'
+-- 
+2.55.0
+
