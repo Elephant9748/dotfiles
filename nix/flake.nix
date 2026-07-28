@@ -110,8 +110,8 @@
                       inherit system version editor;
               };
               pc = {
-                      user = "ringo";
-                      host = "ringo-pc";
+                      user = "rigel";
+                      host = "rigel-pc";
                       label = "pc";
                       inherit system version editor;
               };
