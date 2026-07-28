@@ -37,21 +37,21 @@ flake-vm-gui:
         just flake-full vm
         just flake-compositor vm
         just flake-display-sddm vm
-        just build-later vm
+        just build-later vm -L
 # notebook full setup
 flake-notebook-gui:
         {{bangbash}}
-        just flake-full vm
+        just flake-full notebook
         just flake-compositor notebook
         just flake-display-sddm notebook
-        just build-later notebook
+        just build-later notebook -L
 # pc full setup
 flake-pc-gui:
         {{bangbash}}
-        just flake-full vm
+        just flake-full pc
         just flake-compositor pc
         just flake-display-sddm pc
-        just build-later pc
+        just build-later pc -L
 
 # install nixos with flake add -L to print all jobs
 install $machine *arg:
