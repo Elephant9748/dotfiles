@@ -18,12 +18,28 @@ grep -nE '^.*multilib]' /etc/pacman.conf
 grep -nE '^.*Include =.*' /etc/pacman.conf | grep 95
 printf "\033[0m"
 
+lsblk
+
 BLOCK="/dev/sda"
 luksname="lukscrypt"
 bootloader="/boot/EFI/limine/limine.conf"
 initconf="/etc/mkinitcpio.conf"
-hostname="kiwi.vm"
-USER="rigel"
+# hostname="kiwi.vm"
+# USER="rigel"
+
+read -p $'\033[0;33mSet block devices default \033[0;34m'"($BLOCK)"$'\e[0m: ' drive
+if [[ "$drive" == *"vda"* || "$drive" == *"sda"* ]]; then
+        # echo "contain yes"
+	BLOCK="$drive"
+	# blockhelp="${drive##*/}3"
+	# blockswaphelp="${path##*/}/2"
+	read -p $'\033[0;33mHostname\e[0m: ' hostname
+	read -p $'\033[0;33mUser\e[0m: ' USER
+	
+else
+	printf "\033[0;31m:: Block device vda|sda not found\n\e[0m"
+	exit
+fi
 
 read -p $'\033[0;31mYour \033[0;33m'"$BLOCK"$' \033[0;31mwill destroy y/n? : ' confirm
 if [ "n" == $confirm ]; then
