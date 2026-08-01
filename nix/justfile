@@ -75,7 +75,7 @@ query $query:
 
 # flake update
 flake-up:
-        nix flake update
+        sudo nix flake update
 
 # change user for x machine flake.nix
 flake-user $machine $user:
