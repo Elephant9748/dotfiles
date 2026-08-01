@@ -1,12 +1,12 @@
 { pkgs, version, lib, waybar-git,  ... }: {
 
     home.file.".config/waybar/mango-config" = {
-        source = ../../../configs/.config/waybar/mango-config-nix;
+        source = ../../configs/.config/waybar/mango-config-nix;
         recursive = true;
     };
 
     home.file.".config/waybar/mango-style.css" = {
-        source = ../../../configs/.config/waybar/mango-style-nix.css;
+        source = ../../configs/.config/waybar/mango-style-nix.css;
         recursive = true;
     };
 
@@ -16,7 +16,7 @@
             # package = pkgs.waybar;
             package = waybar-git.packages.${pkgs.system}.default;
             # systemd.enable = true;
-            style = builtins.readFile ../../../configs/.config/waybar/style.css;
+            style = builtins.readFile ../../configs/.config/waybar/style.css;
             settings = {
                     mainbar = {
                             position = "bottom";

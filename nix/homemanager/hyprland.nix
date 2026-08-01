@@ -2,7 +2,7 @@
 
     # the rest just rsync all "just to-host-nix" in ~/dotfiles/nix/
     home.file.".config/hypr/autostart-nix.sh" = {
-        source = ../../../configs/.config/hypr/autostart-nix.sh;
+        source = ../../configs/.config/hypr/autostart-nix.sh;
         recursive = true;
     };
     home.packages = with pkgs; [
