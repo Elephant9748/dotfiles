@@ -147,7 +147,7 @@
                                 };
                                 home-manager.users.${user}.imports = [
                                         # ./modules/home/${label}_base.nix
-                                        ./modules/home/${label}
+                                        ./homemanager/${label}
                                 ];
                         }
                 ];
