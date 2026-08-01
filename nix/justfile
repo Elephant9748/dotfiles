@@ -95,11 +95,11 @@ flake-host $machine $host:
 flake-full $machine:
         {{bangbash}}
         sed -i 's/base/full/' modules/{{machine}}/default.nix
-        sed -i 's/base/full/' modules/home/{{machine}}/default.nix
+        sed -i 's/base/full/' homemanager/{{machine}}/default.nix
         printf "\033[0;34mflake-full:\n"
         rg -i "full" modules/{{machine}}/default.nix | head -n 1 | \
                 paste -sd "" |  awk '{print "\033[0;32m" $0}'
-        rg -i "full" modules/home/{{machine}}/default.nix | head -n 1 | \
+        rg -i "full" homemanager/{{machine}}/default.nix | head -n 1 | \
                 paste -sd "" |  awk '{print "\033[0;32m" $0}'
         # sed -i 's/_base.nix/_full.nix/' flake.nix
         # sed -i 's/_home_base.nix/_home_full.nix/' flake.nix
@@ -111,11 +111,11 @@ flake-full $machine:
 flake-base $machine:
         {{bangbash}}
         sed -i 's/full/base/' modules/{{machine}}/default.nix
-        sed -i 's/full/base/' modules/home/{{machine}}/default.nix
+        sed -i 's/full/base/' homemanager/{{machine}}/default.nix
         printf "\033[0;34mflake-full:\n"
         rg -i "base" modules/{{machine}}/default.nix | head -n 1 | \
                 paste -sd "" | awk '{print "\033[0;32m" $0}'
-        rg -i "base" modules/home/{{machine}}/default.nix | head -n 1 | \
+        rg -i "base" homemanager/{{machine}}/default.nix | head -n 1 | \
                 paste -sd "" | awk '{print "\033[0;32m" $0}'
         # sed -i 's/_full.nix/_base.nix/' flake.nix
         # sed -i 's/_home_full.nix/_home_base.nix/' flake.nix
@@ -130,13 +130,13 @@ flake-mango $machine:
         # sed -i 's/exec start-hyprland/# exec start-hyprland/' modules/{{machine}}/full.nix
         # sed -i 's/# exec mango/exec mango/' modules/{{machine}}/full.nix
         sed -i 's/# mango.enable = true;/mango.enable = true;/' modules/{{machine}}/full.nix
-        sed -i 's/# ..\/mangowm.nix/..\/mangowm.nix/' modules/home/{{machine}}/full.nix
-        sed -i 's/..\/hyprland.nix/# ..\/hyprland.nix/' modules/home/{{machine}}/full.nix
-        sed -i 's/..\/hyprpaper.nix/# ..\/hyprpaper.nix/' modules/home/{{machine}}/full.nix
+        sed -i 's/# ..\/mangowm.nix/..\/mangowm.nix/' homemanager/{{machine}}/full.nix
+        sed -i 's/..\/hyprland.nix/# ..\/hyprland.nix/' homemanager/{{machine}}/full.nix
+        sed -i 's/..\/hyprpaper.nix/# ..\/hyprpaper.nix/' homemanager/{{machine}}/full.nix
         rg -i "mangowm.nixosModules.mango" flake.nix | awk '{$1=$1};1' | awk '{print "\033[0;32m" $0}'
-        rg -i "mango.enable = true;" modules/home/{{machine}}/full.nix | \
+        rg -i "mango.enable = true;" homemanager/{{machine}}/full.nix | \
                 awk '{$1=$1};1' | awk '{print "\033[0;32m" $0}'
-        rg -U -o 'imports\s*=\s*\[(\p{any}*?)\]' -r '$1' --no-line-number modules/home/{{machine}}/full.nix | \
+        rg -U -o 'imports\s*=\s*\[(\p{any}*?)\]' -r '$1' --no-line-number homemanager/{{machine}}/full.nix | \
                 awk '{$1=$1};1' | awk '{print "\033[0;32m" $0}'
 # default comopositor hyprland
 flake-hypr $machine:
@@ -146,23 +146,23 @@ flake-hypr $machine:
         # sed -i 's/# exec start-hyprland/exec start-hyprland/' modules/{{machine}}/full.nix
         sed -i 's/mango.enable = true;/# mango.enable = true;/' modules/{{machine}}/full.nix
         sed -i 's/# hyprland.enable = true;/hyprland.enable = true;/' modules/{{machine}}/full.nix
-        sed -i 's/..\/mangowm.nix/# ..\/mangowm.nix/' modules/home/{{machine}}/full.nix
-        sed -i 's/# ..\/hyprland.nix/..\/hyprland.nix/' modules/home/{{machine}}/full.nix
-        sed -i 's/# ..\/hyprpaper.nix/..\/hyprpaper.nix/' modules/home/{{machine}}/full.nix
+        sed -i 's/..\/mangowm.nix/# ..\/mangowm.nix/' homemanager/{{machine}}/full.nix
+        sed -i 's/# ..\/hyprland.nix/..\/hyprland.nix/' homemanager/{{machine}}/full.nix
+        sed -i 's/# ..\/hyprpaper.nix/..\/hyprpaper.nix/' homemanager/{{machine}}/full.nix
         rg -i "mangowm.nixosModules.mango" flake.nix | awk '{$1=$1};1' | awk '{$1=$1};1' | awk '{print "\033[0;32m" $0}'
-        rg -i "hyprland.enable = true;" modules/home/{{machine}}/full.nix | \
+        rg -i "hyprland.enable = true;" homemanager/{{machine}}/full.nix | \
                 awk '{$1=$1};1' | awk '{print "\033[0;32m" $0}'
-        rg -U -o 'imports\s*=\s*\[(\p{any}*?)\]' -r '$1' --no-line-number modules/home/{{machine}}/full.nix | \
+        rg -U -o 'imports\s*=\s*\[(\p{any}*?)\]' -r '$1' --no-line-number homemanager/{{machine}}/full.nix | \
                 awk '{$1=$1};1' | awk '{print "\033[0;32m" $0}'
 # install all wayland compositor 
 flake-compositor $machine:
-        sed -i 's/# ..\/hyprland.nix/..\/hyprland.nix/' modules/home/{{machine}}/full.nix
-        sed -i 's/# ..\/hyprpaper.nix/..\/hyprpaper.nix/' modules/home/{{machine}}/full.nix
-        sed -i 's/# ..\/mangowm.nix/..\/mangowm.nix/' modules/home/{{machine}}/full.nix
+        sed -i 's/# ..\/hyprland.nix/..\/hyprland.nix/' homemanager/{{machine}}/full.nix
+        sed -i 's/# ..\/hyprpaper.nix/..\/hyprpaper.nix/' homemanager/{{machine}}/full.nix
+        sed -i 's/# ..\/mangowm.nix/..\/mangowm.nix/' homemanager/{{machine}}/full.nix
         sed -i 's/# mangowm.nixosModules.mango/mangowm.nixosModules.mango/' flake.nix
         sed -i 's/# mango.enable = true;/mango.enable = true;/' modules/{{machine}}/full.nix
         sed -i 's/# hyprland.enable = true;/hyprland.enable = true;/' modules/{{machine}}/full.nix
-        rg -U -o 'imports\s*=\s*\[(\p{any}*?)\]' -r '$1' --no-line-number modules/home/{{machine}}/full.nix | \
+        rg -U -o 'imports\s*=\s*\[(\p{any}*?)\]' -r '$1' --no-line-number homemanager/{{machine}}/full.nix | \
                 awk '{$1=$1};1' | awk '{print "\033[0;32m" $0}'
 
 # display manager sddm
