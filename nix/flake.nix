@@ -124,8 +124,6 @@
                 };
                 modules = [
                         ./hosts/${label}
-                        #base = mininmal, full = with gui desktop
-                        # (import ./modules/${label}_base.nix)
                         (import ./modules/${label})
                         # mangowm
                         # mangowm.nixosModules.mango
@@ -146,7 +144,6 @@
                                         inherit version user waybar-git; 
                                 };
                                 home-manager.users.${user}.imports = [
-                                        # ./modules/home/${label}_base.nix
                                         ./homemanager/${label}
                                 ];
                         }
