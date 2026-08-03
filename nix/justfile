@@ -39,19 +39,19 @@ install $machine *arg:
                 sudo ssh-keygen -t ed25519 -N "" -f /mnt/etc/secrets/initrd/ssh_host_ed25519_key; \
         fi
         @echo run nixos-install...
-        nixos-install --flake .#{{machine}} {{arg}}
+        sudo nixos-install --flake .#{{machine}} {{arg}}
         
 # rebuild nixos with flake apply now live add -L to print all jobs
 build $machine *arg:
-        nixos-rebuild switch --flake .#{{machine}} {{arg}}
+        sudo nixos-rebuild switch --flake .#{{machine}} {{arg}}
 
 # rebuild nixos with flake apply on next boot add -L to print all jobs
 build-later $machine *arg:
-        nixos-rebuild boot --flake .#{{machine}} {{arg}}
+        sudo nixos-rebuild boot --flake .#{{machine}} {{arg}}
 
 # nix-store query packages
 query $query:
-        nix-store --query --requisites /run/current-system | grep -i {{query}}
+        sudo nix-store --query --requisites /run/current-system | grep -i {{query}}
 
 # vm full setup
 flake-vm-gui:
