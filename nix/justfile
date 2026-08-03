@@ -34,9 +34,9 @@ gen:
 # install nixos with flake 
 install $machine *arg:
         {{bangbash}}
-        @if [[ "{{arg}}" == "vm" ] && [ ! -d "/mnt/etc/secrets/initrd" ]]; then \
-                sudo mkdir -p /mnt/etc/secrets/initrd \
-                sudo ssh-keygen -t ed25519 -N "" -f /mnt/etc/secrets/initrd/ssh_host_ed25519_key \
+        if [[ "{{arg}}" == "vm" ] && [ ! -d "/mnt/etc/secrets/initrd" ]]; then 
+                sudo mkdir -p /mnt/etc/secrets/initrd 
+                sudo ssh-keygen -t ed25519 -N "" -f /mnt/etc/secrets/initrd/ssh_host_ed25519_key 
         fi
         nixos-install --flake .#{{machine}} {{arg}}
         

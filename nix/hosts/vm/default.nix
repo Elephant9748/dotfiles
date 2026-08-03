@@ -1,4 +1,4 @@
-{ pkgs, version, user, host, system, ... }:
+{ pkgs, version, user, hostname, system, ... }:
 
 {
   imports =
@@ -11,7 +11,7 @@
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  networking.hostName = "${host}"; 
+  networking.hostName = "${hostname}"; 
 
   # Configure network connections interactively with nmcli or nmtui.
   networking.networkmanager.enable = true;

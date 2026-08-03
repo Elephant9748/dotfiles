@@ -1,4 +1,4 @@
-{ pkgs, user, version, host, ... }:
+{ pkgs, user, version, hostname, ... }:
 {
   security = { 
           sudo = {

@@ -99,32 +99,29 @@
       machine = {
               vm = {
                       user = "rigel";
-                      host = "citrullus-lanatus";
-                      label = "vm";
+                      hostname = "citrullus-lanatus";
                       inherit system version editor;
               };
               notebook = {
                       user = "rigel";
-                      host = "starfish-small";
-                      label = "notebook";
+                      hostname = "starfish-small";
                       inherit system version editor;
               };
               pc = {
                       user = "rigel";
-                      host = "rigel-pc";
-                      label = "pc";
+                      hostname = "rigel-pc";
                       inherit system version editor;
               };
       };
-      mkMachine = { user, host, system, version, editor, label, ... }:
+      mkMachine = name: { user, hostname, system, version, editor, label, ... }:
         nixpkgs.lib.nixosSystem {
                 inherit system;
                 specialArgs = { 
-                        inherit user version host system neovim-nightly sddm-backgrounds font-sddm-manual;
+                        inherit user version hostname system neovim-nightly sddm-backgrounds font-sddm-manual;
                 };
                 modules = [
-                        ./hosts/${label}
-                        (import ./modules/${label})
+                        ./hosts/${name}
+                        (import ./modules/${name})
                         # mangowm
                         # mangowm.nixosModules.mango
                         # nix-ld
@@ -144,7 +141,7 @@
                                         inherit version user waybar-git; 
                                 };
                                 home-manager.users.${user}.imports = [
-                                        ./homemanager/${label}
+                                        ./homemanager/${name}
                                 ];
                         }
                 ];
@@ -152,6 +149,6 @@
 
   in
   {
-          nixosConfigurations = nixpkgs.lib.mapAttrs (name: config: mkMachine config) machine;
+          nixosConfigurations = nixpkgs.lib.mapAttrs (name: config: mkMachine name config) machine;
   };
 }
