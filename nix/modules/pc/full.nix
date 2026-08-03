@@ -117,6 +117,7 @@
         # dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
         # localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
     };
+    nix-index-database.comma.enable = true;
   };
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
@@ -154,5 +155,6 @@
     fzf
     just
     glaze
+    comma
   ];
 }
