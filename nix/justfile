@@ -43,15 +43,15 @@ install $machine *arg:
         
 # rebuild nixos with flake apply now live add -L to print all jobs
 build $machine *arg:
-        sudo nixos-rebuild switch --flake .#{{machine}} {{arg}}
+        nixos-rebuild switch --flake .#{{machine}} --ask-sudo-password {{arg}}
 
 # rebuild nixos with flake apply on next boot add -L to print all jobs
 build-later $machine *arg:
-        sudo nixos-rebuild boot --flake .#{{machine}} {{arg}}
+        nixos-rebuild boot --flake .#{{machine}} --ask-sudo-password {{arg}}
 
 # nix-store query packages
 query $query:
-        sudo nix-store --query --requisites /run/current-system | grep -i {{query}}
+        nix-store --query --requisites /run/current-system | grep -i {{query}}
 
 # vm full setup
 flake-vm-gui:
@@ -74,7 +74,7 @@ flake-pc-gui:
 
 # flake update
 flake-up:
-        sudo nix flake update
+        nix flake update
 
 # change user for x machine flake.nix
 flake-user $machine $user:
