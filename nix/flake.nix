@@ -113,7 +113,7 @@
                       inherit system version editor;
               };
       };
-      mkMachine = name: { user, hostname, system, version, editor, label, ... }:
+      mkMachine = name: { user, hostname, system, version, editor, ... }:
         nixpkgs.lib.nixosSystem {
                 inherit system;
                 specialArgs = { 
