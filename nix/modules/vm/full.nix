@@ -111,6 +111,7 @@
     # mango.enable = true;
     # hyprland so we cant list wayland-session directory
     # hyprland.enable = true;
+    nix-index-database.comma.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
@@ -144,5 +145,6 @@
     # virtiofs mount
     guestfs-tools
     virtiofsd
+    comma
   ];
 }

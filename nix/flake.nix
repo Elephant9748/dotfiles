@@ -75,6 +75,12 @@
     #         inputs.nixpkgs.follows = "nixpkgs";
     # };
 
+    # populate index database manual inside dotfiles/bins/nix/nix-index-manual
+    nix-index-database = {
+        url = "github:nix-community/nix-index-database";
+        inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # --------------------------------------------------------------
   };
 
@@ -90,8 +96,8 @@
           sddm-backgrounds,
           font-sddm-manual,
           # paperpass,
-          ...
-  } @inputs:
+          nix-index-database,
+  }:
   let
       system = "x86_64-linux";
       version = "26.05";
@@ -133,6 +139,7 @@
                         # ({ pkgs, ... }: {
                         #         environment.systemPackages = [(pkgs.callPackage ./packaging/paperpass.nix {})];
                         #  })
+                        nix-index-database.nixosModules.default
                         # home-manager
                         home-manager.nixosModules.home-manager {
                                 home-manager.useGlobalPkgs = true;
