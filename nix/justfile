@@ -33,45 +33,40 @@ gen:
 
 # install nixos with flake 
 install $machine *arg:
-        {{bangbash}}
-        if [[ "{{arg}}" == "vm" ] && [ ! -d "/mnt/etc/secrets/initrd" ]]; then 
-                sudo mkdir -p /mnt/etc/secrets/initrd 
-                sudo ssh-keygen -t ed25519 -N "" -f /mnt/etc/secrets/initrd/ssh_host_ed25519_key 
+        # remote luks unlocking
+        @if [[ ! -d "/mnt/etc/secrets/initrd" && "{{machine}}" = "vm" ]]; then \
+                sudo mkdir -p /mnt/etc/secrets/initrd; \
+                sudo ssh-keygen -t ed25519 -N "" -f /mnt/etc/secrets/initrd/ssh_host_ed25519_key; \
         fi
+        @echo run nixos-install...
         nixos-install --flake .#{{machine}} {{arg}}
         
 # rebuild nixos with flake apply now live add -L to print all jobs
 build $machine *arg:
-        {{bangbash}}
-        sudo nixos-rebuild switch --flake .#{{machine}} {{arg}}
+        nixos-rebuild switch --flake .#{{machine}} {{arg}}
 
 # rebuild nixos with flake apply on next boot add -L to print all jobs
 build-later $machine *arg:
-        {{bangbash}}
-        sudo nixos-rebuild boot --flake .#{{machine}} {{arg}}
+        nixos-rebuild boot --flake .#{{machine}} {{arg}}
 
 # nix-store query packages
 query $query:
-        {{bangbash}}
         nix-store --query --requisites /run/current-system | grep -i {{query}}
 
 # vm full setup
 flake-vm-gui:
-        {{bangbash}}
         just flake-full vm
         just flake-compositor vm
         just flake-display-sddm vm
         just build-later vm -L
 # notebook full setup
 flake-notebook-gui:
-        {{bangbash}}
         just flake-full notebook
         just flake-compositor notebook
         just flake-display-sddm notebook
         just build-later notebook -L
 # pc full setup
 flake-pc-gui:
-        {{bangbash}}
         just flake-full pc
         just flake-compositor pc
         just flake-display-sddm pc
