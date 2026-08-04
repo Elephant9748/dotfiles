@@ -100,7 +100,7 @@
   }:
   let
       system = "x86_64-linux";
-      version = "26.05";
+      version = "26.11";
       editor = "nvim";
       machine = {
               vm = {
