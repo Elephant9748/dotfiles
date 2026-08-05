@@ -132,7 +132,10 @@ flake-mango $machine:
         sed -i 's/# ..\/mangowm.nix/..\/mangowm.nix/' homemanager/{{machine}}/full.nix
         sed -i 's/..\/hyprland.nix/# ..\/hyprland.nix/' homemanager/{{machine}}/full.nix
         sed -i 's/..\/hyprpaper.nix/# ..\/hyprpaper.nix/' homemanager/{{machine}}/full.nix
+        sed -i 's/xdg-desktop-portal-hyprland/# xdg-desktop-portal-hyprland/' homemanager/{{machine}}/full.nix
         rg -i "mangowm.nixosModules.mango" flake.nix | awk '{$1=$1};1' | awk '{print "\033[0;32m" $0}'
+        rg -i "xdg-desktop-portal-hyprland" homemanager/{{machine}}/full.nix | \
+                awk '{$1=$1};1' | awk '{print "\033[0;32m" $0}'
         rg -i "mango.enable = true;" homemanager/{{machine}}/full.nix | \
                 awk '{$1=$1};1' | awk '{print "\033[0;32m" $0}'
         rg -U -o 'imports\s*=\s*\[(\p{any}*?)\]' -r '$1' --no-line-number homemanager/{{machine}}/full.nix | \
@@ -148,7 +151,10 @@ flake-hypr $machine:
         sed -i 's/..\/mangowm.nix/# ..\/mangowm.nix/' homemanager/{{machine}}/full.nix
         sed -i 's/# ..\/hyprland.nix/..\/hyprland.nix/' homemanager/{{machine}}/full.nix
         sed -i 's/# ..\/hyprpaper.nix/..\/hyprpaper.nix/' homemanager/{{machine}}/full.nix
+        sed -i 's/# xdg-desktop-portal-hyprland/xdg-desktop-portal-hyprland/' homemanager/{{machine}}/full.nix
         rg -i "mangowm.nixosModules.mango" flake.nix | awk '{$1=$1};1' | awk '{$1=$1};1' | awk '{print "\033[0;32m" $0}'
+        rg -i "xdg-desktop-portal-hyprland" homemanager/{{machine}}/full.nix | \
+                awk '{$1=$1};1' | awk '{print "\033[0;32m" $0}'
         rg -i "hyprland.enable = true;" homemanager/{{machine}}/full.nix | \
                 awk '{$1=$1};1' | awk '{print "\033[0;32m" $0}'
         rg -U -o 'imports\s*=\s*\[(\p{any}*?)\]' -r '$1' --no-line-number homemanager/{{machine}}/full.nix | \
@@ -161,6 +167,7 @@ flake-compositor $machine:
         sed -i 's/# mangowm.nixosModules.mango/mangowm.nixosModules.mango/' flake.nix
         sed -i 's/# mango.enable = true;/mango.enable = true;/' modules/{{machine}}/full.nix
         sed -i 's/# hyprland.enable = true;/hyprland.enable = true;/' modules/{{machine}}/full.nix
+        sed -i 's/# xdg-desktop-portal-hyprland/xdg-desktop-portal-hyprland/' homemanager/{{machine}}/full.nix
         rg -U -o 'imports\s*=\s*\[(\p{any}*?)\]' -r '$1' --no-line-number homemanager/{{machine}}/full.nix | \
                 awk '{$1=$1};1' | awk '{print "\033[0;32m" $0}'
 
