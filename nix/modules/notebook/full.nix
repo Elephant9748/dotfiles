@@ -84,8 +84,8 @@
     # below hyprland using build from source
     hyprland = {
             enable = true;
-            package = hypr.packages.${system}.hyprland;
-            portalPackage = hypr.packages.${system}.xdg-desktop-portal-hyprland;
+            # package = hypr.packages.${system}.hyprland;
+            # portalPackage = hypr.packages.${system}.xdg-desktop-portal-hyprland;
     };
     gnome-disks.enable = true;
     thunar = {

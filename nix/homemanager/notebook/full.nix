@@ -1,4 +1,4 @@
-{ pkgs, version,  ... }: {
+{ pkgs, version, lb, system, hypr,  ... }: {
 
     imports = [
         ../waybar.nix
@@ -102,6 +102,7 @@
                     };
             };
             extraPortals = with pkgs; [
+                # hypr.packages.${system}.xdg-desktop-portal-hyprland
                 xdg-desktop-portal-hyprland
                 xdg-desktop-portal-gnome
                 xdg-desktop-portal-gtk
