@@ -110,6 +110,7 @@
     # mangowm so we cant list wayland-session directory
     # mango.enable = true;
     # hyprland so we cant list wayland-session directory
+    # hyprland.enable = true;
     # hyprland = {
     #         enable = true;
     #         # package = hypr.packages.${system}.hyprland;

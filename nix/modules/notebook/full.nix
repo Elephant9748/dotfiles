@@ -101,6 +101,11 @@
     # mango.enable = true;
     # hyprland so we cant list wayland-session directory
     # hyprland.enable = true;
+    # hyprland = {
+    #         enable = true;
+    #         # package = hypr.packages.${system}.hyprland;
+    #         # portalPackage = hypr.packages.${system}.xdg-desktop-portal-hyprland;
+    # }
   };
 
   environment.systemPackages = with pkgs; [

@@ -110,11 +110,12 @@
     # mangowm so we cant list wayland-session directory
     # mango.enable = true;
     # hyprland so we cant list wayland-session directory
-    hyprland = {
-            enable = true;
-            # package = hypr.packages.${system}.hyprland;
-            # portalPackage = hypr.packages.${system}.xdg-desktop-portal-hyprland;
-    }
+    # hyprland.enable = true;
+    # hyprland = {
+    #         enable = true;
+    #         # package = hypr.packages.${system}.hyprland;
+    #         # portalPackage = hypr.packages.${system}.xdg-desktop-portal-hyprland;
+    # }
     steam = {
         enable = true;
         # remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
