@@ -5,6 +5,37 @@
         # ../sddm.nix
   ];
 
+  environment.systemPackages = with pkgs; [
+    home-manager
+    gnupg
+    git
+    procps
+    pciutils
+    lsb-release
+    vim
+    # neovim
+    ripgrep
+    fd
+    jq
+    bottom
+    bat
+    openssh
+    eza
+    gettext
+    ninja
+    meson
+    curl
+    gnumake
+    gcc
+    wget
+    unzip
+    zip
+    fzf
+    just
+    glaze
+    comma
+  ];
+
   security = { 
           sudo = {
               enable = true;
@@ -130,36 +161,5 @@
     "steam-original"
     "steam-unwrapped"
     "steam-run"
-  ];
-
-  environment.systemPackages = with pkgs; [
-    home-manager
-    gnupg
-    git
-    procps
-    pciutils
-    lsb-release
-    vim
-    # neovim
-    ripgrep
-    fd
-    jq
-    bottom
-    bat
-    openssh
-    eza
-    gettext
-    ninja
-    meson
-    curl
-    gnumake
-    gcc
-    wget
-    unzip
-    zip
-    fzf
-    just
-    glaze
-    comma
   ];
 }

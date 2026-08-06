@@ -1,5 +1,33 @@
 { pkgs, user, version, hostname, ... }:
 {
+  environment.systemPackages = with pkgs; [
+    home-manager
+    gnupg
+    git
+    procps
+    pciutils
+    lsb-release
+    neovim
+    ripgrep
+    fd
+    jq
+    bottom
+    bat
+    openssh
+    eza
+    gettext
+    ninja
+    meson
+    curl
+    gnumake
+    gcc
+    wget
+    unzip
+    zip
+    fzf
+    just
+  ];
+
   security = { 
           sudo = {
               enable = true;
@@ -44,33 +72,5 @@
 		};
 	};
   };
-
-  environment.systemPackages = with pkgs; [
-    home-manager
-    gnupg
-    git
-    procps
-    pciutils
-    lsb-release
-    neovim
-    ripgrep
-    fd
-    jq
-    bottom
-    bat
-    openssh
-    eza
-    gettext
-    ninja
-    meson
-    curl
-    gnumake
-    gcc
-    wget
-    unzip
-    zip
-    fzf
-    just
-  ];
 }
 

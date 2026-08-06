@@ -5,6 +5,36 @@
         # ../sddm.nix
   ];
 
+  environment.systemPackages = with pkgs; [
+    home-manager
+    gnupg
+    git
+    procps
+    pciutils
+    lsb-release
+    vim
+    # neovim
+    ripgrep
+    fd
+    jq
+    bottom
+    bat
+    openssh
+    eza
+    gettext
+    ninja
+    meson
+    curl
+    gnumake
+    gcc
+    wget
+    unzip
+    zip
+    fzf
+    just
+    glaze
+  ];
+
   security = { 
           sudo = {
               enable = true;
@@ -107,34 +137,4 @@
     #         # portalPackage = hypr.packages.${system}.xdg-desktop-portal-hyprland;
     # }
   };
-
-  environment.systemPackages = with pkgs; [
-    home-manager
-    gnupg
-    git
-    procps
-    pciutils
-    lsb-release
-    vim
-    # neovim
-    ripgrep
-    fd
-    jq
-    bottom
-    bat
-    openssh
-    eza
-    gettext
-    ninja
-    meson
-    curl
-    gnumake
-    gcc
-    wget
-    unzip
-    zip
-    fzf
-    just
-    glaze
-  ];
 }
