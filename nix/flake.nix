@@ -34,7 +34,8 @@
     # Overlays / Another source
     # --------------------------------------------------------------
     # hypr = {
-    #   url = "github:hyprwm/Hyprland?submodule=1";
+    #   # url = "github:hyprwm/Hyprland?submodule=1";
+    #   url = "github:hyprwm/Hyprland?rev=64962f89e48a1b50214dd3eeb001aa1cc010ff25&submodule=1";
     #   inputs.nixpkgs.follows = "nixpkgs";
     # };
 
