@@ -173,14 +173,18 @@ flake-compositor $machine:
 
 # display manager sddm
 flake-display-sddm $machine:
+        @if [[ "../ly.nix" = $(rg -i "ly.nix" modules/{{machine}}/full.nix | awk '{$1=$1};1') ]]; then \
+                sed -i 's/..\/ly.nix/# ..\/ly.nix/' modules/{{machine}}/full.nix; \
+        fi
         sed -i 's/# ..\/sddm.nix/..\/sddm.nix/' modules/{{machine}}/full.nix
-        sed -i 's/..\/ly.nix/# ..\/ly.nix/' modules/{{machine}}/full.nix
         rg -i "ly.nix" modules/{{machine}}/full.nix | awk '{$1=$1};1' | awk '{print "\033[0;32m" $0}'
         rg -i "sddm.nix" modules/{{machine}}/full.nix | awk '{$1=$1};1' | awk '{print "\033[0;32m" $0 "\033[0m"}'
 # display manager ly
 flake-display-ly $machine:
+        @if [[ "../sddm.nix" = $(rg -i "sddm.nix" modules/{{machine}}/full.nix | awk '{$1=$1};1') ]]; then \
+                sed -i 's/..\/sddm.nix/# ..\/sddm.nix/' modules/{{machine}}/full.nix; \
+        fi
         sed -i 's/# ..\/ly.nix/..\/ly.nix/' modules/{{machine}}/full.nix
-        sed -i 's/..\/sddm.nix/# ..\/sddm.nix/' modules/{{machine}}/full.nix
         rg -i "ly.nix" modules/{{machine}}/full.nix | awk '{$1=$1};1' | awk '{print "\033[0;32m" $0}'
         rg -i "sddm.nix" modules/{{machine}}/full.nix | awk '{$1=$1};1' | awk '{print "\033[0;32m" $0 "\033[0m"}'
 # display manager tty default nixos
