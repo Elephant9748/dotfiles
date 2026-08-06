@@ -100,7 +100,9 @@
           nix-index-database,
   }:
   let
-      system = "x86_64-linux";
+
+      pkgs = import <nixpkgs> {};
+      system = pkgs.stdenv.hostPlatform.system;
       version = "26.11";
       editor = "nvim";
       machine = {
