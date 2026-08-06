@@ -8,6 +8,13 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
+  # microcode & hardware configure
+  hardware = {
+        graphics.enable = true;
+        cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  }
+
+
   boot.initrd.availableKernelModules = [ "ahci" "xhci_pci" "ehci_pci" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ "dm-snapshot" ];
   boot.kernelModules = [ ];
@@ -51,9 +58,6 @@
   	device = "/var/lib/swapfile";
 	size = 4*1024;
   }];
-
-  # microcode
-  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
   nixpkgs.hostPlatform = lib.mkDefault "${system}";
 }

@@ -55,22 +55,6 @@
           };
   };
 
-  # opengl vm
-  # setting on vm manager GUI on host machine
-  # <graphics type="spice">
-  #    <listen type="none"/>
-  #    <image compression="off"/>
-  #    <gl enable="yes" rendernode="/dev/dri/by-path/pci-0000:00:02.0-render"/> # this just pick either betweeb 2 gpu
-  # </graphics>
-  # <video>
-  #       <model type="virtio" heads="1" primary="yes">
-  #         <acceleration accel3d="yes"/>
-  #       </model>
-  #       <alias name="video0"/>
-  #       <address type="pci" domain="0x0000" bus="0x00" slot="0x01" function="0x0"/>
-  # </video>
-  hardware.opengl.enable = true;
-
   environment = {
         pathsToLink = [ "/share/applications" "/share/xdg-desktop-portal" ];
         variables = {
@@ -146,7 +130,7 @@
     #         enable = true;
     #         # package = hypr.packages.${system}.hyprland;
     #         # portalPackage = hypr.packages.${system}.xdg-desktop-portal-hyprland;
-    # }
+    # };
     steam = {
         enable = true;
         # remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play

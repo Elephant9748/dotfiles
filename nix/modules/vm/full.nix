@@ -133,7 +133,7 @@
     #         enable = true;
     #         # package = hypr.packages.${system}.hyprland;
     #         # portalPackage = hypr.packages.${system}.xdg-desktop-portal-hyprland;
-    # }
+    # };
     nix-index-database.comma.enable = true;
   };
 }
