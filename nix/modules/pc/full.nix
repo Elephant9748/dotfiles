@@ -32,7 +32,7 @@
     zip
     fzf
     just
-    glaze
+    # glaze
     comma
   ];
 
