@@ -8,6 +8,24 @@
     [ (modulesPath + "/profiles/qemu-guest.nix")
     ];
 
+  # opengl vm
+  # setting on vm manager GUI on host machine
+  # <graphics type="spice">
+  #    <listen type="none"/>
+  #    <image compression="off"/>
+  #    <gl enable="yes" rendernode="/dev/dri/by-path/pci-0000:00:02.0-render"/> # this just pick either betweeb 2 gpu
+  # </graphics>
+  # <video>
+  #       <model type="virtio" heads="1" primary="yes">
+  #         <acceleration accel3d="yes"/>
+  #       </model>
+  #       <alias name="video0"/>
+  #       <address type="pci" domain="0x0000" bus="0x00" slot="0x01" function="0x0"/>
+  # </video>
+
+  # hardware.opengl.enable = true;
+  hardware.graphics.enable = true;
+
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
@@ -50,7 +68,7 @@
                         # mkdir -p /etc/secrets/initrd
                         # ssh-keygen -t ed25519 -N "" -f /etc/secrets/initrd/ssh_host_ed25519_key
                         hostKeys = [ "/etc/secrets/initrd/ssh_host_ed25519_key" ];
-                        shell = "/usr/bin/systemd-tty-ask-password-agent";
+                        # shell = "/usr/bin/systemd-tty-ask-password-agent";
                 };
         };
         systemd.users.root.shell = "/usr/bin/systemd-tty-ask-password-agent";
