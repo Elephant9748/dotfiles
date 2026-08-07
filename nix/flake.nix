@@ -121,5 +121,27 @@
       notebook = machine "notebook" [];
       pc = machine "pc" [];
     };
+
+    nixosMachines = forAllSystems (
+      system: let
+        # Filter the configurations to those that match the current system
+        matchingSystemConfigurations = nixpkgs.lib.filterAttrs (_: c: c.pkgs.stdenv.hostPlatform.system == system) self.nixosConfigurations;
+
+        # Map each matching configuration to its top-level system derivation
+        toplevelDerivations = nixpkgs.lib.mapAttrs (_: c: c.config.system.build.toplevel) matchingSystemConfigurations;
+      in
+        toplevelDerivations
+    );
+
+    # Executed by `nix flake check`
+    checks =
+      forAllSystems (
+        system:
+          {
+          }
+          # Add all our homemanager configurations
+          // (nixpkgs.lib.mapAttrs (_: c: c.activationPackage) (nixpkgs.lib.filterAttrs (_: c: c.pkgs.stdenv.hostPlatform.system == system) self.homeConfigurations))
+      )
+      // self.nixosMachines;
   };
 }

@@ -1,8 +1,11 @@
 set quiet
 bangbash := '#!/usr/bin/env bash'
 
+# nix flake check
+check:
+        nix flake check --verbose
 # checking nix lang syntax before build or install
-check $path:
+check-syntax $path:
         nix-instantiate --parse-only {{path}}
 
 # list available machine 
