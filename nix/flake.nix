@@ -105,7 +105,6 @@
         modules =
           [
             ./machine/${host}
-            inputs.nix-index-database.nixosModules.default
           ]
           ++ modules;
       };
@@ -118,6 +117,8 @@
 
     nixosConfigurations = {
       vm = machine "vm" [];
+      notebook = machine "notebook" [];
+      pc = machine "pc" [];
     };
   };
 }

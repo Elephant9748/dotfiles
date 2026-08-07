@@ -127,7 +127,7 @@ flake-base $machine:
 # mv compositor to mangowm
 flake-mango $machine:
         {{bangbash}}
-        sed -i 's/# mangowm.nixosModules.mango/mangowm.nixosModules.mango/' flake.nix
+        sed -i 's/# inputs.mangowm.nixosModules.mango/inputs.mangowm.nixosModules.mango/' users/{{machine}}/full.nix
         # sed -i 's/exec start-hyprland/# exec start-hyprland/' modules/{{machine}}/full.nix
         # sed -i 's/# exec mango/exec mango/' modules/{{machine}}/full.nix
         sed -i 's/# mango.enable = true;/mango.enable = true;/' users/{{machine}}/full.nix
@@ -135,7 +135,7 @@ flake-mango $machine:
         sed -i 's/..\/..\/modules/hyprland.nix/# ..\/..\/modules/hyprland.nix/' homemanager/{{machine}}/full.nix
         sed -i 's/..\/..\/modules/hyprpaper.nix/# ..\/..\/modules/hyprpaper.nix/' homemanager/{{machine}}/full.nix
         sed -i 's/xdg-desktop-portal-hyprland/# xdg-desktop-portal-hyprland/' homemanager/{{machine}}/full.nix
-        rg -i "mangowm.nixosModules.mango" flake.nix | awk '{$1=$1};1' | awk '{print "\033[0;32m" $0}'
+        rg -i "inputs.mangowm.nixosModules.mango" users/{{machine}}/full.nix | awk '{$1=$1};1' | awk '{print "\033[0;32m" $0}'
         rg -i "xdg-desktop-portal-hyprland" homemanager/{{machine}}/full.nix | \
                 awk '{$1=$1};1' | awk '{print "\033[0;32m" $0}'
         rg -i "mango.enable = true;" homemanager/{{machine}}/full.nix | \
@@ -145,7 +145,7 @@ flake-mango $machine:
 # default comopositor hyprland
 flake-hypr $machine:
         {{bangbash}}
-        sed -i 's/mangowm.nixosModules.mango/# mangowm.nixosModules.mango/' flake.nix
+        sed -i 's/inputs.mangowm.nixosModules.mango/# inputs.mangowm.nixosModules.mango/' users/{{machine}}/full.nix
         # sed -i 's/exec mango/# exec mango/' modules/{{machine}}/full.nix
         # sed -i 's/# exec start-hyprland/exec start-hyprland/' modules/{{machine}}/full.nix
         sed -i 's/mango.enable = true;/# mango.enable = true;/' users/{{machine}}/full.nix
@@ -154,7 +154,7 @@ flake-hypr $machine:
         sed -i 's/# ..\/..\/modules/hyprland.nix/..\/..\/modules/hyprland.nix/' homemanager/{{machine}}/full.nix
         sed -i 's/# ..\/..\/modules/hyprpaper.nix/..\/..\/modules/hyprpaper.nix/' homemanager/{{machine}}/full.nix
         sed -i 's/# xdg-desktop-portal-hyprland/xdg-desktop-portal-hyprland/' homemanager/{{machine}}/full.nix
-        rg -i "mangowm.nixosModules.mango" flake.nix | awk '{$1=$1};1' | awk '{$1=$1};1' | awk '{print "\033[0;32m" $0}'
+        rg -i "inputs.mangowm.nixosModules.mango" users/{{machine}}/full.nix | awk '{$1=$1};1' | awk '{$1=$1};1' | awk '{print "\033[0;32m" $0}'
         rg -i "xdg-desktop-portal-hyprland" homemanager/{{machine}}/full.nix | \
                 awk '{$1=$1};1' | awk '{print "\033[0;32m" $0}'
         rg -i "hyprland.enable = true;" homemanager/{{machine}}/full.nix | \
@@ -167,7 +167,7 @@ flake-compositor $machine:
         sed -i 's/# ..\/..\/modules\/hyprland.nix/..\/..\/modules\/hyprland.nix/' homemanager/{{machine}}/full.nix
         sed -i 's/# ..\/..\/modules\/hyprpaper.nix/..\/..\/modules\/hyprpaper.nix/' homemanager/{{machine}}/full.nix
         sed -i 's/# ..\/..\/modules\/mangowm.nix/..\/..\/modules\/mangowm.nix/' homemanager/{{machine}}/full.nix
-        sed -i 's/# mangowm.nixosModules.mango/mangowm.nixosModules.mango/' flake.nix
+        sed -i 's/# inputs.mangowm.nixosModules.mango/inputs.mangowm.nixosModules.mango/' users/{{machine}}/full.nix
         sed -i 's/# mango.enable = true;/mango.enable = true;/' users/{{machine}}/full.nix
         sed -i 's/# hyprland.enable = true;/hyprland.enable = true;/' users/{{machine}}/full.nix
         sed -i 's/# xdg-desktop-portal-hyprland/xdg-desktop-portal-hyprland/' homemanager/{{machine}}/full.nix

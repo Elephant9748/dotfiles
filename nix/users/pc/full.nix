@@ -9,6 +9,8 @@
   imports = [
     ../../modules/ly.nix
     # ../../modules/sddm.nix
+    inputs.nix-index-database.nixosModules.default
+    inputs.mangowm.nixosModules.mango
   ];
 
   environment.systemPackages = with pkgs; [
@@ -132,6 +134,10 @@
     gnome-disks.enable = true;
     # mangowm so we cant list wayland-session directory
     # mango.enable = true;
+    # mango = {
+    #         enable = true;
+    #         package = inputs.mangowm.packages.${pkgs.stdenv.hostPlatform.system}.mango
+    # };
     # hyprland so we cant list wayland-session directory
     # hyprland.enable = true;
     # hyprland = {
