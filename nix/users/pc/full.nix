@@ -85,7 +85,7 @@
         PermitRootLogin = "no";
         PasswordAuthentication = false;
         KbdInteractiveAuthentication = false;
-        AllowUsers = ["${lib elemAt info.users 2}"];
+        AllowUsers = ["${lib.elemAt info.users 2}"];
       };
     };
     xserver.enable = false;
@@ -120,7 +120,7 @@
     };
     neovim = {
       enable = true;
-      package = neovim-nightly.packages.${pkgs.stdenv.hostPlatform.system}.default;
+      package = inputs.neovim-nightly.packages.${pkgs.stdenv.hostPlatform.system}.default;
     };
     thunar = {
       enable = true;

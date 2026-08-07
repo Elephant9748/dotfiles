@@ -1,6 +1,4 @@
 { pkgs, info, ... }: {
-{
-
     imports = [
         ../../modules/waybar.nix
         ../../modules/gtk.nix
