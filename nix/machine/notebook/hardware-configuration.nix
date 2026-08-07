@@ -12,8 +12,7 @@
   hardware = {
         graphics.enable = true;
         cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-  }
-
+  };
 
   boot.initrd.availableKernelModules = [ "ahci" "xhci_pci" "ehci_pci" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ "dm-snapshot" ];

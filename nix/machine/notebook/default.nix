@@ -1,9 +1,8 @@
 {
+  inputs,
+  lib,
   pkgs,
-  version,
-  user,
-  hostname,
-  system,
+  info,
   ...
 }: {
   imports = [
