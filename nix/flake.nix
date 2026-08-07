@@ -12,6 +12,7 @@
 
     # UNSTABLE
     # --------------------------------------------------------------
+    # nixpkgs.url = "https://channels.nixos.org/nixpkgs-unstable/nixexprs.tar.zst";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     home-manager = {
