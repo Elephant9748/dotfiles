@@ -1,36 +1,25 @@
 {
-  description = "Nixos Flake";
-
-  nixConfig = {
-    extra-substituters = [ "https://cache.numtide.com" ];
-    extra-trusted-public-keys = [
-      "niks3.numtide.com-1:DTx8wZduET09hRmMtKdQDxNNthLQETkc/yaX7M4qK0g="
-    ];
-  };
+  description = "Nixos Earendel";
 
   inputs = {
-
     # STABLE
     # --------------------------------------------------------------
-	# nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";	
-	#
-	# home-manager = {                                                  
-	#        url = "github:nix-community/home-manager/release-25.11";
-	#        inputs.nixpkgs.follows = "nixpkgs";
-	#    };
-    # --------------------------------------------------------------
+    # nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
+    #
+    # home-manager = {
+    #        url = "github:nix-community/home-manager/release-25.11";
+    #        inputs.nixpkgs.follows = "nixpkgs"; }; --------------------------------------------------------------
 
     # UNSTABLE
     # --------------------------------------------------------------
-	nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";	
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-	home-manager = {                                                  
-	       url = "github:nix-community/home-manager";
-	       inputs.nixpkgs.follows = "nixpkgs";
-	   };
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # --------------------------------------------------------------
 
-    
     # Overlays / Another source
     # --------------------------------------------------------------
     # hypr = {
@@ -44,31 +33,31 @@
     #   url = "github:oxalica/rust-overlay";
     #   inputs.nixpkgs.follows = "nixpkgs";
     # };
-    neovim-nightly = {                                                                                                                                     
-        url = "github:nix-community/neovim-nightly-overlay";                                                                                               
-        inputs.nixpkgs.follows = "nixpkgs";                                                                                                       
+    neovim-nightly = {
+      url = "github:nix-community/neovim-nightly-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # mangoWM
     mangowm = {
-        url = "github:mangowm/mango/wl-only";
-        inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:mangowm/mango/wl-only";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # waybar from source
     waybar-git = {
-        url = "github:Alexays/Waybar";
-        inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:Alexays/Waybar";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # sddm backgrounds and font path
     sddm-backgrounds = {
-            url = "path:../configs/sddm/sddm-astronaut-theme/Backgrounds/1.png";
-            flake = false;
+      url = "path:../configs/sddm/sddm-astronaut-theme/Backgrounds/1.png";
+      flake = false;
     };
     font-sddm-manual = {
-            url = "path:../configs/sddm/sddm-astronaut-theme/Fonts";
-            flake = false;
+      url = "path:../configs/sddm/sddm-astronaut-theme/Fonts";
+      flake = false;
     };
 
     # paperpass = {
@@ -78,87 +67,57 @@
 
     # populate index database manual inside dotfiles/bins/nix/nix-index-manual
     nix-index-database = {
-        url = "github:nix-community/nix-index-database";
-        inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # --------------------------------------------------------------
   };
 
-  outputs = {
-          self, 
-          nixpkgs,
-          home-manager, 
-          # hypr, 
-          neovim-nightly,
-          # rust-overlay, 
-          mangowm,
-          waybar-git,
-          sddm-backgrounds,
-          font-sddm-manual,
-          # paperpass,
-          nix-index-database,
-  }:
-  let
+  outputs = inputs @ {
+    self,
+    nixpkgs,
+    ...
+  }: let
+    inherit (self) outputs;
 
-      pkgs = import <nixpkgs> {};
-      system = pkgs.stdenv.hostPlatform.system;
+    # for packages not flake configurations
+    systems = [
+      "aarch64-linux"
+      "x86_64-linux"
+    ];
+    var = {
       version = "26.11";
       editor = "nvim";
-      machine = {
-              vm = {
-                      user = "rigel";
-                      hostname = "citrullus-lanatus";
-                      inherit system version editor;
-              };
-              notebook = {
-                      user = "rigel";
-                      hostname = "starfish-small";
-                      inherit system version editor;
-              };
-              pc = {
-                      user = "rigel";
-                      hostname = "rigel-pc";
-                      inherit system version editor;
-              };
-      };
-      mkMachine = name: { user, hostname, system, version, editor, ... }:
-        nixpkgs.lib.nixosSystem {
-                inherit system;
-                specialArgs = { 
-                        inherit user version hostname system neovim-nightly sddm-backgrounds font-sddm-manual;
-                };
-                modules = [
-                        ./hosts/${name}
-                        (import ./modules/${name})
-                        # mangowm
-                        # mangowm.nixosModules.mango
-                        # nix-ld
-                        # (import ./modules/nix_ld.nix)
-                        # overlays
-                        # (import ./overlays/rust.nix)
-                        # (import ./overlays/neovim.nix)
-                        # Impl packaging
-                        # ({ pkgs, ... }: {
-                        #         environment.systemPackages = [(pkgs.callPackage ./packaging/paperpass.nix {})];
-                        #  })
-                        nix-index-database.nixosModules.default
-                        # home-manager
-                        home-manager.nixosModules.home-manager {
-                                home-manager.useGlobalPkgs = true;
-                                home-manager.useUserPackages = true;
-                                home-manager.extraSpecialArgs = { 
-                                        inherit version user waybar-git; 
-                                };
-                                home-manager.users.${user}.imports = [
-                                        ./homemanager/${name}
-                                ];
-                        }
-                ];
-        };
+      hostname = ["citrullus-lanatus" "starfish-small" "rigel-pc"];
+      users = ["rigel" "kelly" "tracy"];
+    };
 
-  in
-  {
-          nixosConfigurations = nixpkgs.lib.mapAttrs (name: config: mkMachine name config) machine;
+    forAllSystems = nixpkgs.lib.genAttrs systems;
+
+    machine = host: modules: let
+      info = var // {host = "${host}";};
+    in
+      nixpkgs.lib.nixosSystem {
+        specialArgs = {
+          inherit inputs outputs info;
+        };
+        modules =
+          [
+            ./machine/${host}
+            inputs.nix-index-database.nixosModules.default
+          ]
+          ++ modules;
+      };
+  in {
+    # Your custom packages
+    # Accessible through 'nix build', 'nix shell', etc
+    packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
+    # nix fmt --pretty .
+    formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
+
+    nixosConfigurations = {
+      vm = machine "vm" [];
+    };
   };
 }

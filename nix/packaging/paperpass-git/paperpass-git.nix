@@ -1,13 +1,11 @@
 # Guide:
 # https://github.com/NixOS/nixpkgs/blob/master/doc/languages-frameworks/rust.section.md
-
 {
   lib,
   fetchFromGitHub,
   rustPlatform,
-  git
+  git,
 }:
-
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "paperpass";
   version = "1.1.10";
@@ -21,7 +19,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
     hash = "sha256-W0bIsEnA/kmnJTEUeTpTDCEdbNCWawM1tQdGdijvJuY=";
   };
 
-  cargoPatches = [ ./0001-cargo-lock.patch ];
+  cargoPatches = [./0001-cargo-lock.patch];
 
   # postPatch = ''
   #       if ! [ -f Cargo.lock ]; then
@@ -31,7 +29,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
   #       ls -la
   # '';
 
-  nativeBuildInputs = [ git ];
+  nativeBuildInputs = [git];
 
   cargoHash = "sha256-iSY2BmUQ/X9+Uu7G0uINFuhZB2ieU++shV30RSGKt94=";
 
@@ -46,4 +44,3 @@ rustPlatform.buildRustPackage (finalAttrs: {
     mainProgram = "paperpass";
   };
 })
-

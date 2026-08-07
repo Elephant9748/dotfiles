@@ -59,6 +59,6 @@
 	size = 4*1024;
   }];
 
-  nixpkgs.hostPlatform = lib.mkDefault "${system}";
+  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 }
 

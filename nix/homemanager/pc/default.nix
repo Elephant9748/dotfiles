@@ -1,6 +1,5 @@
-{ ... }: 
-{
-        imports = [
-                ./full.nix
-        ];
+{...}: {
+  imports = [
+    ./full.nix
+  ];
 }

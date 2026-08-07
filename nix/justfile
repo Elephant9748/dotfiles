@@ -41,6 +41,10 @@ install $machine *arg:
         @echo run nixos-install...
         sudo nixos-install --flake .#{{machine}} {{arg}}
         
+# build test
+build-test $machine *arg:
+        nixos-rebuild test --flake .#{{machine}} --ask-sudo-password {{arg}}
+
 # rebuild nixos with flake apply now live add -L to print all jobs
 build $machine *arg:
         nixos-rebuild switch --flake .#{{machine}} --ask-sudo-password {{arg}}
@@ -74,64 +78,62 @@ flake-pc-gui:
 
 # flake update
 flake-up:
-        nix flake update
+        nix flake update lock
 
 # change user for x machine flake.nix
 flake-user $machine $user:
-        {{bangbash}}
-        sed -i '/{{machine}} = {/,/};/ s/user =.*/user = "{{user}}";/' flake.nix
-        rg "user = " flake.nix | head -n 3 | \
+        @if [[ "{{machine}}" == "vm" ]]; then \
+                sed -i '/users = \[/s/"[^"]*"/"{{user}}"/' flake.nix; \
+        elif [[ "{{machine}}" == "notebook" ]]; then \
+                sed -i '/users = \[/s/"[^"]*"/"{{user}}"/2' flake.nix; \
+        else \
+                sed -i '/users = \[/s/"[^"]*"/"{{user}}"/3' flake.nix; \
+        fi
+        rg -Po '(?<=users = \[ ).*?(?= \])' flake.nix | \
                 paste -sd "" | \
-                awk '{print "\033[0;34mvm:\033[0;32m "$1 $2 $3"\n""\033[0;34mnotebook:\033[0;32m "$4 $5 $6"\n""\033[0;34mpc:\033[0;32m "$7 $8 $9}'
+                awk '{print "\033[0;34mvm:\033[0;32m "$1"\n""\033[0;34mnotebook:\033[0;32m "$2"\n""\033[0;34mpc:\033[0;32m "$3}'
 # change host for x machine flake.nix
 flake-host $machine $host:
-        {{bangbash}}
-        sed -i '/{{machine}} = {/,/};/ s/host =.*/host = "{{host}}";/' flake.nix
-        rg "host = " flake.nix | head -n 3 | \
+        @if [[ "{{machine}}" == "vm" ]]; then \
+                sed -i '/hostname = \[/s/"[^"]*"/"{{host}}"/' flake.nix; \
+        elif [[ "{{machine}}" == "notebook" ]]; then \
+                sed -i '/hostname = \[/s/"[^"]*"/"{{host}}"/2' flake.nix; \
+        else \
+                sed -i '/hostname = \[/s/"[^"]*"/"{{host}}"/3' flake.nix; \
+        fi
+        rg -Po '(?<=hostname = \[ ).*?(?= \])' flake.nix | \
                 paste -sd "" | \
-                awk '{print "\033[0;34mvm:\033[0;32m "$1 $2 $3"\n""\033[0;34mnotebook:\033[0;32m "$4 $5 $6"\n""\033[0;34mpc:\033[0;32m "$7 $8 $9}'
+                awk '{print "\033[0;34mvm:\033[0;32m "$1"\n""\033[0;34mnotebook:\033[0;32m "$2"\n""\033[0;34mpc:\033[0;32m "$3}'
 # change machine base = minimal, full = with gui
 flake-full $machine:
         {{bangbash}}
-        sed -i 's/base/full/' modules/{{machine}}/default.nix
+        sed -i 's/base/full/' users/{{machine}}/default.nix
         sed -i 's/base/full/' homemanager/{{machine}}/default.nix
         printf "\033[0;34mflake-full:\n"
-        rg -i "full" modules/{{machine}}/default.nix | head -n 1 | \
+        rg -i "full" users/{{machine}}/default.nix | head -n 1 | \
                 paste -sd "" |  awk '{print "\033[0;32m" $0}'
         rg -i "full" homemanager/{{machine}}/default.nix | head -n 1 | \
                 paste -sd "" |  awk '{print "\033[0;32m" $0}'
-        # sed -i 's/_base.nix/_full.nix/' flake.nix
-        # sed -i 's/_home_base.nix/_home_full.nix/' flake.nix
-        # printf "\033[0;34m> Done look flake.nix\n\033[0m"
-        # rg -i "\{label\}_" flake.nix | head -n 2 | \
-        #         paste -sd "" | \
-        #         awk '{print "\033[0;34mflake-full:\033[0;32m""\n\t"$1 $2"\n\t"$3}'
 # change machine base = minimal, full = with gui
 flake-base $machine:
         {{bangbash}}
-        sed -i 's/full/base/' modules/{{machine}}/default.nix
+        sed -i 's/full/base/' users/{{machine}}/default.nix
         sed -i 's/full/base/' homemanager/{{machine}}/default.nix
-        printf "\033[0;34mflake-full:\n"
-        rg -i "base" modules/{{machine}}/default.nix | head -n 1 | \
+        printf "\033[0;34mflake-base:\n"
+        rg -i "base" users/{{machine}}/default.nix | head -n 1 | \
                 paste -sd "" | awk '{print "\033[0;32m" $0}'
         rg -i "base" homemanager/{{machine}}/default.nix | head -n 1 | \
                 paste -sd "" | awk '{print "\033[0;32m" $0}'
-        # sed -i 's/_full.nix/_base.nix/' flake.nix
-        # sed -i 's/_home_full.nix/_home_base.nix/' flake.nix
-        # printf "\033[0;34m> Done look flake.nix\n\033[0m"
-        # rg -i "\{label\}_" flake.nix | head -n 2 | \
-        #         paste -sd "" | \
-        #         awk '{print "\033[0;34mflake-base:\033[0;32m""\n\t"$1 $2"\n\t"$3}'
 # mv compositor to mangowm
 flake-mango $machine:
         {{bangbash}}
         sed -i 's/# mangowm.nixosModules.mango/mangowm.nixosModules.mango/' flake.nix
         # sed -i 's/exec start-hyprland/# exec start-hyprland/' modules/{{machine}}/full.nix
         # sed -i 's/# exec mango/exec mango/' modules/{{machine}}/full.nix
-        sed -i 's/# mango.enable = true;/mango.enable = true;/' modules/{{machine}}/full.nix
-        sed -i 's/# ..\/mangowm.nix/..\/mangowm.nix/' homemanager/{{machine}}/full.nix
-        sed -i 's/..\/hyprland.nix/# ..\/hyprland.nix/' homemanager/{{machine}}/full.nix
-        sed -i 's/..\/hyprpaper.nix/# ..\/hyprpaper.nix/' homemanager/{{machine}}/full.nix
+        sed -i 's/# mango.enable = true;/mango.enable = true;/' users/{{machine}}/full.nix
+        sed -i 's/# ..\/..\/modules/mangowm.nix/..\/..\/modules/mangowm.nix/' homemanager/{{machine}}/full.nix
+        sed -i 's/..\/..\/modules/hyprland.nix/# ..\/..\/modules/hyprland.nix/' homemanager/{{machine}}/full.nix
+        sed -i 's/..\/..\/modules/hyprpaper.nix/# ..\/..\/modules/hyprpaper.nix/' homemanager/{{machine}}/full.nix
         sed -i 's/xdg-desktop-portal-hyprland/# xdg-desktop-portal-hyprland/' homemanager/{{machine}}/full.nix
         rg -i "mangowm.nixosModules.mango" flake.nix | awk '{$1=$1};1' | awk '{print "\033[0;32m" $0}'
         rg -i "xdg-desktop-portal-hyprland" homemanager/{{machine}}/full.nix | \
@@ -146,11 +148,11 @@ flake-hypr $machine:
         sed -i 's/mangowm.nixosModules.mango/# mangowm.nixosModules.mango/' flake.nix
         # sed -i 's/exec mango/# exec mango/' modules/{{machine}}/full.nix
         # sed -i 's/# exec start-hyprland/exec start-hyprland/' modules/{{machine}}/full.nix
-        sed -i 's/mango.enable = true;/# mango.enable = true;/' modules/{{machine}}/full.nix
-        sed -i 's/# hyprland.enable = true;/hyprland.enable = true;/' modules/{{machine}}/full.nix
-        sed -i 's/..\/mangowm.nix/# ..\/mangowm.nix/' homemanager/{{machine}}/full.nix
-        sed -i 's/# ..\/hyprland.nix/..\/hyprland.nix/' homemanager/{{machine}}/full.nix
-        sed -i 's/# ..\/hyprpaper.nix/..\/hyprpaper.nix/' homemanager/{{machine}}/full.nix
+        sed -i 's/mango.enable = true;/# mango.enable = true;/' users/{{machine}}/full.nix
+        sed -i 's/# hyprland.enable = true;/hyprland.enable = true;/' users/{{machine}}/full.nix
+        sed -i 's/..\/..\/modules/mangowm.nix/# ..\/..\/modules/mangowm.nix/' homemanager/{{machine}}/full.nix
+        sed -i 's/# ..\/..\/modules/hyprland.nix/..\/..\/modules/hyprland.nix/' homemanager/{{machine}}/full.nix
+        sed -i 's/# ..\/..\/modules/hyprpaper.nix/..\/..\/modules/hyprpaper.nix/' homemanager/{{machine}}/full.nix
         sed -i 's/# xdg-desktop-portal-hyprland/xdg-desktop-portal-hyprland/' homemanager/{{machine}}/full.nix
         rg -i "mangowm.nixosModules.mango" flake.nix | awk '{$1=$1};1' | awk '{$1=$1};1' | awk '{print "\033[0;32m" $0}'
         rg -i "xdg-desktop-portal-hyprland" homemanager/{{machine}}/full.nix | \
@@ -159,38 +161,39 @@ flake-hypr $machine:
                 awk '{$1=$1};1' | awk '{print "\033[0;32m" $0}'
         rg -U -o 'imports\s*=\s*\[(\p{any}*?)\]' -r '$1' --no-line-number homemanager/{{machine}}/full.nix | \
                 awk '{$1=$1};1' | awk '{print "\033[0;32m" $0}'
+
 # install all wayland compositor 
 flake-compositor $machine:
-        sed -i 's/# ..\/hyprland.nix/..\/hyprland.nix/' homemanager/{{machine}}/full.nix
-        sed -i 's/# ..\/hyprpaper.nix/..\/hyprpaper.nix/' homemanager/{{machine}}/full.nix
-        sed -i 's/# ..\/mangowm.nix/..\/mangowm.nix/' homemanager/{{machine}}/full.nix
+        sed -i 's/# ..\/..\/modules\/hyprland.nix/..\/..\/modules\/hyprland.nix/' homemanager/{{machine}}/full.nix
+        sed -i 's/# ..\/..\/modules\/hyprpaper.nix/..\/..\/modules\/hyprpaper.nix/' homemanager/{{machine}}/full.nix
+        sed -i 's/# ..\/..\/modules\/mangowm.nix/..\/..\/modules\/mangowm.nix/' homemanager/{{machine}}/full.nix
         sed -i 's/# mangowm.nixosModules.mango/mangowm.nixosModules.mango/' flake.nix
-        sed -i 's/# mango.enable = true;/mango.enable = true;/' modules/{{machine}}/full.nix
-        sed -i 's/# hyprland.enable = true;/hyprland.enable = true;/' modules/{{machine}}/full.nix
+        sed -i 's/# mango.enable = true;/mango.enable = true;/' users/{{machine}}/full.nix
+        sed -i 's/# hyprland.enable = true;/hyprland.enable = true;/' users/{{machine}}/full.nix
         sed -i 's/# xdg-desktop-portal-hyprland/xdg-desktop-portal-hyprland/' homemanager/{{machine}}/full.nix
         rg -U -o 'imports\s*=\s*\[(\p{any}*?)\]' -r '$1' --no-line-number homemanager/{{machine}}/full.nix | \
                 awk '{$1=$1};1' | awk '{print "\033[0;32m" $0}'
 
 # display manager sddm
 flake-display-sddm $machine:
-        @if [[ "../ly.nix" = $(rg -i "ly.nix" modules/{{machine}}/full.nix | awk '{$1=$1};1') ]]; then \
-                sed -i 's/..\/ly.nix/# ..\/ly.nix/' modules/{{machine}}/full.nix; \
+        @if [[ "../../modules/ly.nix" = $(rg -i "ly.nix" users/{{machine}}/full.nix | awk '{$1=$1};1') ]]; then \
+                sed -i 's/..\/..\/modules\/ly.nix/# ..\/..\/modules\/ly.nix/' users/{{machine}}/full.nix; \
         fi
-        sed -i 's/# ..\/sddm.nix/..\/sddm.nix/' modules/{{machine}}/full.nix
-        rg -i "ly.nix" modules/{{machine}}/full.nix | awk '{$1=$1};1' | awk '{print "\033[0;32m" $0}'
-        rg -i "sddm.nix" modules/{{machine}}/full.nix | awk '{$1=$1};1' | awk '{print "\033[0;32m" $0 "\033[0m"}'
+        sed -i 's/# ..\/..\/modules\/sddm.nix/..\/..\/modules\/sddm.nix/' users/{{machine}}/full.nix
+        rg -i "ly.nix" users/{{machine}}/full.nix | awk '{$1=$1};1' | awk '{print "\033[0;32m" $0}'
+        rg -i "sddm.nix" users/{{machine}}/full.nix | awk '{$1=$1};1' | awk '{print "\033[0;32m" $0 "\033[0m"}'
 # display manager ly
 flake-display-ly $machine:
-        @if [[ "../sddm.nix" = $(rg -i "sddm.nix" modules/{{machine}}/full.nix | awk '{$1=$1};1') ]]; then \
-                sed -i 's/..\/sddm.nix/# ..\/sddm.nix/' modules/{{machine}}/full.nix; \
+        @if [[ "../../modules/sddm.nix" = $(rg -i "sddm.nix" users/{{machine}}/full.nix | awk '{$1=$1};1') ]]; then \
+                sed -i 's/..\/..\/modules\/sddm.nix/# ..\/..\/modules\/sddm.nix/' users/{{machine}}/full.nix; \
         fi
-        sed -i 's/# ..\/ly.nix/..\/ly.nix/' modules/{{machine}}/full.nix
-        rg -i "ly.nix" modules/{{machine}}/full.nix | awk '{$1=$1};1' | awk '{print "\033[0;32m" $0}'
-        rg -i "sddm.nix" modules/{{machine}}/full.nix | awk '{$1=$1};1' | awk '{print "\033[0;32m" $0 "\033[0m"}'
+        sed -i 's/# ..\/..\/modules\/ly.nix/..\/..\/modules\/ly.nix/' users/{{machine}}/full.nix
+        rg -i "ly.nix" users/{{machine}}/full.nix | awk '{$1=$1};1' | awk '{print "\033[0;32m" $0}'
+        rg -i "sddm.nix" users/{{machine}}/full.nix | awk '{$1=$1};1' | awk '{print "\033[0;32m" $0 "\033[0m"}'
 # display manager tty default nixos
 flake-display-tty $machine:
-        sed -i 's/..\/ly.nix/# ..\/ly.nix/' modules/{{machine}}/full.nix
-        rg -i "ly.nix" modules/{{machine}}/full.nix | awk '{$1=$1};1' | awk '{print "\033[0;32m" $0 "\033[0m"}'
+        sed -i 's/..\/..\/modules\/ly.nix/# ..\/..\/modules\/ly.nix/' users/{{machine}}/full.nix
+        rg -i "ly.nix" users/{{machine}}/full.nix | awk '{$1=$1};1' | awk '{print "\033[0;32m" $0 "\033[0m"}'
         
 # rsync fish config to host manual
 to-host-fish $user:

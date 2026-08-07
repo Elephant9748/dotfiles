@@ -1,6 +1,4 @@
-
 # nix-build -E 'with import <nixpkgs> {}; callPackage ./paperpass-bin.nix {}'
-
 # nixconfigurations
 # { config, pkgs, ... }:
 # {
@@ -8,9 +6,12 @@
 #     (pkgs.callPackage ./paperpass-bin.nix {})
 #   ];
 # }
-
-{ stdenv, lib, fetchurl, gnutar }:
-
+{
+  stdenv,
+  lib,
+  fetchurl,
+  gnutar,
+}:
 stdenv.mkDerivation rec {
   pname = "paperpass";
   version = "1.1.10";
@@ -22,15 +23,15 @@ stdenv.mkDerivation rec {
 
   # dontBuild = true;
 
-  buildInputs = [ gnutar ];
+  buildInputs = [gnutar];
 
   unpackPhase = ''
-        tar -zxvf $src
+    tar -zxvf $src
   '';
 
   installPhase = ''
-        mkdir -p $out/bin
-        install -Dm755 ${pname}-${version}-${stdenv.hostPlatform.system}-gnu/* $out/bin
+    mkdir -p $out/bin
+    install -Dm755 ${pname}-${version}-${stdenv.hostPlatform.system}-gnu/* $out/bin
   '';
 
   meta = with lib; {

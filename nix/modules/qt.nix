@@ -1,13 +1,12 @@
-{ pkgs, version, lib,  ... }: {
-
+{pkgs, ...}: {
   home.packages = with pkgs; [
     kdePackages.qt6ct
   ];
 
   qt = {
     enable = true;
-    platformTheme.name = "qtct"; 
-    style.name = "Fusion";  
+    platformTheme.name = "qtct";
+    style.name = "Fusion";
     qt5ctSettings = {
       Appearance = {
         color_scheme_path = "${pkgs.kdePackages.qt6ct}/share/qt6ct/colors/darker.conf";
@@ -73,4 +72,4 @@
       };
     };
   };
-}   
+}
