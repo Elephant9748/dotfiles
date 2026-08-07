@@ -19,6 +19,10 @@ tools:
 clean:
         nix-collect-garbage -d
 
+# nix store optimise --verbose
+clean-store:
+        nix store optimise --verbose
+
 # clean nix-collect-garbage older than x days
 clean-old $day:
         nix-collect-garbage --delete-older-than {{day}}d
@@ -41,6 +45,10 @@ install $machine *arg:
         @echo run nixos-install...
         sudo nixos-install --flake .#{{machine}} {{arg}}
         
+# build list
+build-list:
+        nixos-rebuild list-generations
+
 # build test
 build-test $machine *arg:
         nixos-rebuild test --flake .#{{machine}} --ask-sudo-password {{arg}}
