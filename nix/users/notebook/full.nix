@@ -140,14 +140,14 @@
     # mango.enable = true;
     # mango = {
     #         enable = true;
-    #         package = inputs.mangowm.packages.${pkgs.stdenv.hostPlatform.system}.mango
+    #         package = inputs.mangowm.packages.${pkgs.stdenv.hostPlatform.system}.mango;
     # };
     # hyprland so we cant list wayland-session directory
     # hyprland.enable = true;
     # hyprland = {
     #         enable = true;
-    #         # package = hypr.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-    #         # portalPackage = hypr.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+    #         # package = inputs.hypr.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    #         # portalPackage = inputs.hypr.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
     # };
   };
 }
