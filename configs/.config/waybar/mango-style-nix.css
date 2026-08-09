@@ -179,7 +179,7 @@ window#waybar {
 }
 #cpu.medium {
   border-bottom: 0.75px solid #a3761d;
-  color: #d86d16;
+  color: #d79921;
 }
 #cpu.high {
   border-bottom: 0.75px solid #ec4632;
