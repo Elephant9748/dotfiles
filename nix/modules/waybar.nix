@@ -123,8 +123,8 @@
         };
         "network" = {
           "family" = "ipv4";
-          "format-wifi" = "<span color='#6D8086'> </span> <span color='#3C3836'>{signalStrength}% {signaldBm}dBm</span> ";
-          "format-ethernet" = "<span color='#6D8086'>🖧 </span> <span color='#3C3836'>{ifname}</span> ";
+          "format-wifi" = "<span color='#7c6f64'> </span> <span color='#3C3836'>{signalStrength}% {signaldBm}dBm</span> ";
+          "format-ethernet" = "<span color='#7c6f64'>🖧 </span> <span color='#3C3836'>{ifname}</span> ";
           "format-linked" = "{ifname} (No IP) ";
           "format-disconnected" = "Disconnected ⚠";
           "format-alt" = "{essid} {ifname} = {ipaddr}/{cidr}";
