@@ -3,7 +3,7 @@ bangbash := '#!/usr/bin/env bash'
 
 # nix flake check
 check:
-        nix flake check --no-build --verbose
+        nix flake check --no-build --all-systems --verbose
 # checking nix lang syntax before build or install
 check-syntax $path:
         nix-instantiate --parse-only {{path}}
