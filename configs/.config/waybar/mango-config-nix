@@ -118,7 +118,12 @@
 		"format-icons": ["", "", ""]
 	},
 	"cpu": {
-		"format": " {usage}%",
+		"format": "{icon} {usage}%",
+        "format-icons": [
+                "<span></span>",
+                "<span color='#d79921'></span>",
+                "<span color='#cc241d'></span>"
+        ],
 		"tooltip": false,
         "states": {
                 "normal": 0,
@@ -127,7 +132,12 @@
         }
 	},
 	"memory": {
-		"format": " {used:0.1f}G",
+		"format": "{icon} {used:0.1f}G",
+        "format-icons": [
+                "<span></span>",
+                "<span color='#d79921'></span>",
+                "<span color='#cc241d'></span>"
+        ],
 		// "format": " {used:0.1f}G/{total:0.1f}G({percentage}%",
         "states": {
                 "normal": 0,
@@ -149,7 +159,7 @@
         "format-ethernet": "<span color='#7c6f64'>🖧 </span> <span color='#3C3836'>{ifname}</span> ",
 		"format-linked": "{ifname} (No IP) ",
 		"format-disconnected": "Disconnected ⚠",
-		"format-alt": "{ifname}: {ipaddr}/{cidr}",
+		"format-alt": "{essid} {ifname}: {ipaddr}/{cidr}",
 		"interval": 5
 	},
 	"backlight": {

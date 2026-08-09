@@ -77,7 +77,12 @@
 		"format-icons": ["", "", ""]
 	},
 	"cpu": {
-		"format": "<span></span> {usage}%",
+		"format": "{icon} {usage}%",
+        "format-icons": [
+                "<span></span>",
+                "<span color='#d79921'></span>",
+                "<span color='#cc241d'></span>"
+        ],
 		"tooltip": false,
         "states": {
                 "normal": 0,
@@ -86,7 +91,12 @@
         }
 	},
 	"memory": {
-		"format": " {used:0.1f}G",
+		"format": "{icon} {used:0.1f}G",
+        "format-icons": [
+                "<span></span>",
+                "<span color='#d79921'></span>",
+                "<span color='#cc241d'></span>"
+        ],
 		// "format": " {used:0.1f}G/{total:0.1f}G({percentage}%",
         "states": {
                 "normal": 0,

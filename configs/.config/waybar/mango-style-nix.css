@@ -42,7 +42,8 @@ window#waybar {
 
   /* white */
   /*color: #ffffff; */
-  color: #dce2d8;
+  /*color: #dce2d8;*/
+  color: #fbf1c7;
 }
 
 #window {
@@ -179,11 +180,9 @@ window#waybar {
 }
 #cpu.medium {
   border-bottom: 0.75px solid #a3761d;
-  color: #d79921;
 }
 #cpu.high {
   border-bottom: 0.75px solid #ec4632;
-  color: #cc241d;
 }
 
 #memory {
@@ -197,11 +196,9 @@ window#waybar {
 }
 #memory.medium {
   border-bottom: 0.75px solid #a3761d;
-  color: #d86d16;
 }
 #memory.high {
   border-bottom: 0.75px solid #ec4632;
-  color: #cc241d;
 }
 
 #network {
