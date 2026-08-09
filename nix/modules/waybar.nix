@@ -23,9 +23,9 @@
     settings = {
       mainbar = {
         position = "bottom";
-        modules-left = ["clock" "hyprland/workspaces"];
-        modules-center = ["hyprland/window"];
-        modules-right = ["network" "pulseaudio/slider" "pulseaudio" "cpu" "memory" "battery" "privacy" "tray"];
+        "modules-left" = ["clock" "custom/wall" "hyprland/workspaces"];
+        "modules-center" = ["hyprland/window"];
+        "modules-right" = ["network" "custom/wall" "pulseaudio/slider" "pulseaudio" "custom/wall" "cpu" "memory" "custom/wall" "battery" "privacy" "tray"];
         "hyprland/window" = {
           "format" = "{class}: {title}";
         };
@@ -70,10 +70,9 @@
         "wlr/mode" = {
           "format" = "<span style=\"italic\">{}</span>";
         };
-        "custom/arch_update" = {
-          "format" = "<span color='#589df6'></span>{}";
-          "interval" = 30;
-          "exec" = "~/.config/i3blocks/bin/arch_update.py -b '#e4e4e4' -u '#e4e4e4' -q";
+        "custom/wall"= {
+          "format"= "|";
+          "tooltop"= false;
         };
         "custom/disk_home" = {
           "format" = "🏠 {} ";
@@ -91,7 +90,12 @@
           "format-icons" = ["" "" ""];
         };
         "cpu" = {
-          "format" = " {usage}%";
+          "format" = "{icon} {usage}%";
+          "format-icons"= [
+                "<span></span>"
+                "<span color='#d79921'></span>"
+                "<span color='#cc241d'></span>"
+          ];
           "tooltip" = false;
           "states" = {
             "normal" = 0;
@@ -100,7 +104,12 @@
           };
         };
         "memory" = {
-          "format" = " {used:0.1f}G";
+          "format" = "{icon} {used:0.1f}G";
+          "format-icons"= [
+                "<span></span>"
+                "<span color='#d79921'></span>"
+                "<span color='#cc241d'></span>"
+          ];
           "states" = {
             "normal" = 0;
             "medium" = 50;
