@@ -1,8 +1,8 @@
 {
 	"position": "bottom", // Waybar position (top|bottom|left|right)
-	"modules-left": ["clock", "mango/workspaces"],
+	"modules-left": ["clock","custom/wall", "mango/workspaces"],
 	"modules-center": ["mango/layout","mango/window"],
-	"modules-right": ["network", "pulseaudio/slider","pulseaudio", "cpu", "memory", "battery", "privacy","tray"],
+	"modules-right": ["network", "custom/wall","pulseaudio/slider","pulseaudio","custom/wall", "cpu", "memory", "custom/wall","battery", "privacy","tray"],
 
 	// Modules configuration
     "disable-scroll": true,
@@ -95,11 +95,10 @@
 		// "format": "{}"
         "format": "<span style=\"italic\">{}</span>"
 	},
-	"custom/arch_update": {
-		"format": "<span color='#589df6'></span>{}",
-		"interval": 30,
-		"exec": "~/.config/i3blocks/bin/arch_update.py -b '#e4e4e4' -u '#e4e4e4' -q"
-	},
+    "custom/wall": {
+        "format": "|",
+        "tooltip": false
+    },
 	"custom/disk_home": {
 		"format": "🏠 {} ",
 		"interval": 30,
@@ -146,8 +145,8 @@
 		"family": "ipv4",
 		// "interface": "wlp2*", // (Optional) To force the use of this interface
 		// "format-wifi": "<span color='#589df6'> </span> <span color='#2BB196'>{essid}</span> {frequency} <span color='#589df6'>{signaldBm} dB</span> <span color='#589df6'>⇵</span> {bandwidthUpBits}/{bandwidthDownBits}",
-		"format-wifi": "<span color='#6D8086'> </span> <span color='#3C3836'>{signalStrength}% {signaldBm}dBm</span> ",
-        "format-ethernet": "<span color='#6D8086'>🖧 </span> <span color='#3C3836'>{ifname}</span> ",
+		"format-wifi": "<span color='#7c6f64'> </span> <span color='#3C3836'>{signalStrength}% {signaldBm}dBm</span> ",
+        "format-ethernet": "<span color='#7c6f64'>🖧 </span> <span color='#3C3836'>{ifname}</span> ",
 		"format-linked": "{ifname} (No IP) ",
 		"format-disconnected": "Disconnected ⚠",
 		"format-alt": "{ifname}: {ipaddr}/{cidr}",
@@ -160,13 +159,13 @@
 	},
 	"pulseaudio": {
 		// "scroll-step": 1, // %, can be a float
-		"format": "  {volume}% {format_source}",
+		"format": "<span color='#fbf1c7'></span>  {volume}% {format_source}",
 		"format-muted": "🔇 {format_source}",
 		"format-bluetooth": "{icon} {volume}% {format_source}",
 		"format-bluetooth-muted": "🔇 {format_source}",
 
-		"format-source": " {volume}%",
-		"format-source-muted": "",
+		"format-source": "<span color='#689d6a'></span> {volume}%",
+		"format-source-muted": "<span color='#cc241d'></span>",
         "max-volume": 145,
 
 		"format-icons": {

@@ -6,10 +6,10 @@
 
 	// Choose the order of the modules
 	// "modules-left": ["clock", "hyprland/workspaces", "wlr/mode"],
-	"modules-left": ["clock", "hyprland/workspaces"],
+	"modules-left": ["clock", "custom/wall", "hyprland/workspaces"],
 	// "modules-left": ["custom/clock_manual", "hyprland/workspaces", ], // TEMP until std::chrono::tzdb FIX !!!
 	"modules-center": ["hyprland/window"],
-	"modules-right": ["network", "pulseaudio/slider","pulseaudio", "cpu", "memory", "battery", "privacy","tray"],
+	"modules-right": ["network", "custom/wall", "pulseaudio/slider","pulseaudio", "custom/wall", "cpu", "memory", "custom/wall", "battery", "privacy","tray"],
     // "modules-right": ["network", "cpu","memory","pulseaudio/slider","pulseaudio","battery","tray"],
 
     "hyprland/window": {
@@ -58,10 +58,9 @@
 		// "format": "{}"
         "format": "<span style=\"italic\">{}</span>"
 	},
-	"custom/arch_update": {
-		"format": "<span color='#589df6'></span>{}",
-		"interval": 30,
-		"exec": "~/.config/i3blocks/bin/arch_update.py -b '#e4e4e4' -u '#e4e4e4' -q"
+	"custom/wall": {
+		"format": "|",
+        "tooltop": false
 	},
 	"custom/disk_home": {
 		"format": "🏠 {} ",
@@ -109,8 +108,8 @@
 		"family": "ipv4",
 		// "interface": "wlp2*", // (Optional) To force the use of this interface
 		// "format-wifi": "<span color='#589df6'> </span> <span color='#2BB196'>{essid}</span> {frequency} <span color='#589df6'>{signaldBm} dB</span> <span color='#589df6'>⇵</span> {bandwidthUpBits}/{bandwidthDownBits}",
-		"format-wifi": "<span color='#6D8086'> </span> <span color='#3C3836'>{signalStrength}% {signaldBm}dBm</span> ",
-        "format-ethernet": "<span color='#6D8086'>🖧 </span> <span color='#3C3836'>{ifname}</span> ",
+		"format-wifi": "<span color='#7c6f64'> </span> <span color='#3C3836'>{signalStrength}% {signaldBm}dBm</span> ",
+        "format-ethernet": "<span color='#7c6f64'>🖧 </span> <span color='#3C3836'>{ifname}</span> ",
 		"format-linked": "{ifname} (No IP) ",
 		"format-disconnected": "Disconnected ⚠",
 		"format-alt": "{essid} {ifname}: {ipaddr}/{cidr}",
@@ -123,13 +122,13 @@
 	},
 	"pulseaudio": {
 		// "scroll-step": 1, // %, can be a float
-		"format": "<span></span>  {volume}% {format_source}",
+		"format": "<span color='#fbf1c7'></span>  {volume}% {format_source}",
 		"format-muted": "🔇 {format_source}",
 		"format-bluetooth": "{icon} {volume}% {format_source}",
 		"format-bluetooth-muted": "🔇 {format_source}",
 
-		"format-source": "<span></span> {volume}%",
-		"format-source-muted": "",
+		"format-source": "<span color='#689d6a'></span> {volume}%",
+		"format-source-muted": "<span color='#cc241d'></span>",
         "max-volume": 145,
 
 		"format-icons": {
