@@ -118,7 +118,7 @@
     };
     neovim = {
       enable = true;
-      package = neovim-nightly.packages.${pkgs.stdenv.hostPlatform.system}.default;
+      package = inputs.neovim-nightly.packages.${pkgs.stdenv.hostPlatform.system}.default;
     };
     # below hyprland using build from source
     hyprland = {

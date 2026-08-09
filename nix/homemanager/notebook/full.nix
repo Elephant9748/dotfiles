@@ -1,9 +1,8 @@
 {
+  inputs,
   pkgs,
-  version,
   lb,
-  system,
-  hypr,
+  info,
   ...
 }: {
   imports = [
