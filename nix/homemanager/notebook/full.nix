@@ -115,7 +115,18 @@
     ];
   };
 
+  # programs = {
+  #   gpg = {
+  #     enable = true;
+  #     package = pkgs.callPackage ../../pkgs/gnupg/24.nix {};
+  #   };
+  # };
+
   services = {
+    # gpg-agent = {
+    #   enable = true;
+    #   enableSshSupport = true;
+    # };
     polkit-gnome = {
       enable = true;
       package = pkgs.polkit_gnome;
