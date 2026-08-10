@@ -23,7 +23,7 @@
     settings = {
       mainbar = {
         position = "bottom";
-        "modules-left" = ["clock" "custom/wall" "hyprland/workspaces"];
+        "modules-left" = ["clock" "hyprland/workspaces"];
         "modules-center" = ["hyprland/window"];
         "modules-right" = ["network" "custom/wall" "pulseaudio/slider" "pulseaudio" "custom/wall" "cpu" "memory" "custom/wall" "battery" "privacy" "tray"];
         "hyprland/window" = {
@@ -93,7 +93,7 @@
           "format" = "{icon} {usage}%";
           "format-icons"= [
                 "<span></span>"
-                "<span color='#d79921'></span>"
+                "<span color='#d65d0e'></span>"
                 "<span color='#cc241d'></span>"
           ];
           "tooltip" = false;
@@ -107,7 +107,7 @@
           "format" = "{icon} {used:0.1f}G";
           "format-icons"= [
                 "<span></span>"
-                "<span color='#d79921'></span>"
+                "<span color='#d65d0e'></span>"
                 "<span color='#cc241d'></span>"
           ];
           "states" = {
