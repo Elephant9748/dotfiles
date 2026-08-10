@@ -6,7 +6,7 @@
 
 	// Choose the order of the modules
 	// "modules-left": ["clock", "hyprland/workspaces", "wlr/mode"],
-	"modules-left": ["clock", "custom/wall", "sway/workspaces"],
+	"modules-left": ["clock", "sway/workspaces"],
 	// "modules-left": ["custom/clock_manual", "hyprland/workspaces", ], // TEMP until std::chrono::tzdb FIX !!!
 	"modules-center": ["sway/window"],
 	"modules-right": ["network", "custom/wall", "pulseaudio/slider","pulseaudio", "custom/wall", "cpu", "memory", "custom/wall", "battery", "privacy","tray"],
@@ -80,7 +80,7 @@
 		"format": "{icon} {usage}%",
         "format-icons": [
                 "<span></span>",
-                "<span color='#d79921'></span>",
+                "<span color='#d65d0e'></span>",
                 "<span color='#cc241d'></span>"
         ],
 		"tooltip": false,
@@ -94,7 +94,7 @@
 		"format": "{icon} {used:0.1f}G",
         "format-icons": [
                 "<span></span>",
-                "<span color='#d79921'></span>",
+                "<span color='#d65d0e'></span>",
                 "<span color='#cc241d'></span>"
         ],
 		// "format": " {used:0.1f}G/{total:0.1f}G({percentage}%",
