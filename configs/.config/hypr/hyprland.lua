@@ -138,7 +138,7 @@ hl.window_rule({
 -- localsend rules
 hl.window_rule({
     match = {
-        class = "localsend",
+        title = "LocalSend",
     },
     size = "400 731",
     move = "1487 320",
