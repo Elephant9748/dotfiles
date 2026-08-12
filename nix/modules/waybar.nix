@@ -135,16 +135,24 @@
           "format-icons" = ["🔅" "🔆"];
         };
         "pulseaudio" = {
-          "format" = "  {volume}% {format_source}";
+          "format" = "{icon} {volume}% {format_source}";
           "format-muted" = "🔇 {format_source}";
           "format-bluetooth" = "{icon} {volume}% {format_source}";
           "format-bluetooth-muted" = "🔇 {format_source}";
-
-          "format-source" = " {volume}%";
-          "format-source-muted" = "";
+          "format-source"= "<span color='#525e5a'></span> {volume}%";
+          "format-source-muted"= "<span color='#cc241d'></span>";
           "max-volume" = 145;
 
           "format-icons" = {
+            "alsa_output.pci-0000_00_1f.3.analog-stereo"= [
+                    "<span color='#9d0006'> </span>"
+                    "<span color='#d65d0e'> </span>"
+                    "<span color='#b57614'> </span>"
+                    "<span color='#79740e'> </span>"
+                    "<span color='#427b58'> </span>"
+                    "<span color='#076678'> </span>"
+                    "<span color='#8f3f71'> </span>"
+            ];
             "headphones" = "";
             "handsfree" = "";
             "headset" = "";
