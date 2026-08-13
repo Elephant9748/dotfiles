@@ -7,7 +7,7 @@
     desktopManager = {
       cosmic = {
         enable = true;
-        showExcludedPkgsWarning = true;
+        showExcludedPkgsWarning = false;
       };
     };
     displayManager = {
