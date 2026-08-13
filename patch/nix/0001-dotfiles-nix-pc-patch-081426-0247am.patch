@@ -1,0 +1,214 @@
+From b9e013ac092b9a297472a5a8c4f53d02b48f765e Mon Sep 17 00:00:00 2001
+From: "@Elephant9748" <adytamasurya@proton.me>
+Date: Fri, 14 Aug 2026 02:47:05 +0700
+Subject: [PATCH] nix: pc: patch-081426-0247am
+
+---
+ configs/.config/mango/config-nix.conf |  4 +--
+ nix/flake.lock                        | 36 +++++++++++++--------------
+ nix/flake.nix                         |  2 +-
+ nix/homemanager/pc/full.nix           | 20 +++++++--------
+ nix/modules/hyprland.nix              |  2 +-
+ nix/users/pc/full.nix                 |  6 ++---
+ 6 files changed, 35 insertions(+), 35 deletions(-)
+
+diff --git a/configs/.config/mango/config-nix.conf b/configs/.config/mango/config-nix.conf
+index 29f46be..c2243d6 100644
+--- a/configs/.config/mango/config-nix.conf
++++ b/configs/.config/mango/config-nix.conf
+@@ -5,8 +5,8 @@ env=QT_QPA_PLATFORMTHEME,qt6ct
+ env=QT_QPA_PLATFORM,wayland;xcb
+ 
+ # monitor
+-monitorrule=name:^Virtual-1,width:1920,height:1024,refresh:60,x:0,y=0,scale:1 # for virtual machine
+-# monitorrule=name:^HDMI-A-1,width:1920,height:1080,refresh:60,x:0,y=0,scale:1 # for real monitor
++# monitorrule=name:^Virtual-1,width:1920,height:1024,refresh:60,x:0,y=0,scale:1 # for virtual machine
++monitorrule=name:^HDMI-A-1,width:1920,height:1080,refresh:60,x:0,y=0,scale:1 # for real monitor
+ # allow game to bypass the compositors VSync for lower latency
+ # allow_tearing=1
+ # autostart
+diff --git a/nix/flake.lock b/nix/flake.lock
+index 5d6650d..610fb35 100644
+--- a/nix/flake.lock
++++ b/nix/flake.lock
+@@ -96,11 +96,11 @@
+         ]
+       },
+       "locked": {
+-        "lastModified": 1786538400,
+-        "narHash": "sha256-PH8B1YKxedcWKNw2xsk6cKPVk/rJoLgdlWd5d+Icies=",
++        "lastModified": 1786630952,
++        "narHash": "sha256-a952+jEQ1I6sMd6yzi2GIsO/EFNtEFvzwbJ+oOG9Cg0=",
+         "owner": "nix-community",
+         "repo": "home-manager",
+-        "rev": "e13ba5e5abbd9b912fa8c6979bd119e87ca7fdd9",
++        "rev": "2d1bac51b2513914ace47797765c3265164de78e",
+         "type": "github"
+       },
+       "original": {
+@@ -118,11 +118,11 @@
+         "scenefx": "scenefx"
+       },
+       "locked": {
+-        "lastModified": 1786516348,
+-        "narHash": "sha256-+Owi5xuCrP+0kSE3oGfxbix9o5F1LPIgq8lVkEygtOA=",
++        "lastModified": 1786625045,
++        "narHash": "sha256-SZy+fklcJvinuS1oQQOTq2QqcqKH8T/Xm9N/SteCZ6A=",
+         "owner": "mangowm",
+         "repo": "mango",
+-        "rev": "f07799e0149a370620b40a14a7d05a0db9885b64",
++        "rev": "4548dd2c7772e9060ce11fe67f731e3cc907cf3f",
+         "type": "github"
+       },
+       "original": {
+@@ -141,11 +141,11 @@
+         ]
+       },
+       "locked": {
+-        "lastModified": 1786493000,
+-        "narHash": "sha256-+WlxpWLlqa/tYvgKA0CDkkWJjOB0W4fDjsbZOfLIClQ=",
++        "lastModified": 1786579404,
++        "narHash": "sha256-u8cCRrk4j8Xm0Cd5vful9OA+Z5+vqWkkR5KHDYWtTqw=",
+         "owner": "nix-community",
+         "repo": "neovim-nightly-overlay",
+-        "rev": "e73b5f1e684c8634599cebe29715eac0a0ef8ee3",
++        "rev": "3c7255e535760cd414f64af0ebf7715dfd683673",
+         "type": "github"
+       },
+       "original": {
+@@ -157,11 +157,11 @@
+     "neovim-src": {
+       "flake": false,
+       "locked": {
+-        "lastModified": 1786456359,
+-        "narHash": "sha256-9CY+7JM3/jVyFwK6slwH8Jgzgn4X24VDMRsDjxQsj4Q=",
++        "lastModified": 1786540377,
++        "narHash": "sha256-sBQqVfoZiKaAjVTaEt/O27BX4PgnkZT2fWezQeABnxE=",
+         "owner": "neovim",
+         "repo": "neovim",
+-        "rev": "eb5c60b8c548d2d6133669d62711308780003a2c",
++        "rev": "a63393396cd0901050849b72caaa8583949b6ebf",
+         "type": "github"
+       },
+       "original": {
+@@ -192,11 +192,11 @@
+     },
+     "nixpkgs": {
+       "locked": {
+-        "lastModified": 1786384358,
+-        "narHash": "sha256-RzPPiWeUtuvymnpuEWsdtzli5w4kjZs49FqEs3/1u+I=",
++        "lastModified": 1786599213,
++        "narHash": "sha256-yNJd40f11EzXBjSByCB7IPpeFFAdeoSKKM67dGkfFoU=",
+         "owner": "NixOS",
+         "repo": "nixpkgs",
+-        "rev": "2fcb964de67fcf60b43471c55d5d99e61a9ccb5a",
++        "rev": "0e251e24a4f24e036a084b6b4b2d2491af4167f4",
+         "type": "github"
+       },
+       "original": {
+@@ -291,11 +291,11 @@
+         ]
+       },
+       "locked": {
+-        "lastModified": 1785791220,
+-        "narHash": "sha256-POvwObPOp6O14n6KYWNLp2Y3paunA5f8U1NCaodNFcc=",
++        "lastModified": 1786623881,
++        "narHash": "sha256-uFfKkAbLn4AgX0uZWlYNUxRUOdRp0x4WKXiOvQqhyy4=",
+         "owner": "Alexays",
+         "repo": "Waybar",
+-        "rev": "084d87401d0a91182c16aa7e5f674a7dde767185",
++        "rev": "6c3bd01bae35f2ba46cc3b25f95a028861112295",
+         "type": "github"
+       },
+       "original": {
+diff --git a/nix/flake.nix b/nix/flake.nix
+index e7fc0c8..0d6a745 100644
+--- a/nix/flake.nix
++++ b/nix/flake.nix
+@@ -91,7 +91,7 @@
+       version = "26.11";
+       editor = "nvim";
+       hostname = ["citrullus-lanatus" "starfish-small" "rigel-pc"];
+-      users = ["rigel" "kelly" "tracy"];
++      users = ["rigel" "kelly" "rigel"];
+     };
+ 
+     forAllSystems = nixpkgs.lib.genAttrs systems;
+diff --git a/nix/homemanager/pc/full.nix b/nix/homemanager/pc/full.nix
+index 672477d..114dce1 100644
+--- a/nix/homemanager/pc/full.nix
++++ b/nix/homemanager/pc/full.nix
+@@ -95,18 +95,18 @@
+     };
+   };
+ 
+-  # programs = {
+-  #   gpg = {
+-  #     enable = true;
+-  #     package = pkgs.callPackage ../../pkgs/gnupg/24.nix {};
+-  #   };
+-  # };
++  programs = {
++    gpg = {
++      enable = true;
++      package = pkgs.callPackage ../../pkgs/gnupg/24.nix {};
++    };
++  };
+ 
+   services = {
+-    # gpg-agent = {
+-    #   enable = true;
+-    #   enableSshSupport = true;
+-    # };
++    gpg-agent = {
++      enable = true;
++      enableSshSupport = true;
++    };
+     polkit-gnome = {
+       enable = true;
+       package = pkgs.polkit_gnome;
+diff --git a/nix/modules/hyprland.nix b/nix/modules/hyprland.nix
+index 04952dd..541d7f2 100644
+--- a/nix/modules/hyprland.nix
++++ b/nix/modules/hyprland.nix
+@@ -36,7 +36,7 @@
+           }
+           {
+             output = "HDMI-A-1";
+-            mode = "1280x1024@60";
++            mode = "1920x1080@60";
+             position = "0x0";
+             scale = 1;
+           }
+diff --git a/nix/users/pc/full.nix b/nix/users/pc/full.nix
+index c8344c0..e128f94 100644
+--- a/nix/users/pc/full.nix
++++ b/nix/users/pc/full.nix
+@@ -9,7 +9,7 @@
+   imports = [
+     ../../modules/ly.nix
+     # ../../modules/sddm.nix
+-    # ../../modules/cosmic.nix
++    ../../modules/cosmic.nix
+     inputs.nix-index-database.nixosModules.default
+     inputs.mangowm.nixosModules.mango
+   ];
+@@ -134,13 +134,13 @@
+     };
+     gnome-disks.enable = true;
+     # mangowm so we cant list wayland-session directory
+-    # mango.enable = true;
++    mango.enable = true;
+     # mango = {
+     #         enable = true;
+     #         package = inputs.mangowm.packages.${pkgs.stdenv.hostPlatform.system}.mango;
+     # };
+     # hyprland so we cant list wayland-session directory
+-    # hyprland.enable = true;
++    hyprland.enable = true;
+     # hyprland = {
+     #         enable = true;
+     #         # package = inputs.hypr.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+-- 
+2.55.0
+

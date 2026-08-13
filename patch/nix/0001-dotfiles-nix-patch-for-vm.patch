@@ -1,0 +1,249 @@
+From 6dcd14d1c7a58b925a589a29dfec3b65673bae44 Mon Sep 17 00:00:00 2001
+From: "@Elephant9748" <adytamasurya@proton.me>
+Date: Fri, 14 Aug 2026 04:10:40 +0700
+Subject: [PATCH] nix: patch for vm
+
+---
+ nix/homemanager/vm/full.nix             | 22 +++++-----
+ nix/pkgs/lsend/.gitignore               |  5 +++
+ nix/pkgs/lsend/aur/lsend-bin/.gitignore |  5 +++
+ nix/pkgs/lsend/aur/lsend-bin/PKGBUILD   | 22 ++++++++++
+ nix/pkgs/lsend/aur/lsend-git/.gitignore |  6 +++
+ nix/pkgs/lsend/aur/lsend-git/PKGBUILD   | 28 ++++++++++++
+ nix/pkgs/lsend/nix/.gitignore           |  1 +
+ nix/pkgs/lsend/nix/default.nix          | 58 +++++++++++++++++++++++++
+ nix/users/vm/full.nix                   |  2 +-
+ 9 files changed, 137 insertions(+), 12 deletions(-)
+ create mode 100644 nix/pkgs/lsend/.gitignore
+ create mode 100644 nix/pkgs/lsend/aur/lsend-bin/.gitignore
+ create mode 100644 nix/pkgs/lsend/aur/lsend-bin/PKGBUILD
+ create mode 100644 nix/pkgs/lsend/aur/lsend-git/.gitignore
+ create mode 100644 nix/pkgs/lsend/aur/lsend-git/PKGBUILD
+ create mode 100644 nix/pkgs/lsend/nix/.gitignore
+ create mode 100644 nix/pkgs/lsend/nix/default.nix
+
+diff --git a/nix/homemanager/vm/full.nix b/nix/homemanager/vm/full.nix
+index 791d544..28aac29 100644
+--- a/nix/homemanager/vm/full.nix
++++ b/nix/homemanager/vm/full.nix
+@@ -52,7 +52,7 @@
+     gparted-full
+     qpwgraph
+     # paperpass.packages.${pkgs.system}.default
+-    # (callPackage ../../pkgs/lsend/nix {})
++    (callPackage ../../pkgs/lsend/nix {})
+   ];
+ 
+   # themes gtk using dconf
+@@ -100,18 +100,18 @@
+     ];
+   };
+ 
+-  # programs = {
+-  #   gpg = {
+-  #     enable = true;
+-  #     package = pkgs.callPackage ../../pkgs/gnupg/24.nix {};
+-  #   };
+-  # };
++  programs = {
++    gpg = {
++      enable = true;
++      package = pkgs.callPackage ../../pkgs/gnupg/24.nix {};
++    };
++  };
+ 
+   services = {
+-    # gpg-agent = {
+-    #   enable = true;
+-    #   enableSshSupport = true;
+-    # };
++    gpg-agent = {
++      enable = true;
++      enableSshSupport = true;
++    };
+     polkit-gnome = {
+       enable = true;
+       package = pkgs.polkit_gnome;
+diff --git a/nix/pkgs/lsend/.gitignore b/nix/pkgs/lsend/.gitignore
+new file mode 100644
+index 0000000..9b982f2
+--- /dev/null
++++ b/nix/pkgs/lsend/.gitignore
+@@ -0,0 +1,5 @@
++*.zst
++*.gz
++pkg
++src
++result
+diff --git a/nix/pkgs/lsend/aur/lsend-bin/.gitignore b/nix/pkgs/lsend/aur/lsend-bin/.gitignore
+new file mode 100644
+index 0000000..c8d55e5
+--- /dev/null
++++ b/nix/pkgs/lsend/aur/lsend-bin/.gitignore
+@@ -0,0 +1,5 @@
++pkg
++src
++*.zst
++*.gz
++
+diff --git a/nix/pkgs/lsend/aur/lsend-bin/PKGBUILD b/nix/pkgs/lsend/aur/lsend-bin/PKGBUILD
+new file mode 100644
+index 0000000..404662b
+--- /dev/null
++++ b/nix/pkgs/lsend/aur/lsend-bin/PKGBUILD
+@@ -0,0 +1,22 @@
++# Maintainer: Mango
++# Contributor: Mango
++# Contributor: Mango <adytamasurya@protonmail.com>
++
++pkgname=localsend-cli
++pkgver=1.18.0
++pkgrel=1
++pkgdesc='An open source cross-platform alternative to AirDrop'
++url=https://github.com/localsend/localsend
++arch=('x86_64')
++options=(!debug)
++source_x86_64=("${url}/releases/download/v${pkgver}/LocalSend-CLI-${pkgver}-linux-x86-64.tar.gz")
++sha256sums_x86_64=('d47fe4688b277f86c4af6ca924fdcbf88fe40c0ef909b69f609b2cb431d74174')
++
++prepare() {
++        tar -zxvf "LocalSend-CLI-${pkgver}-linux-x86-64.tar.gz"
++}
++
++package() {
++        install -Dm755 "$pkgname" "$pkgdir/usr/local/bin/$pkgname"
++        ln -sf "$pkgdir/usr/local/bin/$pkgname" "$pkgdir/usr/local/bin/lsend"
++}
+diff --git a/nix/pkgs/lsend/aur/lsend-git/.gitignore b/nix/pkgs/lsend/aur/lsend-git/.gitignore
+new file mode 100644
+index 0000000..e1d2922
+--- /dev/null
++++ b/nix/pkgs/lsend/aur/lsend-git/.gitignore
+@@ -0,0 +1,6 @@
++localsend-cli-git
++pkg
++src
++*.zst
++*.gz
++
+diff --git a/nix/pkgs/lsend/aur/lsend-git/PKGBUILD b/nix/pkgs/lsend/aur/lsend-git/PKGBUILD
+new file mode 100644
+index 0000000..776b325
+--- /dev/null
++++ b/nix/pkgs/lsend/aur/lsend-git/PKGBUILD
+@@ -0,0 +1,28 @@
++# Maintainer: Mango
++# Contributor: Mango
++# Contributor: Mango <adytamasurya@protonmail.com>
++
++pkgname=localsend-cli-git
++pkgver=1.18.1
++pkgrel=1
++pkgdesc='An open source cross-platform alternative to AirDrop'
++url="https://github.com/localsend/localsend"
++arch=('x86_64')
++options=('!debug' '!lto')
++source=("$pkgname::git+$url#tag=v$pkgver")
++sha256sums=('cc9535a1887593545d2a53111067493394545752f64d1ba3da2d40b58bcd9eab')
++
++makedepends=(git rust cargo base-devel)
++
++build() {
++        cd "$pkgname"
++        cargo build --release --workspace -j`nproc 2>/dev/null || getconf _NPROCESSORS_CONF`
++}
++
++package() {
++        cd "$pkgname"
++        install -Dm755 -t "$pkgdir/usr/local/bin/" target/release/localsend-cli 
++        ln -sf "$pkgdir/usr/local/bin/localsend-cli" "$pkgdir/usr/local/bin/lsend"
++        install -Dm755 -t "$pkgdir/usr/local/bin/" target/release/server 
++        install -Dm755 -t "$pkgdir/usr/local/lib/" target/release/librust_lib_localsend_app.* 
++}
+diff --git a/nix/pkgs/lsend/nix/.gitignore b/nix/pkgs/lsend/nix/.gitignore
+new file mode 100644
+index 0000000..b2be92b
+--- /dev/null
++++ b/nix/pkgs/lsend/nix/.gitignore
+@@ -0,0 +1 @@
++result
+diff --git a/nix/pkgs/lsend/nix/default.nix b/nix/pkgs/lsend/nix/default.nix
+new file mode 100644
+index 0000000..734260e
+--- /dev/null
++++ b/nix/pkgs/lsend/nix/default.nix
+@@ -0,0 +1,58 @@
++# nix-build -E 'with import <nixpkgs> {}; callPackage ./nix/default.nix {}'
++# with flake just: nix build . --impure
++
++# Guide:
++# https://github.com/NixOS/nixpkgs/blob/master/doc/languages-frameworks/rust.section.md
++
++{
++  lib,
++  fetchFromGitHub,
++  rustPlatform,
++  git,
++  stdenv,
++}:
++rustPlatform.buildRustPackage (finalAttrs: {
++  pname = "localsend";
++  version = "1.18.1";
++
++  src = fetchFromGitHub {
++    owner = "localsend";
++    repo = "localsend";
++    tag = "v${finalAttrs.version}";
++    hash = "sha256-uxMfO39U0cC7Svf8QL4WUJJowuwmTjChrZ4VOWcgb4E=";
++  };
++
++  # dontBuild = true;
++  # # buildPhase = ":";
++  # doCheck = false;
++  nativeBuildInputs = [ git ];
++
++  cargoHash = "sha256-khnrHc/88j+JG3sSKvNUsu6JcrM83zIt+W3tT7dz2Ac=";
++
++  buildPhase = ''
++        cargo build --release --workspace
++  '';
++  checkPhase = ''
++        echo ":: SKIP CARGO TEST"
++  '';
++  installPhase = ''
++        mkdir -p $out/{bin,lib}
++        install -Dm755 target/release/localsend-cli $out/bin/lsend
++        install -Dm755 target/release/server $out/bin/
++        install -Dm755 target/release/librust_lib_localsend_app.* $out/lib/
++  '';
++
++  meta = {
++    description = "localsend-cli";
++    homepage = "https://localsend.org/";
++    donationPage = "https://localsend.org/donate";
++    license = lib.licenses.mit;
++    maintainers = with lib.maintainers; [
++      sikmir
++      linsui
++      pandapip1
++    ];
++    mainProgram = "lsend";
++  };
++})
++
+diff --git a/nix/users/vm/full.nix b/nix/users/vm/full.nix
+index 868d44f..9dbfadc 100644
+--- a/nix/users/vm/full.nix
++++ b/nix/users/vm/full.nix
+@@ -9,7 +9,7 @@
+   imports = [
+     ../../modules/ly.nix
+     # ../../modules/sddm.nix
+-    # ../../modules/cosmic.nix
++    ../../modules/cosmic.nix
+     inputs.nix-index-database.nixosModules.default
+     inputs.mangowm.nixosModules.mango
+   ];
+-- 
+2.55.0
+
