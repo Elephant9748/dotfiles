@@ -52,6 +52,7 @@
     gparted-full
     qpwgraph
     # paperpass.packages.${pkgs.system}.default
+    # (callPackage ../../pkgs/lsend/nix {})
   ];
 
   # themes gtk using dconf

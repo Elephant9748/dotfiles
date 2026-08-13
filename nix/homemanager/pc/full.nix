@@ -56,7 +56,8 @@
     android-tools
     dust
     sunshine
-    moonlight-qt
+    # moonlight-qt
+    # moonshine
     nvtopPackages.full
     gparted-full
     qpwgraph
