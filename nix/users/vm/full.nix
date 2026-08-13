@@ -9,6 +9,7 @@
   imports = [
     ../../modules/ly.nix
     # ../../modules/sddm.nix
+    # ../../modules/cosmic.nix
     inputs.nix-index-database.nixosModules.default
     inputs.mangowm.nixosModules.mango
   ];
