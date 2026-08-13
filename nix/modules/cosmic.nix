@@ -1,19 +1,19 @@
 {pkgs, ...}: {
   environment.cosmic.excludePackages = with pkgs; [
-        cosmic-greeter
+    cosmic-greeter
   ];
 
   services = {
-   desktopManager = {
-     cosmic = {
-             enable = true;
-             showExcludedPkgsWarning = true;
-     };
-   };
-   displayManager = {
-           cosmic-greeter = {
-                   enable = false;
-           };
-   };
+    desktopManager = {
+      cosmic = {
+        enable = true;
+        showExcludedPkgsWarning = true;
+      };
+    };
+    displayManager = {
+      cosmic-greeter = {
+        enable = false;
+      };
+    };
   };
 }
