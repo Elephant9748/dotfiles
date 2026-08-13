@@ -102,10 +102,10 @@
   # };
 
   services = {
-    gpg-agent = {
-      enable = true;
-      enableSshSupport = true;
-    };
+    # gpg-agent = {
+    #   enable = true;
+    #   enableSshSupport = true;
+    # };
     polkit-gnome = {
       enable = true;
       package = pkgs.polkit_gnome;
