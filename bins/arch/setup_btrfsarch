@@ -88,6 +88,12 @@ mount -o compress=zstd,subvol=@ "/dev/mapper/${luksname}" /mnt
 mount --mkdir -o compress=zstd,subvol=@home "/dev/mapper/${luksname}" /mnt/home
 mount --mkdir -o compress=zstd,subvol=@snapshots "/dev/mapper/${luksname}" /mnt/.snapshots
 mount --mkdir "${BLOCK}1" /mnt/boot
+
+# swapfile btrfs
+btrfs filesystem mkswapfile --size 4g --uuid clear /mnt/swap/swapfile
+chattr +C /mnt/swap/swapfile
+swapon /mnt/swap/swapfile
+
 LUKSNAME=$(lsblk -f | grep crypto_LUKS | awk '{print $4}' | awk -F '-' '{print $1}')
 LUKSUUID=$(lsblk -f | grep crypto_LUKS | awk '{print $4}')
 lsblk -f
