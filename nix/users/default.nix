@@ -13,6 +13,10 @@
     then lib.elemAt info.users 1
     else if info.host == "pc"
     then lib.elemAt info.users 2
+    else if info.host == "vm-btrfs"
+    then lib.elemAt info.users 0
+    else if info.host == "vm-zfs"
+    then lib.elemAt info.users 0
     else lib.elemAt info.users 0;
 in {
   imports = [
