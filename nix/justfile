@@ -288,7 +288,7 @@ nixos-disk-btrfs-on-luks $block:
         sgdisk -n 1:1m:+1G -t 1:ef00 -c 1:EFI {{block}}
         # swap partition
         # sgdisk -n 2:0:+4G -t 2:8200 -c 2:SWAP {{block}}
-        # ZFS
+        # LUKS
         sgdisk -n 2:0:0 -t 2:8309 -c 2:NIXLUKS {{block}}
 
         printf "\033[0;33m:: Create Luks\n\033[0m"
@@ -322,6 +322,69 @@ nixos-disk-btrfs-on-luks $block:
         # disable cow for swapfile btrfs not happy
         chattr +C /dir/file
         swapon /mnt/swap/swapfile
+# Partitioning disk btrfs on luks "/dev/sdX|vdx|nvmX"
+nixos-disk-zfs $block:
+        #!/run/current-system/sw/bin/bash
+        read -p $'\033[0;31mMake sure your \033[0;33m{{block}} \033[0;31mwill destroy y/n? : ' confirm
+        if [ "n" == $confirm ]; then
+                exit
+        fi
+        printf "\033[0;31m:: Destroy drive\n\033[0m"
+        # wipe zpool
+        zpool labelclear -f $BLOCK
+        zpool destroy rpool
+        # wipe disk
+        wipefs -a {{block}}
+        # destroy GPT & MBR data structure
+        sgdisk --zap-all {{block}}
+        # EFI
+        sgdisk -n 1:1m:+1G -t 1:ef00 -c 1:EFI_BOOT {{block}}
+        # swap partition
+        sgdisk -n 2:0:+4G -t 2:8200 -c 2:NIX_SWAP {{block}}
+        # ZFS
+        sgdisk -n 3:0:0 -t 3:bf00 -c 3:NIX_ZFS_ROOT {{block}}
+        # print drive
+        sgdisk -p {{block}}
+        printf "\033[0;33m:: Formatting\n\033[0m"
+        mkfs.fat -F32 -n EFI_BOOT "{{block}}1"
+        # ZFS native encryption
+        printf "\033[0;33m:: ZFS native encryption\n\033[0m"
+        PARTUUID_ZFS=$(ls -al /dev/disk/by-partuuid | grep "{{block}}3" | awk '{print $9}')
+        echo "PARTUUID ZFS {{block}}3 = PARTUUID_ZFS"
+        zpool create -f -o ashift=12 \
+                -o autotrim=off \
+                -O acltype=posixacl \
+                -O xattr=sa \
+                -O relatime=on \
+                -O dnodesize=auto \
+                -O encryption=aes-256-gcm \
+                -O keyformat=passphrase \
+                -O normalization=formD \
+                -O compression=zstd \
+                -O mountpoint=none \
+                -O canmount=off \
+                -O devices=off \
+                -R /mnt \
+        rpool /dev/disk/by-partuuid/"${PARTUUID_ZFS}"
+        zfs create -o mountpoint=none rpool/ROOT
+        zfs create -o mountpoint=none rpool/HOME
+        zfs create -o mountpoint=/ -o canmount=noauto rpool/ROOT/zfsroot
+        zfs create -o mountpoint=/home rpool/HOME/zfshome
+        zfs umount -a
+        zpool export rpool
+        zpool import -d /dev/disk/by-partuuid/$PARTUUID_ZFS -R /mnt rpool -N
+        zfs load-key -a
+        zfs mount rpool/ROOT/zfsroot
+        zfs mount -a
+        mount --mkdir "{{block}}1" /mnt/boot
+        zpool set bootfs=rpool/ROOT/zfsroot rpool
+        zpool get bootfs
+        zgenhostid $(hostid)
+        zpool set cachefile=/etc/zfs/zfs-list.cache rpool
+        mkdir -p /mnt/etc/zfs/
+        cp -r /etc/zfs/zfs-list.cache /mnt/etc/zfs/
+        lsblk -f
+        zfs list
 
 # rsync dotfiles nix to host
 to-host-nix:
