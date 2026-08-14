@@ -11,7 +11,9 @@
     then lib.elemAt info.users 0
     else if info.host == "notebook"
     then lib.elemAt info.users 1
-    else lib.elemAt info.users 2;
+    else if info.host == "pc"
+    then lib.elemAt info.users 2
+    else lib.elemAt info.users 0;
 in {
   imports = [
     ./${info.host}
