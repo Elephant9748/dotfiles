@@ -40,7 +40,7 @@ gen:
 # install nixos with flake 
 install $machine *arg:
         # remote luks unlocking
-        @if [[ ! -d "/mnt/etc/secrets/initrd" && "{{machine}}" = "vm" ]]; then \
+        @if [[ ! -d "/mnt/etc/secrets/initrd" && ("{{machine}}" = "vm" || "{{machine}}" = "vm-btrfs") ]]; then \
                 sudo mkdir -p /mnt/etc/secrets/initrd; \
                 sudo ssh-keygen -t ed25519 -N "" -f /mnt/etc/secrets/initrd/ssh_host_ed25519_key; \
         fi
@@ -316,6 +316,12 @@ nixos-disk-btrfs-on-luks $block:
         mount --mkdir -o noatime,subvol=@snapshots /dev/mapper/Luks /mnt/swap
         mount --mkdir "{{block}}1" /mnt/boot
         lsblk -f
+        printf "\033[0;33m:: create swapfile\n\033[0m"
+        # for nixos low memory use swap on the target machine in this case /mnt
+        btrfs filesystem mkswapfile --size 4g --uuid clear /mnt/swap/swapfile
+        # disable cow for swapfile btrfs not happy
+        chattr +C /dir/file
+        swapon /mnt/swap/swapfile
 
 # rsync dotfiles nix to host
 to-host-nix:
