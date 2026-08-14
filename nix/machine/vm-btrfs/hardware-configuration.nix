@@ -90,25 +90,25 @@
   };
 
   fileSystems."/" =
-    { device = "/dev/disk/by-label/NIX_LUKS";
+    { device = "/dev/disk/by-label/NIX_BTRFS";
       fsType = "btrfs";
       options = [ "subvol=@" "compress=zstd" ];
     };
 
   fileSystems."/home" =
-    { device = "/dev/disk/by-label/NIX_LUKS";
+    { device = "/dev/disk/by-label/NIX_BTRFS";
       fsType = "btrfs";
       options = [ "subvol=@home" "compress=zstd" ];
     };
 
   fileSystems."/.snapshots" =
-    { device = "/dev/disk/by-label/NIX_LUKS";
+    { device = "/dev/disk/by-label/NIX_BTRFS";
       fsType = "btrfs";
       options = [ "subvol=@snapshots" " compress=zstd" ];
     };
 
   fileSystems."/swap" =
-    { device = "/dev/disk/by-label/NIX_LUKS";
+    { device = "/dev/disk/by-label/NIX_BTRFS";
       fsType = "btrfs";
       options = [ "subvol=@swap" "noatime" ];
     };
