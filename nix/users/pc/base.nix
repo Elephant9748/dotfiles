@@ -31,6 +31,7 @@
     zip
     fzf
     just
+    e2fsprogs
   ];
 
   security = {
