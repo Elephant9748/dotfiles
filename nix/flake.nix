@@ -120,6 +120,7 @@
       vm = machine "vm" [];
       notebook = machine "notebook" [];
       pc = machine "pc" [];
+      vm-btrfs = machine "vm" [];
     };
 
     nixosMachines = forAllSystems (
