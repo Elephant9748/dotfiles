@@ -104,7 +104,7 @@
   fileSystems."/.snapshots" =
     { device = "/dev/disk/by-label/NIX_BTRFS";
       fsType = "btrfs";
-      options = [ "subvol=@snapshots" " compress=zstd" ];
+      options = [ "subvol=@snapshots" "compress=zstd" ];
     };
 
   fileSystems."/swap" =
