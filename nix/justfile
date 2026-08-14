@@ -306,14 +306,15 @@ nixos-disk-btrfs-on-luks $block:
         btrfs subvolume create @
         btrfs subvolume create @home
         btrfs subvolume create @snapshots
+        cd
         lsblk -f
         printf "\033[0;33m:: Unmount\n\033[0m"
         umount -R /mnt
         lsblk -f
         printf "\033[0;33m:: Mount\n\033[0m"
         mount -o compress=zstd,subvol=@ /dev/mapper/Luks /mnt
-        mount -o compress=zstd,subvol=@home /dev/mapper/Luks /mnt/home
-        mount -o compress=zstd,subvol=@snapshots /dev/mapper/Luks /mnt/.snapshots
+        mount --mkdir -o compress=zstd,subvol=@home /dev/mapper/Luks /mnt/home
+        mount --mkdir -o compress=zstd,subvol=@snapshots /dev/mapper/Luks /mnt/.snapshots
         mount --mkdir "{{block}}1" /mnt/boot
         lsblk -f
 
