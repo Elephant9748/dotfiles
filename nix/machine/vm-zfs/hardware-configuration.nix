@@ -38,6 +38,10 @@
 
   # Use the systemd-boot EFI boot loader.
   boot = {
+    supportedFilesystems = [ "zfs" ];
+    zfs = {
+            requestEncryptionCredentials = true;
+    };
     loader = {
       # systemd-boot.enable = true;
       # systemd-boot.configurationLimit = 5;
@@ -102,7 +106,7 @@
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/B121-1CFB";
+    { device = "/dev/disk/by-label/EFI_BOOT";
       fsType = "vfat";
       options = [ "fmask=0022" "dmask=0022" ];
     };
