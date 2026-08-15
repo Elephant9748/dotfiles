@@ -347,6 +347,8 @@ nixos-disk-zfs $block:
         sgdisk -p {{block}}
         printf "\033[0;33m:: Formatting\n\033[0m"
         mkfs.fat -F32 -n EFI_BOOT "{{block}}1"
+        printf "\033[0;33m:: swap partition\n\033[0m"
+        mkswap -L NIX_SWAP "{{block}}2"
         # ZFS native encryption
         printf "\033[0;33m:: ZFS native encryption\n\033[0m"
         devname=$(echo "{{block}}3" | cut -d'/' -f 3)
