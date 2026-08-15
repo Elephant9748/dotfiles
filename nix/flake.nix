@@ -121,7 +121,7 @@
       notebook = machine "notebook" [];
       pc = machine "pc" [];
       vm-btrfs = machine "vm-btrfs" [];
-      vm-btrfs = machine "vm-zfs" [];
+      vm-zfs = machine "vm-zfs" [];
     };
 
     nixosMachines = forAllSystems (
