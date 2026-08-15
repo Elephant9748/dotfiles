@@ -117,7 +117,6 @@
   swapDevices = [
     {
       device = "/dev/disk/by-label/NIX_SWAP";
-      randomEncryption = true;
     }
   ];
 
