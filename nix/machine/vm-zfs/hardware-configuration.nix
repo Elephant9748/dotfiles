@@ -60,6 +60,10 @@
       #   device = "/dev/disk/by-label/NIX_LUKS";
       #   allowDiscards = true;
       # };
+      postDeviceCommands = ''
+          zpool import -a
+          zfs load-key -a
+        '';
       availableKernelModules = [
         "ahci"
         "xhci_pci"
