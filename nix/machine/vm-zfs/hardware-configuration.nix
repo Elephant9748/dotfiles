@@ -60,10 +60,18 @@
       #   device = "/dev/disk/by-label/NIX_LUKS";
       #   allowDiscards = true;
       # };
-      postDeviceCommands = ''
-          zpool import -a
-          zfs load-key -a
-        '';
+      systemd = {
+              services = {
+                      zfs-load-key = {
+                              wantedBy = [ "initrd.target" ];
+                              before = [ "systemd.mount" ];
+                              serviceConfig = {
+                                      Type = "oneshot";
+                                      ExecStart = "/bin/sh -c 'zfs import -a && zfs load-key -a'";
+                              };
+                      };
+              };
+      };
       availableKernelModules = [
         "ahci"
         "xhci_pci"
