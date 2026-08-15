@@ -41,6 +41,7 @@
     supportedFilesystems = [ "zfs" ];
     zfs = {
             requestEncryptionCredentials = true;
+            devNodes = "/dev/disk/by-partuuid";
     };
     loader = {
       # systemd-boot.enable = true;
@@ -60,18 +61,6 @@
       #   device = "/dev/disk/by-label/NIX_LUKS";
       #   allowDiscards = true;
       # };
-      systemd = {
-              services = {
-                      zfs-load-key = {
-                              wantedBy = [ "initrd.target" ];
-                              before = [ "systemd.mount" ];
-                              serviceConfig = {
-                                      Type = "oneshot";
-                                      ExecStart = "/bin/sh -c 'zfs import -a && zfs load-key -a'";
-                              };
-                      };
-              };
-      };
       availableKernelModules = [
         "ahci"
         "xhci_pci"
@@ -125,13 +114,12 @@
 
 
   # Use swap partition
-
-  # swapDevices = [
-  #   {
-  #     device = "/swap/swapfile";
-  #     size = 4 * 1024;
-  #   }
-  # ];
+  swapDevices = [
+    {
+      device = "/dev/disk/by-label/NIX_SWAP";
+      randomEncryption = true;
+    }
+  ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 }
