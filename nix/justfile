@@ -381,7 +381,7 @@ nixos-disk-zfs $block:
         mount --mkdir "{{block}}1" /mnt/boot
         zpool set bootfs=rpool/ROOT/zfsroot rpool
         zpool get bootfs
-        zgenhostid $(hostid)
+        # zgenhostid $(hostid)
         zpool set cachefile=/etc/zfs/zfs-list.cache rpool
         mkdir -p /mnt/etc/zfs/
         cp -r /etc/zfs/zfs-list.cache /mnt/etc/zfs/

@@ -29,6 +29,7 @@ in
   boot.kernelPackages = latestKernelPackage;
 
   networking.hostName = "${lib.elemAt info.hostname 0}";
+  networking.hostId = "8425e349";
 
   # Configure network connections interactively with nmcli or nmtui.
   networking.networkmanager.enable = true;

@@ -52,10 +52,10 @@
       # 	device = "/dev/disk/by-uuid/0fd9cedc-8210-47ea-a5fd-45a0b708eeb8";
       # 	allowDiscards = true;
       # };
-      luks.devices.NIX_LUKS = {
-        device = "/dev/disk/by-label/NIX_LUKS";
-        allowDiscards = true;
-      };
+      # luks.devices.NIX_LUKS = {
+      #   device = "/dev/disk/by-label/NIX_LUKS";
+      #   allowDiscards = true;
+      # };
       availableKernelModules = [
         "ahci"
         "xhci_pci"
@@ -64,7 +64,7 @@
         "virtio_blk"
         # "r8169"
       ];
-      kernelModules = ["dm-snapshot"];
+      # kernelModules = ["dm-snapshot"];
       network = {
         enable = true;
         ssh = {
@@ -91,36 +91,25 @@
 
   # === ZFS CONFIGURE ===
 
-  # fileSystems."/" =
-  #   { device = "/dev/disk/by-label/NIX_BTRFS";
-  #     fsType = "btrfs";
-  #     options = [ "subvol=@" "compress=zstd" ];
-  #   };
-  #
-  # fileSystems."/home" =
-  #   { device = "/dev/disk/by-label/NIX_BTRFS";
-  #     fsType = "btrfs";
-  #     options = [ "subvol=@home" "compress=zstd" ];
-  #   };
-  #
-  # fileSystems."/.snapshots" =
-  #   { device = "/dev/disk/by-label/NIX_BTRFS";
-  #     fsType = "btrfs";
-  #     options = [ "subvol=@snapshots" "compress=zstd" ];
-  #   };
-  #
-  # fileSystems."/swap" =
-  #   { device = "/dev/disk/by-label/NIX_BTRFS";
-  #     fsType = "btrfs";
-  #     options = [ "subvol=@swap" "noatime" ];
-  #   };
-  #
-  # fileSystems."/boot" =
-  #   { device = "/dev/disk/by-label/EFI_BOOT";
-  #     fsType = "vfat";
-  #     options = [ "fmask=0022" "dmask=0022" ];
-  #   };
-  #
+  fileSystems."/" =
+    { device = "rpool/ROOT/zfsroot";
+      fsType = "zfs";
+    };
+
+  fileSystems."/home" =
+    { device = "rpool/HOME/zfshome";
+      fsType = "zfs";
+    };
+
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-uuid/B121-1CFB";
+      fsType = "vfat";
+      options = [ "fmask=0022" "dmask=0022" ];
+    };
+
+
+  # Use swap partition
+
   # swapDevices = [
   #   {
   #     device = "/swap/swapfile";
