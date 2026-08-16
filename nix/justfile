@@ -366,7 +366,7 @@ nixos-disk-zfs $block:
         printf "\033[0;33m:: ZFS native encryption\n\033[0m"
         devname=$(echo "{{block}}3" | cut -d'/' -f 3)
         PARTUUID_ZFS=$(ls -al /dev/disk/by-partuuid | grep "$devname" | awk '{print $9}')
-        echo "PARTUUID ZFS {{block}}3 = PARTUUID_ZFS"
+        echo "PARTUUID ZFS {{block}}3 = $PARTUUID_ZFS"
         zpool create -f -o ashift=12 \
                 -o autotrim=off \
                 -O acltype=posixacl \
@@ -437,11 +437,11 @@ nixos-disk-zfs-on-luks $block:
         swapon "{{block}}2"
         # ZFS native encryption
         printf "\033[0;33m:: ZFS create pool\n\033[0m"
-        # pls change devNode on nix config to by-uuid
+        # pls change devNode on nix config to by-id
         # ===========================================
         # devname=$(echo "{{block}}3" | cut -d'/' -f 3)
-        PARTUUID_ZFS=$(ls -al /dev/disk/by-partuuid | grep "dm" | awk '{print $9}')
-        echo "PARTUUID ZFS {{block}}3 = PARTUUID_ZFS"
+        PARTUUID_ZFS=$(ls -al /dev/disk/by-id | grep "CRYPT" | awk '{print $9}')
+        echo "PARTUUID ZFS {{block}}3 = $PARTUUID_ZFS"
         zpool create -f -o ashift=12 \
                 -o autotrim=on \
                 -O acltype=posixacl \
@@ -454,14 +454,14 @@ nixos-disk-zfs-on-luks $block:
                 -O canmount=off \
                 -O devices=off \
                 -R /mnt \
-        rpool /dev/disk/by-uuid/"${PARTUUID_ZFS}"
+        rpool /dev/disk/by-id/"${PARTUUID_ZFS}"
         zfs create -o mountpoint=none rpool/ROOT
         zfs create -o mountpoint=none rpool/HOME
         zfs create -o mountpoint=/ -o canmount=noauto rpool/ROOT/zfsroot
         zfs create -o mountpoint=/home rpool/HOME/zfshome
         zfs umount -a
         zpool export rpool
-        zpool import -d /dev/disk/by-partuuid/$PARTUUID_ZFS -R /mnt rpool -N
+        zpool import -d /dev/disk/by-id/$PARTUUID_ZFS -R /mnt rpool -N
         # zfs load-key -a
         zfs mount rpool/ROOT/zfsroot
         zfs mount -a
