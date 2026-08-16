@@ -121,12 +121,6 @@
       enable = true;
       package = inputs.neovim-nightly.packages.${pkgs.stdenv.hostPlatform.system}.default;
     };
-    # below hyprland using build from source
-    hyprland = {
-      enable = true;
-      # package = hypr.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-      # portalPackage = hypr.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
-    };
     gnome-disks.enable = true;
     thunar = {
       enable = true;
