@@ -3,7 +3,6 @@
     package = pkgs.hyprpaper;
     enable = true;
     settings = {
-      # preload = ~/Pictures/wallhaven.cc/i.png
       preload = [
         "~/Pictures/wallhaven.cc/ii.png"
         "~/Pictures/wallhaven.cc/iii.png"
@@ -25,6 +24,11 @@
         }
         {
           monitor = "eDP-1";
+          path = "~/Pictures/wallhaven.cc/ii.png";
+          fit_mode = "cover";
+        }
+        {
+          monitor = "LVDS-1";
           path = "~/Pictures/wallhaven.cc/ii.png";
           fit_mode = "cover";
         }
