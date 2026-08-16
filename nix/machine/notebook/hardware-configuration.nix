@@ -39,28 +39,47 @@
     # 	allowDiscards = true;
     # };
     kernelParams = [
-      "quiet"
+      # "quiet"
       "loglevel=3"
       "randomize_kstack_offset=on"
       "vsyscall=none"
     ];
   };
 
-  fileSystems."/" = {
-    device = "/dev/mapper/vg_nix-nix_root";
-    fsType = "ext4";
-  };
+  fileSystems."/" =
+    { device = "/dev/disk/by-label/BTRFS_NIX";
+      fsType = "btrfs";
+      options = [ "subvol=@" "compress=zstd" ];
+    };
 
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-label/EFI_BOOT";
-    fsType = "vfat";
-    options = ["fmask=0022" "dmask=0022"];
-  };
+  fileSystems."/home" =
+    { device = "/dev/disk/by-label/BTRFS_NIX";
+      fsType = "btrfs";
+      options = [ "subvol=@home" "compress=zstd" ];
+    };
+
+  fileSystems."/.snapshots" =
+    { device = "/dev/disk/by-label/BTRFS_NIX";
+      fsType = "btrfs";
+      options = [ "subvol=@snapshots" "compress=zstd" ];
+    };
+
+  fileSystems."/swap" =
+    { device = "/dev/disk/by-label/BTRFS_NIX";
+      fsType = "btrfs";
+      options = [ "subvol=@swap" "noatime" ];
+    };
+
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-label/EFI_NIX";
+      fsType = "vfat";
+      options = [ "fmask=0022" "dmask=0022" ];
+    };
 
   swapDevices = [
     {
-      device = "/var/lib/swapfile";
-      size = 4 * 1024;
+      device = "/swap/swapfile";
+      size = 5 * 1024;
     }
   ];
 
