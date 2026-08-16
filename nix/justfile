@@ -46,6 +46,18 @@ install $machine *arg:
         fi
         @echo run nixos-install...
         sudo nixos-install --flake .#{{machine}} {{arg}}
+# install nixos with flake from cache.nummtide.com
+install-through-cache $machine *arg:
+        # remote luks unlocking
+        @if [[ ! -d "/mnt/etc/secrets/initrd" && (("{{machine}}" = "vm" || "{{machine}}" = "vm-btrfs") || "{{machine}}" = "vm-zfs") ]]; then \
+                sudo mkdir -p /mnt/etc/secrets/initrd; \
+                sudo ssh-keygen -t ed25519 -N "" -f /mnt/etc/secrets/initrd/ssh_host_ed25519_key; \
+        fi
+        @echo run nixos-install...
+        sudo nixos-install \
+                --option extra-substituters "https://cache.numtide.com" \
+                --option extra-trusted-public-keys "niks3.numtide.com-1:DTx8wZduET09hRmMtKdQDxNNthLQETkc/yaX7M4qK0g=" \
+                --flake .#{{machine}} {{arg}}
         
 # build list
 build-list:
