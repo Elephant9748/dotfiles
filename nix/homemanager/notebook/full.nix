@@ -16,7 +16,6 @@
 
   home.packages = with pkgs; [
     fastfetch
-    waybar
     alacritty
     nerd-fonts.jetbrains-mono
     noto-fonts-cjk-sans
