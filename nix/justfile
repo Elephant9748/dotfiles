@@ -251,7 +251,7 @@ nixos-disk-lvm-on-luks $block:
         sgdisk -n 1:1m:+1G -t 1:ef00 -c 1:EFI {{block}}
         # swap partition
         # sgdisk -n 2:0:+4G -t 2:8200 -c 2:SWAP {{block}}
-        # ZFS
+        # LUKS
         sgdisk -n 2:0:0 -t 2:8309 -c 2:NIXLUKS {{block}}
 
         printf "\033[0;33m:: Create Luks\n\033[0m"
@@ -341,7 +341,7 @@ nixos-disk-zfs $block:
         sgdisk -n 1:1m:+1G -t 1:ef00 -c 1:EFI_BOOT {{block}}
         # swap partition
         sgdisk -n 2:0:+4G -t 2:8200 -c 2:NIX_SWAP {{block}}
-        # ZFS
+        # ZFS Native encryption
         sgdisk -n 3:0:0 -t 3:bf00 -c 3:NIX_ZFS_ROOT {{block}}
         # print drive
         sgdisk -p {{block}}

@@ -99,11 +99,13 @@
   fileSystems."/" =
     { device = "rpool/ROOT/zfsroot";
       fsType = "zfs";
+      options = [ "zfsutil" ];
     };
 
   fileSystems."/home" =
     { device = "rpool/HOME/zfshome";
       fsType = "zfs";
+      options = [ "zfsutil" ];
     };
 
   fileSystems."/boot" =
