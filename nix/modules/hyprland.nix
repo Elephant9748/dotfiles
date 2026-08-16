@@ -20,15 +20,15 @@ let
                 else "Virtual-1";
         resolution = 
                 if info.host == "vm"
-                then "1280x1024@60"
+                then "1280x800@75"
                 else if info.host == "notebook"
                 then "1366x768@60"
                 else if info.host == "pc"
                 then "1920x1080@60"
                 else if info.host == "vm-btrfs"
-                then "1280x1024@60"
+                then "1280x800@75"
                 else if info.host == "vm-zfs"
-                then "1280x1024@60"
+                then "1280x800@75"
                 else "1280x1024@60";
 in
 {
@@ -173,7 +173,7 @@ in
           }
           {
             match = {
-              class = "localsend";
+              class = "LocalSend";
             };
             size = "400 731";
             move = "1487 320";
@@ -279,6 +279,15 @@ in
             };
             size = "585 520";
             move = "734 460";
+            float = true;
+            pin = true;
+          }
+          {
+            match = {
+              class = "org.pulseaudio.pavucontrol";
+            };
+            size = "455 529";
+            move = "1458 528";
             float = true;
             pin = true;
           }
