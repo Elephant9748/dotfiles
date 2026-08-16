@@ -436,18 +436,16 @@ nixos-disk-zfs-on-luks $block:
         mkswap -L NIX_SWAP "{{block}}2"
         swapon "{{block}}2"
         # ZFS native encryption
-        printf "\033[0;33m:: ZFS native encryption\n\033[0m"
+        printf "\033[0;33m:: ZFS create pool\n\033[0m"
         # devname=$(echo "{{block}}3" | cut -d'/' -f 3)
         # PARTUUID_ZFS=$(ls -al /dev/disk/by-partuuid | grep "$devname" | awk '{print $9}')
         # echo "PARTUUID ZFS {{block}}3 = PARTUUID_ZFS"
         zpool create -f -o ashift=12 \
-                -o autotrim=off \
+                -o autotrim=on \
                 -O acltype=posixacl \
                 -O xattr=sa \
                 -O relatime=on \
                 -O dnodesize=auto \
-                -O encryption=aes-256-gcm \
-                -O keyformat=passphrase \
                 -O normalization=formD \
                 -O compression=zstd \
                 -O mountpoint=none \
@@ -461,9 +459,8 @@ nixos-disk-zfs-on-luks $block:
         zfs create -o mountpoint=/home rpool/HOME/zfshome
         zfs umount -a
         zpool export rpool
-        printf "\033[0;32m:: Open ZFS Encryption \n\033[0m"
         zpool import -d /dev/disk/by-partuuid/$PARTUUID_ZFS -R /mnt rpool -N
-        zfs load-key -a
+        # zfs load-key -a
         zfs mount rpool/ROOT/zfsroot
         zfs mount -a
         mount --mkdir "{{block}}1" /mnt/boot
