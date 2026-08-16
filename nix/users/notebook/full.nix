@@ -42,6 +42,7 @@
     fzf
     just
     # glaze
+    comma
   ];
 
   security = {
@@ -144,5 +145,6 @@
     #         # package = inputs.hypr.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     #         # portalPackage = inputs.hypr.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
     # };
+    nix-index-database.comma.enable = true;
   };
 }
