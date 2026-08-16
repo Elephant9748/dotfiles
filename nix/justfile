@@ -332,7 +332,7 @@ nixos-disk-btrfs-on-luks $block:
         # for nixos low memory use swap on the target machine in this case /mnt
         btrfs filesystem mkswapfile --size 4g --uuid clear /mnt/swap/swapfile
         # disable cow for swapfile btrfs not happy
-        chattr +C /dir/file
+        chattr +C /mnt/swap/swapfile
         swapon /mnt/swap/swapfile
 # Partitioning disk zfs native encryption "/dev/sdX|vdx|nvmX"
 nixos-disk-zfs $block:
