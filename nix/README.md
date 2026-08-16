@@ -2,6 +2,10 @@
 
 ### Install using flake
 
+> [!NOTE]
+>
+> - enable swap for low memory machine (on target /mnt/swap/swapfile or use swap partition)
+
 prerequisites
 
 ```bash
