@@ -38,10 +38,10 @@
 
   # Use the systemd-boot EFI boot loader.
   boot = {
-    supportedFilesystems = [ "zfs" ];
+    supportedFilesystems = ["zfs"];
     zfs = {
-            requestEncryptionCredentials = true;
-            devNodes = "/dev/disk/by-partuuid";
+      requestEncryptionCredentials = true;
+      devNodes = "/dev/disk/by-partuuid";
     };
     loader = {
       # systemd-boot.enable = true;
@@ -96,24 +96,23 @@
 
   # === ZFS CONFIGURE ===
 
-  fileSystems."/" =
-    { device = "rpool/ROOT/zfsroot";
-      fsType = "zfs";
-      options = [ "zfsutil" ];
-    };
+  fileSystems."/" = {
+    device = "rpool/ROOT/zfsroot";
+    fsType = "zfs";
+    options = ["zfsutil"];
+  };
 
-  fileSystems."/home" =
-    { device = "rpool/HOME/zfshome";
-      fsType = "zfs";
-      options = [ "zfsutil" ];
-    };
+  fileSystems."/home" = {
+    device = "rpool/HOME/zfshome";
+    fsType = "zfs";
+    options = ["zfsutil"];
+  };
 
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-label/EFI_BOOT";
-      fsType = "vfat";
-      options = [ "fmask=0022" "dmask=0022" ];
-    };
-
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-label/EFI_BOOT";
+    fsType = "vfat";
+    options = ["fmask=0022" "dmask=0022"];
+  };
 
   # Use swap partition
   swapDevices = [
@@ -124,4 +123,3 @@
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 }
-

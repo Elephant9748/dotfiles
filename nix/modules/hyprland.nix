@@ -4,34 +4,32 @@
   pkgs,
   info,
   ...
-}: 
-let 
-        monitor = 
-                if info.host == "vm"
-                then "Virtual-1"
-                else if info.host == "notebook"
-                then "LVDS-1"
-                else if info.host == "pc"
-                then "HDMI-A-1"
-                else if info.host == "vm-btrfs"
-                then "Virtual-1"
-                else if info.host == "vm-zfs"
-                then "Virtual-1"
-                else "Virtual-1";
-        resolution = 
-                if info.host == "vm"
-                then "1280x800@75"
-                else if info.host == "notebook"
-                then "1366x768@60"
-                else if info.host == "pc"
-                then "1920x1080@60"
-                else if info.host == "vm-btrfs"
-                then "1280x800@75"
-                else if info.host == "vm-zfs"
-                then "1280x800@75"
-                else "1280x1024@60";
-in
-{
+}: let
+  monitor =
+    if info.host == "vm"
+    then "Virtual-1"
+    else if info.host == "notebook"
+    then "LVDS-1"
+    else if info.host == "pc"
+    then "HDMI-A-1"
+    else if info.host == "vm-btrfs"
+    then "Virtual-1"
+    else if info.host == "vm-zfs"
+    then "Virtual-1"
+    else "Virtual-1";
+  resolution =
+    if info.host == "vm"
+    then "1280x800@75"
+    else if info.host == "notebook"
+    then "1366x768@60"
+    else if info.host == "pc"
+    then "1920x1080@60"
+    else if info.host == "vm-btrfs"
+    then "1280x800@75"
+    else if info.host == "vm-zfs"
+    then "1280x800@75"
+    else "1280x1024@60";
+in {
   # the rest just rsync all "just to-host-nix" in ~/dotfiles/nix/
   home.file.".config/hypr/autostart-nix.sh" = {
     source = ../../configs/.config/hypr/autostart-nix.sh;

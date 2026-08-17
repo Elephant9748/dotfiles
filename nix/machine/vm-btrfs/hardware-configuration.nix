@@ -89,35 +89,35 @@
     ];
   };
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-label/NIX_BTRFS";
-      fsType = "btrfs";
-      options = [ "subvol=@" "compress=zstd" ];
-    };
+  fileSystems."/" = {
+    device = "/dev/disk/by-label/NIX_BTRFS";
+    fsType = "btrfs";
+    options = ["subvol=@" "compress=zstd"];
+  };
 
-  fileSystems."/home" =
-    { device = "/dev/disk/by-label/NIX_BTRFS";
-      fsType = "btrfs";
-      options = [ "subvol=@home" "compress=zstd" ];
-    };
+  fileSystems."/home" = {
+    device = "/dev/disk/by-label/NIX_BTRFS";
+    fsType = "btrfs";
+    options = ["subvol=@home" "compress=zstd"];
+  };
 
-  fileSystems."/.snapshots" =
-    { device = "/dev/disk/by-label/NIX_BTRFS";
-      fsType = "btrfs";
-      options = [ "subvol=@snapshots" "compress=zstd" ];
-    };
+  fileSystems."/.snapshots" = {
+    device = "/dev/disk/by-label/NIX_BTRFS";
+    fsType = "btrfs";
+    options = ["subvol=@snapshots" "compress=zstd"];
+  };
 
-  fileSystems."/swap" =
-    { device = "/dev/disk/by-label/NIX_BTRFS";
-      fsType = "btrfs";
-      options = [ "subvol=@swap" "noatime" ];
-    };
+  fileSystems."/swap" = {
+    device = "/dev/disk/by-label/NIX_BTRFS";
+    fsType = "btrfs";
+    options = ["subvol=@swap" "noatime"];
+  };
 
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-label/EFI_BOOT";
-      fsType = "vfat";
-      options = [ "fmask=0022" "dmask=0022" ];
-    };
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-label/EFI_BOOT";
+    fsType = "vfat";
+    options = ["fmask=0022" "dmask=0022"];
+  };
 
   swapDevices = [
     {
@@ -128,4 +128,3 @@
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 }
-

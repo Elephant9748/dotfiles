@@ -65,4 +65,3 @@
   networking.firewall.enable = false;
   system.stateVersion = "${info.version}";
 }
-
