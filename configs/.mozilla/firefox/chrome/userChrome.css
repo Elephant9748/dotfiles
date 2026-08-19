@@ -58,7 +58,7 @@
         #urlbar[open]{
                 display: flex !important;
                 flex-direction: column; /* use 'column' if you want to type the URL in center*/
-                bottom: calc(var(--urlbar-min-height) * 1.6) !important;
+                bottom: calc(var(--urlbar-height) * 1.6) !important;
                 top: unset !important;
         }
 
