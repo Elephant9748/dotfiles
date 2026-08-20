@@ -801,3 +801,8 @@ abbr -a bt_dmesg 'sudo dmesg -w'
 # wifi
 # Force the release of current leases to clear duplicate IPs assigned to the interface
 abbr -a wifi_duplicateip 'sudo ip addr flush dev wlan0' 
+
+#btrfs snapshot
+abbr -a snap_home 'sudo btrfs subvolume snapshot /home /.snapshots/@home_(date +"%m%d%y-%I%M%P")'
+abbr -a snap_root 'sudo btrfs subvolume snapshot / /.snapshots/@root_linux-6.12.60-0-rpi_(date +"%m%d%y-%I%M%P")'
+

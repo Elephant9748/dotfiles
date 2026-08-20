@@ -31,3 +31,4 @@ image/png=com.github.weclaw1.ImageRoll.desktop
 image/jpeg=com.github.weclaw1.ImageRoll.desktop
 x-scheme-handler/sgnl=signal.desktop
 x-scheme-handler/signalcaptcha=signal.desktop
+x-scheme-handler/rpi-imager=com.raspberrypi.rpi-imager-uri-handler.desktop
