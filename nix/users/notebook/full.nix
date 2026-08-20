@@ -75,6 +75,9 @@
   };
 
   services = {
+    logind = {
+        settings.Login.HandleLidSwitch = "ignore";
+    };
     pipewire = {
       enable = true;
       pulse.enable = true;

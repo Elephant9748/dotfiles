@@ -53,6 +53,9 @@
   };
 
   services = {
+    logind = {
+        settings.Login.HandleLidSwitch = "ignore";
+    };
     openssh = {
       enable = true;
       ports = [22];
