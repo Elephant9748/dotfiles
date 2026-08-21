@@ -1,6 +1,6 @@
-{pkgs, info, ...}: 
+{pkgs, lib, info, ...}: 
 {
-  home.file = lib.Merge [
+  home.file = lib.mkMerge [
         (lib.mkIf (info.host == "vm") {
                 ".config/mango/autostart.sh" = {
                         source = ../../configs/.config/mango/nix/vm/autostart-nix.sh;
@@ -33,7 +33,7 @@
         })
   ];
 
-  home.file = lib.Merge [
+  home.file = lib.mkMerge [
         (lib.mkIf (info.host == "vm") {
                 ".config/mango/config.conf" = {
                         source = ../../configs/.config/mango/nix/vm/config-nix.conf;
