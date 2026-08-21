@@ -310,7 +310,7 @@ nixos-disk-btrfs-on-luks $block:
 
         printf "\033[0;33m:: Formatting\n\033[0m"
         mkfs.btrfs -L NIX_BTRFS /dev/mapper/Luks
-        mkfs.fat -F32 -n EFI_BOOT "{{block}}1"
+        mkfs.fat -F32 -n EFI_NIX "{{block}}1"
         printf "\033[0;33m:: creating subvolume btrfs\n\033[0m"
         mount /dev/mapper/Luks /mnt
         cd /mnt
