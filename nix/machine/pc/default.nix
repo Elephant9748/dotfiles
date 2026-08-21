@@ -50,7 +50,7 @@
       shell = pkgs.fish;
       useDefaultShell = true;
       openssh.authorizedKeys.keys = [
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFCMCsfI7ZZjtHp63JxrFWMfsQHwDUVAb7TbsO3ChOzc walter.vm"
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM/MOKC0wCRSiQ6QP4Kgl2rRe5ApBm6rlVR+5zqSzJn9 pc.nix"
       ];
     };
     groups = {
