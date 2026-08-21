@@ -189,7 +189,7 @@ hl.window_rule({
 -- signal windowrules
 hl.window_rule({
     match = {
-        title = "Signal",
+        class = "signal",
     },
     float = true,
     move = "1230 228",
