@@ -54,7 +54,7 @@
 
   services = {
     logind = {
-        settings.Login.HandleLidSwitch = "ignore";
+      settings.Login.HandleLidSwitch = "ignore";
     };
     openssh = {
       enable = true;
