@@ -85,12 +85,12 @@ flake-vm-gui:
         just flake-compositor vm
         just flake-display-sddm vm
         just build-later vm -L
-# notebook full setup
-flake-notebook-gui:
-        just flake-full notebook
-        just flake-compositor notebook
-        just flake-display-sddm notebook
-        just build-later notebook -L
+# netbook full setup
+flake-netbook-gui:
+        just flake-full netbook
+        just flake-compositor netbook
+        just flake-display-sddm netbook
+        just build-later netbook -L
 # pc full setup
 flake-pc-gui:
         just flake-full pc
@@ -106,26 +106,26 @@ flake-up:
 flake-user $machine $user:
         @if [[ "{{machine}}" == "vm" ]]; then \
                 sed -i '/users = \[/s/"[^"]*"/"{{user}}"/' flake.nix; \
-        elif [[ "{{machine}}" == "notebook" ]]; then \
+        elif [[ "{{machine}}" == "netbook" ]]; then \
                 sed -i '/users = \[/s/"[^"]*"/"{{user}}"/2' flake.nix; \
         else \
                 sed -i '/users = \[/s/"[^"]*"/"{{user}}"/3' flake.nix; \
         fi
         rg -Po '(?<=users = \[ ).*?(?= \])' flake.nix | \
                 paste -sd "" | \
-                awk '{print "\033[0;34mvm:\033[0;32m "$1"\n""\033[0;34mnotebook:\033[0;32m "$2"\n""\033[0;34mpc:\033[0;32m "$3}'
+                awk '{print "\033[0;34mvm:\033[0;32m "$1"\n""\033[0;34mnetbook:\033[0;32m "$2"\n""\033[0;34mpc:\033[0;32m "$3}'
 # change host for x machine flake.nix
 flake-host $machine $host:
         @if [[ "{{machine}}" == "vm" ]]; then \
                 sed -i '/hostname = \[/s/"[^"]*"/"{{host}}"/' flake.nix; \
-        elif [[ "{{machine}}" == "notebook" ]]; then \
+        elif [[ "{{machine}}" == "netbook" ]]; then \
                 sed -i '/hostname = \[/s/"[^"]*"/"{{host}}"/2' flake.nix; \
         else \
                 sed -i '/hostname = \[/s/"[^"]*"/"{{host}}"/3' flake.nix; \
         fi
         rg -Po '(?<=hostname = \[ ).*?(?= \])' flake.nix | \
                 paste -sd "" | \
-                awk '{print "\033[0;34mvm:\033[0;32m "$1"\n""\033[0;34mnotebook:\033[0;32m "$2"\n""\033[0;34mpc:\033[0;32m "$3}'
+                awk '{print "\033[0;34mvm:\033[0;32m "$1"\n""\033[0;34mnetbook:\033[0;32m "$2"\n""\033[0;34mpc:\033[0;32m "$3}'
 # change machine base = minimal, full = with gui
 flake-full $machine:
         {{bangbash}}

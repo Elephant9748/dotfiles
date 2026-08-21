@@ -9,7 +9,7 @@
   oneuser =
     if info.host == "vm"
     then lib.elemAt info.users 0
-    else if info.host == "notebook"
+    else if info.host == "netbook"
     then lib.elemAt info.users 1
     else if info.host == "pc"
     then lib.elemAt info.users 2

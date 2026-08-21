@@ -118,7 +118,7 @@
 
     nixosConfigurations = {
       vm = machine "vm" [];
-      notebook = machine "notebook" [];
+      netbook = machine "netbook" [];
       pc = machine "pc" [];
       vm-btrfs = machine "vm-btrfs" [];
       vm-zfs = machine "vm-zfs" [];

@@ -8,7 +8,7 @@
   monitor =
     if info.host == "vm"
     then "Virtual-1"
-    else if info.host == "notebook"
+    else if info.host == "netbook"
     then "LVDS-1"
     else if info.host == "pc"
     then "HDMI-A-1"
@@ -20,7 +20,7 @@
   resolution =
     if info.host == "vm"
     then "1280x800@75"
-    else if info.host == "notebook"
+    else if info.host == "netbook"
     then "1366x768@60"
     else if info.host == "pc"
     then "1920x1080@60"
