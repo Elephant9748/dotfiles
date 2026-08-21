@@ -122,19 +122,38 @@
   };
 
   fileSystems."/" = {
-    device = "/dev/mapper/vg_nix-nix_root";
-    fsType = "ext4";
+    device = "/dev/disk/by-label/BTRFS_NIX";
+    fsType = "btrfs";
+    options = ["subvol=@" "compress=zstd"];
+  };
+
+  fileSystems."/home" = {
+    device = "/dev/disk/by-label/BTRFS_NIX";
+    fsType = "btrfs";
+    options = ["subvol=@home" "compress=zstd"];
+  };
+
+  fileSystems."/.snapshots" = {
+    device = "/dev/disk/by-label/BTRFS_NIX";
+    fsType = "btrfs";
+    options = ["subvol=@snapshots" "compress=zstd"];
+  };
+
+  fileSystems."/swap" = {
+    device = "/dev/disk/by-label/BTRFS_NIX";
+    fsType = "btrfs";
+    options = ["subvol=@swap" "noatime"];
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-label/EFI_BOOT";
+    device = "/dev/disk/by-label/EFI_NIX";
     fsType = "vfat";
     options = ["fmask=0022" "dmask=0022"];
   };
 
   swapDevices = [
     {
-      device = "/var/lib/swapfile";
+      device = "/swap/swapfile";
       size = 8 * 1024;
     }
   ];
