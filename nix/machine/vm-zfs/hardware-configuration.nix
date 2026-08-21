@@ -75,7 +75,7 @@
         ssh = {
           enable = true;
           port = 22;
-          authorizedKeys = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFCMCsfI7ZZjtHp63JxrFWMfsQHwDUVAb7TbsO3ChOzc walter.vm"];
+          authorizedKeys = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGOeUbSNFl+K5kA5/RrPCkUCUfwiB+g7GLq0za/Jmxte vm.nix"];
           # need to execute so ssh can start in initrd -->
           # mkdir -p /etc/secrets/initrd
           # ssh-keygen -t ed25519 -N "" -f /etc/secrets/initrd/ssh_host_ed25519_key
