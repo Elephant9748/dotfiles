@@ -17,6 +17,8 @@
     then lib.elemAt info.users 0
     else if info.host == "vm-zfs"
     then lib.elemAt info.users 0
+    else if info.host == "earendel-rpi"
+    then lib.elemAt info.users 3
     else lib.elemAt info.users 0;
 in {
   imports = [

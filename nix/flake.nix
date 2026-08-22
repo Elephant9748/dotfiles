@@ -73,6 +73,12 @@
     };
 
     # --------------------------------------------------------------
+
+    # rpi
+    nixos-hardware = {
+      url = "github:NixOS/nixos-hardware/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {
@@ -90,8 +96,8 @@
     var = {
       version = "26.11";
       editor = "nvim";
-      hostname = ["citrullus-lanatus" "starfish-small" "rigel-pc"];
-      users = ["rigel" "kelly" "tracy"];
+      hostname = ["citrullus-lanatus" "starfish-small" "rigel-pc" "earendel"];
+      users = ["rigel" "kelly" "tracy" "brandon"];
     };
 
     forAllSystems = nixpkgs.lib.genAttrs systems;
@@ -122,6 +128,9 @@
       pc = machine "pc" [];
       vm-btrfs = machine "vm-btrfs" [];
       vm-zfs = machine "vm-zfs" [];
+      earendel-rpi = machine "earendel-rpi" [
+        nixos-hardware.nixosModules.raspberry-pi-4
+      ];
     };
 
     nixosMachines = forAllSystems (
