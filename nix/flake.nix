@@ -129,7 +129,7 @@
       vm-btrfs = machine "vm-btrfs" [];
       vm-zfs = machine "vm-zfs" [];
       earendel-rpi = machine "earendel-rpi" [
-        nixos-hardware.nixosModules.raspberry-pi-4
+        inputs.nixos-hardware.nixosModules.raspberry-pi-4
       ];
     };
 
