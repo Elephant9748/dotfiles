@@ -40,20 +40,20 @@
         "usb_storage"
       ];
       kernelModules = [];
-      network = {
-        enable = true;
-        ssh = {
-          enable = true;
-          port = 22;
-          authorizedKeys = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEiAmmDigF8/qT06o2mQ1HVbJ9QCyxp/v7uRZxlBYMpb brandon.earendel"];
-          # need to execute so ssh can start in initrd -->
-          # mkdir -p /etc/secrets/initrd
-          # ssh-keygen -t ed25519 -N "" -f /etc/secrets/initrd/ssh_host_ed25519_key
-          hostKeys = ["/etc/secrets/initrd/ssh_host_ed25519_key"];
-          # shell = "/usr/bin/systemd-tty-ask-password-agent";
-        };
-      };
-      systemd.users.root.shell = "/usr/bin/systemd-tty-ask-password-agent";
+      # network = {
+      #   enable = true;
+      #   ssh = {
+      #     enable = true;
+      #     port = 22;
+      #     authorizedKeys = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEiAmmDigF8/qT06o2mQ1HVbJ9QCyxp/v7uRZxlBYMpb brandon.earendel"];
+      #     # need to execute so ssh can start in initrd -->
+      #     # mkdir -p /etc/secrets/initrd
+      #     # ssh-keygen -t ed25519 -N "" -f /etc/secrets/initrd/ssh_host_ed25519_key
+      #     hostKeys = ["/etc/secrets/initrd/ssh_host_ed25519_key"];
+      #     # shell = "/usr/bin/systemd-tty-ask-password-agent";
+      #   };
+      # };
+      # systemd.users.root.shell = "/usr/bin/systemd-tty-ask-password-agent";
     };
     kernelParams = [
       # "quiet"
