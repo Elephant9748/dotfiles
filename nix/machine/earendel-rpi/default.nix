@@ -12,7 +12,7 @@
   ];
 
   # Use latest kernel.
-  boot.kernelPackages = pkgs.linuxPackages_rpi4;
+  # boot.kernelPackages = pkgs.linuxPackages_rpi4;
 
   networking.hostName = "${lib.elemAt info.hostname 3}";
   networking.networkmanager.enable = true;
