@@ -151,5 +151,9 @@
     #         # portalPackage = inputs.hypr.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
     # };
     nix-index-database.comma.enable = true;
+    appimage = {
+        enable = true;
+        binfmt = true;
+    };
   };
 }

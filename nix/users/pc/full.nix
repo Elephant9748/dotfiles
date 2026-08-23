@@ -153,6 +153,10 @@
       # localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
     };
     nix-index-database.comma.enable = true;
+    appimage = {
+        enable = true;
+        binfmt = true;
+    };
   };
 
   nixpkgs.config.allowUnfreePredicate = pkg:
