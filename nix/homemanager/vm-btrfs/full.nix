@@ -31,7 +31,7 @@
     rofi-power-menu
     rofi-calc
     cryptomator
-    libreoffice-fresh
+    libreoffice
     obs-studio
     qutebrowser
     firefox-devedition
