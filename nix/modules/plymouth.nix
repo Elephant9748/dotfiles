@@ -30,6 +30,7 @@ in {
                       logo_sprite.SetImage(logo_image);
                       logo_sprite.SetX(Window.GetX() + (Window.GetWidth() / 2 - logo_image.GetWidth() / 2));
                       logo_sprite.SetY(Window.GetX() + (Window.GetHeight() / 2 - logo_image.GetHeight() / 2));
+                      # logo_sprite.SetY(Window.GetX() + (Window.GetHeight() / 2 - logo_image.GetHeight() / 2) + (Window.GetHeight() / 2 - logo_image.GetHeight() / 2) / 2);
               EOF
             '';
           })
