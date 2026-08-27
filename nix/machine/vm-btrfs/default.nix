@@ -8,6 +8,8 @@
   imports = [
     ./hardware-configuration.nix
     ../../modules/nix
+    # ../../modules/apparmor.nix
+    # ../../modules/plymouth.nix
     ../../users
   ];
 
