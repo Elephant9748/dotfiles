@@ -25,9 +25,9 @@
     else if info.host == "pc"
     then "1920x1080@60"
     else if info.host == "vm-btrfs"
-    then "1280x800@75"
+    then "1440x900@60"
     else if info.host == "vm-zfs"
-    then "1280x800@75"
+    then "1440x900@60"
     else "1280x1024@60";
 in {
   # the rest just rsync all "just to-host-nix" in ~/dotfiles/nix/
