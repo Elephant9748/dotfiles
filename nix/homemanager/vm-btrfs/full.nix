@@ -53,6 +53,7 @@
     qpwgraph
     # paperpass.packages.${pkgs.system}.default
     # (callPackage ../../pkgs/lsend/nix {})
+    image-roll
   ];
 
   # themes gtk using dconf

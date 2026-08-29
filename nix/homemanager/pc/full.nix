@@ -68,6 +68,7 @@
     mesa-demos
     appimage-run
     # paperpass.packages.${pkgs.system}.default
+    image-roll
   ];
 
   # todo! qt theme
