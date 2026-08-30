@@ -258,7 +258,7 @@ end
 
 #dust 
 if command -v dust > /dev/null 
-        abbr -a size 'dust -d 1 -c -B'
+        abbr -a size 'dust -d 1 -c -B -o si'
 end
 
 #mail sync
