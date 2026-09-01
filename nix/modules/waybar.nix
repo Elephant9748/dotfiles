@@ -25,7 +25,7 @@
         position = "bottom";
         "modules-left" = ["clock" "hyprland/workspaces"];
         "modules-center" = ["hyprland/window"];
-        "modules-right" = ["network" "custom/wall" "pulseaudio/slider" "pulseaudio" "custom/wall" "cpu" "memory" "custom/wall" "battery" "privacy" "tray"];
+        "modules-right" = ["network" "custom/weather" "custom/wall" "pulseaudio/slider" "pulseaudio" "custom/wall" "cpu" "memory" "custom/wall" "battery" "privacy" "tray"];
         "hyprland/window" = {
           "format" = "{class}: {title}";
         };
@@ -69,6 +69,13 @@
         };
         "wlr/mode" = {
           "format" = "<span style=\"italic\">{}</span>";
+        };
+        "custom/weather" = {
+            "exec" = "~/projects/dotfiles/bins/nix/weather Cikalong-kulon";
+            "return-type" = "json";
+            "format" = "{}";
+            "tooltip" = true;
+            "interval" = "7200";
         };
         "custom/wall" = {
           "format" = "|";

@@ -16,6 +16,11 @@
   font-weight: bold;
 }
 
+#custom-weather {
+  color: #3c3836;
+  font-weight: bold;
+}
+
 #pulseaudio-slider slider {
   min-height: 0px;
   min-width: 0px;
@@ -76,6 +81,7 @@ window#waybar {
 	*/
   /* border: 1px solid #1b1d1e; */
   font-weight: bold;
+  /*border-right: 0.75px solid #3c3836;*/
 }
 #workspaces button:hover {
   box-shadow: inherit;

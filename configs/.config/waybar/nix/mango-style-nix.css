@@ -8,6 +8,11 @@
   margin: 0px;
 }
 
+#custom-weather {
+  color: #3c3836;
+  font-weight: bold;
+}
+
 #custom-wall {
   color: #3c3836;
   padding-left: 2px;

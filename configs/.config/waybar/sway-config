@@ -9,7 +9,7 @@
 	"modules-left": ["clock", "sway/workspaces"],
 	// "modules-left": ["custom/clock_manual", "hyprland/workspaces", ], // TEMP until std::chrono::tzdb FIX !!!
 	"modules-center": ["sway/window"],
-	"modules-right": ["network", "custom/wall", "pulseaudio/slider","pulseaudio", "custom/wall", "cpu", "memory", "custom/wall", "battery", "privacy","tray"],
+	"modules-right": ["network", "custom/weather", "custom/wall", "pulseaudio/slider","pulseaudio", "custom/wall", "cpu", "memory", "custom/wall", "battery", "privacy","tray"],
     // "modules-right": ["network", "cpu","memory","pulseaudio/slider","pulseaudio","battery","tray"],
 
 	// Modules configuration
@@ -40,6 +40,13 @@
                     "6": [],
                     "7": []
             }
+    },
+    "custom/weather": {
+        "exec": "~/projects/dotfiles/bins/arch/weather Cikalong-kulon",
+        "return-type": "json",
+        "format": "{}",
+        "tooltip": true,
+        "interval": 7200
     },
     "pulseaudio/slider": {
             "min": 0,

@@ -2,7 +2,7 @@
 	"position": "bottom", // Waybar position (top|bottom|left|right)
 	"modules-left": ["clock", "mango/workspaces"],
 	"modules-center": ["mango/layout","mango/window"],
-	"modules-right": ["network", "custom/wall","pulseaudio/slider","pulseaudio","custom/wall", "cpu", "memory", "custom/wall","battery", "privacy","tray"],
+	"modules-right": ["network", "custom/weather", "custom/wall","pulseaudio/slider","pulseaudio","custom/wall", "cpu", "memory", "custom/wall","battery", "privacy","tray"],
 
 	// Modules configuration
     "disable-scroll": true,
@@ -75,6 +75,13 @@
                     // "urgent": "",
                     // "empty": ""
             },
+    },
+    "custom/weather": {
+        "exec": "~/projects/dotfiles/bins/arch/weather Cikalong-kulon",
+        "return-type": "json",
+        "format": "{}",
+        "tooltip": true,
+        "interval": 7200
     },
     "mango/layout": {
             "format": "<span color='#484745'>{symbol}</span>"
