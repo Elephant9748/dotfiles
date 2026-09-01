@@ -10,22 +10,22 @@ do
         if (( temp >= 0 && temp <= 23));
         then
             tooltip="<span color='#75695f'>$(echo "$tooltip" | sed -E "s/\s+/ /g")</span>"
-            echo "{\"text\":\"<span color='#a89984'>$text</span>\", \"tooltip\":\"$tooltip\"}"
+            echo "{\"text\":\"<span color='#a89984'>+$temp°C</span>\", \"tooltip\":\"$tooltip\"}"
             exit
         elif (( temp >= 23 && n <= 25));
         then
             tooltip=$(echo "$tooltip" | sed -E "s/\s+/ /g")
-            echo "{\"text\":\"<span color='#ebdbb2'>$text</span>\", \"tooltip\":\"$tooltip\"}"
+            echo "{\"text\":\"<span color='#ebdbb2'>+$temp°C</span>\", \"tooltip\":\"$tooltip\"}"
             exit
         elif (( temp >= 25 && n <= 29));
         then
             tooltip=$(echo "$tooltip" | sed -E "s/\s+/ /g")
-            echo "{\"text\":\"<span color='#fe8019'>$text</span>\", \"tooltip\":\"$tooltip\"}"
+            echo "{\"text\":\"<span color='#fe8019'>+$temp°C</span>\", \"tooltip\":\"$tooltip\"}"
             exit
         elif (( temp >= 29 ));
         then
             tooltip=$(echo "$tooltip" | sed -E "s/\s+/ /g")
-            echo "{\"text\":\"<span color='#cc241d'>$text</span>\", \"tooltip\":\"$tooltip\"}"
+            echo "{\"text\":\"<span color='#cc241d'>+$temp°C</span>\", \"tooltip\":\"$tooltip\"}"
             exit
         fi
     fi

@@ -100,7 +100,7 @@
           "format" = "{icon} {usage}%";
           "format-icons" = [
             "<span></span>"
-            "<span color='#d65d0e'></span>"
+            "<span color='#b57614'></span>"
             "<span color='#cc241d'></span>"
           ];
           "tooltip" = false;
