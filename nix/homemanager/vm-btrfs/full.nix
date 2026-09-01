@@ -10,6 +10,7 @@
     ../../modules/hyprland.nix
     ../../modules/hyprpaper.nix
     ../../modules/mangowm.nix
+    # ../../modules/gnupg25.nix
   ];
 
   home.packages = with pkgs; [

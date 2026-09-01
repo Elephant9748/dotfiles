@@ -17,23 +17,7 @@
         url = "mirror://gnupg/gnupg/${pname}-${version}.tar.bz2";
         hash = "sha256-468sjKpGpmqTKfp8aICvJgRRkU2BlZW+q8LCZZezE1I=";
       };
-      postPatch =
-        # Switch the default key server to keys.openpgp.org
-        # The original motivation in 2019 was to switch away from the then-default SKS network: https://github.com/NixOS/nixpkgs/pull/63952
-        # In 2021 upstream also switched away, but to keyserver.ubuntu.com: https://dev.gnupg.org/rG47c4e3e00a7ef55f954c14b3c237496e54a853c1,
-        # while NixOS kept the keys.openpgp.org default: https://github.com/NixOS/nixpkgs/pull/159604
-        # TODO: Should this patch be removed so that the now-uncompromised default is used once again?
-        # A significant difference between the two seems to be that keys.openpgp.org is verifying keys, while keyserver.ubuntu.com isn't: https://unix.stackexchange.com/a/694528
-        # The keys.openpgp.org also has a great FAQ: https://keys.openpgp.org/about/faq
-        ''
-          substituteInPlace configure configure.ac \
-            --replace-fail "hkps://keyserver.ubuntu.com"  "hkps://keys.openpgp.org"
-          substituteInPlace doc/gnupg.info-1 doc/dirmngr.texi \
-            --replace-fail "https://keyserver.ubuntu.com" "https://keys.openpgp.org"
-        ''
-        + lib.optionalString (prev.stdenv.hostPlatform.isLinux && false) ''
-          sed -i 's,"libpcsclite\.so[^"]*","${lib.getLib prev.pcsclite}/lib/libpcsclite.so",g' scd/scdaemon.c
-        '';
+
       patches =
         [
           # ./static.patch
@@ -64,9 +48,12 @@
           # "0034-gpg-Verify-Text-mode-Signatures-over-binary-Literal-.patch"
           # "0039-gpg-Do-not-use-a-default-when-asking-for-another-out.patch"
         ];
+
+      # dont do postPatch in gnupg25
+      postPatch = ''
+      '';
     });
   };
 in {
   nixpkgs.overlays = [modifications];
 }
-

@@ -126,7 +126,9 @@
       vm = machine "vm" [];
       netbook = machine "netbook" [];
       pc = machine "pc" [];
-      vm-btrfs = machine "vm-btrfs" [];
+      vm-btrfs = machine "vm-btrfs" [
+        # ./overlays
+      ];
       vm-zfs = machine "vm-zfs" [];
       earendel-rpi = machine "earendel-rpi" [
         inputs.nixos-hardware.nixosModules.raspberry-pi-4
