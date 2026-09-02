@@ -5,26 +5,26 @@ do
     if [[ $? == 0 ]]
     then
         text=$(echo "$text" | sed -E "s/\s+/ /g")
-        tooltip=$(curl -s "https://wttr.in/$1?format=4")
+        tooltip=$(curl -s "https://wttr.in/$1?format=3")
         temp=$(echo "$text" | grep -oE '[0-9]+')
-        if (( temp >= 0 && temp <= 23));
+        if (( temp >= 0 && temp < 23));
         then
-            tooltip="<span color='#75695f'>$(echo "$tooltip" | sed -E "s/\s+/ /g")</span>"
-            echo "{\"text\":\"<span color='#a89984'>+$temp°C</span>\", \"tooltip\":\"$tooltip\"}"
+            tooltip="<span color='#3C3836'>$(echo "$tooltip" | sed -E "s/\s+/ /g")</span>"
+            echo "{\"text\":\"<span color='#3C3836'>+$temp°C</span>\", \"tooltip\":\"$tooltip\"}"
             exit
-        elif (( temp >= 23 && n <= 25));
+        elif (( temp >= 23 && temp < 25));
         then
-            tooltip=$(echo "$tooltip" | sed -E "s/\s+/ /g")
+            tooltip="<span color='#ebdbb2'>$(echo "$tooltip" | sed -E "s/\s+/ /g")</span>"
             echo "{\"text\":\"<span color='#ebdbb2'>+$temp°C</span>\", \"tooltip\":\"$tooltip\"}"
             exit
-        elif (( temp >= 25 && n <= 29));
+        elif (( temp >= 25 && temp < 29));
         then
-            tooltip=$(echo "$tooltip" | sed -E "s/\s+/ /g")
+            tooltip="<span color='#fe8019'>$(echo "$tooltip" | sed -E "s/\s+/ /g")</span>"
             echo "{\"text\":\"<span color='#fe8019'>+$temp°C</span>\", \"tooltip\":\"$tooltip\"}"
             exit
         elif (( temp >= 29 ));
         then
-            tooltip=$(echo "$tooltip" | sed -E "s/\s+/ /g")
+            tooltip="<span color='#cc241d'>$(echo "$tooltip" | sed -E "s/\s+/ /g")</span>"
             echo "{\"text\":\"<span color='#cc241d'>+$temp°C</span>\", \"tooltip\":\"$tooltip\"}"
             exit
         fi
