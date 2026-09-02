@@ -73,7 +73,7 @@
         "custom/weather" = {
             "exec" = "~/projects/dotfiles/bins/nix/weather Cikalong-kulon";
             "return-type" = "json";
-            "format" = "{}";
+            "format" = "{} ";
             "tooltip" = true;
             "interval" = "7200";
         };

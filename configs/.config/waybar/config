@@ -53,7 +53,7 @@
     "custom/weather": {
         "exec": "~/projects/dotfiles/bins/arch/weather Cikalong-kulon",
         "return-type": "json",
-        "format": "{}",
+        "format": "{} ",
         "tooltip": true,
         "interval": 7200
     },
