@@ -8,10 +8,19 @@ function fish_greeting
             echo -e (lsb_release -d | awk -F ':' '/Description/ {gsub("\t","",$2);print " \\\\e[1mDescription: \\\\e[0;32m"$2"\\\\e[0m"; exit}')
     end
     echo -e (awk -F ':' '/model name/ {print " \\\\e[1mCPU: \\\\e[0;32m"$2"\\\\e[0m"; exit}' /proc/cpuinfo)
-    echo -e (lspci | grep -E "VGA|3D controller" | awk -F ':' '/VGA/ {print " \\\\e[1mVGA:\\\\e[0;32m"$3"\\\\e[0m"; exit}') # packages pciutils
-    set 3d (lspci | grep -E "3D controller" | awk -F ':' '/3D/ {print " \\\\e[1m3D:\\\\e[0;32m"$3"\\\\e[0m"; exit}') # packages pciutils
-    if [ -n "$3d" ]
-            echo -e "$3d"
+    if command -v lspci > /dev/null
+        set vgacount (lspci | grep -E "VGA" | wc -l)
+        set 3dcount (lspci | grep -E "3D controller" | wc -l)
+        if test $vgacount -gt 1
+                echo -e (lspci | grep -E "VGA" | awk -F ':' '/VGA/ {print " \\\\e[1mVGA:\\\\e[0;32m"$3"\\\\e[0m"; exit}') # packages pciutils
+                echo -e (lspci | grep -E "3D controller" | tail -n 1 | awk -F ':' '/3D/ {print " \\\\e[1m3D:\\\\e[0;32m"$3"\\\\e[0m"; exit}') # packages pciutils
+        else if test $3dcount -gt 1
+                echo -e (lspci | grep -E "VGA" | tail -n 1 | awk -F ':' '/VGA/ {print " \\\\e[1mVGA:\\\\e[0;32m"$3"\\\\e[0m"; exit}') # packages pciutils
+                echo -e (lspci | grep -E "3D controller" | awk -F ':' '/3D/ {print " \\\\e[1m3D:\\\\e[0;32m"$3"\\\\e[0m"; exit}') # packages pciutils
+        else
+                echo -e (lspci | grep -E "VGA" | awk -F ':' '/VGA/ {print " \\\\e[1mVGA:\\\\e[0;32m"$3"\\\\e[0m"; exit}') # packages pciutils
+                echo -e (lspci | grep -E "3D controller" | awk -F ':' '/3D/ {print " \\\\e[1m3D:\\\\e[0;32m"$3"\\\\e[0m"; exit}') # packages pciutils
+        end
     end
 	echo -e (echo $XDG_SESSION_TYPE | awk '{print " \\\\e[1mSession: \\\\e[0;32m"$0"\\\\e[0m"}')(echo $XDG_CURRENT_DESKTOP | awk '{print " \\\\e[0;32m"$0"\\\\e[0m"}')
     echo -e (whoami | awk '{print " \\\\e[1mUser: \\\\e[0;32m"$0"\\\\e[0m"}')
