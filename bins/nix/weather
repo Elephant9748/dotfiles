@@ -19,13 +19,13 @@ do
             exit
         elif (( temp >= 25 && temp < 29));
         then
-            tooltip="<span color='#fe8019'>$(echo "$tooltip" | sed -E "s/\s+/ /g")</span>"
-            echo "{\"text\":\"<span color='#fe8019'>+$temp°C</span>\", \"tooltip\":\"$tooltip\"}"
+            tooltip="<span color='#fabd2f'>$(echo "$tooltip" | sed -E "s/\s+/ /g")</span>"
+            echo "{\"text\":\"<span color='#fabd2f'>+$temp°C</span>\", \"tooltip\":\"$tooltip\"}"
             exit
         elif (( temp >= 29 ));
         then
-            tooltip="<span color='#cc241d'>$(echo "$tooltip" | sed -E "s/\s+/ /g")</span>"
-            echo "{\"text\":\"<span color='#cc241d'>+$temp°C</span>\", \"tooltip\":\"$tooltip\"}"
+            tooltip="<span color='fb4934'>$(echo "$tooltip" | sed -E "s/\s+/ /g")</span>"
+            echo "{\"text\":\"<span color='#fb4934'>+$temp°C</span>\", \"tooltip\":\"$tooltip\"}"
             exit
         fi
     fi
