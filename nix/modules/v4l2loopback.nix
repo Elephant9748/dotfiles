@@ -7,7 +7,9 @@
     extraModulePackages = with config.boot.kernelPackages; [
       v4l2loopback
     ];
-    # Activate kernel module(s).
+    extraModprobeConfig = ''
+      options v4l2loopback video_nr=2 card_label="vv4l2loopback_screen_sharing" exclusive_caps=1
+    '';
     kernelModules = [
       # Virtual camera.
       "v4l2loopback"
