@@ -13,7 +13,6 @@
 }: {
   imports = [
     (modulesPath + "/profiles/qemu-guest.nix")
-    # ../../modules/plymouth
   ];
 
   # opengl vm

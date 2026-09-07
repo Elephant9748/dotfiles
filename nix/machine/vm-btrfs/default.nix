@@ -10,6 +10,7 @@
     ../../modules/nix
     # ../../modules/apparmor.nix
     # ../../modules/plymouth.nix
+    # ../../modules/v4l2loopback.nix
     ../../users
   ];
 
