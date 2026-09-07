@@ -3,7 +3,7 @@
   lib,
   ...
 }: let
-  version = "2.5.21";
+  version = "2.5.22";
   pname = "gnupg";
 in {
   programs = {
@@ -14,7 +14,7 @@ in {
         inherit version pname;
         src = pkgs.fetchurl {
           url = "mirror://gnupg/gnupg/${pname}-${version}.tar.bz2";
-          hash = "sha256-468sjKpGpmqTKfp8aICvJgRRkU2BlZW+q8LCZZezE1I=";
+          hash = "sha256-luJ7AgrSZRA4jgb18H8/cKTtiRbumV8bcregJObZ2H4=";
         };
         freepgPatches = pkgs.fetchFromGitLab {
           owner = "freepg";

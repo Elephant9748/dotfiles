@@ -14,11 +14,11 @@
       hash = "sha256-P3XdRnnVJuYe80S6wTMmmCO4jWBbUIkHkLKA75qSnNg=";
     };
     gnupg = inputs.nixpkgs.legacyPackages."${prev.stdenv.hostPlatform.system}".gnupg.overrideAttrs (oldAttrs: rec {
-      version = "2.5.21";
+      version = "2.5.22";
       pname = "gnupg";
       src = prev.fetchurl {
         url = "mirror://gnupg/gnupg/${pname}-${version}.tar.bz2";
-        hash = "sha256-468sjKpGpmqTKfp8aICvJgRRkU2BlZW+q8LCZZezE1I=";
+        hash = "sha256-luJ7AgrSZRA4jgb18H8/cKTtiRbumV8bcregJObZ2H4=";
       };
 
       patches =
