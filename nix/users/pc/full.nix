@@ -43,6 +43,7 @@
     just
     # glaze
     comma
+    rustnet
   ];
 
   security = {

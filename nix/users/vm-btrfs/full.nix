@@ -46,6 +46,7 @@
     guestfs-tools
     virtiofsd
     comma
+    rustnet
   ];
 
   security = {
