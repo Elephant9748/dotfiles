@@ -22,6 +22,7 @@ to-dot:
                 rsync -azP $HOME/.config/gtk-4.0 configs/.config/ && \
                 rsync -azP $HOME/.config/bottom configs/.config/ && \
                 rsync -azP $HOME/.config/bat configs/.config/ && \
+                rsync -azP $HOME/.config/rustnet configs/.config/ && \
                 # rsync -azP $HOME/.config/cosmic configs/.config/ && \
                 # mimeapps list
                 rsync -azP $HOME/.config/mimeapps.list configs/.config/ && \
@@ -70,6 +71,7 @@ to-host:
                 rsync -azP configs/.config/gtk-4.0 $HOME/.config/ && \
                 rsync -azP configs/.config/bottom $HOME/.config/ && \
                 rsync -azP configs/.config/bat $HOME/.config/ && \
+                rsync -azP configs/.config/rustnet $HOME/.config/ && \
                 # rsync -azP configs/.config/cosmic $HOME/.config/ && \
                 # mimeapps list
                 rsync -azP configs/.config/mimeapps.list $HOME/.config/ && \

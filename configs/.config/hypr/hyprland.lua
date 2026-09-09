@@ -152,8 +152,8 @@ hl.window_rule({
         title = "Nextcloud",
     },
     float = true,
-    move = "1532 4",
-    size = "389 1054",
+    move = "1396 1",
+    size = "520 1056",
     workspace = "6",
 })
 
