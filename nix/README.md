@@ -125,4 +125,8 @@ nixos-enter
 nix-collect-garbage -d
 home-manager generations
 nixos-rebuild list-generations
+
+reset generation number (delete old)
+sudo nix-env -p /nix/var/nix/profiles/system --delete-generations 7d
+sudo nix-env -p /nix/var/nix/profiles/system --list-generations
 ```
