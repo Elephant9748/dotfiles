@@ -13,6 +13,11 @@
     recursive = true;
   };
 
+  home.file.".local/bin" = {
+    source = ../../bins/nix;
+    recursive = true;
+  };
+
   # config & style from dotfiles
   programs.waybar = {
     enable = true;
@@ -64,14 +69,14 @@
           "orientation" = "horizontal";
         };
         "custom/clock_manual" = {
-          "exec" = "~/project/dotfiles/scripts/arch/clock_manual_waybar";
+          "exec" = "~/.local/bin/clock_manual_waybar";
           "interval" = 1;
         };
         "wlr/mode" = {
           "format" = "<span style=\"italic\">{}</span>";
         };
         "custom/weather" = {
-            "exec" = "~/projects/dotfiles/bins/nix/weather Cikalong-kulon";
+            "exec" = "~/.local/bin/nix/weather Cikalong-kulon";
             "return-type" = "json";
             "format" = "{} ";
             "tooltip" = true;
