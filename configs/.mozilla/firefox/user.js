@@ -65,7 +65,7 @@ user_pref("network.trr.mode", 3);
 // user_pref("network.trr.custom_uri", "https://adblock.doh.mullvad.net/dns-query");
 
 // // Used to delete cookies and site data when Firefox is closed… set to `false` to enable cookie and site data persistence
-// user_pref("privacy.sanitize.sanitizeOnShutdown", true); 
+// user_pref("privacy.sanitize.sanitizeOnShutdown", true);
 
 user_pref("browser.tabs.firefox-view", false);
 user_pref("identity.fxaccounts.enabled", false);
@@ -86,7 +86,6 @@ user_pref("gfx.webrender.software", true);
 
 // BY sunknudsen
 // https://sunknudsen.com/static/media/privacy-guides/how-to-configure-firefox-for-privacy-and-security/user.js
-
 
 // // Firefox hardening using preferences (automated)
 // user_pref("app.normandy.first_run", false);
@@ -179,15 +178,17 @@ user_pref("gfx.webrender.software", true);
 
 // Make firefox noticeably faster
 user_pref("browser.ml.enable", false);
-user_pref('browser.ml.chat.enabled', false);
-user_pref('browser.ml.chat.menu',false);
-user_pref('browser.ml.chat.page',false);
-user_pref('browser.ml.chat.page.footerBadge', false);
-user_pref('browser.ml.chat.page.menuBadge',false);
-user_pref('browser.ml.linkPreview.enabled',false);
-user_pref('browser.ml.pageAssist.enabled', false);
-user_pref('browser.tabs.groups.smart.enabled', false);
-user_pref('browser.tabs.groups.smart.userEnabled', false);
-user_pref('extensions.ml.enabled', false);
-user_pref('browser.search.visualSearch.featureGate', false);
+user_pref("browser.ml.chat.enabled", false);
+user_pref("browser.ml.chat.menu", false);
+user_pref("browser.ml.chat.page", false);
+user_pref("browser.ml.chat.page.footerBadge", false);
+user_pref("browser.ml.chat.page.menuBadge", false);
+user_pref("browser.ml.linkPreview.enabled", false);
+user_pref("browser.ml.pageAssist.enabled", false);
+user_pref("browser.tabs.groups.smart.enabled", false);
+user_pref("browser.tabs.groups.smart.userEnabled", false);
+user_pref("extensions.ml.enabled", false);
+user_pref("browser.search.visualSearch.featureGate", false);
 
+// fuckoff "Nova"-Theme
+user_pref("browser.nova.enabled", false);

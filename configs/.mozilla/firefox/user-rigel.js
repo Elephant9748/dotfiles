@@ -13,43 +13,103 @@ user_pref("accessibility.typeaheadfind.flashBar", 0);
 user_pref("app.installation.timestamp", "133139274582876544");
 user_pref("app.normandy.first_run", false);
 user_pref("app.normandy.migrationsApplied", 12);
-user_pref("app.normandy.startupRolloutPrefs.app.normandy.onsync_skew_sec", 3300);
-user_pref("app.normandy.startupRolloutPrefs.app.update.background.scheduling.enabled", true);
-user_pref("app.normandy.startupRolloutPrefs.browser.migrate.showBookmarksToolbarAfterMigration", true);
-user_pref("app.normandy.startupRolloutPrefs.extensions.formautofill.creditCards.available", true);
-user_pref("app.normandy.startupRolloutPrefs.extensions.formautofill.creditCards.enabled", true);
-user_pref("app.normandy.startupRolloutPrefs.extensions.formautofill.creditCards.hideui", false);
-user_pref("app.normandy.startupRolloutPrefs.extensions.fxmonitor.enabled", true);
-user_pref("app.normandy.startupRolloutPrefs.extensions.webcompat.disabled_shims.AdvertisingDotCom", true);
+user_pref(
+  "app.normandy.startupRolloutPrefs.app.normandy.onsync_skew_sec",
+  3300,
+);
+user_pref(
+  "app.normandy.startupRolloutPrefs.app.update.background.scheduling.enabled",
+  true,
+);
+user_pref(
+  "app.normandy.startupRolloutPrefs.browser.migrate.showBookmarksToolbarAfterMigration",
+  true,
+);
+user_pref(
+  "app.normandy.startupRolloutPrefs.extensions.formautofill.creditCards.available",
+  true,
+);
+user_pref(
+  "app.normandy.startupRolloutPrefs.extensions.formautofill.creditCards.enabled",
+  true,
+);
+user_pref(
+  "app.normandy.startupRolloutPrefs.extensions.formautofill.creditCards.hideui",
+  false,
+);
+user_pref(
+  "app.normandy.startupRolloutPrefs.extensions.fxmonitor.enabled",
+  true,
+);
+user_pref(
+  "app.normandy.startupRolloutPrefs.extensions.webcompat.disabled_shims.AdvertisingDotCom",
+  true,
+);
 user_pref("app.normandy.startupRolloutPrefs.gfx.webrender.all.qualified", true);
-user_pref("app.normandy.startupRolloutPrefs.media.videocontrols.picture-in-picture.video-toggle.mode", 2);
-user_pref("app.normandy.startupRolloutPrefs.network.http.http2.websockets", false);
-user_pref("app.normandy.startupRolloutPrefs.network.http.spdy.websockets", false);
-user_pref("app.normandy.startupRolloutPrefs.pdfjs.renderInteractiveForms", true);
-user_pref("app.normandy.startupRolloutPrefs.security.bad_cert_domain_error.url_fix_enabled", true);
-user_pref("app.normandy.startupRolloutPrefs.security.remote_settings.intermediates.downloads_per_poll", 3000);
-user_pref("app.normandy.startupRolloutPrefs.security.sandbox.content.win32k-experiment.enrollmentStatus", 2);
+user_pref(
+  "app.normandy.startupRolloutPrefs.media.videocontrols.picture-in-picture.video-toggle.mode",
+  2,
+);
+user_pref(
+  "app.normandy.startupRolloutPrefs.network.http.http2.websockets",
+  false,
+);
+user_pref(
+  "app.normandy.startupRolloutPrefs.network.http.spdy.websockets",
+  false,
+);
+user_pref(
+  "app.normandy.startupRolloutPrefs.pdfjs.renderInteractiveForms",
+  true,
+);
+user_pref(
+  "app.normandy.startupRolloutPrefs.security.bad_cert_domain_error.url_fix_enabled",
+  true,
+);
+user_pref(
+  "app.normandy.startupRolloutPrefs.security.remote_settings.intermediates.downloads_per_poll",
+  3000,
+);
+user_pref(
+  "app.normandy.startupRolloutPrefs.security.sandbox.content.win32k-experiment.enrollmentStatus",
+  2,
+);
 user_pref("app.normandy.user_id", "6b51bbd1-f7b5-432a-9b0b-fd2185dbd95b");
 user_pref("app.shield.optoutstudies.enabled", false);
 user_pref("app.update.auto", false);
 user_pref("app.update.auto.migrated", true);
 user_pref("app.update.background.lastInstalledTaskVersion", 3);
-user_pref("app.update.background.previous.reasons", "[\"app.update.auto=false\"]");
+user_pref(
+  "app.update.background.previous.reasons",
+  '["app.update.auto=false"]',
+);
 user_pref("app.update.background.rolledout", true);
 user_pref("app.update.download.attempts", 0);
 user_pref("app.update.elevate.attempts", 0);
-user_pref("app.update.lastUpdateTime.addon-background-update-timer", 1785239332);
+user_pref(
+  "app.update.lastUpdateTime.addon-background-update-timer",
+  1785239332,
+);
 user_pref("app.update.lastUpdateTime.background-update-timer", 1741121025);
-user_pref("app.update.lastUpdateTime.blocklist-background-update-timer", 1588929052);
+user_pref(
+  "app.update.lastUpdateTime.blocklist-background-update-timer",
+  1588929052,
+);
 user_pref("app.update.lastUpdateTime.browser-cleanup-thumbnails", 1785324610);
 user_pref("app.update.lastUpdateTime.glean-addons-daily", 1785239332);
 user_pref("app.update.lastUpdateTime.recipe-client-addon-run", 1785321669);
 user_pref("app.update.lastUpdateTime.region-update-timer", 1785167715);
 user_pref("app.update.lastUpdateTime.rs-experiment-loader-timer", 1785325490);
 user_pref("app.update.lastUpdateTime.search-engine-update-timer", 1678795242);
-user_pref("app.update.lastUpdateTime.services-settings-poll-changes", 1785239332);
+user_pref(
+  "app.update.lastUpdateTime.services-settings-poll-changes",
+  1785239332,
+);
 user_pref("app.update.lastUpdateTime.telemetry_modules_ping", 1747941548);
-user_pref("app.update.lastUpdateTime.telemetry_untrustedmodules_ping", 1671536381);
+user_pref(
+  "app.update.lastUpdateTime.telemetry_untrustedmodules_ping",
+  1671536381,
+);
 user_pref("app.update.lastUpdateTime.xpi-signature-verification", 1785239332);
 user_pref("app.update.migrated.updateDir2.308046B0AF4A39CB", true);
 user_pref("app.update.migrated.updateDir3.308046B0AF4A39CB", true);
@@ -74,17 +134,32 @@ user_pref("browser.chrome.favicons", false);
 user_pref("browser.compactmode.show", true);
 user_pref("browser.contentblocking.category", "custom");
 user_pref("browser.contentblocking.cfr-milestone.milestone-achieved", 50000);
-user_pref("browser.contextual-services.contextId", "da89e227-7a17-4b1e-94e3-65bf73be4acd");
-user_pref("browser.contextual-services.contextId.timestamp-in-seconds", 1761068024);
-user_pref("browser.crashReports.cleanupCheck.lastDate", "2026-07-24T08:47:37.211Z");
+user_pref(
+  "browser.contextual-services.contextId",
+  "da89e227-7a17-4b1e-94e3-65bf73be4acd",
+);
+user_pref(
+  "browser.contextual-services.contextId.timestamp-in-seconds",
+  1761068024,
+);
+user_pref(
+  "browser.crashReports.cleanupCheck.lastDate",
+  "2026-07-24T08:47:37.211Z",
+);
 user_pref("browser.ctrlTab.migrated", true);
 user_pref("browser.download.autohideButton", false);
 user_pref("browser.download.lastDir", "/mnt/e/RocketISOs/Linux/tails");
 user_pref("browser.download.panel.shown", true);
 user_pref("browser.download.save_converter_index", 0);
 user_pref("browser.download.useDownloadDir", false);
-user_pref("browser.download.viewableInternally.previousHandler.alwaysAskBeforeHandling.svg", true);
-user_pref("browser.download.viewableInternally.previousHandler.preferredAction.svg", 0);
+user_pref(
+  "browser.download.viewableInternally.previousHandler.alwaysAskBeforeHandling.svg",
+  true,
+);
+user_pref(
+  "browser.download.viewableInternally.previousHandler.preferredAction.svg",
+  0,
+);
 user_pref("browser.download.viewableInternally.typeWasRegistered.avif", true);
 user_pref("browser.download.viewableInternally.typeWasRegistered.svg", true);
 user_pref("browser.download.viewableInternally.typeWasRegistered.webp", true);
@@ -97,10 +172,19 @@ user_pref("browser.engagement.home-button.has-removed", true);
 user_pref("browser.engagement.home-button.has-used", true);
 user_pref("browser.engagement.library-button.has-used", true);
 user_pref("browser.engagement.sidebar-button.has-used", true);
-user_pref("browser.firefox-view.feature-tour", "{\"message\":\"FIREFOX_VIEW_FEATURE_TOUR\",\"screen\":\"\",\"complete\":true}");
+user_pref(
+  "browser.firefox-view.feature-tour",
+  '{"message":"FIREFOX_VIEW_FEATURE_TOUR","screen":"","complete":true}',
+);
 user_pref("browser.firefox-view.view-count", 9);
-user_pref("browser.fixup.domainwhitelist.azdgt4x7yfuobgube61pqeiw9a9yo3egku53agn8gcbmcq5nefty.loki", true);
-user_pref("browser.fixup.domainwhitelist.bdmnfaoappaddmph4spgsbxmejoo3mfridkh7gf6hcbbh4xtgcio.loki", true);
+user_pref(
+  "browser.fixup.domainwhitelist.azdgt4x7yfuobgube61pqeiw9a9yo3egku53agn8gcbmcq5nefty.loki",
+  true,
+);
+user_pref(
+  "browser.fixup.domainwhitelist.bdmnfaoappaddmph4spgsbxmejoo3mfridkh7gf6hcbbh4xtgcio.loki",
+  true,
+);
 user_pref("browser.fixup.domainwhitelist.bitwarden.flip", true);
 user_pref("browser.fixup.domainwhitelist.bitwarrden.flip", true);
 user_pref("browser.fixup.domainwhitelist.cafe.loki", true);
@@ -110,12 +194,18 @@ user_pref("browser.fixup.domainwhitelist.jellyfin.flip", true);
 user_pref("browser.fixup.domainwhitelist.nextcloud.hid", true);
 user_pref("browser.fixup.domainwhitelist.nextcloud.home", true);
 user_pref("browser.fixup.domainwhitelist.nextcloud.jack", true);
-user_pref("browser.fixup.domainwhitelist.nuckg1bnrwrjjfc6uqp41fupo51soqpdxqz8a9agj5iwq6uijqqo.loki", true);
+user_pref(
+  "browser.fixup.domainwhitelist.nuckg1bnrwrjjfc6uqp41fupo51soqpdxqz8a9agj5iwq6uijqqo.loki",
+  true,
+);
 user_pref("browser.fixup.domainwhitelist.onlyoffice.flip", true);
 user_pref("browser.fixup.domainwhitelist.pihole.flip", true);
 user_pref("browser.fixup.domainwhitelist.radarr.flip", true);
 user_pref("browser.fixup.domainwhitelist.unblockit.its", true);
-user_pref("browser.ipProtection.locationListCache", "[{\"name\":\"United Kingdom\",\"code\":\"GB\",\"cities\":[{\"name\":\"London\",\"code\":\"EGLC\",\"servers\":[{\"port\":2499,\"hostname\":\"eglc860.m1.fastly-masque.net\",\"quarantined\":false,\"protocols\":[{\"name\":\"connect\",\"host\":\"eglc860.m1.fastly-masque.net\",\"port\":2499,\"scheme\":\"https\"}]}]}]},{\"name\":\"Germany\",\"code\":\"DE\",\"cities\":[{\"name\":\"Munich\",\"code\":\"MUC\",\"servers\":[{\"port\":2499,\"hostname\":\"muc139.m1.fastly-masque.net\",\"quarantined\":false,\"protocols\":[{\"name\":\"connect\",\"host\":\"muc139.m1.fastly-masque.net\",\"port\":2499,\"scheme\":\"https\"}]}]}]},{\"name\":\"CatchAll Anycast\",\"code\":\"US\",\"cities\":[{\"name\":\"USA\",\"code\":\"Q30\",\"servers\":[{\"port\":2499,\"hostname\":\"p.m1.fastly-masque.net\",\"quarantined\":false,\"protocols\":[{\"name\":\"connect\",\"host\":\"p.m1.fastly-masque.net\",\"port\":2499,\"scheme\":\"https\"}]}]}]},{\"name\":\"France\",\"code\":\"FR\",\"cities\":[{\"name\":\"Paris\",\"code\":\"LFPB\",\"servers\":[{\"port\":2499,\"hostname\":\"lfpb115.m1.fastly-masque.net\",\"quarantined\":false,\"protocols\":[{\"name\":\"connect\",\"host\":\"lfpb115.m1.fastly-masque.net\",\"port\":2499,\"scheme\":\"https\"}]}]}]},{\"name\":\"Canada\",\"code\":\"CA\",\"cities\":[{\"name\":\"Toronto\",\"code\":\"YYZ\",\"servers\":[{\"port\":2499,\"hostname\":\"yyz45.m1.fastly-masque.net\",\"quarantined\":false,\"protocols\":[{\"name\":\"connect\",\"host\":\"yyz45.m1.fastly-masque.net\",\"port\":2499,\"scheme\":\"https\"}]}]}]},{\"name\":\"Recomended Location\",\"code\":\"REC\",\"cities\":[{\"name\":\"Recomended City\",\"code\":\"REC\",\"servers\":[{\"port\":2499,\"hostname\":\"p.m1.fastly-masque.net\",\"quarantined\":false,\"protocols\":[{\"name\":\"connect\",\"host\":\"p.m1.fastly-masque.net\",\"port\":2499,\"scheme\":\"https\"}]}]}]}]");
+user_pref(
+  "browser.ipProtection.locationListCache",
+  '[{"name":"United Kingdom","code":"GB","cities":[{"name":"London","code":"EGLC","servers":[{"port":2499,"hostname":"eglc860.m1.fastly-masque.net","quarantined":false,"protocols":[{"name":"connect","host":"eglc860.m1.fastly-masque.net","port":2499,"scheme":"https"}]}]}]},{"name":"Germany","code":"DE","cities":[{"name":"Munich","code":"MUC","servers":[{"port":2499,"hostname":"muc139.m1.fastly-masque.net","quarantined":false,"protocols":[{"name":"connect","host":"muc139.m1.fastly-masque.net","port":2499,"scheme":"https"}]}]}]},{"name":"CatchAll Anycast","code":"US","cities":[{"name":"USA","code":"Q30","servers":[{"port":2499,"hostname":"p.m1.fastly-masque.net","quarantined":false,"protocols":[{"name":"connect","host":"p.m1.fastly-masque.net","port":2499,"scheme":"https"}]}]}]},{"name":"France","code":"FR","cities":[{"name":"Paris","code":"LFPB","servers":[{"port":2499,"hostname":"lfpb115.m1.fastly-masque.net","quarantined":false,"protocols":[{"name":"connect","host":"lfpb115.m1.fastly-masque.net","port":2499,"scheme":"https"}]}]}]},{"name":"Canada","code":"CA","cities":[{"name":"Toronto","code":"YYZ","servers":[{"port":2499,"hostname":"yyz45.m1.fastly-masque.net","quarantined":false,"protocols":[{"name":"connect","host":"yyz45.m1.fastly-masque.net","port":2499,"scheme":"https"}]}]}]},{"name":"Recomended Location","code":"REC","cities":[{"name":"Recomended City","code":"REC","servers":[{"port":2499,"hostname":"p.m1.fastly-masque.net","quarantined":false,"protocols":[{"name":"connect","host":"p.m1.fastly-masque.net","port":2499,"scheme":"https"}]}]}]}]',
+);
 user_pref("browser.laterrun.bookkeeping.profileCreationTime", 1531641733);
 user_pref("browser.laterrun.bookkeeping.sessionCount", 51);
 user_pref("browser.laterrun.bookkeeping.updateAppliedTime", 1741121050);
@@ -140,31 +230,64 @@ user_pref("browser.ml.checkForMemory", false);
 user_pref("browser.ml.enable", false);
 user_pref("browser.ml.linkPreview.enabled", false);
 user_pref("browser.ml.linkPreview.onboardingTimes", "");
-user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false);
-user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false);
+user_pref(
+  "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons",
+  false,
+);
+user_pref(
+  "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features",
+  false,
+);
 user_pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
 user_pref("browser.newtabpage.activity-stream.feeds.topsites", false);
 user_pref("browser.newtabpage.activity-stream.hideLogo", true);
-user_pref("browser.newtabpage.activity-stream.impressionId", "{2876f186-e31d-4e8f-bbfa-46b78277da5f}");
-user_pref("browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts.havePinned", "google");
+user_pref(
+  "browser.newtabpage.activity-stream.impressionId",
+  "{2876f186-e31d-4e8f-bbfa-46b78277da5f}",
+);
+user_pref(
+  "browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts.havePinned",
+  "google",
+);
 user_pref("browser.newtabpage.activity-stream.migrationExpired", true);
-user_pref("browser.newtabpage.activity-stream.migrationLastShownDate", 1531587600);
+user_pref(
+  "browser.newtabpage.activity-stream.migrationLastShownDate",
+  1531587600,
+);
 user_pref("browser.newtabpage.activity-stream.migrationRemainingDays", 3);
-user_pref("browser.newtabpage.activity-stream.newtabWallpapers.user.enabled.migrated", true);
+user_pref(
+  "browser.newtabpage.activity-stream.newtabWallpapers.user.enabled.migrated",
+  true,
+);
 user_pref("browser.newtabpage.activity-stream.showSearch", false);
 user_pref("browser.newtabpage.activity-stream.showSponsored", false);
 user_pref("browser.newtabpage.activity-stream.showSponsoredCheckboxes", false);
 user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false);
 user_pref("browser.newtabpage.activity-stream.telemetry", false);
-user_pref("browser.newtabpage.blocked", "{\"ZaKU/v9oLVbRWTHOhEyE0w==\":1,\"NM6VNp9BZ7zG58EunldWSw==\":1,\"zwe07OHZAK72dekbsamxsw==\":1,\"7WFZ/whKnR4Z+t3QEAr8Cw==\":1,\"8KivtlKqM202QuaEoZn28A==\":1,\"avsdl2wLPIjroaiVIJH6WQ==\":1,\"jqc1JVlQHwh3x+XVuoPSbw==\":1,\"n3iF6bZaMiq06ocj9XhLFQ==\":1,\"WkRrqpd0CLr5Wc7+8wHlMw==\":1,\"VQdhSZ0DvWGQOehzohhxOg==\":1,\"9yCOxUftdxEBGUXgYMQHLA==\":1,\"6ZMeiInSbxuyoYcp2t9heg==\":1,\"4gPpjkxgZzXPVtuEoAL9Ig==\":1,\"y4CGaWDoW1t7P2GstV4mPA==\":1,\"toSHWQjWACnAmAwLOhMmjQ==\":1,\"vObAuIuxUiuRsHP2vj2XkQ==\":1,\"xvi0YTjAijb3UYAex+OOMA==\":1,\"6waMKdrVUXmbDiNmiDwywg==\":1,\"8w8LdZ4P8ajJqjQIqpHzpg==\":1,\"tRNeuzPCYOJiFNrDyj15ZA==\":1,\"+5ZhiMfuyl333xHHPQLBtA==\":1,\"21rQEDxnWYwNulo7pCsD7A==\":1}");
-user_pref("browser.newtabpage.pinned", "[{\"url\":\"https://google.com\",\"label\":\"@google\",\"searchTopSite\":true},{\"url\":\"https://www.youtube.com/\",\"label\":\"youtube\",\"baseDomain\":\"youtube.com\"}]");
+user_pref(
+  "browser.newtabpage.blocked",
+  '{"ZaKU/v9oLVbRWTHOhEyE0w==":1,"NM6VNp9BZ7zG58EunldWSw==":1,"zwe07OHZAK72dekbsamxsw==":1,"7WFZ/whKnR4Z+t3QEAr8Cw==":1,"8KivtlKqM202QuaEoZn28A==":1,"avsdl2wLPIjroaiVIJH6WQ==":1,"jqc1JVlQHwh3x+XVuoPSbw==":1,"n3iF6bZaMiq06ocj9XhLFQ==":1,"WkRrqpd0CLr5Wc7+8wHlMw==":1,"VQdhSZ0DvWGQOehzohhxOg==":1,"9yCOxUftdxEBGUXgYMQHLA==":1,"6ZMeiInSbxuyoYcp2t9heg==":1,"4gPpjkxgZzXPVtuEoAL9Ig==":1,"y4CGaWDoW1t7P2GstV4mPA==":1,"toSHWQjWACnAmAwLOhMmjQ==":1,"vObAuIuxUiuRsHP2vj2XkQ==":1,"xvi0YTjAijb3UYAex+OOMA==":1,"6waMKdrVUXmbDiNmiDwywg==":1,"8w8LdZ4P8ajJqjQIqpHzpg==":1,"tRNeuzPCYOJiFNrDyj15ZA==":1,"+5ZhiMfuyl333xHHPQLBtA==":1,"21rQEDxnWYwNulo7pCsD7A==":1}',
+);
+user_pref(
+  "browser.newtabpage.pinned",
+  '[{"url":"https://google.com","label":"@google","searchTopSite":true},{"url":"https://www.youtube.com/","label":"youtube","baseDomain":"youtube.com"}]',
+);
 user_pref("browser.newtabpage.storageVersion", 1);
 user_pref("browser.open.lastDir", "/home/rigel/Downloads/screenshot");
-user_pref("browser.pageActions.persistedActions", "{\"version\":1,\"ids\":[\"bookmark\",\"_testpilot-containers\"],\"idsInUrlbar\":[\"_testpilot-containers\",\"bookmark\"],\"idsInUrlbarPreProton\":[\"pocket\",\"bookmark\"]}");
+user_pref(
+  "browser.pageActions.persistedActions",
+  '{"version":1,"ids":["bookmark","_testpilot-containers"],"idsInUrlbar":["_testpilot-containers","bookmark"],"idsInUrlbarPreProton":["pocket","bookmark"]}',
+);
 user_pref("browser.pagethumbnails.storage_version", 3);
 user_pref("browser.places.smartBookmarksVersion", 8);
-user_pref("browser.preferences.config_warning.warningPasswordManager.dismissed", true);
-user_pref("browser.preferences.config_warning.warningSafeBrowsing.dismissed", true);
+user_pref(
+  "browser.preferences.config_warning.warningPasswordManager.dismissed",
+  true,
+);
+user_pref(
+  "browser.preferences.config_warning.warningSafeBrowsing.dismissed",
+  true,
+);
 user_pref("browser.preferences.defaultPerformanceSettings.enabled", false);
 user_pref("browser.privacySegmentation.createdShortcut", true);
 user_pref("browser.profiles.created", true);
@@ -174,14 +297,29 @@ user_pref("browser.region.update.updated", 1785167717);
 user_pref("browser.rights.3.shown", true);
 user_pref("browser.safebrowsing.malware.enabled", false);
 user_pref("browser.safebrowsing.phishing.enabled", false);
-user_pref("browser.safebrowsing.provider.google4.lastupdatetime", "1677098546844");
-user_pref("browser.safebrowsing.provider.google4.nextupdatetime", "1677100328844");
-user_pref("browser.safebrowsing.provider.mozilla.lastupdatetime", "1785321643205");
-user_pref("browser.safebrowsing.provider.mozilla.nextupdatetime", "1785343243205");
+user_pref(
+  "browser.safebrowsing.provider.google4.lastupdatetime",
+  "1677098546844",
+);
+user_pref(
+  "browser.safebrowsing.provider.google4.nextupdatetime",
+  "1677100328844",
+);
+user_pref(
+  "browser.safebrowsing.provider.mozilla.lastupdatetime",
+  "1785321643205",
+);
+user_pref(
+  "browser.safebrowsing.provider.mozilla.nextupdatetime",
+  "1785343243205",
+);
 user_pref("browser.search.countryCode", "ID");
 user_pref("browser.search.region", "ID");
 user_pref("browser.search.separatePrivateDefault.urlbarResult.enabled", false);
-user_pref("browser.search.serpEventTelemetryCategorization.regionEnabled", false);
+user_pref(
+  "browser.search.serpEventTelemetryCategorization.regionEnabled",
+  false,
+);
 user_pref("browser.search.suggest.enabled", false);
 user_pref("browser.search.totalSearches", 101);
 user_pref("browser.search.update", false);
@@ -228,16 +366,31 @@ user_pref("browser.translations.mostRecentTargetLanguages", "en");
 user_pref("browser.translations.neverTranslateLanguages", "id");
 user_pref("browser.translations.panelShown", true);
 user_pref("browser.turbo.enabled", true);
-user_pref("browser.uiCustomization.horizontalTabsBackup", "{\"placements\":{\"widget-overflow-fixed-list\":[],\"unified-extensions-area\":[],\"nav-bar\":[\"sidebar-button\",\"back-button\",\"forward-button\",\"stop-reload-button\",\"vertical-spacer\",\"customizableui-special-spring25\",\"urlbar-container\",\"customizableui-special-spring24\",\"developer-button\",\"screenshot-button\",\"downloads-button\",\"add-ons-button\",\"_testpilot-containers-browser-action\",\"dum_dark_mode00_earendel-browser-action\",\"_446900e4-71c2-419f-a6a7-df9c091e268b_-browser-action\",\"_d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d_-browser-action\",\"_62c1d54c-f371-4d89-8e07-69e67c8ebea8_-browser-action\",\"_react-devtools-browser-action\",\"_c3c10168-4186-445c-9c5b-63f12b8e2c87_-browser-action\",\"_16a49f65-1369-4839-a5ef-db2581e08b16_-browser-action\",\"keepassxc-browser_keepassxc_org-browser-action\",\"_3dce78ca-2a07-4017-9111-998d4f826625_-browser-action\",\"fxa-toolbar-menu-button\",\"_ce741827-b6d9-415a-a8ea-be83f96d6b0d_-browser-action\",\"jid1-93cwpmrbvpjrqa_jetpack-browser-action\",\"_contain-facebook-browser-action\",\"_16b9aac1-6338-4721-8539-5ab0c5b5809a_-browser-action\",\"webextension_metamask_io-browser-action\",\"jid1-aqqsmbyb0a8adg_jetpack-browser-action\",\"jid1-mnnxcxisbpnsxq_jetpack-browser-action\",\"jid1-bofifl9vbdl2zq_jetpack-browser-action\",\"https-everywhere_eff_org-browser-action\",\"_a6c4a591-f1b2-4f03-b3ff-767e5bedf4e7_-browser-action\",\"_d19a89b9-76c1-4a61-bcd4-49e8de916403_-browser-action\",\"ublock0_raymondhill_net-browser-action\",\"reset-pbm-toolbar-button\",\"382ec52c0493ad2d484ac5345a490bfb6e8f8a0f_temporary-addon-browser-action\",\"unified-extensions-button\"],\"toolbar-menubar\":[\"menubar-items\"],\"TabsToolbar\":[\"tabbrowser-tabs\",\"new-tab-button\",\"alltabs-button\"],\"vertical-tabs\":[],\"PersonalToolbar\":[\"managed-bookmarks\",\"personal-bookmarks\"]},\"seen\":[\"developer-button\",\"webide-button\",\"_d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d_-browser-action\",\"feed-button\",\"_react-devtools-browser-action\",\"_c3c10168-4186-445c-9c5b-63f12b8e2c87_-browser-action\",\"_16a49f65-1369-4839-a5ef-db2581e08b16_-browser-action\",\"_ce741827-b6d9-415a-a8ea-be83f96d6b0d_-browser-action\",\"jid1-93cwpmrbvpjrqa_jetpack-browser-action\",\"_contain-facebook-browser-action\",\"_16b9aac1-6338-4721-8539-5ab0c5b5809a_-browser-action\",\"_testpilot-containers-browser-action\",\"hey_rubenvara_io-browser-action\",\"_62c1d54c-f371-4d89-8e07-69e67c8ebea8_-browser-action\",\"save-to-pocket-button\",\"webextension_metamask_io-browser-action\",\"jid1-aqqsmbyb0a8adg_jetpack-browser-action\",\"_446900e4-71c2-419f-a6a7-df9c091e268b_-browser-action\",\"jid1-mnnxcxisbpnsxq_jetpack-browser-action\",\"jid1-bofifl9vbdl2zq_jetpack-browser-action\",\"ublock0_raymondhill_net-browser-action\",\"https-everywhere_eff_org-browser-action\",\"profiler-button\",\"_a6c4a591-f1b2-4f03-b3ff-767e5bedf4e7_-browser-action\",\"_d19a89b9-76c1-4a61-bcd4-49e8de916403_-browser-action\",\"382ec52c0493ad2d484ac5345a490bfb6e8f8a0f_temporary-addon-browser-action\",\"dum_dark_mode00_earendel-browser-action\",\"keepassxc-browser_keepassxc_org-browser-action\",\"_3dce78ca-2a07-4017-9111-998d4f826625_-browser-action\"],\"dirtyAreaCache\":[\"PersonalToolbar\",\"nav-bar\",\"toolbar-menubar\",\"TabsToolbar\",\"unified-extensions-area\",\"vertical-tabs\"],\"currentVersion\":21,\"newElementCount\":42}");
-user_pref("browser.uiCustomization.navBarWhenVerticalTabs", "[\"sidebar-button\",\"back-button\",\"forward-button\",\"stop-reload-button\",\"vertical-spacer\",\"customizableui-special-spring25\",\"urlbar-container\",\"customizableui-special-spring24\",\"developer-button\",\"screenshot-button\",\"downloads-button\",\"add-ons-button\",\"_testpilot-containers-browser-action\",\"dum_dark_mode00_earendel-browser-action\",\"_446900e4-71c2-419f-a6a7-df9c091e268b_-browser-action\",\"_d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d_-browser-action\",\"_62c1d54c-f371-4d89-8e07-69e67c8ebea8_-browser-action\",\"_react-devtools-browser-action\",\"_c3c10168-4186-445c-9c5b-63f12b8e2c87_-browser-action\",\"_16a49f65-1369-4839-a5ef-db2581e08b16_-browser-action\",\"keepassxc-browser_keepassxc_org-browser-action\",\"_3dce78ca-2a07-4017-9111-998d4f826625_-browser-action\",\"fxa-toolbar-menu-button\",\"_ce741827-b6d9-415a-a8ea-be83f96d6b0d_-browser-action\",\"jid1-93cwpmrbvpjrqa_jetpack-browser-action\",\"_contain-facebook-browser-action\",\"_16b9aac1-6338-4721-8539-5ab0c5b5809a_-browser-action\",\"webextension_metamask_io-browser-action\",\"jid1-aqqsmbyb0a8adg_jetpack-browser-action\",\"jid1-mnnxcxisbpnsxq_jetpack-browser-action\",\"jid1-bofifl9vbdl2zq_jetpack-browser-action\",\"https-everywhere_eff_org-browser-action\",\"_a6c4a591-f1b2-4f03-b3ff-767e5bedf4e7_-browser-action\",\"_d19a89b9-76c1-4a61-bcd4-49e8de916403_-browser-action\",\"ublock0_raymondhill_net-browser-action\",\"reset-pbm-toolbar-button\",\"382ec52c0493ad2d484ac5345a490bfb6e8f8a0f_temporary-addon-browser-action\",\"unified-extensions-button\",\"alltabs-button\"]");
-user_pref("browser.uiCustomization.state", "{\"placements\":{\"widget-overflow-fixed-list\":[],\"unified-extensions-area\":[],\"nav-bar\":[\"back-button\",\"forward-button\",\"stop-reload-button\",\"vertical-spacer\",\"customizableui-special-spring25\",\"urlbar-container\",\"customizableui-special-spring24\",\"developer-button\",\"screenshot-button\",\"downloads-button\",\"add-ons-button\",\"_testpilot-containers-browser-action\",\"dum_dark_mode00_earendel-browser-action\",\"_446900e4-71c2-419f-a6a7-df9c091e268b_-browser-action\",\"_d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d_-browser-action\",\"_62c1d54c-f371-4d89-8e07-69e67c8ebea8_-browser-action\",\"_react-devtools-browser-action\",\"_c3c10168-4186-445c-9c5b-63f12b8e2c87_-browser-action\",\"_16a49f65-1369-4839-a5ef-db2581e08b16_-browser-action\",\"keepassxc-browser_keepassxc_org-browser-action\",\"_3dce78ca-2a07-4017-9111-998d4f826625_-browser-action\",\"fxa-toolbar-menu-button\",\"_ce741827-b6d9-415a-a8ea-be83f96d6b0d_-browser-action\",\"jid1-93cwpmrbvpjrqa_jetpack-browser-action\",\"_contain-facebook-browser-action\",\"_16b9aac1-6338-4721-8539-5ab0c5b5809a_-browser-action\",\"webextension_metamask_io-browser-action\",\"jid1-aqqsmbyb0a8adg_jetpack-browser-action\",\"jid1-mnnxcxisbpnsxq_jetpack-browser-action\",\"jid1-bofifl9vbdl2zq_jetpack-browser-action\",\"https-everywhere_eff_org-browser-action\",\"_a6c4a591-f1b2-4f03-b3ff-767e5bedf4e7_-browser-action\",\"_d19a89b9-76c1-4a61-bcd4-49e8de916403_-browser-action\",\"ublock0_raymondhill_net-browser-action\",\"reset-pbm-toolbar-button\",\"382ec52c0493ad2d484ac5345a490bfb6e8f8a0f_temporary-addon-browser-action\",\"unified-extensions-button\"],\"toolbar-menubar\":[\"menubar-items\"],\"TabsToolbar\":[\"tabbrowser-tabs\",\"new-tab-button\",\"alltabs-button\",\"ai-window-toggle\"],\"vertical-tabs\":[],\"PersonalToolbar\":[\"managed-bookmarks\",\"personal-bookmarks\"]},\"seen\":[\"developer-button\",\"webide-button\",\"_d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d_-browser-action\",\"feed-button\",\"_react-devtools-browser-action\",\"_c3c10168-4186-445c-9c5b-63f12b8e2c87_-browser-action\",\"_16a49f65-1369-4839-a5ef-db2581e08b16_-browser-action\",\"_ce741827-b6d9-415a-a8ea-be83f96d6b0d_-browser-action\",\"jid1-93cwpmrbvpjrqa_jetpack-browser-action\",\"_contain-facebook-browser-action\",\"_16b9aac1-6338-4721-8539-5ab0c5b5809a_-browser-action\",\"_testpilot-containers-browser-action\",\"hey_rubenvara_io-browser-action\",\"_62c1d54c-f371-4d89-8e07-69e67c8ebea8_-browser-action\",\"save-to-pocket-button\",\"webextension_metamask_io-browser-action\",\"jid1-aqqsmbyb0a8adg_jetpack-browser-action\",\"_446900e4-71c2-419f-a6a7-df9c091e268b_-browser-action\",\"jid1-mnnxcxisbpnsxq_jetpack-browser-action\",\"jid1-bofifl9vbdl2zq_jetpack-browser-action\",\"ublock0_raymondhill_net-browser-action\",\"https-everywhere_eff_org-browser-action\",\"profiler-button\",\"_a6c4a591-f1b2-4f03-b3ff-767e5bedf4e7_-browser-action\",\"_d19a89b9-76c1-4a61-bcd4-49e8de916403_-browser-action\",\"382ec52c0493ad2d484ac5345a490bfb6e8f8a0f_temporary-addon-browser-action\",\"dum_dark_mode00_earendel-browser-action\",\"keepassxc-browser_keepassxc_org-browser-action\",\"_3dce78ca-2a07-4017-9111-998d4f826625_-browser-action\",\"screenshot-button\",\"reset-pbm-toolbar-button\",\"ai-window-toggle\"],\"dirtyAreaCache\":[\"PersonalToolbar\",\"nav-bar\",\"toolbar-menubar\",\"TabsToolbar\",\"unified-extensions-area\",\"vertical-tabs\"],\"currentVersion\":25,\"newElementCount\":49}");
+user_pref(
+  "browser.uiCustomization.horizontalTabsBackup",
+  '{"placements":{"widget-overflow-fixed-list":[],"unified-extensions-area":[],"nav-bar":["sidebar-button","back-button","forward-button","stop-reload-button","vertical-spacer","customizableui-special-spring25","urlbar-container","customizableui-special-spring24","developer-button","screenshot-button","downloads-button","add-ons-button","_testpilot-containers-browser-action","dum_dark_mode00_earendel-browser-action","_446900e4-71c2-419f-a6a7-df9c091e268b_-browser-action","_d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d_-browser-action","_62c1d54c-f371-4d89-8e07-69e67c8ebea8_-browser-action","_react-devtools-browser-action","_c3c10168-4186-445c-9c5b-63f12b8e2c87_-browser-action","_16a49f65-1369-4839-a5ef-db2581e08b16_-browser-action","keepassxc-browser_keepassxc_org-browser-action","_3dce78ca-2a07-4017-9111-998d4f826625_-browser-action","fxa-toolbar-menu-button","_ce741827-b6d9-415a-a8ea-be83f96d6b0d_-browser-action","jid1-93cwpmrbvpjrqa_jetpack-browser-action","_contain-facebook-browser-action","_16b9aac1-6338-4721-8539-5ab0c5b5809a_-browser-action","webextension_metamask_io-browser-action","jid1-aqqsmbyb0a8adg_jetpack-browser-action","jid1-mnnxcxisbpnsxq_jetpack-browser-action","jid1-bofifl9vbdl2zq_jetpack-browser-action","https-everywhere_eff_org-browser-action","_a6c4a591-f1b2-4f03-b3ff-767e5bedf4e7_-browser-action","_d19a89b9-76c1-4a61-bcd4-49e8de916403_-browser-action","ublock0_raymondhill_net-browser-action","reset-pbm-toolbar-button","382ec52c0493ad2d484ac5345a490bfb6e8f8a0f_temporary-addon-browser-action","unified-extensions-button"],"toolbar-menubar":["menubar-items"],"TabsToolbar":["tabbrowser-tabs","new-tab-button","alltabs-button"],"vertical-tabs":[],"PersonalToolbar":["managed-bookmarks","personal-bookmarks"]},"seen":["developer-button","webide-button","_d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d_-browser-action","feed-button","_react-devtools-browser-action","_c3c10168-4186-445c-9c5b-63f12b8e2c87_-browser-action","_16a49f65-1369-4839-a5ef-db2581e08b16_-browser-action","_ce741827-b6d9-415a-a8ea-be83f96d6b0d_-browser-action","jid1-93cwpmrbvpjrqa_jetpack-browser-action","_contain-facebook-browser-action","_16b9aac1-6338-4721-8539-5ab0c5b5809a_-browser-action","_testpilot-containers-browser-action","hey_rubenvara_io-browser-action","_62c1d54c-f371-4d89-8e07-69e67c8ebea8_-browser-action","save-to-pocket-button","webextension_metamask_io-browser-action","jid1-aqqsmbyb0a8adg_jetpack-browser-action","_446900e4-71c2-419f-a6a7-df9c091e268b_-browser-action","jid1-mnnxcxisbpnsxq_jetpack-browser-action","jid1-bofifl9vbdl2zq_jetpack-browser-action","ublock0_raymondhill_net-browser-action","https-everywhere_eff_org-browser-action","profiler-button","_a6c4a591-f1b2-4f03-b3ff-767e5bedf4e7_-browser-action","_d19a89b9-76c1-4a61-bcd4-49e8de916403_-browser-action","382ec52c0493ad2d484ac5345a490bfb6e8f8a0f_temporary-addon-browser-action","dum_dark_mode00_earendel-browser-action","keepassxc-browser_keepassxc_org-browser-action","_3dce78ca-2a07-4017-9111-998d4f826625_-browser-action"],"dirtyAreaCache":["PersonalToolbar","nav-bar","toolbar-menubar","TabsToolbar","unified-extensions-area","vertical-tabs"],"currentVersion":21,"newElementCount":42}',
+);
+user_pref(
+  "browser.uiCustomization.navBarWhenVerticalTabs",
+  '["sidebar-button","back-button","forward-button","stop-reload-button","vertical-spacer","customizableui-special-spring25","urlbar-container","customizableui-special-spring24","developer-button","screenshot-button","downloads-button","add-ons-button","_testpilot-containers-browser-action","dum_dark_mode00_earendel-browser-action","_446900e4-71c2-419f-a6a7-df9c091e268b_-browser-action","_d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d_-browser-action","_62c1d54c-f371-4d89-8e07-69e67c8ebea8_-browser-action","_react-devtools-browser-action","_c3c10168-4186-445c-9c5b-63f12b8e2c87_-browser-action","_16a49f65-1369-4839-a5ef-db2581e08b16_-browser-action","keepassxc-browser_keepassxc_org-browser-action","_3dce78ca-2a07-4017-9111-998d4f826625_-browser-action","fxa-toolbar-menu-button","_ce741827-b6d9-415a-a8ea-be83f96d6b0d_-browser-action","jid1-93cwpmrbvpjrqa_jetpack-browser-action","_contain-facebook-browser-action","_16b9aac1-6338-4721-8539-5ab0c5b5809a_-browser-action","webextension_metamask_io-browser-action","jid1-aqqsmbyb0a8adg_jetpack-browser-action","jid1-mnnxcxisbpnsxq_jetpack-browser-action","jid1-bofifl9vbdl2zq_jetpack-browser-action","https-everywhere_eff_org-browser-action","_a6c4a591-f1b2-4f03-b3ff-767e5bedf4e7_-browser-action","_d19a89b9-76c1-4a61-bcd4-49e8de916403_-browser-action","ublock0_raymondhill_net-browser-action","reset-pbm-toolbar-button","382ec52c0493ad2d484ac5345a490bfb6e8f8a0f_temporary-addon-browser-action","unified-extensions-button","alltabs-button"]',
+);
+user_pref(
+  "browser.uiCustomization.state",
+  '{"placements":{"widget-overflow-fixed-list":[],"unified-extensions-area":[],"nav-bar":["back-button","forward-button","stop-reload-button","vertical-spacer","customizableui-special-spring25","urlbar-container","customizableui-special-spring24","developer-button","screenshot-button","downloads-button","add-ons-button","_testpilot-containers-browser-action","dum_dark_mode00_earendel-browser-action","_446900e4-71c2-419f-a6a7-df9c091e268b_-browser-action","_d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d_-browser-action","_62c1d54c-f371-4d89-8e07-69e67c8ebea8_-browser-action","_react-devtools-browser-action","_c3c10168-4186-445c-9c5b-63f12b8e2c87_-browser-action","_16a49f65-1369-4839-a5ef-db2581e08b16_-browser-action","keepassxc-browser_keepassxc_org-browser-action","_3dce78ca-2a07-4017-9111-998d4f826625_-browser-action","fxa-toolbar-menu-button","_ce741827-b6d9-415a-a8ea-be83f96d6b0d_-browser-action","jid1-93cwpmrbvpjrqa_jetpack-browser-action","_contain-facebook-browser-action","_16b9aac1-6338-4721-8539-5ab0c5b5809a_-browser-action","webextension_metamask_io-browser-action","jid1-aqqsmbyb0a8adg_jetpack-browser-action","jid1-mnnxcxisbpnsxq_jetpack-browser-action","jid1-bofifl9vbdl2zq_jetpack-browser-action","https-everywhere_eff_org-browser-action","_a6c4a591-f1b2-4f03-b3ff-767e5bedf4e7_-browser-action","_d19a89b9-76c1-4a61-bcd4-49e8de916403_-browser-action","ublock0_raymondhill_net-browser-action","reset-pbm-toolbar-button","382ec52c0493ad2d484ac5345a490bfb6e8f8a0f_temporary-addon-browser-action","unified-extensions-button"],"toolbar-menubar":["menubar-items"],"TabsToolbar":["tabbrowser-tabs","new-tab-button","alltabs-button","ai-window-toggle"],"vertical-tabs":[],"PersonalToolbar":["managed-bookmarks","personal-bookmarks"]},"seen":["developer-button","webide-button","_d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d_-browser-action","feed-button","_react-devtools-browser-action","_c3c10168-4186-445c-9c5b-63f12b8e2c87_-browser-action","_16a49f65-1369-4839-a5ef-db2581e08b16_-browser-action","_ce741827-b6d9-415a-a8ea-be83f96d6b0d_-browser-action","jid1-93cwpmrbvpjrqa_jetpack-browser-action","_contain-facebook-browser-action","_16b9aac1-6338-4721-8539-5ab0c5b5809a_-browser-action","_testpilot-containers-browser-action","hey_rubenvara_io-browser-action","_62c1d54c-f371-4d89-8e07-69e67c8ebea8_-browser-action","save-to-pocket-button","webextension_metamask_io-browser-action","jid1-aqqsmbyb0a8adg_jetpack-browser-action","_446900e4-71c2-419f-a6a7-df9c091e268b_-browser-action","jid1-mnnxcxisbpnsxq_jetpack-browser-action","jid1-bofifl9vbdl2zq_jetpack-browser-action","ublock0_raymondhill_net-browser-action","https-everywhere_eff_org-browser-action","profiler-button","_a6c4a591-f1b2-4f03-b3ff-767e5bedf4e7_-browser-action","_d19a89b9-76c1-4a61-bcd4-49e8de916403_-browser-action","382ec52c0493ad2d484ac5345a490bfb6e8f8a0f_temporary-addon-browser-action","dum_dark_mode00_earendel-browser-action","keepassxc-browser_keepassxc_org-browser-action","_3dce78ca-2a07-4017-9111-998d4f826625_-browser-action","screenshot-button","reset-pbm-toolbar-button","ai-window-toggle"],"dirtyAreaCache":["PersonalToolbar","nav-bar","toolbar-menubar","TabsToolbar","unified-extensions-area","vertical-tabs"],"currentVersion":25,"newElementCount":49}',
+);
 user_pref("browser.uidensity", 1);
 user_pref("browser.urlbar.autocomplete.enabled", true);
 user_pref("browser.urlbar.lastUrlbarSearchSeconds", 1785325256);
 user_pref("browser.urlbar.quicksuggest.migrationVersion", 7);
 user_pref("browser.urlbar.quicksuggest.scenario", "history");
-user_pref("browser.urlbar.resultBuckets", "{\"children\":[{\"maxResultCount\":1,\"children\":[{\"group\":\"heuristicTest\"},{\"group\":\"heuristicExtension\"},{\"group\":\"heuristicSearchTip\"},{\"group\":\"heuristicOmnibox\"},{\"group\":\"heuristicUnifiedComplete\"},{\"group\":\"heuristicAutofill\"},{\"group\":\"heuristicTokenAliasEngine\"},{\"group\":\"heuristicFallback\"}]},{\"group\":\"extension\",\"maxResultCount\":5},{\"flexChildren\":true,\"children\":[{\"flexChildren\":true,\"children\":[{\"flex\":2,\"group\":\"formHistory\"},{\"flex\":4,\"group\":\"remoteSuggestion\"},{\"flex\":0,\"group\":\"tailSuggestion\"}],\"flex\":2},{\"group\":\"general\",\"flex\":1}]}]}");
-user_pref("browser.urlbar.resultGroups", "{\"children\":[{\"maxResultCount\":1,\"children\":[{\"group\":\"heuristicTest\"},{\"group\":\"heuristicExtension\"},{\"group\":\"heuristicSearchTip\"},{\"group\":\"heuristicOmnibox\"},{\"group\":\"heuristicEngineAlias\"},{\"group\":\"heuristicBookmarkKeyword\"},{\"group\":\"heuristicAutofill\"},{\"group\":\"heuristicPreloaded\"},{\"group\":\"heuristicTokenAliasEngine\"},{\"group\":\"heuristicFallback\"}]},{\"group\":\"extension\",\"availableSpan\":5},{\"flexChildren\":true,\"children\":[{\"group\":\"generalParent\",\"children\":[{\"availableSpan\":3,\"group\":\"inputHistory\"},{\"flexChildren\":true,\"children\":[{\"flex\":1,\"group\":\"remoteTab\"},{\"flex\":2,\"group\":\"general\"},{\"flex\":2,\"group\":\"aboutPages\"},{\"flex\":1,\"group\":\"preloaded\"}]},{\"group\":\"inputHistory\"}],\"flex\":2},{\"children\":[{\"flexChildren\":true,\"children\":[{\"flex\":2,\"group\":\"formHistory\"},{\"flex\":4,\"group\":\"remoteSuggestion\"}]},{\"group\":\"tailSuggestion\"}],\"flex\":1}]}]}");
+user_pref(
+  "browser.urlbar.resultBuckets",
+  '{"children":[{"maxResultCount":1,"children":[{"group":"heuristicTest"},{"group":"heuristicExtension"},{"group":"heuristicSearchTip"},{"group":"heuristicOmnibox"},{"group":"heuristicUnifiedComplete"},{"group":"heuristicAutofill"},{"group":"heuristicTokenAliasEngine"},{"group":"heuristicFallback"}]},{"group":"extension","maxResultCount":5},{"flexChildren":true,"children":[{"flexChildren":true,"children":[{"flex":2,"group":"formHistory"},{"flex":4,"group":"remoteSuggestion"},{"flex":0,"group":"tailSuggestion"}],"flex":2},{"group":"general","flex":1}]}]}',
+);
+user_pref(
+  "browser.urlbar.resultGroups",
+  '{"children":[{"maxResultCount":1,"children":[{"group":"heuristicTest"},{"group":"heuristicExtension"},{"group":"heuristicSearchTip"},{"group":"heuristicOmnibox"},{"group":"heuristicEngineAlias"},{"group":"heuristicBookmarkKeyword"},{"group":"heuristicAutofill"},{"group":"heuristicPreloaded"},{"group":"heuristicTokenAliasEngine"},{"group":"heuristicFallback"}]},{"group":"extension","availableSpan":5},{"flexChildren":true,"children":[{"group":"generalParent","children":[{"availableSpan":3,"group":"inputHistory"},{"flexChildren":true,"children":[{"flex":1,"group":"remoteTab"},{"flex":2,"group":"general"},{"flex":2,"group":"aboutPages"},{"flex":1,"group":"preloaded"}]},{"group":"inputHistory"}],"flex":2},{"children":[{"flexChildren":true,"children":[{"flex":2,"group":"formHistory"},{"flex":4,"group":"remoteSuggestion"}]},{"group":"tailSuggestion"}],"flex":1}]}]}',
+);
 user_pref("browser.urlbar.showSearchSuggestionsFirst", false);
 user_pref("browser.urlbar.showSearchTerms.enabled", false);
 user_pref("browser.urlbar.suggest.bookmark", false);
@@ -256,21 +409,36 @@ user_pref("captchadetection.lastSubmission", 1783403);
 user_pref("content.interrupt.parsing", true);
 user_pref("content.max.tokenizing.time", 2250000);
 user_pref("content.switch.threshold", 750000);
-user_pref("datareporting.dau.cachedUsageProfileGroupID", "acb2e563-134f-415e-b56d-fbf5fe3ef992");
-user_pref("datareporting.dau.cachedUsageProfileID", "beefbeef-beef-beef-beef-beeefbeefbee");
+user_pref(
+  "datareporting.dau.cachedUsageProfileGroupID",
+  "acb2e563-134f-415e-b56d-fbf5fe3ef992",
+);
+user_pref(
+  "datareporting.dau.cachedUsageProfileID",
+  "beefbeef-beef-beef-beef-beeefbeefbee",
+);
 user_pref("datareporting.healthreport.service.enabled", false);
 user_pref("datareporting.healthreport.uploadEnabled", false);
 user_pref("datareporting.policy.dataSubmissionEnabled", false);
 user_pref("datareporting.policy.dataSubmissionPolicyAcceptedVersion", 2);
-user_pref("datareporting.policy.dataSubmissionPolicyNotifiedTime", "1531641774876");
+user_pref(
+  "datareporting.policy.dataSubmissionPolicyNotifiedTime",
+  "1531641774876",
+);
 user_pref("datareporting.usage.uploadEnabled", false);
 user_pref("devtools.aboutdebugging.collapsibilities.processes", false);
-user_pref("devtools.aboutdebugging.tmpExtDirPath", "/home/rigel/project/dark_mode_firefox");
+user_pref(
+  "devtools.aboutdebugging.tmpExtDirPath",
+  "/home/rigel/project/dark_mode_firefox",
+);
 user_pref("devtools.browserconsole.filter.netxhr", true);
 user_pref("devtools.browserconsole.ui.filterbar", true);
 user_pref("devtools.chrome.enabled", false);
 user_pref("devtools.debugger.pause-on-caught-exceptions", false);
-user_pref("devtools.debugger.pending-selected-location", "{\"url\":\"https://search.extto.com/static/js/auto-moderation-support.js?175580182813406\",\"line\":0}");
+user_pref(
+  "devtools.debugger.pending-selected-location",
+  '{"url":"https://search.extto.com/static/js/auto-moderation-support.js?175580182813406","line":0}',
+);
 user_pref("devtools.debugger.prefs-schema-version", 11);
 user_pref("devtools.debugger.remote-enabled", false);
 user_pref("devtools.debugger.start-panel-size", 211);
@@ -281,32 +449,53 @@ user_pref("devtools.inspector.show-three-pane-tooltip", false);
 user_pref("devtools.inspector.show_pseudo_elements", true);
 user_pref("devtools.inspector.three-pane-first-run", false);
 user_pref("devtools.layout.boxmodel.opened", false);
-user_pref("devtools.netmonitor.columnsData", "[{\"name\":\"status\",\"minWidth\":30,\"width\":6.25},{\"name\":\"method\",\"minWidth\":30,\"width\":16.99},{\"name\":\"domain\",\"minWidth\":30,\"width\":12.76},{\"name\":\"file\",\"minWidth\":30,\"width\":15.96},{\"name\":\"cause\",\"minWidth\":30,\"width\":13.22},{\"name\":\"type\",\"minWidth\":30,\"width\":5.41},{\"name\":\"transferred\",\"minWidth\":30,\"width\":5.38},{\"name\":\"contentSize\",\"minWidth\":30,\"width\":5.41},{\"name\":\"waterfall\",\"minWidth\":150,\"width\":1.47},{\"name\":\"initiator\",\"minWidth\":30,\"width\":30.37}]");
-user_pref("devtools.netmonitor.msg.visibleColumns", "[\"data\",\"time\"]");
+user_pref(
+  "devtools.netmonitor.columnsData",
+  '[{"name":"status","minWidth":30,"width":6.25},{"name":"method","minWidth":30,"width":16.99},{"name":"domain","minWidth":30,"width":12.76},{"name":"file","minWidth":30,"width":15.96},{"name":"cause","minWidth":30,"width":13.22},{"name":"type","minWidth":30,"width":5.41},{"name":"transferred","minWidth":30,"width":5.38},{"name":"contentSize","minWidth":30,"width":5.41},{"name":"waterfall","minWidth":150,"width":1.47},{"name":"initiator","minWidth":30,"width":30.37}]',
+);
+user_pref("devtools.netmonitor.msg.visibleColumns", '["data","time"]');
 user_pref("devtools.netmonitor.panes-network-details-height", 50);
 user_pref("devtools.netmonitor.panes-network-details-width", 666);
 user_pref("devtools.onboarding.telemetry.logged", false);
 user_pref("devtools.performance.new-panel-onboarding", false);
 user_pref("devtools.performance.recording.entries", 134217728);
-user_pref("devtools.performance.recording.features", "[\"screenshots\",\"js\",\"stackwalk\",\"cpu\",\"processcpu\",\"memory\"]");
+user_pref(
+  "devtools.performance.recording.features",
+  '["screenshots","js","stackwalk","cpu","processcpu","memory"]',
+);
 user_pref("devtools.performance.recording.preset", "firefox-platform");
-user_pref("devtools.performance.recording.threads", "[\"GeckoMain\",\"Compositor\",\"Renderer\",\"SwComposite\",\"DOM Worker\"]");
+user_pref(
+  "devtools.performance.recording.threads",
+  '["GeckoMain","Compositor","Renderer","SwComposite","DOM Worker"]',
+);
 user_pref("devtools.performance.ui.show-platform-data", true);
-user_pref("devtools.responsive.html.displayedDeviceList", "{\"added\":[\"Pixel 2 XL\",\"Pixel 5\",\"Laptop with HiDPI screen\",\"Laptop with MDPI screen\",\"Laptop with touch\",\"Custom Device\",\"Ginkgo393\",\"Laptop with HiDPI screen (acer14inch)\"],\"removed\":[\"Galaxy Note 20\",\"Galaxy Note 20 Ultra\",\"Galaxy S10/S10+\",\"Galaxy S20\",\"Galaxy S20 Ultra\",\"Galaxy S20+\",\"iPhone 11 Pro\",\"iPhone 11 Pro Max\",\"iPhone 12/13 + Pro\",\"iPhone 12/13 mini\",\"iPhone 12/13 Pro Max\",\"iPhone SE 2nd gen\",\"iPad\"]}");
+user_pref(
+  "devtools.responsive.html.displayedDeviceList",
+  '{"added":["Pixel 2 XL","Pixel 5","Laptop with HiDPI screen","Laptop with MDPI screen","Laptop with touch","Custom Device","Ginkgo393","Laptop with HiDPI screen (acer14inch)"],"removed":["Galaxy Note 20","Galaxy Note 20 Ultra","Galaxy S10/S10+","Galaxy S20","Galaxy S20 Ultra","Galaxy S20+","iPhone 11 Pro","iPhone 11 Pro Max","iPhone 12/13 + Pro","iPhone 12/13 mini","iPhone 12/13 Pro Max","iPhone SE 2nd gen","iPad"]}',
+);
 user_pref("devtools.responsive.reloadNotification.enabled", false);
 user_pref("devtools.responsive.show-setting-tooltip", false);
 user_pref("devtools.responsive.touchSimulation.enabled", true);
-user_pref("devtools.responsive.userAgent", "Mozilla/5.0 (Linux; Android 8.0.0; Pixel 2 XL Build/OPD1.170816.004) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.87 Mobile Safari/537.36");
+user_pref(
+  "devtools.responsive.userAgent",
+  "Mozilla/5.0 (Linux; Android 8.0.0; Pixel 2 XL Build/OPD1.170816.004) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.87 Mobile Safari/537.36",
+);
 user_pref("devtools.responsive.viewport.height", 823);
 user_pref("devtools.responsive.viewport.pixelRatio", 3);
 user_pref("devtools.responsive.viewport.width", 415);
-user_pref("devtools.telemetry.tools.opened.version", "{\"DEVTOOLS_SCREEN_RESOLUTION_ENUMERATED_PER_USER\":\"61.0.1\"}");
+user_pref(
+  "devtools.telemetry.tools.opened.version",
+  '{"DEVTOOLS_SCREEN_RESOLUTION_ENUMERATED_PER_USER":"61.0.1"}',
+);
 user_pref("devtools.theme", "dark");
 user_pref("devtools.toolbox.footer.height", 439);
 user_pref("devtools.toolbox.previousHost", "window");
 user_pref("devtools.toolbox.sidebar.width", 1485);
 user_pref("devtools.toolbox.splitconsoleHeight", 427);
-user_pref("devtools.toolbox.tabsOrder", "inspector,webconsole,jsdebugger,styleeditor,performance,memory,netmonitor,storage,{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d},accessibility");
+user_pref(
+  "devtools.toolbox.tabsOrder",
+  "inspector,webconsole,jsdebugger,styleeditor,performance,memory,netmonitor,storage,{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d},accessibility",
+);
 user_pref("devtools.toolsidebar-height.inspector", 362);
 user_pref("devtools.toolsidebar-width.inspector", 779);
 user_pref("devtools.toolsidebar-width.inspector.splitsidebar", 458);
@@ -315,8 +504,14 @@ user_pref("devtools.webconsole.filter.net", true);
 user_pref("devtools.webconsole.filter.netxhr", true);
 user_pref("devtools.webconsole.ui.filterbar", true);
 user_pref("devtools.webextensions.@react-devtools.enabled", true);
-user_pref("devtools.webextensions.{c3c10168-4186-445c-9c5b-63f12b8e2c87}.enabled", true);
-user_pref("devtools.webextensions.{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}.enabled", true);
+user_pref(
+  "devtools.webextensions.{c3c10168-4186-445c-9c5b-63f12b8e2c87}.enabled",
+  true,
+);
+user_pref(
+  "devtools.webextensions.{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}.enabled",
+  true,
+);
 user_pref("distribution.archlinux.bookmarksProcessed", true);
 user_pref("distribution.iniFile.exists.appversion", "154.0");
 user_pref("distribution.iniFile.exists.value", true);
@@ -349,17 +544,29 @@ user_pref("extensions.lastAppVersion", "154.0");
 user_pref("extensions.lastPlatformVersion", "154.0");
 user_pref("extensions.ml.enabled", false);
 user_pref("extensions.pendingOperations", false);
-user_pref("extensions.pictureinpicture.enable_picture_in_picture_overrides", true);
+user_pref(
+  "extensions.pictureinpicture.enable_picture_in_picture_overrides",
+  true,
+);
 user_pref("extensions.pocket.settings.test.panelSignUp", "v1");
 user_pref("extensions.privatebrowsing.notification", true);
-user_pref("extensions.quarantineIgnoredByUser.382ec52c0493ad2d484ac5345a490bfb6e8f8a0f@temporary-addon", true);
-user_pref("extensions.quarantinedDomains.list", "autoatendimento.bb.com.br,ibpf.sicredi.com.br,ibpj.sicredi.com.br,internetbanking.caixa.gov.br,www.ib12.bradesco.com.br,www2.bancobrasil.com.br");
+user_pref(
+  "extensions.quarantineIgnoredByUser.382ec52c0493ad2d484ac5345a490bfb6e8f8a0f@temporary-addon",
+  true,
+);
+user_pref(
+  "extensions.quarantinedDomains.list",
+  "autoatendimento.bb.com.br,ibpf.sicredi.com.br,ibpj.sicredi.com.br,internetbanking.caixa.gov.br,www.ib12.bradesco.com.br,www2.bancobrasil.com.br",
+);
 user_pref("extensions.reset_default_search.runonce.1", true);
 user_pref("extensions.reset_default_search.runonce.3", true);
 user_pref("extensions.reset_default_search.runonce.reason", "previousRun");
 user_pref("extensions.signatureCheckpoint", 1);
 user_pref("extensions.signer.hotfixed", true);
-user_pref("extensions.systemAddonSet", "{\"schema\":1,\"directory\":\"{f974c10c-75b0-4cd4-b83f-397af8333263}\",\"addons\":{}}");
+user_pref(
+  "extensions.systemAddonSet",
+  '{"schema":1,"directory":"{f974c10c-75b0-4cd4-b83f-397af8333263}","addons":{}}',
+);
 user_pref("extensions.ui.dictionary.hidden", true);
 user_pref("extensions.ui.extension.hidden", false);
 user_pref("extensions.ui.lastCategory", "addons://list/plugin");
@@ -370,12 +577,30 @@ user_pref("extensions.ui.theme.hidden", false);
 user_pref("extensions.webcompat.enable_picture_in_picture_overrides", true);
 user_pref("extensions.webcompat.perform_injections", true);
 user_pref("extensions.webcompat.perform_ua_overrides", true);
-user_pref("extensions.webextensions.ExtensionStorageIDB.migrated.@testpilot-containers", true);
-user_pref("extensions.webextensions.ExtensionStorageIDB.migrated.doh-rollout@mozilla.org", true);
-user_pref("extensions.webextensions.ExtensionStorageIDB.migrated.screenshots@mozilla.org", true);
-user_pref("extensions.webextensions.ExtensionStorageIDB.migrated.uBlock0@raymondhill.net", true);
-user_pref("extensions.webextensions.ExtensionStorageIDB.migrated.{446900e4-71c2-419f-a6a7-df9c091e268b}", true);
-user_pref("extensions.webextensions.uuids", "{\"webcompat@mozilla.org\":\"9a310967-e580-48bf-b3e8-4eafebbc122d\",\"screenshots@mozilla.org\":\"a662e84c-05f2-4a01-b3e3-8e74c4c084d4\",\"formautofill@mozilla.org\":\"546ba29a-892b-45d7-bdc5-ee3822c08211\",\"webcompat-reporter@mozilla.org\":\"652f3c32-3e94-4a3a-858e-161b26ef7f8e\",\"baidu-code-update@mozillaonline.com\":\"62ce5c9c-e45e-406e-b2e8-881d91e668de\",\"fxmonitor@mozilla.org\":\"a0057eb5-42ad-4bd3-9bc6-ebe7cff8b64c\",\"default-theme@mozilla.org\":\"227d24ed-9013-4ed4-ade4-6e994f387ee1\",\"twitter@search.mozilla.org\":\"16243808-7b21-4670-947f-f1e32c323ea5\",\"doh-rollout@mozilla.org\":\"1a4c3d64-9465-48a1-aa10-341bcc5b939b\",\"firefox-compact-dark@mozilla.org\":\"cecc48e4-315c-4455-9e44-fc342861bb37\",\"firefox-compact-light@mozilla.org\":\"2022b779-10b5-4678-8186-c2ea0f1153b1\",\"@testpilot-containers\":\"cc3c87a0-ecb6-4af7-812a-230e27c5de6c\",\"firefox-alpenglow@mozilla.org\":\"e83dced7-d268-432c-b36f-4309cf36299d\",\"pictureinpicture@mozilla.org\":\"126c5301-978c-477d-bff2-09d4dbcb1612\",\"addons-search-detection@mozilla.com\":\"58560e48-df23-4853-ad70-382931b9e23c\",\"proxy-failover@mozilla.com\":\"a253df91-200f-4488-8553-3840efb5c29b\",\"uBlock0@raymondhill.net\":\"0c5cfe19-1811-44d2-9380-9d55d5a9ddeb\",\"https-everywhere-eff@eff.org\":\"71d65a6a-86ad-4efc-b329-3f45ee5880a5\",\"https-everywhere@eff.org\":\"dca222eb-5cfa-4163-a1c5-ea947abd6ed6\",\"jid1-ZAdIEUB7XOzOJw@jetpack\":\"44b559f1-0339-406c-9bd6-6a9e7dfc7fec\",\"6014eae14a551d16ecf6de85e67f11ced3327378@temporary-addon\":\"26d7d16d-82e0-4b42-b5bc-eb2661d75f63\",\"382ec52c0493ad2d484ac5345a490bfb6e8f8a0f@temporary-addon\":\"af8f6fb9-361f-4e3e-ae1b-190e6d464270\",\"dum_dark_mode00@earendel\":\"92759897-5f2d-4c67-bcf5-32905d2c13e1\",\"{446900e4-71c2-419f-a6a7-df9c091e268b}\":\"a38b3948-84d6-4ddc-9a5b-914322e8b28d\",\"newtab@mozilla.org\":\"b9e780d4-d4aa-4e4b-9816-d8f744e3c1a9\",\"{e97a4d1c-4f20-457d-8f4b-473790665413}\":\"79ba6b60-5022-4647-ab02-d4a1bf1d9852\",\"data-leak-blocker@mozilla.com\":\"60876711-df72-44ea-96ce-f4c416a57c5f\",\"ipp-activator@mozilla.com\":\"09fab340-2c57-48ce-9d69-1302c4b08cca\"}");
+user_pref(
+  "extensions.webextensions.ExtensionStorageIDB.migrated.@testpilot-containers",
+  true,
+);
+user_pref(
+  "extensions.webextensions.ExtensionStorageIDB.migrated.doh-rollout@mozilla.org",
+  true,
+);
+user_pref(
+  "extensions.webextensions.ExtensionStorageIDB.migrated.screenshots@mozilla.org",
+  true,
+);
+user_pref(
+  "extensions.webextensions.ExtensionStorageIDB.migrated.uBlock0@raymondhill.net",
+  true,
+);
+user_pref(
+  "extensions.webextensions.ExtensionStorageIDB.migrated.{446900e4-71c2-419f-a6a7-df9c091e268b}",
+  true,
+);
+user_pref(
+  "extensions.webextensions.uuids",
+  '{"webcompat@mozilla.org":"9a310967-e580-48bf-b3e8-4eafebbc122d","screenshots@mozilla.org":"a662e84c-05f2-4a01-b3e3-8e74c4c084d4","formautofill@mozilla.org":"546ba29a-892b-45d7-bdc5-ee3822c08211","webcompat-reporter@mozilla.org":"652f3c32-3e94-4a3a-858e-161b26ef7f8e","baidu-code-update@mozillaonline.com":"62ce5c9c-e45e-406e-b2e8-881d91e668de","fxmonitor@mozilla.org":"a0057eb5-42ad-4bd3-9bc6-ebe7cff8b64c","default-theme@mozilla.org":"227d24ed-9013-4ed4-ade4-6e994f387ee1","twitter@search.mozilla.org":"16243808-7b21-4670-947f-f1e32c323ea5","doh-rollout@mozilla.org":"1a4c3d64-9465-48a1-aa10-341bcc5b939b","firefox-compact-dark@mozilla.org":"cecc48e4-315c-4455-9e44-fc342861bb37","firefox-compact-light@mozilla.org":"2022b779-10b5-4678-8186-c2ea0f1153b1","@testpilot-containers":"cc3c87a0-ecb6-4af7-812a-230e27c5de6c","firefox-alpenglow@mozilla.org":"e83dced7-d268-432c-b36f-4309cf36299d","pictureinpicture@mozilla.org":"126c5301-978c-477d-bff2-09d4dbcb1612","addons-search-detection@mozilla.com":"58560e48-df23-4853-ad70-382931b9e23c","proxy-failover@mozilla.com":"a253df91-200f-4488-8553-3840efb5c29b","uBlock0@raymondhill.net":"0c5cfe19-1811-44d2-9380-9d55d5a9ddeb","https-everywhere-eff@eff.org":"71d65a6a-86ad-4efc-b329-3f45ee5880a5","https-everywhere@eff.org":"dca222eb-5cfa-4163-a1c5-ea947abd6ed6","jid1-ZAdIEUB7XOzOJw@jetpack":"44b559f1-0339-406c-9bd6-6a9e7dfc7fec","6014eae14a551d16ecf6de85e67f11ced3327378@temporary-addon":"26d7d16d-82e0-4b42-b5bc-eb2661d75f63","382ec52c0493ad2d484ac5345a490bfb6e8f8a0f@temporary-addon":"af8f6fb9-361f-4e3e-ae1b-190e6d464270","dum_dark_mode00@earendel":"92759897-5f2d-4c67-bcf5-32905d2c13e1","{446900e4-71c2-419f-a6a7-df9c091e268b}":"a38b3948-84d6-4ddc-9a5b-914322e8b28d","newtab@mozilla.org":"b9e780d4-d4aa-4e4b-9816-d8f744e3c1a9","{e97a4d1c-4f20-457d-8f4b-473790665413}":"79ba6b60-5022-4647-ab02-d4a1bf1d9852","data-leak-blocker@mozilla.com":"60876711-df72-44ea-96ce-f4c416a57c5f","ipp-activator@mozilla.com":"09fab340-2c57-48ce-9d69-1302c4b08cca"}',
+);
 user_pref("findbar.highlightAll", true);
 user_pref("fission.experiment.max-origins.last-disqualified", 0);
 user_pref("fission.experiment.max-origins.last-qualified", 1614291231);
@@ -404,7 +629,10 @@ user_pref("gfx.font_rendering.fontconfig.max_generic_substitutions", 127);
 user_pref("gfx.font_rendering.opentype_svg.enabled", false);
 user_pref("gfx.webrender.all.qualified.default", true);
 user_pref("gfx.webrender.software", true);
-user_pref("identity.fxaccounts.account.device.name", "rigel’s Firefox Developer Edition on starfish");
+user_pref(
+  "identity.fxaccounts.account.device.name",
+  "rigel’s Firefox Developer Edition on starfish",
+);
 user_pref("identity.fxaccounts.enabled", false);
 user_pref("identity.fxaccounts.toolbar.accessed", true);
 user_pref("idle.lastDailyNotification", 1785238349);
@@ -417,9 +645,15 @@ user_pref("lightweightThemes.usedThemes", "[]");
 user_pref("media.benchmark.vp9.fps", 152);
 user_pref("media.benchmark.vp9.versioncheck", 5);
 user_pref("media.gmp-gmpopenh264.abi", "x86_64-gcc3");
-user_pref("media.gmp-gmpopenh264.hashValue", "f5246bf14d038adf4ce0c4360262ab722bc3de4220f047c3d542b4c564074b4877dc8659e3125c5171c749e7ce93f20cc63777eb5e1539e960670cbc5f30ac85");
+user_pref(
+  "media.gmp-gmpopenh264.hashValue",
+  "f5246bf14d038adf4ce0c4360262ab722bc3de4220f047c3d542b4c564074b4877dc8659e3125c5171c749e7ce93f20cc63777eb5e1539e960670cbc5f30ac85",
+);
 user_pref("media.gmp-gmpopenh264.lastDownload", 1742243222);
-user_pref("media.gmp-gmpopenh264.lastDownloadFailReason", "Error: Failed downloading via ServiceRequest, status: 0, channelStatus: 2152398878, errorCode: 2, reason: error");
+user_pref(
+  "media.gmp-gmpopenh264.lastDownloadFailReason",
+  "Error: Failed downloading via ServiceRequest, status: 0, channelStatus: 2152398878, errorCode: 2, reason: error",
+);
 user_pref("media.gmp-gmpopenh264.lastDownloadFailed", 1705231468);
 user_pref("media.gmp-gmpopenh264.lastInstallStart", 1742243220);
 user_pref("media.gmp-gmpopenh264.lastUpdate", 1742243222);
@@ -457,11 +691,20 @@ user_pref("network.proxy.socks5_remote_dns", false);
 user_pref("network.proxy.socks_port", 9150);
 user_pref("network.proxy.type", 4);
 user_pref("network.trr.blocklist_cleanup_done", true);
-user_pref("network.trr.custom_uri", "https://extended.dns.mullvad.net/dns-query");
-user_pref("network.trr.default_provider_uri", "https://extended.dns.mullvad.net/dns-query");
+user_pref(
+  "network.trr.custom_uri",
+  "https://extended.dns.mullvad.net/dns-query",
+);
+user_pref(
+  "network.trr.default_provider_uri",
+  "https://extended.dns.mullvad.net/dns-query",
+);
 user_pref("network.trr.excluded-", true);
 user_pref("network.trr.excluded-domain", true);
-user_pref("network.trr.excluded-domains", "jackett.flip,radarr.flip,sonarr.flip,locahost,dash.flip,nault.flip,pwndrop.flip,127.0.0.1");
+user_pref(
+  "network.trr.excluded-domains",
+  "jackett.flip,radarr.flip,sonarr.flip,locahost,dash.flip,nault.flip,pwndrop.flip,127.0.0.1",
+);
 user_pref("network.trr.mode", 3);
 user_pref("network.trr.uri", "https://extended.dns.mullvad.net/dns-query");
 user_pref("nimbus.firstUpdateComplete", true);
@@ -476,7 +719,10 @@ user_pref("pdfjs.enabledCache.state", true);
 user_pref("pdfjs.migrationVersion", 2);
 user_pref("pdfjs.previousHandler.alwaysAskBeforeHandling", true);
 user_pref("pdfjs.previousHandler.preferredAction", 4);
-user_pref("permissions.eventTelemetry.salt", "{8f2a284c-5962-4175-aa70-8703fc28f077}");
+user_pref(
+  "permissions.eventTelemetry.salt",
+  "{8f2a284c-5962-4175-aa70-8703fc28f077}",
+);
 user_pref("places.database.lastMaintenance", 1785238349);
 user_pref("places.history.expiration.transient_current_max_pages", 68326);
 user_pref("plugin.disable_full_page_plugin_for_types", "application/pdf");
@@ -487,7 +733,10 @@ user_pref("pref.privacy.disable_button.tracking_protection_exceptions", false);
 user_pref("pref.privacy.disable_button.view_passwords", false);
 user_pref("pref.privacy.disable_button.view_passwords_exceptions", false);
 user_pref("print.more-settings.open", true);
-user_pref("print.printer_EPSON-L220-Series-2.print_ignore_unwriteable_margins", true);
+user_pref(
+  "print.printer_EPSON-L220-Series-2.print_ignore_unwriteable_margins",
+  true,
+);
 user_pref("print.printer_EPSON-L220-Series-2.print_margin_bottom", "0");
 user_pref("print.printer_EPSON-L220-Series-2.print_margin_left", "0");
 user_pref("print.printer_EPSON-L220-Series-2.print_margin_right", "0");
@@ -507,7 +756,10 @@ user_pref("print.printer_EPSON-L220-Series.print_footerright", "&D");
 user_pref("print.printer_EPSON-L220-Series.print_headercenter", "");
 user_pref("print.printer_EPSON-L220-Series.print_headerleft", "&T");
 user_pref("print.printer_EPSON-L220-Series.print_headerright", "&U");
-user_pref("print.printer_EPSON-L220-Series.print_ignore_unwriteable_margins", true);
+user_pref(
+  "print.printer_EPSON-L220-Series.print_ignore_unwriteable_margins",
+  true,
+);
 user_pref("print.printer_EPSON-L220-Series.print_in_color", true);
 user_pref("print.printer_EPSON-L220-Series.print_margin_bottom", "0");
 user_pref("print.printer_EPSON-L220-Series.print_margin_left", "0");
@@ -522,10 +774,22 @@ user_pref("print.printer_EPSON-L220-Series.print_paper_width", "210.01");
 user_pref("print.printer_EPSON-L220-Series.print_reversed", false);
 user_pref("print.printer_EPSON-L220-Series.print_scaling", "1");
 user_pref("print.printer_EPSON-L220-Series.print_shrink_to_fit", true);
-user_pref("print.printer_EPSON-L220-Series.print_unwriteable_margin_bottom_twips", 720);
-user_pref("print.printer_EPSON-L220-Series.print_unwriteable_margin_left_twips", 360);
-user_pref("print.printer_EPSON-L220-Series.print_unwriteable_margin_right_twips", 360);
-user_pref("print.printer_EPSON-L220-Series.print_unwriteable_margin_top_twips", 720);
+user_pref(
+  "print.printer_EPSON-L220-Series.print_unwriteable_margin_bottom_twips",
+  720,
+);
+user_pref(
+  "print.printer_EPSON-L220-Series.print_unwriteable_margin_left_twips",
+  360,
+);
+user_pref(
+  "print.printer_EPSON-L220-Series.print_unwriteable_margin_right_twips",
+  360,
+);
+user_pref(
+  "print.printer_EPSON-L220-Series.print_unwriteable_margin_top_twips",
+  720,
+);
 user_pref("print.printer_EPSON_L220_Series.print_bgcolor", false);
 user_pref("print.printer_EPSON_L220_Series.print_bgimages", false);
 user_pref("print.printer_EPSON_L220_Series.print_duplex", 0);
@@ -560,7 +824,10 @@ user_pref("print.printer_EPSON_L220_Series.print_scaling", "1");
 user_pref("print.printer_EPSON_L220_Series.print_shrink_to_fit", true);
 user_pref("print.printer_EPSON_L220_Series.print_to_file", false);
 user_pref("print.printer_EPSON_L220_Series.print_to_filename", "");
-user_pref("print.printer_EPSON_L220_Series.print_unwriteable_margin_bottom", 12);
+user_pref(
+  "print.printer_EPSON_L220_Series.print_unwriteable_margin_bottom",
+  12,
+);
 user_pref("print.printer_EPSON_L220_Series.print_unwriteable_margin_left", 12);
 user_pref("print.printer_EPSON_L220_Series.print_unwriteable_margin_right", 12);
 user_pref("print.printer_EPSON_L220_Series.print_unwriteable_margin_top", 12);
@@ -597,10 +864,22 @@ user_pref("print.printer_Microsoft_Print_to_PDF.print_scaling", "  1,00");
 user_pref("print.printer_Microsoft_Print_to_PDF.print_shrink_to_fit", true);
 user_pref("print.printer_Microsoft_Print_to_PDF.print_to_file", false);
 user_pref("print.printer_Microsoft_Print_to_PDF.print_to_filename", "");
-user_pref("print.printer_Microsoft_Print_to_PDF.print_unwriteable_margin_bottom", 0);
-user_pref("print.printer_Microsoft_Print_to_PDF.print_unwriteable_margin_left", 0);
-user_pref("print.printer_Microsoft_Print_to_PDF.print_unwriteable_margin_right", 0);
-user_pref("print.printer_Microsoft_Print_to_PDF.print_unwriteable_margin_top", 0);
+user_pref(
+  "print.printer_Microsoft_Print_to_PDF.print_unwriteable_margin_bottom",
+  0,
+);
+user_pref(
+  "print.printer_Microsoft_Print_to_PDF.print_unwriteable_margin_left",
+  0,
+);
+user_pref(
+  "print.printer_Microsoft_Print_to_PDF.print_unwriteable_margin_right",
+  0,
+);
+user_pref(
+  "print.printer_Microsoft_Print_to_PDF.print_unwriteable_margin_top",
+  0,
+);
 user_pref("print.printer_Mozilla_Save_to_PDF.print_bgcolor", false);
 user_pref("print.printer_Mozilla_Save_to_PDF.print_bgimages", false);
 user_pref("print.printer_Mozilla_Save_to_PDF.print_duplex", 0);
@@ -614,7 +893,10 @@ user_pref("print.printer_Mozilla_Save_to_PDF.print_footerright", "");
 user_pref("print.printer_Mozilla_Save_to_PDF.print_headercenter", "");
 user_pref("print.printer_Mozilla_Save_to_PDF.print_headerleft", "");
 user_pref("print.printer_Mozilla_Save_to_PDF.print_headerright", "");
-user_pref("print.printer_Mozilla_Save_to_PDF.print_ignore_unwriteable_margins", false);
+user_pref(
+  "print.printer_Mozilla_Save_to_PDF.print_ignore_unwriteable_margins",
+  false,
+);
 user_pref("print.printer_Mozilla_Save_to_PDF.print_in_color", true);
 user_pref("print.printer_Mozilla_Save_to_PDF.print_margin_bottom", "0.5");
 user_pref("print.printer_Mozilla_Save_to_PDF.print_margin_left", "0.5");
@@ -622,22 +904,43 @@ user_pref("print.printer_Mozilla_Save_to_PDF.print_margin_right", "0.5");
 user_pref("print.printer_Mozilla_Save_to_PDF.print_margin_top", "0.5");
 user_pref("print.printer_Mozilla_Save_to_PDF.print_orientation", 0);
 user_pref("print.printer_Mozilla_Save_to_PDF.print_page_delay", 50);
-user_pref("print.printer_Mozilla_Save_to_PDF.print_paper_height", "11.6929133858268");
+user_pref(
+  "print.printer_Mozilla_Save_to_PDF.print_paper_height",
+  "11.6929133858268",
+);
 user_pref("print.printer_Mozilla_Save_to_PDF.print_paper_id", "iso_a4");
 user_pref("print.printer_Mozilla_Save_to_PDF.print_paper_size_unit", 0);
-user_pref("print.printer_Mozilla_Save_to_PDF.print_paper_width", "8.26771653543307");
+user_pref(
+  "print.printer_Mozilla_Save_to_PDF.print_paper_width",
+  "8.26771653543307",
+);
 user_pref("print.printer_Mozilla_Save_to_PDF.print_resolution", 0);
 user_pref("print.printer_Mozilla_Save_to_PDF.print_reversed", false);
 user_pref("print.printer_Mozilla_Save_to_PDF.print_scaling", "1");
 user_pref("print.printer_Mozilla_Save_to_PDF.print_shrink_to_fit", true);
 user_pref("print.printer_Mozilla_Save_to_PDF.print_to_file", true);
-user_pref("print.printer_Mozilla_Save_to_PDF.print_unwriteable_margin_bottom_twips", 0);
-user_pref("print.printer_Mozilla_Save_to_PDF.print_unwriteable_margin_left_twips", 0);
-user_pref("print.printer_Mozilla_Save_to_PDF.print_unwriteable_margin_right_twips", 0);
-user_pref("print.printer_Mozilla_Save_to_PDF.print_unwriteable_margin_top_twips", 0);
+user_pref(
+  "print.printer_Mozilla_Save_to_PDF.print_unwriteable_margin_bottom_twips",
+  0,
+);
+user_pref(
+  "print.printer_Mozilla_Save_to_PDF.print_unwriteable_margin_left_twips",
+  0,
+);
+user_pref(
+  "print.printer_Mozilla_Save_to_PDF.print_unwriteable_margin_right_twips",
+  0,
+);
+user_pref(
+  "print.printer_Mozilla_Save_to_PDF.print_unwriteable_margin_top_twips",
+  0,
+);
 user_pref("print_printer", "EPSON-L220-Series");
 user_pref("privacy.antitracking.isolateContentScriptResources", true);
-user_pref("privacy.bounceTrackingProtection.hasMigratedUserActivationData", true);
+user_pref(
+  "privacy.bounceTrackingProtection.hasMigratedUserActivationData",
+  true,
+);
 user_pref("privacy.clearOnShutdown.cache", false);
 user_pref("privacy.clearOnShutdown.cookies", false);
 user_pref("privacy.clearOnShutdown.downloads", false);
@@ -665,7 +968,10 @@ user_pref("privacy.purge_trackers.last_purge", "1785238349599");
 user_pref("privacy.query_stripping.enabled", true);
 user_pref("privacy.query_stripping.enabled.pbmode", true);
 user_pref("privacy.resistFingerprinting", true);
-user_pref("privacy.resistFingerprinting.autoDeclineNoUserInputCanvasPrompts", true);
+user_pref(
+  "privacy.resistFingerprinting.autoDeclineNoUserInputCanvasPrompts",
+  true,
+);
 user_pref("privacy.resistFingerprinting.block_mozAddonManager", true);
 user_pref("privacy.resistFingerprinting.exemptedDomains", "");
 user_pref("privacy.resistFingerprinting.letterboxing", true);
@@ -674,7 +980,10 @@ user_pref("privacy.resistFingerprinting.letterboxing.gradient", true);
 user_pref("privacy.resistFingerprinting.letterboxing.rememberSize", false);
 user_pref("privacy.resistFingerprinting.letterboxing.vcenter", true);
 user_pref("privacy.resistFingerprinting.randomDataOnCanvasExtract", true);
-user_pref("privacy.resistFingerprinting.randomization.canvas.use_siphash", true);
+user_pref(
+  "privacy.resistFingerprinting.randomization.canvas.use_siphash",
+  true,
+);
 user_pref("privacy.resistFingerprinting.resizeWarnings", 3);
 user_pref("privacy.resistFingerprinting.spoofOsInUserAgentHeader", false);
 user_pref("privacy.resistFingerprinting.target_video_res", 480);
@@ -687,7 +996,10 @@ user_pref("privacy.socialtracking.notification.enabled", false);
 user_pref("privacy.socialtracking.notification.lastShown", "1571822353718");
 user_pref("privacy.trackingprotection.allow_list.baseline.enabled", false);
 user_pref("privacy.trackingprotection.allow_list.convenience.enabled", false);
-user_pref("privacy.trackingprotection.allow_list.hasMigratedCategoryPrefs", true);
+user_pref(
+  "privacy.trackingprotection.allow_list.hasMigratedCategoryPrefs",
+  true,
+);
 user_pref("privacy.trackingprotection.enabled", true);
 user_pref("privacy.trackingprotection.introCount", 20);
 user_pref("privacy.trackingprotection.socialtracking.enabled", true);
@@ -706,91 +1018,217 @@ user_pref("security.disable_button.openCertManager", false);
 user_pref("security.disable_button.openDeviceManager", false);
 user_pref("security.remote_settings.crlite_filters.checked", 1656421420);
 user_pref("security.remote_settings.intermediates.checked", 1656391097);
-user_pref("security.sandbox.content.tempDirSuffix", "{1006967f-a9af-46c4-a9ff-5152a5ab0939}");
-user_pref("security.sandbox.content.win32k-experiment.startupEnrollmentStatus", 2);
-user_pref("security.sandbox.plugin.tempDirSuffix", "{bb6882a5-46f1-430e-b9f8-202f5b7ad336}");
+user_pref(
+  "security.sandbox.content.tempDirSuffix",
+  "{1006967f-a9af-46c4-a9ff-5152a5ab0939}",
+);
+user_pref(
+  "security.sandbox.content.win32k-experiment.startupEnrollmentStatus",
+  2,
+);
+user_pref(
+  "security.sandbox.plugin.tempDirSuffix",
+  "{bb6882a5-46f1-430e-b9f8-202f5b7ad336}",
+);
 user_pref("services.blocklist.addons-mlbf.checked", 1656471295);
 user_pref("services.blocklist.addons.checked", 1598375769);
 user_pref("services.blocklist.gfx.checked", 1656471295);
 user_pref("services.blocklist.onecrl.checked", 1563098565);
 user_pref("services.blocklist.pinning.checked", 1626202016);
 user_pref("services.blocklist.plugins.checked", 1622566700);
-user_pref("services.settings.base_attachments_url", "https://firefox.settings.services.mozilla.com/v1|https://firefox-settings-attachments.cdn.mozilla.net/");
-user_pref("services.settings.blocklists.addons-bloomfilters.last_check", 1785325368);
+user_pref(
+  "services.settings.base_attachments_url",
+  "https://firefox.settings.services.mozilla.com/v1|https://firefox-settings-attachments.cdn.mozilla.net/",
+);
+user_pref(
+  "services.settings.blocklists.addons-bloomfilters.last_check",
+  1785325368,
+);
 user_pref("services.settings.blocklists.gfx.last_check", 1785325368);
 user_pref("services.settings.clock_skew_seconds", 1146);
 user_pref("services.settings.last_etag", "1785313108876");
 user_pref("services.settings.last_update_seconds", 1785324122);
-user_pref("services.settings.main.addons-data-leak-blocker-domains.last_check", 1785325368);
-user_pref("services.settings.main.addons-manager-settings.last_check", 1785325368);
+user_pref(
+  "services.settings.main.addons-data-leak-blocker-domains.last_check",
+  1785325368,
+);
+user_pref(
+  "services.settings.main.addons-manager-settings.last_check",
+  1785325368,
+);
 user_pref("services.settings.main.ai-window-prompts.last_check", 1785325368);
-user_pref("services.settings.main.anti-tracking-url-decoration.last_check", 1785325368);
-user_pref("services.settings.main.bounce-tracking-protection-exceptions.last_check", 1785325368);
+user_pref(
+  "services.settings.main.anti-tracking-url-decoration.last_check",
+  1785325368,
+);
+user_pref(
+  "services.settings.main.bounce-tracking-protection-exceptions.last_check",
+  1785325368,
+);
 user_pref("services.settings.main.cfr-fxa.last_check", 1634295597);
 user_pref("services.settings.main.cfr.last_check", 1785325368);
-user_pref("services.settings.main.cookie-banner-rules-list.last_check", 1785325368);
-user_pref("services.settings.main.crash-reports-ondemand.last_check", 1785325368);
-user_pref("services.settings.main.devtools-compatibility-browsers.last_check", 1785325368);
+user_pref(
+  "services.settings.main.cookie-banner-rules-list.last_check",
+  1785325368,
+);
+user_pref(
+  "services.settings.main.crash-reports-ondemand.last_check",
+  1785325368,
+);
+user_pref(
+  "services.settings.main.devtools-compatibility-browsers.last_check",
+  1785325368,
+);
 user_pref("services.settings.main.devtools-devices.last_check", 1785325368);
 user_pref("services.settings.main.doh-config.last_check", 1785325368);
 user_pref("services.settings.main.doh-providers.last_check", 1785325368);
-user_pref("services.settings.main.fingerprinting-protection-overrides.last_check", 1785325368);
+user_pref(
+  "services.settings.main.fingerprinting-protection-overrides.last_check",
+  1785325368,
+);
 user_pref("services.settings.main.fxmonitor-breaches.last_check", 1785325368);
 user_pref("services.settings.main.hijack-blocklists.last_check", 1785325368);
-user_pref("services.settings.main.language-dictionaries.last_check", 1785325368);
+user_pref(
+  "services.settings.main.language-dictionaries.last_check",
+  1785325368,
+);
 user_pref("services.settings.main.message-groups.last_check", 1785325368);
-user_pref("services.settings.main.messaging-experiments.last_check", 1605294507);
+user_pref(
+  "services.settings.main.messaging-experiments.last_check",
+  1605294507,
+);
 user_pref("services.settings.main.ml-inference-options.last_check", 1785325368);
-user_pref("services.settings.main.ml-model-allow-deny-list.last_check", 1785325368);
+user_pref(
+  "services.settings.main.ml-model-allow-deny-list.last_check",
+  1785325368,
+);
 user_pref("services.settings.main.ml-onnx-runtime.last_check", 1785325368);
-user_pref("services.settings.main.moz-essential-domain-fallbacks.last_check", 1785325368);
+user_pref(
+  "services.settings.main.moz-essential-domain-fallbacks.last_check",
+  1785325368,
+);
 user_pref("services.settings.main.ms-language-packs.last_check", 1785325368);
-user_pref("services.settings.main.newtab-frecency-boosted-sponsors.last_check", 1785325368);
+user_pref(
+  "services.settings.main.newtab-frecency-boosted-sponsors.last_check",
+  1785325368,
+);
 user_pref("services.settings.main.newtab-wallpapers-v2.last_check", 1785325368);
-user_pref("services.settings.main.nimbus-desktop-defaults.last_check", 1743583028);
-user_pref("services.settings.main.nimbus-desktop-experiments.last_check", 1785325368);
-user_pref("services.settings.main.nimbus-secure-experiments.last_check", 1785325368);
-user_pref("services.settings.main.normandy-recipes-capabilities.last_check", 1785325368);
+user_pref(
+  "services.settings.main.nimbus-desktop-defaults.last_check",
+  1743583028,
+);
+user_pref(
+  "services.settings.main.nimbus-desktop-experiments.last_check",
+  1785325368,
+);
+user_pref(
+  "services.settings.main.nimbus-secure-experiments.last_check",
+  1785325368,
+);
+user_pref(
+  "services.settings.main.normandy-recipes-capabilities.last_check",
+  1785325368,
+);
 user_pref("services.settings.main.normandy-recipes.last_check", 1575392826);
 user_pref("services.settings.main.onboarding.last_check", 1566406959);
-user_pref("services.settings.main.partitioning-exempt-urls.last_check", 1785325368);
+user_pref(
+  "services.settings.main.partitioning-exempt-urls.last_check",
+  1785325368,
+);
 user_pref("services.settings.main.password-recipes.last_check", 1785325368);
 user_pref("services.settings.main.password-rules.last_check", 1785325368);
-user_pref("services.settings.main.personality-provider-models.last_check", 1785325368);
-user_pref("services.settings.main.personality-provider-recipe.last_check", 1785325368);
-user_pref("services.settings.main.pioneer-study-addons-v1.last_check", 1785325368);
+user_pref(
+  "services.settings.main.personality-provider-models.last_check",
+  1785325368,
+);
+user_pref(
+  "services.settings.main.personality-provider-recipe.last_check",
+  1785325368,
+);
+user_pref(
+  "services.settings.main.pioneer-study-addons-v1.last_check",
+  1785325368,
+);
 user_pref("services.settings.main.pioneer-study-addons.last_check", 1785325368);
 user_pref("services.settings.main.public-suffix-list.last_check", 1785325368);
 user_pref("services.settings.main.query-stripping.last_check", 1785325368);
 user_pref("services.settings.main.remote-permissions.last_check", 1785325368);
-user_pref("services.settings.main.search-categorization.last_check", 1785325368);
+user_pref(
+  "services.settings.main.search-categorization.last_check",
+  1785325368,
+);
 user_pref("services.settings.main.search-config-icons.last_check", 1785325368);
-user_pref("services.settings.main.search-config-overrides-v2.last_check", 1785325368);
-user_pref("services.settings.main.search-config-overrides.last_check", 1785325368);
+user_pref(
+  "services.settings.main.search-config-overrides-v2.last_check",
+  1785325368,
+);
+user_pref(
+  "services.settings.main.search-config-overrides.last_check",
+  1785325368,
+);
 user_pref("services.settings.main.search-config-v2.last_check", 1785325368);
 user_pref("services.settings.main.search-config.last_check", 1785325368);
-user_pref("services.settings.main.search-default-override-allowlist.last_check", 1785325368);
+user_pref(
+  "services.settings.main.search-default-override-allowlist.last_check",
+  1785325368,
+);
 user_pref("services.settings.main.search-telemetry-v2.last_check", 1785325368);
 user_pref("services.settings.main.search-telemetry.last_check", 1785325368);
 user_pref("services.settings.main.sites-classification.last_check", 1785325368);
-user_pref("services.settings.main.third-party-cookie-blocking-exempt-urls.last_check", 1785325368);
+user_pref(
+  "services.settings.main.third-party-cookie-blocking-exempt-urls.last_check",
+  1785325368,
+);
 user_pref("services.settings.main.tippytop.last_check", 1785325368);
 user_pref("services.settings.main.top-sites.last_check", 1785325368);
-user_pref("services.settings.main.tracking-protection-lists.last_check", 1785325368);
-user_pref("services.settings.main.translations-identification-models.last_check", 1785325368);
-user_pref("services.settings.main.translations-models-v2.last_check", 1785325368);
+user_pref(
+  "services.settings.main.tracking-protection-lists.last_check",
+  1785325368,
+);
+user_pref(
+  "services.settings.main.translations-identification-models.last_check",
+  1785325368,
+);
+user_pref(
+  "services.settings.main.translations-models-v2.last_check",
+  1785325368,
+);
 user_pref("services.settings.main.translations-models.last_check", 1785325368);
 user_pref("services.settings.main.translations-wasm.last_check", 1785325368);
-user_pref("services.settings.main.url-classifier-exceptions.last_check", 1785325368);
-user_pref("services.settings.main.url-classifier-skip-urls.last_check", 1785325368);
-user_pref("services.settings.main.url-parser-default-unknown-schemes-interventions.last_check", 1785325368);
-user_pref("services.settings.main.urlbar-persisted-search-terms.last_check", 1785325368);
+user_pref(
+  "services.settings.main.url-classifier-exceptions.last_check",
+  1785325368,
+);
+user_pref(
+  "services.settings.main.url-classifier-skip-urls.last_check",
+  1785325368,
+);
+user_pref(
+  "services.settings.main.url-parser-default-unknown-schemes-interventions.last_check",
+  1785325368,
+);
+user_pref(
+  "services.settings.main.urlbar-persisted-search-terms.last_check",
+  1785325368,
+);
 user_pref("services.settings.main.vpn-serverlist.last_check", 1785325368);
-user_pref("services.settings.main.webcompat-interventions.last_check", 1785325368);
-user_pref("services.settings.main.websites-with-shared-credential-backends.last_check", 1785325368);
+user_pref(
+  "services.settings.main.webcompat-interventions.last_check",
+  1785325368,
+);
+user_pref(
+  "services.settings.main.websites-with-shared-credential-backends.last_check",
+  1785325368,
+);
 user_pref("services.settings.main.whats-new-panel.last_check", 1785325368);
-user_pref("services.settings.security-state.cert-revocations.last_check", 1785325368);
-user_pref("services.settings.security-state.intermediates.last_check", 1785325368);
+user_pref(
+  "services.settings.security-state.cert-revocations.last_check",
+  1785325368,
+);
+user_pref(
+  "services.settings.security-state.intermediates.last_check",
+  1785325368,
+);
 user_pref("services.settings.security-state.onecrl.last_check", 1785325368);
 user_pref("services.settings.security.onecrl.checked", 1656391097);
 user_pref("services.sync.clients.lastSync", "0");
@@ -799,8 +1237,14 @@ user_pref("services.sync.engine.addresses.available", true);
 user_pref("services.sync.globalScore", 0);
 user_pref("services.sync.nextSync", 0);
 user_pref("services.sync.tabs.lastSync", "0");
-user_pref("sidebar.backupState", "{\"command\":\"viewBookmarksSidebar\",\"panelOpen\":false,\"panelWidth\":368,\"bookmarksExpandedFolders\":[],\"launcherWidth\":52,\"launcherExpanded\":false,\"launcherVisible\":false,\"pinnedTabsHeight\":0}");
-user_pref("sidebar.installed.extensions", "{446900e4-71c2-419f-a6a7-df9c091e268b}");
+user_pref(
+  "sidebar.backupState",
+  '{"command":"viewBookmarksSidebar","panelOpen":false,"panelWidth":368,"bookmarksExpandedFolders":[],"launcherWidth":52,"launcherExpanded":false,"launcherVisible":false,"pinnedTabsHeight":0}',
+);
+user_pref(
+  "sidebar.installed.extensions",
+  "{446900e4-71c2-419f-a6a7-df9c091e268b}",
+);
 user_pref("sidebar.main.tools", "{446900e4-71c2-419f-a6a7-df9c091e268b}");
 user_pref("sidebar.old-sidebar.has-used", true);
 user_pref("sidebar.position_start", false);
@@ -822,8 +1266,14 @@ user_pref("toolkit.profiles.storeID", "e581a565");
 user_pref("toolkit.startup.last_success", 1785325286);
 user_pref("toolkit.telemetry.archive.enabled", false);
 user_pref("toolkit.telemetry.bhrPing.enabled", false);
-user_pref("toolkit.telemetry.cachedClientID", "c0ffeec0-ffee-c0ff-eec0-ffeec0ffeec0");
-user_pref("toolkit.telemetry.cachedProfileGroupID", "decafdec-afde-cafd-ecaf-decafdecafde");
+user_pref(
+  "toolkit.telemetry.cachedClientID",
+  "c0ffeec0-ffee-c0ff-eec0-ffeec0ffeec0",
+);
+user_pref(
+  "toolkit.telemetry.cachedProfileGroupID",
+  "decafdec-afde-cafd-ecaf-decafdecafde",
+);
 user_pref("toolkit.telemetry.enabled", false);
 user_pref("toolkit.telemetry.firstShutdownPing.enabled", false);
 user_pref("toolkit.telemetry.hybridContent.enabled", false);
@@ -837,8 +1287,14 @@ user_pref("toolkit.telemetry.shutdownPingSender.enabled", false);
 user_pref("toolkit.telemetry.unified", false);
 user_pref("toolkit.telemetry.updatePing.enabled", false);
 user_pref("trailhead.firstrun.didSeeAboutWelcome", true);
-user_pref("ui.osk.debug.keyboardDisplayReason", "IKPOS: Touch screen not found.");
+user_pref(
+  "ui.osk.debug.keyboardDisplayReason",
+  "IKPOS: Touch screen not found.",
+);
 user_pref("ui.submenuDelay", 0);
 user_pref("webgl.disabled", true);
 user_pref("widget.gtk.native-emoji-dialog", false);
 user_pref("widget.use-xdg-desktop-portal.file-picker", 1);
+
+// fuckoff "Nova"-Theme
+user_pref("browser.nova.enabled", false);
