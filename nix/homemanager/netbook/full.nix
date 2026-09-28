@@ -51,7 +51,7 @@
     rustup
     iwd
     networkmanager
-    networkmanager-vpnc
+    networkmanager-libreswan
     networkmanagerapplet
     android-tools
     dust

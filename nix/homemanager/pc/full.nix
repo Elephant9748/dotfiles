@@ -52,7 +52,7 @@
     # remote access / game stream
     iwd
     networkmanager
-    networkmanager-vpnc
+    networkmanager-libreswan
     networkmanagerapplet
     android-tools
     dust
