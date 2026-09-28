@@ -2,4 +2,5 @@
 # You can build them using 'nix build .#example'
 pkgs: {
   gnupg = pkgs.callPackage ./gnupg/24.nix {};
+  libgcrypt = pkgs.callPackage ./libgcrypt {};
 }

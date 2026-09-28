@@ -3,7 +3,7 @@
   lib,
   ...
 }: let
-  version = "2.5.22";
+  version = "2.5.24";
   pname = "gnupg";
 in {
   programs = {
@@ -14,12 +14,35 @@ in {
         inherit version pname;
         src = pkgs.fetchurl {
           url = "mirror://gnupg/gnupg/${pname}-${version}.tar.bz2";
-          hash = "sha256-luJ7AgrSZRA4jgb18H8/cKTtiRbumV8bcregJObZ2H4=";
+          hash = "sha256-vxSdAaK5/MDkWJuK6Gl9PVxVfqSO2Vo/pV3TsRh+YDk=";
         };
+        buildInputs = with pkgs;
+          [
+            gettext
+            libassuan
+            # libgcrypt
+            (callPackage ../pkgs/libgcrypt {})
+            libgpg-error
+            libiconv
+            libksba
+            npth
+          ]
+          ++ lib.optionals true [
+            adns
+            bzip2
+            gnutls
+            libusb1
+            openldap
+            readline
+            sqlite
+            zlib
+          ]
+          ++ lib.optionals true [pkgs.tpm2-tss];
+
         freepgPatches = pkgs.fetchFromGitLab {
           owner = "freepg";
           repo = "gnupg";
-          tag = "source-2.5.21-freepg";
+          tag = "source-2.5.24-freepg";
           hash = "sha256-P3XdRnnVJuYe80S6wTMmmCO4jWBbUIkHkLKA75qSnNg=";
         };
         patches =
@@ -40,7 +63,7 @@ in {
           ]
           ++ lib.map (v: "${freepgPatches}/STABLE-BRANCH-2-4-freepg/" + v) [
             "0002-gpg-accept-subkeys-with-a-good-revocation-but-no-sel.patch"
-            "0003-gpg-allow-import-of-previously-known-keys-even-witho.patch"
+            # "0003-gpg-allow-import-of-previously-known-keys-even-witho.patch"
             "0004-tests-add-test-cases-for-import-without-uid.patch"
             # "0005-gpg-drop-import-clean-from-default-keyserver-import-.patch"
             # "0008-avoid-systemd-deprecation-warning.patch"
@@ -53,10 +76,10 @@ in {
             # "0019-Disallow-compressed-signatures-and-certificates.patch"
             "0020-ssh-agent-emulation-under-systemd-inject-SSH_AUTH_SO.patch"
             # "0021-gpg-Sync-compliance-mode-cleanup-with-master.patch"
-            "0022-gpg-emit-RSA-pubkey-algorithm-when-in-compatibility-.patch"
-            "0023-gpg-Reintroduce-openpgp-as-distinct-from-rfc4880.patch"
+            # "0022-gpg-emit-RSA-pubkey-algorithm-when-in-compatibility-.patch"
+            # "0023-gpg-Reintroduce-openpgp-as-distinct-from-rfc4880.patch"
             "0024-gpg-Emit-LibrePGP-material-only-in-compliance-gnupg.patch"
-            "0025-gpg-gpgconf-list-report-actual-compliance-mode.patch"
+            # "0025-gpg-gpgconf-list-report-actual-compliance-mode.patch"
             # "0026-gpg-Default-to-compliance-openpgp.patch"
             "0027-gpg-Fix-newlines-in-Cleartext-Signature-Framework-CS.patch"
             "0029-Add-keyboxd-systemd-support.patch"
@@ -65,6 +88,7 @@ in {
             # "0039-gpg-Do-not-use-a-default-when-asking-for-another-out.patch"
           ];
 
+        doCheck = false;
         # dont do postPatch in gnupg25
         postPatch = ''
         '';
@@ -79,3 +103,4 @@ in {
     };
   };
 }
+

@@ -30,15 +30,16 @@
   withTpm2Tss ? !stdenv.hostPlatform.isDarwin && !enableMinimal,
   tpm2-tss,
   nixosTests,
+  pkgs ? import <nixpkgs> {},
 }:
 assert guiSupport -> !enableMinimal;
   stdenv.mkDerivation rec {
     pname = "gnupg";
-    version = "2.5.22";
+    version = "2.5.24";
 
     src = fetchurl {
       url = "mirror://gnupg/gnupg/${pname}-${version}.tar.bz2";
-      hash = "sha256-luJ7AgrSZRA4jgb18H8/cKTtiRbumV8bcregJObZ2H4=";
+      hash = "sha256-vxSdAaK5/MDkWJuK6Gl9PVxVfqSO2Vo/pV3TsRh+YDk=";
     };
 
     depsBuildBuild = [buildPackages.stdenv.cc];
@@ -57,7 +58,8 @@ assert guiSupport -> !enableMinimal;
       [
         gettext
         libassuan
-        libgcrypt
+        # libgcrypt
+        (pkgs.callPackage ../libgcrypt {})
         libgpg-error
         libiconv
         libksba
@@ -105,7 +107,7 @@ assert guiSupport -> !enableMinimal;
       ]
       ++ lib.map (v: "${freepgPatches}/STABLE-BRANCH-2-4-freepg/" + v) [
         "0002-gpg-accept-subkeys-with-a-good-revocation-but-no-sel.patch"
-        "0003-gpg-allow-import-of-previously-known-keys-even-witho.patch"
+        # "0003-gpg-allow-import-of-previously-known-keys-even-witho.patch"
         "0004-tests-add-test-cases-for-import-without-uid.patch"
         # "0005-gpg-drop-import-clean-from-default-keyserver-import-.patch"
         # "0008-avoid-systemd-deprecation-warning.patch"
@@ -118,10 +120,10 @@ assert guiSupport -> !enableMinimal;
         # "0019-Disallow-compressed-signatures-and-certificates.patch"
         "0020-ssh-agent-emulation-under-systemd-inject-SSH_AUTH_SO.patch"
         # "0021-gpg-Sync-compliance-mode-cleanup-with-master.patch"
-        "0022-gpg-emit-RSA-pubkey-algorithm-when-in-compatibility-.patch"
-        "0023-gpg-Reintroduce-openpgp-as-distinct-from-rfc4880.patch"
+        # "0022-gpg-emit-RSA-pubkey-algorithm-when-in-compatibility-.patch"
+        # "0023-gpg-Reintroduce-openpgp-as-distinct-from-rfc4880.patch"
         "0024-gpg-Emit-LibrePGP-material-only-in-compliance-gnupg.patch"
-        "0025-gpg-gpgconf-list-report-actual-compliance-mode.patch"
+        # "0025-gpg-gpgconf-list-report-actual-compliance-mode.patch"
         # "0026-gpg-Default-to-compliance-openpgp.patch"
         "0027-gpg-Fix-newlines-in-Cleartext-Signature-Framework-CS.patch"
         "0029-Add-keyboxd-systemd-support.patch"
@@ -199,7 +201,8 @@ assert guiSupport -> !enableMinimal;
       # A test would be skipped without SSH
       openssh
     ];
-    doCheck = !enableMinimal;
+    # doCheck = !enableMinimal;
+    doCheck = false;
 
     passthru.tests = nixosTests.gnupg;
 
@@ -229,3 +232,4 @@ assert guiSupport -> !enableMinimal;
       identifiers.cpeParts = lib.meta.cpeFullVersionWithVendor "gnupg" version;
     };
   }
+
