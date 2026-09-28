@@ -128,5 +128,6 @@ nixos-rebuild list-generations
 
 reset generation number (delete old)
 sudo nix-env -p /nix/var/nix/profiles/system --delete-generations 7d
+sudo nix-env -p /nix/var/nix/profiles/system --delete-generations +2
 sudo nix-env -p /nix/var/nix/profiles/system --list-generations
 ```
