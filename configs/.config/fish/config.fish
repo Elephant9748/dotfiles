@@ -813,7 +813,7 @@ abbr -a wifi_duplicateip 'sudo ip addr flush dev wlan0'
 
 #btrfs snapshot
 abbr -a snap_home 'sudo btrfs subvolume snapshot /home /.snapshots/@home_(date +"%m%d%y-%I%M%P")'
-abbr -a snap_root 'sudo btrfs subvolume snapshot / /.snapshots/@root_linux-6.12.60-0-rpi_(date +"%m%d%y-%I%M%P")'
+abbr -a snap_root 'sudo btrfs subvolume snapshot / /.snapshots/@root_linux-(uname -a | awk \'{print $3}\')_(date +"%m%d%y-%I%M%P")'
 
 #7z
 abbr -a 7z-a '7z a -mem=AES256 -tzip -p' # archive.zip file directory
