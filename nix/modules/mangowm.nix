@@ -92,12 +92,12 @@ in {
           "env=QT_QPA_PLATFORM,wayland;xcb"
         ];
         # monitor
-        monitorrule = "name:^${toString monitors.output},width:${toString monitors.width},height:${toString monitors.height},refresh:${toString monitors.hz},x:0,y=0,scale:1"; # for virtual machine
+        monitor_rule = "name:^${toString monitors.output},width:${toString monitors.width},height:${toString monitors.height},refresh:${toString monitors.hz},x:0,y=0,scale:1"; # for virtual machine
         # monitorrule=name:^HDMI-A-1,width:1920,height:1080,refresh:60,x:0,y=0,scale:1 # for real monitor
         # allow game to bypass the compositors VSync for lower latency
         # allow_tearing=1;
         # autostart
-        exec-once = "~/.config/mango/autostart.sh";
+        exec_once = "~/.config/mango/autostart.sh";
         # Window effect
         blur = 0;
         blur_layer = 0;
@@ -118,7 +118,7 @@ in {
         shadows_blur = 15;
         shadows_position_x = 0;
         shadows_position_y = 0;
-        shadowscolor = "0x000000ff";
+        shadows_color = "0x000000ff";
 
         border_radius = 2;
         no_radius_when_single = 0;
@@ -135,8 +135,8 @@ in {
         tag_animation_direction = 0;
         zoom_initial_ratio = 0.4;
         zoom_end_ratio = 0.8;
-        fadein_begin_opacity = 0.5;
-        fadeout_begin_opacity = 0.8;
+        fade_in_begin_opacity = 0.5;
+        fade_out_begin_opacity = 0.8;
         animation_duration = {
           move = 500;
           open = 350;
@@ -150,8 +150,8 @@ in {
           tag = "0.46,1.0,0.29,1";
           close = "0.08,0.92,0,1";
           focus = "0.46,1.0,0.29,1";
-          opafadeout = "0.5,0.5,0.5,0.5";
-          opafadein = "0.46,1.0,0.29,1";
+          opacity_fade_out = "0.5,0.5,0.5,0.5";
+          opacity_fade_in = "0.46,1.0,0.29,1";
         };
         # Scroller Layout Setting
         scroller_structs = 20;
@@ -164,23 +164,23 @@ in {
 
         # Master-Stack Layout Setting
         new_is_master = 1;
-        default_mfact = 0.55;
-        default_nmaster = 1;
-        smartgaps = 0;
+        default_master_fact = 0.55;
+        default_master_count = 1;
+        smart_gaps = 0;
 
         # Overview Setting
         hotarea_size = 10;
         enable_hotarea = 1;
         ov_tab_mode = 0;
-        overviewgappi = 5;
-        overviewgappo = 30;
+        overview_gap_inner = 5;
+        overview_gap_outer = 30;
         # Misc
         no_border_when_single = 0;
         axis_bind_apply_timeout = 100;
         focus_on_activate = 1;
-        idleinhibit_ignore_visible = 0;
-        sloppyfocus = 1;
-        warpcursor = 0;
+        idle_inhibit_ignore_visible = 0;
+        sloppy_focus = 1;
+        warp_cursor = 0;
         focus_cross_monitor = 0;
         focus_cross_tag = 0;
         enable_floating_snap = 0;
@@ -193,7 +193,7 @@ in {
         # keyboard
         repeat_rate = 25;
         repeat_delay = 600;
-        numlockon = 0;
+        numlock_on = 0;
         xkb_rules_layout = "us";
 
         # Trackpad
@@ -212,26 +212,26 @@ in {
         mouse_natural_scrolling = 0;
 
         # Appearance
-        gappih = 2;
-        gappiv = 2;
-        gappoh = 4;
-        gappov = 2;
+        gap_inner_horizontal = 2;
+        gap_inner_vertical = 2;
+        gap_outer_horizontal = 4;
+        gap_outer_vertical = 2;
         scratchpad_width_ratio = 0.8;
         scratchpad_height_ratio = 0.9;
-        borderpx = 1;
-        rootcolor = "0x201b14ff";
-        bordercolor = "0x595959ff";
-        dropcolor = "0x8FBA7C55";
+        border_px = 1;
+        root_color = "0x201b14ff";
+        border_color = "0x595959ff";
+        drop_color = "0x8FBA7C55";
         # default
-        # focuscolor=0xb76110ff
-        focuscolor = "0x4c4c4cff";
-        # focuscolor=0x206469ff
-        maximizescreencolor = "0x89aa61ff";
-        urgentcolor = "0xad401fff";
-        scratchpadcolor = "0x516c93ff";
-        # globalcolor=0xb153a7ff
-        globalcolor = "0xb76110ff";
-        overlaycolor = "0x14a57cff";
+        # focus_color=0xb76110ff
+        focus_color = "0x4c4c4cff";
+        # focus_color=0x206469ff
+        maximize_screen_color = "0x89aa61ff";
+        urgent_color = "0xad401fff";
+        scratchpad_color = "0x516c93ff";
+        # global_color=0xb153a7ff
+        global_color = "0xb76110ff";
+        overlay_color = "0x14a57cff";
         # Key Bindings
         # key name refer to `xev` or `wev` command output,
         # mod keys name: super,ctrl,alt,shift,none
@@ -365,8 +365,8 @@ in {
           # "NONE,btn_middle,togglemaximizescreen,0"
           "SUPER,btn_right,moveresize,curresize"
         ];
-        windowrule = [
-          "appid:localsend,isfloating:1,width:385,height:660,offsetx:98,offsety:99,animation_type_close:none,isglobal:1"
+        window_rule = [
+          "appid:localsend,is_floating:1,width:385,height:660,offset_x:98,offset_y:99,animation_type_close:none,is_global:1"
           "tags:2,appid:Alacritty"
           "tags:1,appid:org.qutebrowser.qutebrowser"
           "tags:1,appid:firefox-developer-edition"
@@ -377,39 +377,39 @@ in {
           "tags:4,appid:org.gnome.Nautilus"
           "tags:4,appid:thunar"
           "tags:4,appid:Tor Browser Alpha"
-          "title:Picture-in-Picture,isfloating:1,width:625,height:357,offsetx:95,offsety:-99,animation_type_close:none,isglobal:1,animation_type_close:none"
-          "appid:Raspberry Pi Imager,isfloating:1,width:612,height:534,offsetx:8,offsety:99,animation_type_close:none,isglobal:1,animation_type_close:none"
-          "tags:6,title:Nextcloud,isfloating:1,width:389,height:1054,offsetx:99"
-          "tags:6,title:Nextcloud Settings,isfloating:1,width:389,height:1054,offsetx:25"
-          "appid:Cryptomator,isfloating:1,width:650,height:537,offsetx:99,offsety:99,animation_type_close:none,isglobal:1"
+          "title:Picture-in-Picture,is_floating:1,width:625,height:357,offset_x:95,offset_y:-99,animation_type_close:none,is_global:1,animation_type_close:none"
+          "appid:Raspberry Pi Imager,is_floating:1,width:612,height:534,offset_x:8,offset_y:99,animation_type_close:none,is_global:1,animation_type_close:none"
+          "tags:6,title:Nextcloud,is_floating:1,width:389,height:1054,offset_x:99"
+          "tags:6,title:Nextcloud Settings,is_floating:1,width:389,height:1054,offset_x:25"
+          "appid:Cryptomator,is_floating:1,width:650,height:537,offset_x:99,offset_y:99,animation_type_close:none,is_global:1"
           # # qemu rule
           "tags:4,appid:qemu-system-x86_64,layer_name:tile"
           # # signal windowrules
-          "title:Signal,isfloating:1,width:684,height:830,offsetx:99,offsety:99,animation_type_close:none"
+          "title:Signal,is_floating:1,width:684,height:830,offset_x:99,offset_y:99,animation_type_close:none"
           # # steam windowrules
-          "appid:steam,isfloating:1,width:1024,height:660,animation_type_close:none"
+          "appid:steam,is_floating:1,width:1024,height:660,animation_type_close:none"
           # # scrcpy
-          "appid:scrcpy,isfloating:1,width:454,height:984,offsetx:99,isglobal:1"
+          "appid:scrcpy,is_floating:1,width:454,height:984,offset_x:99,is_global:1"
           # # Gnome calculator
-          "appid:org.gnome.Calculator,isfloating:1,width:360,height:616,offsetx:99,offsety:98,isglobal:1,animation_type_close:none"
+          "appid:org.gnome.Calculator,is_floating:1,width:360,height:616,offset_x:99,offset_y:98,is_global:1,animation_type_close:none"
           # # Veracrypt
-          "appid:veracrypt,isfloating:1,width:584,height:553,animation_type_close:none"
+          "appid:veracrypt,is_floating:1,width:584,height:553,animation_type_close:none"
           # # disks
-          "appid:org.gnome.DiskUtility,isfloating:1,isglobal:1,width:592,height:598,animation_type_close:none,offsetx:99,offsety:99"
+          "appid:org.gnome.DiskUtility,is_floating:1,is_global:1,width:592,height:598,animation_type_close:none,offset_x:99,offset_y:99"
         ];
         # # tag 6 rules
         # todo()! for gap in specific tag
         # workspace = 6, gapsout:50 394 50 50, gapsin:5
 
         # layer rule
-        layerrule = [
-          "noanim:1,noblur:1,layer_name:rofi"
-          "noanim:1,noblur:1,layer_name:rofi"
+        layer_rule = [
+          "no_animation:1,no_blur:1,layer_name:rofi"
+          "no_animation:1,no_blur:1,layer_name:rofi"
         ];
 
         # layout support:
         # tile,scroller,grid,deck,monocle,center_tile,vertical_tile,vertical_scroller
-        tagrule = [
+        tag_rule = [
           "id:1,no_hide:1,layout_name:dwindle"
           "id:2,no_hide:2,layout_name:dwindle"
           "id:3,no_hide:3,layout_name:tile"
@@ -421,8 +421,8 @@ in {
         # Example dwindle configuration
         dwindle_split_ratio = 0.5;
         dwindle_smart_split = 0;
-        dwindle_hsplit = 0;
-        dwindle_vsplit = 0;
+        dwindle_horizontal_split = 0;
+        dwindle_vertical_split = 0;
         dwindle_preserve_split = 0;
         dwindle_smart_resize = 0;
         dwindle_drop_simple_split = 1;
