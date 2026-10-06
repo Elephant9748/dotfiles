@@ -70,6 +70,7 @@
     appimage-run
     # paperpass.packages.${pkgs.system}.default
     image-roll
+    swappy
   ];
 
   # todo! qt theme
