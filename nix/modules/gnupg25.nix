@@ -16,28 +16,28 @@ in {
           url = "mirror://gnupg/gnupg/${pname}-${version}.tar.bz2";
           hash = "sha256-vxSdAaK5/MDkWJuK6Gl9PVxVfqSO2Vo/pV3TsRh+YDk=";
         };
-        buildInputs = with pkgs;
-          [
-            gettext
-            libassuan
-            # libgcrypt
-            (callPackage ../pkgs/libgcrypt {})
-            libgpg-error
-            libiconv
-            libksba
-            npth
-          ]
-          ++ lib.optionals true [
-            adns
-            bzip2
-            gnutls
-            libusb1
-            openldap
-            readline
-            sqlite
-            zlib
-          ]
-          ++ lib.optionals true [pkgs.tpm2-tss];
+        # buildInputs = with pkgs;
+        #   [
+        #     gettext
+        #     libassuan
+        #     libgcrypt
+        #     # (callPackage ../pkgs/libgcrypt {})
+        #     libgpg-error
+        #     libiconv
+        #     libksba
+        #     npth
+        #   ]
+        #   ++ lib.optionals true [
+        #     adns
+        #     bzip2
+        #     gnutls
+        #     libusb1
+        #     openldap
+        #     readline
+        #     sqlite
+        #     zlib
+        #   ]
+        #   ++ lib.optionals true [pkgs.tpm2-tss];
 
         freepgPatches = pkgs.fetchFromGitLab {
           owner = "freepg";
@@ -88,7 +88,7 @@ in {
             # "0039-gpg-Do-not-use-a-default-when-asking-for-another-out.patch"
           ];
 
-        doCheck = false;
+        # doCheck = false;
         # dont do postPatch in gnupg25
         postPatch = ''
         '';

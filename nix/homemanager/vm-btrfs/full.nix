@@ -43,6 +43,7 @@
     mpv
     grim
     slurp
+    swappy
     localsend
     # gsettings-desktop-schemas
     # glib
