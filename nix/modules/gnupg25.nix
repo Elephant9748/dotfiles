@@ -2,18 +2,17 @@
   pkgs,
   lib,
   ...
-}: let
-  version = "2.5.24";
-  pname = "gnupg";
-in {
+}: {
   programs = {
     gpg = {
       enable = true;
       # package = pkgs.callPackage ../../pkgs/gnupg/24.nix {};
-      package = pkgs.gnupg.overrideAttrs (oldAttrs: rec {
-        inherit version pname;
+      package = pkgs.gnupg.overrideAttrs (newAttrs: oldAttrs: {
+        # inherit version pname;
+        version = "2.5.24";
+        pname = "gnupg";
         src = pkgs.fetchurl {
-          url = "mirror://gnupg/gnupg/${pname}-${version}.tar.bz2";
+          url = "mirror://gnupg/gnupg/${newAttrs.pname}-${newAttrs.version}.tar.bz2";
           hash = "sha256-vxSdAaK5/MDkWJuK6Gl9PVxVfqSO2Vo/pV3TsRh+YDk=";
         };
         # buildInputs = with pkgs;
@@ -42,8 +41,12 @@ in {
         freepgPatches = pkgs.fetchFromGitLab {
           owner = "freepg";
           repo = "gnupg";
-          tag = "source-2.5.24-freepg";
-          hash = "sha256-P3XdRnnVJuYe80S6wTMmmCO4jWBbUIkHkLKA75qSnNg=";
+          rev = "65aad5ac4875bf4aa3ee80dfe88ca875993f00d5";
+          hash = "sha256-juEYcQ+Y5HEY1sm2iq9uAnMFQ0YkoCYInA8rRsyP4CM=";
+          # tag = "gnupg-${newAttrs.version}";
+          # hash = "sha256-rVW+kIqjwO8j4t4ay3aTPFyUtnB+J/PuEWSIQ63z3Wg=";
+          # tag = "source-2.5.21-freepg";
+          # hash = "sha256-P3XdRnnVJuYe80S6wTMmmCO4jWBbUIkHkLKA75qSnNg=";
         };
         patches =
           [
@@ -61,7 +64,33 @@ in {
             # ./static.patch
             # ../pkgs/gnupg/static.patch
           ]
-          ++ lib.map (v: "${freepgPatches}/STABLE-BRANCH-2-4-freepg/" + v) [
+          # ++ lib.map (v: "${newAttrs.freepgPatches}/STABLE-BRANCH-2-4-freepg/" + v) [
+          #   "0002-gpg-accept-subkeys-with-a-good-revocation-but-no-sel.patch"
+          #   # "0003-gpg-allow-import-of-previously-known-keys-even-witho.patch"
+          #   "0004-tests-add-test-cases-for-import-without-uid.patch"
+          #   # "0005-gpg-drop-import-clean-from-default-keyserver-import-.patch"
+          #   # "0008-avoid-systemd-deprecation-warning.patch"
+          #   "0009-Add-systemd-support-for-keyboxd.patch"
+          #   "0010-Ship-sample-systemd-unit-files.patch"
+          #   "0011-el-gamal-default-to-3072-bits.patch"
+          #   "0012-gpg-default-digest-algorithm-SHA512.patch"
+          #   "0013-gpg-Prefer-SHA-512-and-SHA-384-in-personal-digest.patch"
+          #   "0018-Avoid-simple-memory-dumps-via-ptrace.patch"
+          #   # "0019-Disallow-compressed-signatures-and-certificates.patch"
+          #   "0020-ssh-agent-emulation-under-systemd-inject-SSH_AUTH_SO.patch"
+          #   # "0021-gpg-Sync-compliance-mode-cleanup-with-master.patch"
+          #   # "0022-gpg-emit-RSA-pubkey-algorithm-when-in-compatibility-.patch"
+          #   # "0023-gpg-Reintroduce-openpgp-as-distinct-from-rfc4880.patch"
+          #   "0024-gpg-Emit-LibrePGP-material-only-in-compliance-gnupg.patch"
+          #   # "0025-gpg-gpgconf-list-report-actual-compliance-mode.patch"
+          #   # "0026-gpg-Default-to-compliance-openpgp.patch"
+          #   "0027-gpg-Fix-newlines-in-Cleartext-Signature-Framework-CS.patch"
+          #   "0029-Add-keyboxd-systemd-support.patch"
+          #   # "0033-Support-large-RSA-keygen-in-non-batch-mode.patch"
+          #   # "0034-gpg-Verify-Text-mode-Signatures-over-binary-Literal-.patch"
+          #   # "0039-gpg-Do-not-use-a-default-when-asking-for-another-out.patch"
+          # ];
+          ++ lib.map (v: "${newAttrs.freepgPatches}/master-freepg/" + v) [
             "0002-gpg-accept-subkeys-with-a-good-revocation-but-no-sel.patch"
             # "0003-gpg-allow-import-of-previously-known-keys-even-witho.patch"
             "0004-tests-add-test-cases-for-import-without-uid.patch"
@@ -86,6 +115,12 @@ in {
             # "0033-Support-large-RSA-keygen-in-non-batch-mode.patch"
             # "0034-gpg-Verify-Text-mode-Signatures-over-binary-Literal-.patch"
             # "0039-gpg-Do-not-use-a-default-when-asking-for-another-out.patch"
+            # "-----------------------------------------------------------------"
+            "0037-fix-up-version-reporting.patch"
+            "0040-Add-missing-test-files-to-EXTRA_DIST.patch"
+            "0041-skip-trust-packets-during-import-restore.patch"
+            "0042-compat-ignore-truncated-line.patch"
+            "0043-fail-on-unprintable-armor-headers.patch"
           ];
 
         doCheck = false;
@@ -103,4 +138,3 @@ in {
     };
   };
 }
-
