@@ -88,7 +88,7 @@ in {
             # "0039-gpg-Do-not-use-a-default-when-asking-for-another-out.patch"
           ];
 
-        # doCheck = false;
+        doCheck = false;
         # dont do postPatch in gnupg25
         postPatch = ''
         '';

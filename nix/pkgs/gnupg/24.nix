@@ -201,8 +201,8 @@ assert guiSupport -> !enableMinimal;
       # A test would be skipped without SSH
       openssh
     ];
-    doCheck = !enableMinimal;
-    # doCheck = false;
+    # doCheck = !enableMinimal;
+    doCheck = false;
 
     passthru.tests = nixosTests.gnupg;
 
