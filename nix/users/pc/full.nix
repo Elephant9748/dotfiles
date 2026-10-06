@@ -155,8 +155,8 @@
     };
     nix-index-database.comma.enable = true;
     appimage = {
-        enable = true;
-        binfmt = true;
+      enable = true;
+      binfmt = true;
     };
   };
 

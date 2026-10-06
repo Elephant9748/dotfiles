@@ -17,8 +17,8 @@
 
   # hardware.opengl.enable = true;
   hardware = {
-        graphics.enable = true;
-        enableRedistributableFirmware = true;
+    graphics.enable = true;
+    enableRedistributableFirmware = true;
   };
 
   # Use the systemd-boot EFI boot loader.
@@ -26,8 +26,8 @@
     extraModulePackages = [];
     kernelModules = [];
     loader = {
-        grub.enable = false;
-        generic-extlinux-compatible.enable = true;
+      grub.enable = false;
+      generic-extlinux-compatible.enable = true;
     };
     initrd = {
       luks.devices.NIX_LUKS = {
@@ -62,35 +62,35 @@
     ];
   };
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-label/NIX_BTRFS";
-      fsType = "btrfs";
-      options = [ "compress=zstd" "subvol=@" ];
-    };
+  fileSystems."/" = {
+    device = "/dev/disk/by-label/NIX_BTRFS";
+    fsType = "btrfs";
+    options = ["compress=zstd" "subvol=@"];
+  };
 
-  fileSystems."/home" =
-    { device = "/dev/disk/by-label/NIX_BTRFS";
-      fsType = "btrfs";
-      options = [ "compress=zstd" "subvol=@home" ];
-    };
+  fileSystems."/home" = {
+    device = "/dev/disk/by-label/NIX_BTRFS";
+    fsType = "btrfs";
+    options = ["compress=zstd" "subvol=@home"];
+  };
 
-  fileSystems."/.snapshots" =
-    { device = "/dev/disk/by-label/NIX_BTRFS";
-      fsType = "btrfs";
-      options = [ "compress=zstd" "subvol=@snapshots" ];
-    };
+  fileSystems."/.snapshots" = {
+    device = "/dev/disk/by-label/NIX_BTRFS";
+    fsType = "btrfs";
+    options = ["compress=zstd" "subvol=@snapshots"];
+  };
 
-  fileSystems."/swap" =
-    { device = "/dev/disk/by-label/NIX_BTRFS";
-      fsType = "btrfs";
-      options = [ "noatime" "subvol=@swap" ];
-    };
+  fileSystems."/swap" = {
+    device = "/dev/disk/by-label/NIX_BTRFS";
+    fsType = "btrfs";
+    options = ["noatime" "subvol=@swap"];
+  };
 
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/NIX_BOOT";
-      fsType = "vfat";
-      options = [ "fmask=0022" "dmask=0022" ];
-    };
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/NIX_BOOT";
+    fsType = "vfat";
+    options = ["fmask=0022" "dmask=0022"];
+  };
 
   swapDevices = [];
 

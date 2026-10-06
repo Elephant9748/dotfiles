@@ -76,11 +76,11 @@
           "format" = "<span style=\"italic\">{}</span>";
         };
         "custom/weather" = {
-            "exec" = "~/.local/bin/nix/weather Cikalong-kulon";
-            "return-type" = "json";
-            "format" = "{} ";
-            "tooltip" = true;
-            "interval" = "7200";
+          "exec" = "~/.local/bin/nix/weather Cikalong-kulon";
+          "return-type" = "json";
+          "format" = "{} ";
+          "tooltip" = true;
+          "interval" = "7200";
         };
         "custom/wall" = {
           "format" = "|";

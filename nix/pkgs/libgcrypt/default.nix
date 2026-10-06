@@ -130,4 +130,3 @@ assert enableCapabilities -> stdenv.hostPlatform.isLinux;
       identifiers.cpeParts = lib.meta.cpeFullVersionWithVendor "gnupg" version;
     };
   }
-

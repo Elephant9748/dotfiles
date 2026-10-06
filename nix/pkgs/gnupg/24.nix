@@ -232,4 +232,3 @@ assert guiSupport -> !enableMinimal;
       identifiers.cpeParts = lib.meta.cpeFullVersionWithVendor "gnupg" version;
     };
   }
-
