@@ -7,22 +7,22 @@
   ...
 }: let
   oneuser =
-    if info.host == "vm"
+    if info.host == "vm" || info.host == "vm-btrfs" || info.host == "vm-zfs"
     then lib.elemAt info.users 0
     else if info.host == "netbook"
     then lib.elemAt info.users 1
     else if info.host == "pc"
     then lib.elemAt info.users 2
-    else if info.host == "vm-btrfs"
-    then lib.elemAt info.users 0
-    else if info.host == "vm-zfs"
-    then lib.elemAt info.users 0
     else if info.host == "earendel-rpi"
     then lib.elemAt info.users 3
     else lib.elemAt info.users 0;
+  modulesPathHost =
+    if info.host == "vm" || info.host == "vm-btrfs" || info.host == "vm-zfs"
+    then "vm"
+    else info.host;
 in {
   imports = [
-    ./${info.host}
+    ./${modulesPathHost}
     inputs.home-manager.nixosModules.home-manager
   ];
 
@@ -35,6 +35,6 @@ in {
   };
 
   home-manager.users.${oneuser}.imports = [
-    ../homemanager/${info.host}
+    ../homemanager/${modulesPathHost}
   ];
 }

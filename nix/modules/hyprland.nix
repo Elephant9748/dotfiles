@@ -6,28 +6,20 @@
   ...
 }: let
   monitor =
-    if info.host == "vm"
+    if info.host == "vm" || info.host == "vm-btrfs" || info.host == "vm-zfs"
     then "Virtual-1"
     else if info.host == "netbook"
     then "LVDS-1"
     else if info.host == "pc"
     then "HDMI-A-1"
-    else if info.host == "vm-btrfs"
-    then "Virtual-1"
-    else if info.host == "vm-zfs"
-    then "Virtual-1"
     else "Virtual-1";
   resolution =
-    if info.host == "vm"
-    then "1280x800@75"
+    if info.host == "vm" || info.host == "vm-btrfs" || info.host == "vm-zfs"
+    then "1440x900@60"
     else if info.host == "netbook"
     then "1366x768@60"
     else if info.host == "pc"
     then "1920x1080@60"
-    else if info.host == "vm-btrfs"
-    then "1440x900@60"
-    else if info.host == "vm-zfs"
-    then "1440x900@60"
     else "1280x1024@60";
 in {
   # the rest just rsync all "just to-host-nix" in ~/dotfiles/nix/
@@ -497,7 +489,7 @@ in {
           {
             _args = [
               (lib.generators.mkLuaInline "mainMod .. \" + SHIFT + N\"")
-              (lib.generators.mkLuaInline "hl.dsp.exec_cmd(\"/run/current-system/sw/bin/kill nm-applet\")")
+              (lib.generators.mkLuaInline "hl.dsp.exec_cmd(\"/run/current-system/sw/bin/pkill nm-applet\")")
             ];
           }
           {
@@ -509,7 +501,7 @@ in {
           {
             _args = [
               (lib.generators.mkLuaInline "mainMod .. \" + SHIFT + B\"")
-              (lib.generators.mkLuaInline "hl.dsp.exec_cmd(\"/run/current-system/sw/bin/kill waybar\")")
+              (lib.generators.mkLuaInline "hl.dsp.exec_cmd(\"/run/current-system/sw/bin/pkill waybar\")")
             ];
           }
           {
