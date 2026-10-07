@@ -410,10 +410,10 @@ hl.bind(mainMod .. " + SHIFT + D", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + SHIFT + O", hl.dsp.exec_cmd("hyprpicker -a --format=hex"))
 
 hl.bind(mainMod .. " + N", hl.dsp.exec_cmd("nm-applet"))
-hl.bind(mainMod .. " + SHIFT + N", hl.dsp.exec_cmd("/usr/bin/kill nm-applet"))
+hl.bind(mainMod .. " + SHIFT + N", hl.dsp.exec_cmd("/usr/bin/pkill nm-applet"))
 
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("waybar &"))
-hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd("/usr/bin/kill waybar"))
+hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd("/usr/bin/pkill waybar"))
 
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"), { locked = true, repeating = true })
 hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"), { locked = true, repeating = true })
