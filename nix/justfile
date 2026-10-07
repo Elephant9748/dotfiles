@@ -11,7 +11,8 @@ check-syntax $path:
 # list available machine
 machine:
     grep -Po '^\s*\K[\w-]+(?=\s*=)' flake.nix | tail -n 10 | head -n 6 | paste -sd " " | \
-            awk '{print "\033[0;34mMachine:\033[0;32m\n\t"$1"\n\t"$2"\n\t"$3"\n\t"$4"\n\t"$5"\n\t"$6}'
+            awk '{print "\033[0;34mMachine:\033[0;32m\n\t"$1"\n\t"$2"\n\t"$3"\n\t"$4"\n\t"$5"\n\t"$6}' | \
+            sort -k6 
 
 # pkgs nix-env -iA nixos.<pkgs> (git, just, fish, neovim)
 tools:
