@@ -255,14 +255,14 @@ flake-compositor $machine:
             rg -U -o 'imports\s*=\s*\[(\p{any}*?)\]' -r '$1' --no-line-number users/vm/full.nix | \
                     awk '{$1=$1};1' | awk '{print "\033[0;32m" $0}'; \
     else \
-            sed -i 's/# ..\/..\/modules\/hyprland.nix/..\/..\/modules\/hyprland.nix/' homemanager/{{ machine }}/full.nix \
-            sed -i 's/# ..\/..\/modules\/hyprpaper.nix/..\/..\/modules\/hyprpaper.nix/' homemanager/{{ machine }}/full.nix \
-            sed -i 's/# ..\/..\/modules\/mangowm.nix/..\/..\/modules\/mangowm.nix/' homemanager/{{ machine }}/full.nix \
-            sed -i 's/# ..\/..\/modules\/cosmic.nix/..\/..\/modules\/cosmic.nix/' users/{{ machine }}/full.nix \
-            sed -i 's/# inputs.mangowm.nixosModules.mango/inputs.mangowm.nixosModules.mango/' users/{{ machine }}/full.nix \
-            sed -i 's/# mango.enable = true;/mango.enable = true;/' users/{{ machine }}/full.nix \
-            sed -i 's/# hyprland.enable = true;/hyprland.enable = true;/' users/{{ machine }}/full.nix \
-            sed -i 's/# xdg-desktop-portal-hyprland/xdg-desktop-portal-hyprland/' homemanager/{{ machine }}/full.nix \
+            sed -i 's/# ..\/..\/modules\/hyprland.nix/..\/..\/modules\/hyprland.nix/' homemanager/{{ machine }}/full.nix; \
+            sed -i 's/# ..\/..\/modules\/hyprpaper.nix/..\/..\/modules\/hyprpaper.nix/' homemanager/{{ machine }}/full.nix; \
+            sed -i 's/# ..\/..\/modules\/mangowm.nix/..\/..\/modules\/mangowm.nix/' homemanager/{{ machine }}/full.nix; \
+            sed -i 's/# ..\/..\/modules\/cosmic.nix/..\/..\/modules\/cosmic.nix/' users/{{ machine }}/full.nix; \
+            sed -i 's/# inputs.mangowm.nixosModules.mango/inputs.mangowm.nixosModules.mango/' users/{{ machine }}/full.nix; \
+            sed -i 's/# mango.enable = true;/mango.enable = true;/' users/{{ machine }}/full.nix; \
+            sed -i 's/# hyprland.enable = true;/hyprland.enable = true;/' users/{{ machine }}/full.nix; \
+            sed -i 's/# xdg-desktop-portal-hyprland/xdg-desktop-portal-hyprland/' homemanager/{{ machine }}/full.nix; \
             rg -U -o 'imports\s*=\s*\[(\p{any}*?)\]' -r '$1' --no-line-number homemanager/{{ machine }}/full.nix | \
                     awk '{$1=$1};1' | awk '{print "\033[0;32m" $0}'; \
             rg -U -o 'imports\s*=\s*\[(\p{any}*?)\]' -r '$1' --no-line-number users/{{ machine }}/full.nix | \
