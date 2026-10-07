@@ -87,8 +87,10 @@ assert guiSupport -> !enableMinimal;
     freepgPatches = fetchFromGitLab {
       owner = "freepg";
       repo = "gnupg";
-      tag = "source-2.5.21-freepg";
-      hash = "sha256-P3XdRnnVJuYe80S6wTMmmCO4jWBbUIkHkLKA75qSnNg=";
+      rev = "65aad5ac4875bf4aa3ee80dfe88ca875993f00d5";
+      hash = "sha256-juEYcQ+Y5HEY1sm2iq9uAnMFQ0YkoCYInA8rRsyP4CM=";
+      # tag = "source-2.5.21-freepg";
+      # hash = "sha256-P3XdRnnVJuYe80S6wTMmmCO4jWBbUIkHkLKA75qSnNg=";
     };
 
     patches =
@@ -130,6 +132,12 @@ assert guiSupport -> !enableMinimal;
         # "0033-Support-large-RSA-keygen-in-non-batch-mode.patch"
         # "0034-gpg-Verify-Text-mode-Signatures-over-binary-Literal-.patch"
         # "0039-gpg-Do-not-use-a-default-when-asking-for-another-out.patch"
+        # "-----------------------------------------------------------------"
+        "0037-fix-up-version-reporting.patch"
+        "0040-Add-missing-test-files-to-EXTRA_DIST.patch"
+        "0041-skip-trust-packets-during-import-restore.patch"
+        "0042-compat-ignore-truncated-line.patch"
+        "0043-fail-on-unprintable-armor-headers.patch"
       ];
 
     # postPatch =
