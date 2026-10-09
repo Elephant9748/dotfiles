@@ -72,9 +72,17 @@ build-test $machine *arg:
 build $machine *arg:
     nixos-rebuild switch --flake .#{{ machine }} --ask-sudo-password {{ arg }}
 
+# rebuild nixos with flake apply now live add -L to print all jobs ONLY BOOTLOADER
+build-bootloader $machine *arg:
+    nixos-rebuild switch --install-bootloader --flake .#{{ machine }} --ask-sudo-password {{ arg }}
+
 # rebuild nixos with flake apply on next boot add -L to print all jobs
 build-later $machine *arg:
     nixos-rebuild boot --flake .#{{ machine }} --ask-sudo-password {{ arg }}
+
+# rebuild nixos with flake apply on next boot add -L to print all jobs ONLY BOOTLOADER
+build-later-bootloader $machine *arg:
+    nixos-rebuild boot --install-bootloader --flake .#{{ machine }} --ask-sudo-password {{ arg }}
 
 # nix-store query packages
 query $query:
