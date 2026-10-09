@@ -76,7 +76,7 @@
           "format" = "<span style=\"italic\">{}</span>";
         };
         "custom/weather" = {
-          "exec" = "~/.local/bin/nix/weather Cikalong-kulon";
+          "exec" = "~/.local/bin/weather Cikalong-kulon";
           "return-type" = "json";
           "format" = "{} ";
           "tooltip" = true;
