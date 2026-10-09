@@ -131,4 +131,7 @@ sudo nix-env -p /nix/var/nix/profiles/system --delete-generations 7d
 sudo nix-env -p /nix/var/nix/profiles/system --delete-generations +2
 sudo rm -rf /nix/var/nix/profiles/system-*
 sudo nix-env -p /nix/var/nix/profiles/system --list-generations
+
+only rebuild bootloader in liveusb
+NIXOS_INSTALL_BOOTLOADER=1 /nix/var/nix/profiles/system/bin/switch-to-configuration boot
 ```
