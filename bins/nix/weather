@@ -1,4 +1,4 @@
-#!/run/current-system/sw/bin/env bash
+#!/usr/bin/env bash
 for i in {1..5}
 do
     text=$(curl -s "https://wttr.in/$1?format=1")
@@ -10,25 +10,26 @@ do
         if (( temp >= 0 && temp < 23));
         then
             tooltip="<span color='#3C3836'>$(echo "$tooltip" | sed -E "s/\s+/ /g")</span>"
-            echo "{\"text\":\"<span color='#3C3836'>+$temp°C</span>\", \"tooltip\":\"$tooltip\"}"
+            echo "{\"text\":\"<span color='#3C3836'>$text</span>\", \"tooltip\":\"$tooltip\"}"
             exit
         elif (( temp >= 23 && temp < 25));
         then
             tooltip="<span color='#ebdbb2'>$(echo "$tooltip" | sed -E "s/\s+/ /g")</span>"
-            echo "{\"text\":\"<span color='#ebdbb2'>+$temp°C</span>\", \"tooltip\":\"$tooltip\"}"
+            echo "{\"text\":\"<span color='#ebdbb2'>$text</span>\", \"tooltip\":\"$tooltip\"}"
             exit
         elif (( temp >= 25 && temp < 29));
         then
             tooltip="<span color='#fabd2f'>$(echo "$tooltip" | sed -E "s/\s+/ /g")</span>"
-            echo "{\"text\":\"<span color='#fabd2f'>+$temp°C</span>\", \"tooltip\":\"$tooltip\"}"
+            echo "{\"text\":\"<span color='#fabd2f'>$text</span>\", \"tooltip\":\"$tooltip\"}"
             exit
         elif (( temp >= 29 ));
         then
-            tooltip="<span color='fb4934'>$(echo "$tooltip" | sed -E "s/\s+/ /g")</span>"
-            echo "{\"text\":\"<span color='#fb4934'>+$temp°C</span>\", \"tooltip\":\"$tooltip\"}"
+            tooltip="<span color='#fb4934'>$(echo "$tooltip" | sed -E "s/\s+/ /g")</span>"
+            echo "{\"text\":\"<span color='#fb4934'>$text</span>\", \"tooltip\":\"$tooltip\"}"
             exit
         fi
     fi
     sleep 2
 done
 echo "{\"text\":\"error\", \"tooltip\":\"error\"}"
+
