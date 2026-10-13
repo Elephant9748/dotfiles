@@ -41,7 +41,7 @@
 
     # mangoWM
     mangowm = {
-      url = "github:mangowm/mango/wl-only";
+      url = "github:mangowm/mango/main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
