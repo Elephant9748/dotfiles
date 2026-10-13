@@ -92,7 +92,7 @@ in {
           "env=QT_QPA_PLATFORM,wayland;xcb"
         ];
         # monitor
-        monitor_rule = "name:^${toString monitors.output},width:${toString monitors.width},height:${toString monitors.height},refresh:${toString monitors.hz},x:0,y=0,scale:1"; # for virtual machine
+        monitor_rule = "name:^${toString monitors.output},width:${toString monitors.width},height:${toString monitors.height},refresh:${toString monitors.hz},x:0,y:0,scale:1"; # for virtual machine
         # monitorrule=name:^HDMI-A-1,width:1920,height:1080,refresh:60,x:0,y=0,scale:1 # for real monitor
         # allow game to bypass the compositors VSync for lower latency
         # allow_tearing=1;
@@ -164,14 +164,13 @@ in {
 
         # Master-Stack Layout Setting
         new_is_master = 1;
-        default_master_fact = 0.55;
+        default_master_factor = 0.55;
         default_master_count = 1;
         smart_gaps = 0;
 
         # Overview Setting
         hotarea_size = 10;
         enable_hotarea = 1;
-        ov_tab_mode = 0;
         overview_gap_inner = 5;
         overview_gap_outer = 30;
         # Misc
@@ -203,9 +202,9 @@ in {
         tap_and_drag = 1;
         drag_lock = 1;
         trackpad_natural_scrolling = 0;
-        disable_while_typing = 1;
-        left_handed = 0;
-        middle_button_emulation = 0;
+        trackpad_disable_while_typing = 1;
+        trackpad_left_handed = 0;
+        trackpad_middle_button_emulation = 0;
         swipe_min_threshold = 1;
         # mouse
         # need relogin to make it apply
@@ -226,7 +225,7 @@ in {
         # focus_color=0xb76110ff
         focus_color = "0x4c4c4cff";
         # focus_color=0x206469ff
-        maximize_screen_color = "0x89aa61ff";
+        maximized_screen_color = "0x89aa61ff";
         urgent_color = "0xad401fff";
         scratchpad_color = "0x516c93ff";
         # global_color=0xb153a7ff
@@ -300,21 +299,6 @@ in {
           "CTRL+SUPER,Left,tagtoleft,0"
           "CTRL+SUPER,Right,tagtoright,0"
 
-          # tag: move client to the tag and focus it
-          # tagsilent: move client to the tag and not focus it
-          # "Alt,1,tagsilent,1
-          "SUPER+SHIFT,1,tag,1,0"
-          "SUPER+SHIFT,2,tag,2,0"
-          "SUPER+SHIFT,3,tag,3,0"
-          "SUPER+SHIFT,4,tag,4,0"
-          "SUPER+SHIFT,5,tag,5,0"
-          "SUPER+SHIFT,6,tag,6,0"
-          "SUPER+SHIFT,7,tag,7,0"
-          "SUPER+SHIFT,8,tag,8,0"
-          "SUPER+SHIFT,9,tag,9,0"
-          "SUPER+SHIFT,8,tag,8,0"
-          "SUPER+SHIFT,9,tag,9,0"
-
           # monitor switch
           "alt+shift,Left,focusmon,left"
           "alt+shift,Right,focusmon,right"
@@ -337,7 +321,26 @@ in {
           "SUPER+SHIFT+ALT,j,resizewin,+0,+10"
           "SUPER+SHIFT+ALT,h,resizewin,-10,+0"
           "SUPER+SHIFT+ALT,l,resizewin,+10,+0"
-
+        ];
+        bindc = [
+          "SUPER,2,spawn_shell, pkill swaybg; swaybg -i ~/Pictures/wallhaven.cc/ii.png"
+          "SUPER,3,spawn_shell, pkill swaybg; swaybg -i ~/Pictures/wallhaven.cc/iii.png"
+          "SUPER,4,spawn_shell, pkill swaybg; swaybg -i ~/Pictures/wallhaven.cc/iv.png"
+          "SUPER,5,spawn_shell, pkill swaybg; swaybg -i ~/Pictures/wallhaven.cc/v.png"
+          "SUPER,6,spawn_shell, pkill swaybg; swaybg -i ~/Pictures/wallhaven.cc/vi.png"
+          "SUPER,7,spawn_shell, pkill swaybg; swaybg -i ~/Pictures/wallhaven.cc/vii.png"
+          # tag: move client to the tag and focus it
+          # tagsilent: move client to the tag and not focus it
+          # "Alt,1,tagsilent,1
+          "SUPER+SHIFT,1,tag,1,0"
+          "SUPER+SHIFT,2,tag,2,0"
+          "SUPER+SHIFT,3,tag,3,0"
+          "SUPER+SHIFT,4,tag,4,0"
+          "SUPER+SHIFT,5,tag,5,0"
+          "SUPER+SHIFT,6,tag,6,0"
+          "SUPER+SHIFT,7,tag,7,0"
+          "SUPER+SHIFT,8,tag,8,0"
+          "SUPER+SHIFT,9,tag,9,0"
           # bindr extend
           "SUPER,1,view,1,0"
           "SUPER,2,view,2,0"
@@ -349,14 +352,6 @@ in {
           "SUPER,8,view,8,0"
           "SUPER,9,view,9,0"
         ];
-        bindr = [
-          "SUPER,2,spawn_shell, pkill swaybg; swaybg -i ~/Pictures/wallhaven.cc/ii.png"
-          "SUPER,3,spawn_shell, pkill swaybg; swaybg -i ~/Pictures/wallhaven.cc/iii.png"
-          "SUPER,4,spawn_shell, pkill swaybg; swaybg -i ~/Pictures/wallhaven.cc/iv.png"
-          "SUPER,5,spawn_shell, pkill swaybg; swaybg -i ~/Pictures/wallhaven.cc/v.png"
-          "SUPER,6,spawn_shell, pkill swaybg; swaybg -i ~/Pictures/wallhaven.cc/vi.png"
-          "SUPER,7,spawn_shell, pkill swaybg; swaybg -i ~/Pictures/wallhaven.cc/vii.png"
-        ];
         mousebind = [
           "SUPER,code:274,killclient,"
           # Mouse Button Bindings
@@ -366,36 +361,36 @@ in {
           "SUPER,btn_right,moveresize,curresize"
         ];
         window_rule = [
-          "appid:localsend,is_floating:1,width:385,height:660,offset_x:98,offset_y:99,animation_type_close:none,is_global:1"
-          "tags:2,appid:Alacritty"
-          "tags:1,appid:org.qutebrowser.qutebrowser"
-          "tags:1,appid:firefox-developer-edition"
-          "tags:3,appid:Mullvad Browser Alpha"
-          "tags:3,appid:chromium"
-          "tags:3,appid:jetbrains-studio"
-          "tags:4,appid:virt-manager"
-          "tags:4,appid:org.gnome.Nautilus"
-          "tags:4,appid:thunar"
-          "tags:4,appid:Tor Browser Alpha"
+          "app_id:localsend,is_floating:1,width:385,height:660,offset_x:98,offset_y:99,animation_type_close:none,is_global:1"
+          "tags:2,app_id:Alacritty"
+          "tags:1,app_id:org.qutebrowser.qutebrowser"
+          "tags:1,app_id:firefox-developer-edition"
+          "tags:3,app_id:Mullvad Browser Alpha"
+          "tags:3,app_id:chromium"
+          "tags:3,app_id:jetbrains-studio"
+          "tags:4,app_id:virt-manager"
+          "tags:4,app_id:org.gnome.Nautilus"
+          "tags:4,app_id:thunar"
+          "tags:4,app_id:Tor Browser Alpha"
           "title:Picture-in-Picture,is_floating:1,width:625,height:357,offset_x:95,offset_y:-99,animation_type_close:none,is_global:1,animation_type_close:none"
-          "appid:Raspberry Pi Imager,is_floating:1,width:612,height:534,offset_x:8,offset_y:99,animation_type_close:none,is_global:1,animation_type_close:none"
+          "app_id:Raspberry Pi Imager,is_floating:1,width:612,height:534,offset_x:8,offset_y:99,animation_type_close:none,is_global:1,animation_type_close:none"
           "tags:6,title:Nextcloud,is_floating:1,width:389,height:1054,offset_x:99"
           "tags:6,title:Nextcloud Settings,is_floating:1,width:389,height:1054,offset_x:25"
-          "appid:Cryptomator,is_floating:1,width:650,height:537,offset_x:99,offset_y:99,animation_type_close:none,is_global:1"
+          "app_id:Cryptomator,is_floating:1,width:650,height:537,offset_x:99,offset_y:99,animation_type_close:none,is_global:1"
           # # qemu rule
-          "tags:4,appid:qemu-system-x86_64,layer_name:tile"
+          "tags:4,app_id:qemu-system-x86_64"
           # # signal windowrules
           "title:Signal,is_floating:1,width:684,height:830,offset_x:99,offset_y:99,animation_type_close:none"
           # # steam windowrules
-          "appid:steam,is_floating:1,width:1024,height:660,animation_type_close:none"
+          "app_id:steam,is_floating:1,width:1024,height:660,animation_type_close:none"
           # # scrcpy
-          "appid:scrcpy,is_floating:1,width:454,height:984,offset_x:99,is_global:1"
+          "app_id:scrcpy,is_floating:1,width:454,height:984,offset_x:99,is_global:1"
           # # Gnome calculator
-          "appid:org.gnome.Calculator,is_floating:1,width:360,height:616,offset_x:99,offset_y:98,is_global:1,animation_type_close:none"
+          "app_id:org.gnome.Calculator,is_floating:1,width:360,height:616,offset_x:99,offset_y:98,is_global:1,animation_type_close:none"
           # # Veracrypt
-          "appid:veracrypt,is_floating:1,width:584,height:553,animation_type_close:none"
+          "app_id:veracrypt,is_floating:1,width:584,height:553,animation_type_close:none"
           # # disks
-          "appid:org.gnome.DiskUtility,is_floating:1,is_global:1,width:592,height:598,animation_type_close:none,offset_x:99,offset_y:99"
+          "app_id:org.gnome.DiskUtility,is_floating:1,is_global:1,width:592,height:598,animation_type_close:none,offset_x:99,offset_y:99"
         ];
         # # tag 6 rules
         # todo()! for gap in specific tag
