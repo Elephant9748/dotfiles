@@ -391,6 +391,8 @@ in {
           "app_id:veracrypt,is_floating:1,width:584,height:553,animation_type_close:none"
           # # disks
           "app_id:org.gnome.DiskUtility,is_floating:1,is_global:1,width:592,height:598,animation_type_close:none,offset_x:99,offset_y:99"
+          # dota2 confine_pointer
+          "app_id:dota2,confine_pointer:1"
         ];
         # # tag 6 rules
         # todo()! for gap in specific tag
