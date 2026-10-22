@@ -1,8 +1,10 @@
 ### Generate default letsencrypt dns-01 for duckdns.org
 
-cerbot
+cerbot [more instrction](https://certbot.eff.org/instructions?ws=nginx&os=pip)
 
 ```
+sudo /opt/certbot/bin/pip install --upgrade pip certbot
+
 sudo certbot certonly --manual --preferred-challenges dns-01 \
     --email bigortm13@tutanota.com --agree-tos -d rpi-brandon.duckdns.org -v
 ```
