@@ -616,7 +616,7 @@ end
 
 # enter chroot hdd & mount tails persistent luks
 # ---------------------------------------------------
-function hdd-enter
+function hdd-open
         printf "Open LUKS \n"
         sudo cryptsetup open /dev/sda4 lukscrypt
         sleep 2
