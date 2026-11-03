@@ -14,6 +14,12 @@
     inputs.mangowm.nixosModules.mango
   ];
 
+  # allow this until libguestfs fix
+  nixpkgs.config = {
+    problems.handlers.libguestfs.broken = "warn";
+  };
+  # nixpkgs.config.allowBroken = true;
+
   environment.systemPackages = with pkgs; [
     home-manager
     gnupg
