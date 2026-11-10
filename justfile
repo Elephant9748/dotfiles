@@ -36,6 +36,9 @@ to-dot:
             rsync -azP $HOME/.tmux.conf configs/tmux/.tmux.conf && \
             # gitconfig
             rsync -azP $HOME/.gitconfig configs/gitconfig/ && \
+            # qt
+            rsync -azP $HOME/.config/qt6ct configs/.config/ && \
+            rsync -azP $HOME/.config/qt5ct configs/.config/ && \
 
             # !need sudo,doas
             # sddm
@@ -69,6 +72,8 @@ to-host:
             rsync -azP configs/.config/yazi $HOME/.config/ && \
             rsync -azP configs/.config/gtk-3.0 $HOME/.config/ && \
             rsync -azP configs/.config/gtk-4.0 $HOME/.config/ && \
+            rsync -azP configs/.config/qt6ct $HOME/.config/ && \
+            rsync -azP configs/.config/qt5ct $HOME/.config/ && \
             rsync -azP configs/.config/bottom $HOME/.config/ && \
             rsync -azP configs/.config/bat $HOME/.config/ && \
             rsync -azP configs/.config/rustnet $HOME/.config/ && \
