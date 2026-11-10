@@ -798,7 +798,7 @@ abbr -a screen_sharing_portion 'wf-recorder -g "$(slurp)" --muxer=v4l2 --codec=r
 abbr -a droid-list-camera 'scrcpy --list-cameras'
 abbr -a droid-list-camera-sizes 'scrcpy --list-camera-sizes'
 abbr -a droid-camera-front 'scrcpy --video-source=camera --camera-size=720x480 --camera-facing=front --camera-fps=30 \
---orientation=90 --no-audio --v4l2-sink=/dev/video2'
+--orientation=270 --no-audio --v4l2-sink=/dev/video2'
 abbr -a droid-camera-back 'scrcpy --video-source=camera --camera-size=720x480 --camera-facing=back --camera-fps=30 \
 --orientation=90 --no-audio --v4l2-sink=/dev/video2'
 abbr -a droid-adb-network 'adb tcpip 12001'
@@ -816,6 +816,6 @@ abbr -a snap_home 'sudo btrfs subvolume snapshot /home /.snapshots/@home_(date +
 abbr -a snap_root 'sudo btrfs subvolume snapshot / /.snapshots/@root_linux-(uname -a | awk \'{print $3}\')_(date +"%m%d%y-%I%M%P")'
 
 #7z
-abbr -a 7z-a '7z a -mem=AES256 -tzip -p' # archive.zip file directory
-abbr -a 7z-t '7z t' # archive.zip/7z
-abbr -a 7z-x '7z x' # archive.zip/7z
+abbr -a 7-c '7z a -mem=AES256 -tzip -p' # archive_name file_name_or_directories
+abbr -a 7-t '7z t' # archive_name file_name_or_directories
+abbr -a 7-x '7z x' # archive_name file_name_or_directories
