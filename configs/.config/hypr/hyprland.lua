@@ -112,7 +112,7 @@ hl.window_rule({
 
 hl.window_rule({
     match = {
-        class = "thunar",
+        class = "Thunar",
     },
     workspace = "4",
 })
@@ -211,7 +211,6 @@ hl.window_rule({
     match = {
         class = "scrcpy",
     },
-    pin = true,
     float = true,
     move = "1459 71",
     size = "454 984",
