@@ -13,6 +13,7 @@ application/x-raw-disk-image-xz-compressed=7zFM.desktop;
 x-scheme-handler/http=firefox-developer-edition.desktop;
 image/png=com.github.weclaw1.ImageRoll.desktop;
 image/jpeg=com.github.weclaw1.ImageRoll.desktop;
+video/mp4=mpv.desktop;
 
 [Default Applications]
 x-scheme-handler/http=firefox-developer-edition.desktop
@@ -32,3 +33,4 @@ image/jpeg=com.github.weclaw1.ImageRoll.desktop
 x-scheme-handler/sgnl=signal.desktop
 x-scheme-handler/signalcaptcha=signal.desktop
 x-scheme-handler/rpi-imager=com.raspberrypi.rpi-imager-uri-handler.desktop
+video/mp4=mpv.desktop
