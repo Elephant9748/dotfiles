@@ -13,7 +13,7 @@
     ../../modules/hyprpaper.nix
     ../../modules/mangowm.nix
     # ../../modules/gnupg25.nix
-    ../../modules/termusic.nix
+    # ../../modules/termusic.nix
   ];
 
   home.packages = with pkgs; [
