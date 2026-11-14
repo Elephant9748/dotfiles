@@ -10,18 +10,10 @@
     ../../modules/ly.nix
     # ../../modules/sddm.nix
     # ../../modules/cosmic.nix
+    ../../modules/nixpkgs
     inputs.nix-index-database.nixosModules.default
     inputs.mangowm.nixosModules.mango
   ];
-
-  # allow this until libguestfs fix
-  nixpkgs.config = {
-    problems.handlers.libguestfs.broken = "warn";
-    permittedInsecurePackages = [
-      "qutebrowser-3.7.0"
-    ];
-  };
-  # nixpkgs.config.allowBroken = true;
 
   environment.systemPackages = with pkgs; [
     home-manager

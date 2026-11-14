@@ -10,6 +10,7 @@
     ../../modules/ly.nix
     # ../../modules/sddm.nix
     # ../../modules/cosmic.nix
+    ../../modules/nixpkgs
     inputs.nix-index-database.nixosModules.default
     inputs.mangowm.nixosModules.mango
   ];
