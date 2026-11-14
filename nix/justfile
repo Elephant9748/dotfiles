@@ -93,19 +93,22 @@ flake-vm-gui:
     just flake-full vm
     just flake-compositor vm
     just flake-display-sddm vm
-    just build-later vm -L
-# netbook 
+    just flake-up
+    just build-later vm -L --verbose
+# netbook +u_rigel
 flake-netbook:
+    just flake-user pc rigel
     just flake-compositor netbook
     just flake-display-sddm netbook
     just flake-up
-    just build-later netbook -L
-# pc
+    just build-later netbook -L --verbose
+# pc +u_rigel
 flake-pc:
+    just flake-user pc rigel
     just flake-compositor pc
     just flake-display-sddm pc
     just flake-up
-    just build-later pc -L
+    just build-later pc -L --verbose
 
 # flake update
 flake-up:

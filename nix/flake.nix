@@ -97,7 +97,7 @@
       version = "26.11";
       editor = "nvim";
       hostname = ["citrullus-lanatus" "starfish-small" "rigel-pc" "earendel"];
-      users = ["rigel" "kelly" "tracy" "brandon"];
+      users = ["rigel" "kelly" "marvin" "brandon"];
     };
 
     forAllSystems = nixpkgs.lib.genAttrs systems;
