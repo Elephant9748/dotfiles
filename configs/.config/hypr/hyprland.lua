@@ -112,7 +112,7 @@ hl.window_rule({
 
 hl.window_rule({
     match = {
-        class = "Thunar",
+        class = "thunar",
     },
     workspace = "4",
 })
