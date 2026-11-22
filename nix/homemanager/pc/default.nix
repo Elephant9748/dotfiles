@@ -11,7 +11,7 @@
     ../../modules/hyprpaper.nix
     ../../modules/mangowm.nix
     # ../../modules/gnupg25.nix
-    ../../modules/termusic.nix
+    # ../../modules/termusic.nix
   ];
 
   home.packages = with pkgs; [
@@ -38,7 +38,7 @@
     qutebrowser
     firefox-devedition
     wmctrl
-    # termusic # issue doesnt pass test need current master branch
+    termusic # issue doesnt pass test need current master branch
     audacity
     signal-desktop
     mpv

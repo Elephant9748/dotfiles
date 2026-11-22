@@ -38,7 +38,7 @@
     obs-studio
     qutebrowser
     wmctrl
-    # termusic # issue doesnt pass test need current master branch
+    termusic # issue doesnt pass test need current master branch
     audacity
     signal-desktop
     mpv
