@@ -21,8 +21,8 @@
   # config & style from dotfiles
   programs.waybar = {
     enable = true;
-    # package = pkgs.waybar;
-    package = inputs.waybar-git.packages.${pkgs.stdenv.hostPlatform.system}.default;
+    package = pkgs.waybar;
+    # package = inputs.waybar-git.packages.${pkgs.stdenv.hostPlatform.system}.default;
     # systemd.enable = true;
     style = builtins.readFile ../../configs/.config/waybar/style.css;
     settings = {
