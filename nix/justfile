@@ -97,7 +97,6 @@ flake-vm-btrfs:
     just build-later vm-btrfs -L --verbose
 # netbook +u_rigel
 flake-netbook:
-    just flake-user pc rigel
     just flake-compositor netbook
     just flake-display-ly netbook
     just flake-up
