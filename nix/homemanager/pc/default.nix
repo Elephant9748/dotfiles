@@ -10,7 +10,7 @@
     ../../modules/hyprland.nix
     ../../modules/hyprpaper.nix
     ../../modules/mangowm.nix
-    # ../../modules/gnupg25.nix
+    ../../modules/gnupg25.nix
     # ../../modules/termusic.nix
   ];
 
