@@ -89,12 +89,12 @@ query $query:
     nix-store --query --requisites /run/current-system | grep -i {{ query }}
 
 # vm full setup
-flake-vm-gui:
-    just flake-full vm
-    just flake-compositor vm
-    just flake-display-sddm vm
+flake-vm-btrfs:
+    just flake-full vm-btrfs
+    just flake-compositor vm-btrfs
+    just flake-display-ly vm-btrfs
     just flake-up
-    just build-later vm -L --verbose
+    just build-later vm-btrfs -L --verbose
 # netbook +u_rigel
 flake-netbook:
     just flake-user pc rigel
