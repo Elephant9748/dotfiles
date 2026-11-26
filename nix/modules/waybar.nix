@@ -139,7 +139,7 @@
           "format-ethernet" = "<span color='#7c6f64'>🖧 </span> <span color='#3C3836'>{ifname}</span> ";
           "format-linked" = "{ifname} (No IP) ";
           "format-disconnected" = "Disconnected ⚠";
-          "format-alt": "<span color='#3C3836'>{essid} {ifname}: {ipaddr}/{cidr}</span>";
+          "format-alt" = "<span color='#3C3836'>{essid} {ifname}: {ipaddr}/{cidr}</span>";
           "interval" = 5;
         };
         "backlight" = {
