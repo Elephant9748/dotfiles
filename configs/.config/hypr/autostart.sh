@@ -12,7 +12,7 @@
 
 hyprpaper & 
 waybar & 
-/home/rigel/.local/bin/xdg-portal-hyprland-nuclear & 
+$HOME/.local/bin/xdg-portal-hyprland-nuclear & 
 hyprctl setcursor "breeze_cursors" 16  
 # /home/rigel/.local/bin/hyprland-paper &
 
