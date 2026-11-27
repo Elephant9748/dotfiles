@@ -1,20 +1,25 @@
 # migration postgres data in `docker container` Major Version
+
 ###### 1. backup all data
+
 ```
 docker-compose exec postgres pg_dumpall -U "[user postgres]" > postgres[version]_willy_data_backup_[date].sql
 ```
 
 ###### 2. stop container
+
 ```
 ./stop.sh
 ```
 
 ###### 3. get new image
+
 ```
 ./pull-image.sh
 ```
 
 ###### 4. restore all data
+
 ```
 
 stop-container
@@ -33,17 +38,20 @@ sudo docker cp ./postgres_backup.sql postgres:/var/lib/postgresql
 
 docker-compose exec postgres sh
 
-psql -U "willy" -d "db_nxcloud"<  /var/lib/postgresql/data/postgres[version]_willy_data_backup_[data].sql
+# info for user and db in postgres.env file
+psql -U "[user]" -d "[dbname]"<  /var/lib/postgresql/data/postgres[version]_backup_[user].sql
 
 run-container
 ```
 
-
 ###### connectdb using psql
+
 ```
 sudo docker exec -it postgres psql -h [host] -U [user] -d [dbname]
 ```
+
 ###### important note
+
 ```
 1. helpful link : https://hollo.me/devops/upgrade-postgresql-database-with-docker.html
 2. create temp persistence data postgres in docker-compose.yml
